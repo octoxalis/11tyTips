@@ -1,2 +1,2 @@
-# 11ty_tips
+# 11tyTips
 Tips learned using Eleventy static site generator
