@@ -1,0 +1,79 @@
+body
+{
+  padding: 0 8vw;
+  background: var(--c_back_lo);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+  font-family: var(--font_title);
+}
+
+code
+{
+  margin: 0 .2rem;
+  padding: .2rem .5rem;
+  background: var(--c_back_lo);
+  border-radius: .4rem;
+  font-family: var(--font_mono);
+  font-size: calc( var(--font_size) * 1 * 1% );
+  white-space: nowrap;
+}
+
+pre
+{
+  background: transparent;
+  border-left: .4rem solid var(--c_decor_hi);
+  overflow-y: hidden;
+}
+
+pre > code
+{
+  border-radius: 0;
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+}
+
+.code
+{
+  margin: 0;
+  padding: 4px 8px;
+  position: relative;
+  top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: calc( var(--font_size) * .8 * 1% );
+	color: hsla(var(--c_hue_d), 80%, 20%, .8);
+  background: var(--c_decor_hi);
+}
+
+.code > span
+{
+	color: hsla(var(--c_hue_d), 80%, 20%, .6);
+}
+
+.code > span > a
+{
+	color: hsla( 300, 80%, 20%, .6 );
+}
+
+#nav
+{
+  height: 10vh;
+  background: var(--c_back);
+}
+
+#main
+{
+  padding: 24px;
+  color: var(--c_prim_lo);
+  background: var(--c_back_hi);
+  font-family: var(--font_body);
+}
+

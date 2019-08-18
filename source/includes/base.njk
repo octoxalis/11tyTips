@@ -1,0 +1,31 @@
+{% if settings.develop === true %}
+{% set @SITE_URL = settings.devUrl %}
+{% else %}
+{% set @SITE_URL = settings.siteUrl %}
+{% endif %}
+
+<!doctype html>
+<html lang="en">
+  <head>{# ======== HEAD ======== #}
+  {% block head %}{% include "layouts/partials/blocks/_head_.njk" %}{% endblock %}
+  {% block seo %}{% include "layouts/partials/blocks/_seo_.njk" %}{% endblock %}
+  {% block metatag %}{% include "layouts/partials/blocks/_description_.njk" %}{% endblock %}
+  {% block styles %}
+  {% include "layouts/partials/blocks/_styles_.njk" %}
+  {% endblock %}
+  {#% block styles_specifics %}{% endblock %#}
+  {% include "layouts/partials/_site_url_.njk" %}
+  </head>
+  <body>{# ======== BODY ======== #}
+    <nav id="nav">
+    {% block nav %}{% include "layouts/partials/blocks/_nav_.njk" %}{% endblock %}
+    </nav>
+    <main id="main">
+    {% block content %}{{ layoutContent | safe }}{% endblock %}
+    </main>
+    {% block scripts %}{# ======== SCRIPTS ======== #}
+    {% if settings.develop === false %}{% include "layouts/partials/lib/_instant_page_.njk" %}{% endif %}
+    {% include "layouts/partials/blocks/_scripts_.njk" %}
+    {% endblock %}
+  </body>
+</html>

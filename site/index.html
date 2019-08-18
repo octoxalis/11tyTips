@@ -1,0 +1,198 @@
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eleventy tips</title>
+
+    
+    
+
+<meta name="description" content="Inside an awesome static site generator,A blog devoted to Eleventy static site generator users,Useful tips to use Eleventy static site generator: site structure, content processing, build processing, assets minifying">
+
+
+    
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5500/assets/styles/css/prism.min.css">
+<link rel="stylesheet" type="text/css" href="http://127.0.0.1:5500/assets/styles/css/main.min.css">
+
+    
+    
+    <script>const SITE_URL='http://127.0.0.1:5500/'</script>
+
+  </head>
+  <body>
+    <nav id="nav">
+      
+    </nav>
+    <main id="main">
+      <h1>11ty Tips</h1>
+<div id="1234" class="a_class">
+<h3>Useful tips</h3>
+<p>Welcome to 11tyTips, a site for the awesome <a href="https://11ty.io">11ty</a> static site generator users.</p>
+<nav id="42" class="b_class"><hr><p>Text from template</p>
+<h4>Nested component</h4>
+<ul>
+<li>A component can be nested in another component</li>
+<li>The nested component MUST be of a different kind!</li>
+<li>Callback property is named <strong>call_s</strong></li>
+</ul>
+<p><em><span class="light">Callback</span> is there: 42</em></p>
+<hr></nav>
+<p><strong>Therefore this is the trailing paragraph of Useful tips.</strong></p>
+</div>
+<p class="code">/file/path/code.js <span>Highlighting provided by <a href="https://prismjs.com" target_"blank" rel="noreferrer">Prism.js</a></span></p>
+<pre><code id="41" class="language-javascript">
+const template_s = `A template string`
+const temp_s = `${template_s}--plusplus`
+const reg_re = /[a-zA-Z_?]*/gi
+&nbsp;
+const ELEVENTY_o =
+{
+  scriptsDir: './build/scripts/11ty/',
+  contentDir: 'includes/content',
+}
+module.exports = config_o =>
+{
+  //======== STATIC FILES
+  config_o.addPassthroughCopy( 'static' )
+  //======== LIBRARIES
+  require( `${ELEVENTY_o.scriptsDir}libraries.js` )( config_o, ELEVENTY_o.contentDir )
+  //======== FILTERS
+  require( `${ELEVENTY_o.scriptsDir}filters.js` )( config_o )
+  //======== SHORTCODES
+  require( `${ELEVENTY_o.scriptsDir}shortcodes.js` )( config_o )
+  //======== COLLECTIONS
+  require( `${ELEVENTY_o.scriptsDir}collections.js` )( config_o )
+  // : return the config object for further customization
+  return {
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine:     'njk',
+    dataTemplateEngine:     'njk',
+    templateFormats:        [ 'md','njk','html' ],
+    passthroughFileCopy:    true,
+    pathPrefix:             '/',
+    dir:
+    {
+      input:    '.',
+      output:   '../site',
+      data:     'data',
+      includes: 'includes',
+    },
+  }
+}
+</code></pre>
+<p class="code">/file/path/code_bis.js <span>Highlighting provided by <a href="https://prismjs.com" target_"blank" rel="noreferrer">Prism.js</a></span></p>
+<pre><code id="43" class="language-javascript">
+const CALL_s = 'call_f'
+const callTest__s = ( content_o ) => `<span class="light">Callback</span> is there: ${content_o.id_n}`
+const Render_o =
+{
+  replace__s: ( component_s, content_o, content_s ) =>
+  {
+    const keys_a = Object.keys( content_o )
+    for( let at = 0; at < keys_a.length; ++at )
+    {
+      const key_s = keys_a[at]
+      content_s = content_s.replace( new RegExp( \`\\$\\{${component_s}.${key_s}\\}\`, 'g' ),
+      ( key_s === CALL_s ) ? eval( content_o[key_s] )( content_o ) : content_o[key_s] )
+    }
+    return content_s
+  },
+}
+module.exports = Render_o
+</code></pre>
+<p class="code">11tyTips tree <span>Highlighting provided by <a href="https://prismjs.com" target_"blank" rel="noreferrer">Prism.js</a></span></p>
+<pre><code id="40" class="language-txt">
+source
+├── assets
+│   ├── fonts
+│   │   ├── athiti-v3-latin-regular.woff2
+│   │   ├── FiraCode-Bold.woff2
+│   │   ├── FiraCode-Light.woff2
+│   │   ├── FiraCode-Medium.woff2
+│   │   ├── FiraCode-Regular.woff2
+│   │   ├── FiraCode-Retina.woff2
+│   │   └── harmattan-v5-latin-regular.woff2
+│   ├── scripts
+│   │   └── js
+│   │       ├── micro-slider.js
+│   │       ├── prism.js
+│   │       └── prism.min.js
+│   └── styles
+│       └── css
+│           ├── micro-slider.css
+│           ├── prism.css
+│           └── prism.min.css
+├── build
+│   └── scripts
+│       └── 11ty
+│           ├── code_render.js
+│           ├── collections.js
+│           ├── filters.js
+│           ├── libraries.js
+│           ├── shortcodes copy.js
+│           └── shortcodes.js
+├── content
+│   ├── assets
+│   │   ├── scripts
+│   │   │   └── js
+│   │   │       └── main.md
+│   │   └── styles
+│   │       └── css
+│   │           └── main.md
+│   └── posts
+│       └── index.md
+├── data
+│   ├── posts
+│   ├── descriptions.js
+│   └── settings.js
+├── includes
+│   ├── assets
+│   │   ├── scripts
+│   │   │   └── js
+│   │   │       ├── partials
+│   │   │       │   └── main.js
+│   │   │       └── base.njk
+│   │   └── styles
+│   │       └── css
+│   │           ├── partials
+│   │           │   ├── 11ty.css
+│   │           │   ├── aspect_ratio.css
+│   │           │   ├── color.css
+│   │           │   ├── font.css
+│   │           │   ├── milligram_button_input.css
+│   │           │   ├── milligram_layout.css
+│   │           │   ├── milligram.css
+│   │           │   ├── prism-theme.css
+│   │           │   └── reset.css
+│   │           └── base.njk
+│   ├── layouts
+│   │   └── partials
+│   │       ├── blocks
+│   │       │   ├── _description_.njk
+│   │       │   ├── _head_.njk
+│   │       │   ├── _nav_.njk
+│   │       │   ├── _scripts_.njk
+│   │       │   ├── _seo_.njk
+│   │       │   └── _styles_.njk
+│   │       ├── lib
+│   │       │   └── _instant_page_.njk
+│   │       └── _site_url_.njk
+│   └── base.njk
+├── .eleventy.js
+└── .eleventyignore
+</code></pre>
+
+    </main>
+    
+    
+    <script src="http://127.0.0.1:5500/assets/scripts/js/prism.min.js"></script>
+<script src="http://127.0.0.1:5500/assets/scripts/js/main.min.js"></script>
+
+    
+  </body>
+</html>

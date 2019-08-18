@@ -1,0 +1,12 @@
+{% set css %}
+{% include "./partials/reset.css" %}
+
+{% include "./partials/font.css" %}
+{% include "./partials/color.css" %}
+{% include "./partials/milligram.css" %}
+{#% include "./partials/milligram_button_input.css" %#}
+{% include "./partials/milligram_layout.css" %}
+{% include "./partials/prism-theme.css" %}
+{% include "./partials/11ty.css" %}
+{% endset %}
+{{ css | cssmin | safe }}

@@ -1,0 +1,6 @@
+{% set js %}
+{% include "./partials/main.js" %}
+{% endset %}
+{% if settings.develop === true %}{{ js | safe }}
+{% else %}{{ js | jsmin | safe }}
+{% endif %}
