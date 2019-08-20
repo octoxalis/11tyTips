@@ -1,0 +1,79 @@
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eleventy tips</title>
+
+  
+  
+
+<meta name="description" content="Inside an awesome static site generator,A blog devoted to Eleventy static site generator users,Useful tips to use Eleventy static site generator: site structure, content processing, build processing, assets minifying">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  
+  
+<style>@font-face {font-display:swap;font-family:'Harmattan';font-style:normal;font-weight:400;src:local('Harmattan'),local('Harmattan-Regular'),url('https://11tytips.netlify.com/assets/fonts/harmattan-v5-latin-regular.woff2')format('woff2')}@font-face {font-family:'Athiti';font-style:normal;font-weight:400;src:local('Athiti'),local('Athiti-Regular'),url('https://11tytips.netlify.com/assets/fonts/athiti-v3-latin-regular.woff2')format('woff2')}@font-face {font-display:swap;font-family:'Fira Code';src:local('Fira Code'),local('Fira Code-Regular'),url('https://11tytips.netlify.com/assets/fonts/FiraCode-Regular.woff2')format('woff2');font-weight:400;font-style:normal}</style>
+  <link rel="stylesheet" type="text/css" href="https://11tytips.netlify.com/assets/styles/css/prism.min.css">
+<link rel="stylesheet" type="text/css" href="https://11tytips.netlify.com/assets/styles/css/main.min.css">
+
+  
+  <script>const SITE_URL='https://11tytips.netlify.com/'</script>
+
+  </head>
+  <body>
+    <nav>
+    
+    </nav>
+    <article>
+      <section>
+      <h1>11ty Tips</h1>
+<p>Welcome to 11tyTips, a site for the awesome <a href="https://11ty.io">11ty</a> static site generator users.</p>
+<h2>The Article element</h2>
+<p>The article element represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.</p>
+<h2>The Hgroup element</h2>
+<p>The hgroup element represents the heading of a section, which consists of all the h1–h6 element children of the hgroup element. The element is used to group a set of h1–h6 elements when the heading has multiple levels, such as subheadings, alternative titles, or taglines.</p>
+<p>The rank of an hgroup element is the rank of the highest-ranked h1–h6 element descendant of the hgroup element, if there are any such elements, or otherwise the same as for an h1 element (the highest rank). Other h1–h6 elements of heading content in the hgroup element indicate subheadings or subtitles or (secondary) alternative titles.</p>
+<hgroup>
+<h5>/file/path/code_bis.js</h5>
+<h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
+</hgroup>
+<pre><code id="43" class="language-javascript">
+const CALL_s = 'call_f'
+const callTest__s = ( content_o ) => `<span class="light">Callback</span> is there: ${content_o.id_n}`
+const Render_o =
+{
+  replace__s: ( component_s, content_o, content_s ) =>
+  {
+    const keys_a = Object.keys( content_o )
+    for( let at = 0; at < keys_a.length; ++at )
+    {
+      const key_s = keys_a[at]
+      content_s = content_s.replace( new RegExp( \`\\$\\{${component_s}.${key_s}\\}\`, 'g' ),
+      ( key_s === CALL_s ) ? eval( content_o[key_s] )( content_o ) : content_o[key_s] )
+    }
+    return content_s
+  },
+}
+//: Don't forget to add a comment!
+module.exports = Render_o
+</code></pre>
+
+      </section>
+    </article>
+    
+    <script src="//instant.page/2.0.0" type="module" integrity="sha384-D7B5eODAUd397+f4zNFAVlnDNDtO1ppV8rPnfygILQXhqu3cUndgHvlcJR2Bhig8"></script>
+    <script src="https://11tytips.netlify.com/assets/scripts/js/prism.min.js"></script>
+<script src="https://11tytips.netlify.com/assets/scripts/js/main.min.js"></script>
+
+    
+  </body>
+</html>
