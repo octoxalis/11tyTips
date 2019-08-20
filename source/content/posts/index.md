@@ -16,81 +16,7 @@
 
 # 11ty Tips
 
-{% _one_co %}
-    title_s: "Useful tips",
-    id_n: 1234,    // comment
-    class_s: "a_class"
-[//]:#(_one_co)
-
-### ${_one_co.title_s}
-
 Welcome to 11tyTips, a site for the awesome [11ty] static site generator users.
-
-{% _two_co %}
-    title_s: 'Nested component',
-    id_n: 42,
-    class_s: "b_class",
-    call_f: "callTest__s",
-[//]:#(_two_co)
-
-#### ${_two_co.title_s}
-
-+ A component can be nested in another component
-+ The nested component MUST be of a different kind!
-+ Callback property is named **call_s**
-
-*${_two_co.call_f}*
-
-{% end_two_co %}
-
-**Therefore this is the trailing paragraph of ${_one_co.title_s}.**
-
-{% end_one_co %}
-
-{% _codeblock_co %}
-    title_s: '/file/path/code.js',
-    id_n: 41,
-    lang_s: "javascript",
-[//]:#(_codeblock_co)
-const template_s = `A template string`
-const temp_s = `${template_s}--plusplus`
-const reg_re = /[a-zA-Z_?]*/gi
-
-const ELEVENTY_o =
-{
-  scriptsDir: './build/scripts/11ty/',
-  contentDir: 'includes/content',
-}
-module.exports = config_o =>
-{
-  //======== STATIC FILES
-  config_o.addPassthroughCopy( 'static' )
-  //======== LIBRARIES
-  require( `${ELEVENTY_o.scriptsDir}libraries.js` )( config_o, ELEVENTY_o.contentDir )
-  //======== FILTERS
-  require( `${ELEVENTY_o.scriptsDir}filters.js` )( config_o )
-  //======== SHORTCODES
-  require( `${ELEVENTY_o.scriptsDir}shortcodes.js` )( config_o )
-  //======== COLLECTIONS
-  require( `${ELEVENTY_o.scriptsDir}collections.js` )( config_o )
-  // : return the config object for further customization
-  return {
-    markdownTemplateEngine: 'njk',
-    htmlTemplateEngine:     'njk',
-    dataTemplateEngine:     'njk',
-    templateFormats:        [ 'md','njk','html' ],
-    passthroughFileCopy:    true,
-    pathPrefix:             '/',
-    dir:
-    {
-      input:    '.',
-      output:   '../site',
-      data:     'data',
-      includes: 'includes',
-    },
-  }
-}
-{% end_codeblock_co %}
 
 {% _codeblock_co %}
     title_s: '/file/path/code_bis.js',
@@ -113,6 +39,7 @@ const Render_o =
     return content_s
   },
 }
+//: Don't forget to add a comment!
 module.exports = Render_o
 {% end_codeblock_co %}
 

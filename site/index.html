@@ -15,77 +15,32 @@
 <meta name="description" content="Inside an awesome static site generator,A blog devoted to Eleventy static site generator users,Useful tips to use Eleventy static site generator: site structure, content processing, build processing, assets minifying">
 
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
   
+  
+<style>@font-face {font-display:swap;font-family:'Harmattan';font-style:normal;font-weight:400;src:local('Harmattan'),local('Harmattan-Regular'),url('https://11tytips.netlify.com/assets/fonts/harmattan-v5-latin-regular.woff2')format('woff2')}@font-face {font-family:'Athiti';font-style:normal;font-weight:400;src:local('Athiti'),local('Athiti-Regular'),url('https://11tytips.netlify.com/assets/fonts/athiti-v3-latin-regular.woff2')format('woff2')}@font-face {font-display:swap;font-family:'Fira Code';src:local('Fira Code'),local('Fira Code-Regular'),url('https://11tytips.netlify.com/assets/fonts/FiraCode-Regular.woff2')format('woff2');font-weight:400;font-style:normal}</style>
   <link rel="stylesheet" type="text/css" href="https://11tytips.netlify.com/assets/styles/css/prism.min.css">
 <link rel="stylesheet" type="text/css" href="https://11tytips.netlify.com/assets/styles/css/main.min.css">
 
-  
   
   <script>const SITE_URL='https://11tytips.netlify.com/'</script>
 
   </head>
   <body>
-    <nav id="nav">
+    <nav>
     
     </nav>
-    <main id="main">
-    <h1>11ty Tips</h1>
-<div id="1234" class="a_class">
-<h3>Useful tips</h3>
+    <article>
+      <section>
+      <h1>11ty Tips</h1>
 <p>Welcome to 11tyTips, a site for the awesome <a href="https://11ty.io">11ty</a> static site generator users.</p>
-<nav id="42" class="b_class"><hr><p>Text from template</p>
-<h4>Nested component</h4>
-<ul>
-<li>A component can be nested in another component</li>
-<li>The nested component MUST be of a different kind!</li>
-<li>Callback property is named <strong>call_s</strong></li>
-</ul>
-<p><em><span class="light">Callback</span> is there: 42</em></p>
-<hr></nav>
-<p><strong>Therefore this is the trailing paragraph of Useful tips.</strong></p>
-</div>
-<p class="code">/file/path/code.js <span>Highlighting provided by <a href="https://prismjs.com" target_"blank" rel="noreferrer">Prism.js</a></span></p>
-<pre><code id="41" class="language-javascript">
-const template_s = `A template string`
-const temp_s = `${template_s}--plusplus`
-const reg_re = /[a-zA-Z_?]*/gi
-&nbsp;
-const ELEVENTY_o =
-{
-  scriptsDir: './build/scripts/11ty/',
-  contentDir: 'includes/content',
-}
-module.exports = config_o =>
-{
-  //======== STATIC FILES
-  config_o.addPassthroughCopy( 'static' )
-  //======== LIBRARIES
-  require( `${ELEVENTY_o.scriptsDir}libraries.js` )( config_o, ELEVENTY_o.contentDir )
-  //======== FILTERS
-  require( `${ELEVENTY_o.scriptsDir}filters.js` )( config_o )
-  //======== SHORTCODES
-  require( `${ELEVENTY_o.scriptsDir}shortcodes.js` )( config_o )
-  //======== COLLECTIONS
-  require( `${ELEVENTY_o.scriptsDir}collections.js` )( config_o )
-  // : return the config object for further customization
-  return {
-    markdownTemplateEngine: 'njk',
-    htmlTemplateEngine:     'njk',
-    dataTemplateEngine:     'njk',
-    templateFormats:        [ 'md','njk','html' ],
-    passthroughFileCopy:    true,
-    pathPrefix:             '/',
-    dir:
-    {
-      input:    '.',
-      output:   '../site',
-      data:     'data',
-      includes: 'includes',
-    },
-  }
-}
-</code></pre>
-<p class="code">/file/path/code_bis.js <span>Highlighting provided by <a href="https://prismjs.com" target_"blank" rel="noreferrer">Prism.js</a></span></p>
+<hgroup>
+<h5>/file/path/code_bis.js</h5>
+<h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
+</hgroup>
 <pre><code id="43" class="language-javascript">
 const CALL_s = 'call_f'
 const callTest__s = ( content_o ) => `<span class="light">Callback</span> is there: ${content_o.id_n}`
@@ -103,9 +58,13 @@ const Render_o =
     return content_s
   },
 }
+//: Don't forget to add a comment!
 module.exports = Render_o
 </code></pre>
-<p class="code">11tyTips tree <span>Highlighting provided by <a href="https://prismjs.com" target_"blank" rel="noreferrer">Prism.js</a></span></p>
+<hgroup>
+<h5>11tyTips tree</h5>
+<h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
+</hgroup>
 <pre><code id="40" class="language-txt">
 source
 ├── assets
@@ -187,9 +146,10 @@ source
 └── .eleventyignore
 </code></pre>
 
-    </main>
+      </section>
+    </article>
     
-    <script src="//instant.page/1.2.1" type="module" integrity="sha384-/IkE5iZAM/RxPto8B0nvKlMzIyCWtYocF01PbGGp1qElJuxv9J4whdWBRtzZltWn"></script>
+    <script src="//instant.page/2.0.0" type="module" integrity="sha384-D7B5eODAUd397+f4zNFAVlnDNDtO1ppV8rPnfygILQXhqu3cUndgHvlcJR2Bhig8"></script>
     <script src="https://11tytips.netlify.com/assets/scripts/js/prism.min.js"></script>
 <script src="https://11tytips.netlify.com/assets/scripts/js/main.min.js"></script>
 
