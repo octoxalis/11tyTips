@@ -18,15 +18,9 @@
   {% include "layouts/partials/_site_url_.njk" %}
   </head>
   <body>{# ======== BODY ======== #}
-    <nav>
-    {% include "layouts/partials/blocks/_nav_.njk" %}
-    </nav>
-    <article>
-      <section>
-      {% block content %}{{ layoutContent | safe }}{% endblock %}
-      </section>
-    </article>
-    {% block scripts %}{# ======== SCRIPTS ======== #}
+    {% block nav %}{% include "layouts/partials/blocks/_nav_.njk" %}{% endblock %}
+    {% block article %}{% include "layouts/partials/blocks/_article_.njk" %}{% endblock %}
+    {% block scripts %}
     {% if settings.develop === false %}{% include "layouts/partials/lib/_instant_page_.njk" %}{% endif %}
     {% include "layouts/partials/blocks/_scripts_.njk" %}
     {% endblock %}

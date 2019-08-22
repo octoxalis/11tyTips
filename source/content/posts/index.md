@@ -18,11 +18,11 @@
 
 Welcome to 11tyTips, a site for the awesome [11ty] static site generator users.
 
-{% _codeblock_co %}
+{% _codeblock %}
     title_s: '/file/path/code_bis.js',
     id_n: 43,
     lang_s: "javascript",
-[//]:#(_codeblock_co)
+[//]:#(_codeblock)
 const CALL_s = 'call_f'
 const callTest__s = ( content_o ) => `<span class="light">Callback</span> is there: ${content_o.id_n}`
 const Render_o =
@@ -41,13 +41,13 @@ const Render_o =
 }
 //: Don't forget to add a comment!
 module.exports = Render_o
-{% end_codeblock_co %}
+{% end_codeblock %}
 
-{% _codeblock_co %}
+{% _codeblock %}
     title_s: '11tyTips tree',
     id_n: 40,
     lang_s: "txt",
-[//]:#(_codeblock_co)
+[//]:#(_codeblock)
 source
 ├── assets
 │   ├── fonts
@@ -126,7 +126,7 @@ source
 │   └── base.njk
 ├── .eleventy.js
 └── .eleventyignore
-{% end_codeblock_co %}
+{% end_codeblock %}
 
 
 [comment]: # (======== Links ========)

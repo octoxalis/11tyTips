@@ -30,18 +30,29 @@
 
   </head>
   <body>
-    <nav>
-    
-    </nav>
-    <article>
-      <section>
-      <h1>11ty Tips</h1>
+    <label data--="header">
+  <span data--="header_title">11ty Tips</span>
+  <svg  xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewbox="0 0 48 48"
+    data--="header_menu">
+    <line x1="16" y1="12" x2="24" y2="24" />
+  <line x1="24" y1="4"  x2="24" y2="24" />
+
+  </svg>
+</label>
+<menu data--="menu">
+  <h3>All the tips</h3>
+  <iframe data--="tips_list" src="tips_list.html"></iframe>
+</menu>
+
+    <article data--="article">
+  <section data--="section">
+  <h1>11ty Tips</h1>
 <p>Welcome to 11tyTips, a site for the awesome <a href="https://11ty.io">11ty</a> static site generator users.</p>
-<hgroup>
+<hgroup data--="code_ref">
 <h5>/file/path/code_bis.js</h5>
 <h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
 </hgroup>
-<pre><code id="43" class="language-javascript">
+<pre><code class="language-javascript">
 const CALL_s = 'call_f'
 const callTest__s = ( content_o ) => `<span class="light">Callback</span> is there: ${content_o.id_n}`
 const Render_o =
@@ -61,11 +72,11 @@ const Render_o =
 //: Don't forget to add a comment!
 module.exports = Render_o
 </code></pre>
-<hgroup>
+<hgroup data--="code_ref">
 <h5>11tyTips tree</h5>
 <h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
 </hgroup>
-<pre><code id="40" class="language-txt">
+<pre><code class="language-txt">
 source
 ├── assets
 │   ├── fonts
@@ -146,13 +157,15 @@ source
 └── .eleventyignore
 </code></pre>
 
-      </section>
-    </article>
+  </section>
+</article>
+
     
     <script src="//instant.page/2.0.0" type="module" integrity="sha384-D7B5eODAUd397+f4zNFAVlnDNDtO1ppV8rPnfygILQXhqu3cUndgHvlcJR2Bhig8"></script>
     <script src="https://11tytips.netlify.com/assets/scripts/js/prism.min.js"></script>
 <script src="https://11tytips.netlify.com/assets/scripts/js/main.min.js"></script>
 
+<script>UIEvents()</script>
     
   </body>
 </html>

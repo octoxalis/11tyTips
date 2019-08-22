@@ -1,0 +1,108 @@
+:root
+{
+  --SVG_ICON_STROKE_WIDTH: 2;
+  --SVG_ICON_OPACITY: 0.6;
+  --MENU_SHOW: 0;
+}
+
+[data--="header"]
+{
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: sticky;
+  top: 0;
+  background: var(--c_back_op);
+  border-bottom: 12px solid var(--c_decor_hi);
+  opacity: 1;
+  transition: all 0.5s ease-in;
+}
+
+[data--="header_title"]
+{
+  margin-left: 24px;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: .7;
+}
+
+[data--="header_menu"]
+{
+  fill: none;
+  stroke: var(--c_sec_hi);
+  stroke-linecap: square;
+  stroke-linejoin: arcs;
+  stroke-width: var(--SVG_ICON_STROKE_WIDTH);
+  opacity: var(--SVG_ICON_OPACITY);
+  background: var(--c_prim_lo);
+  border-radius: 50%;
+  box-shadow: 1px 2px 6px 2px hsla( var(--c_hue_p), 5%, 5%, 0.5 );
+  transform: scale( .7 );
+  transition: all 0.4s ease-in;
+}
+[data--="header_menu"]:hover
+{
+  cursor: pointer;
+  box-shadow: 2px 3px 6px 2px hsla( var(--c_hue_p), 5%, 5%, 0.5 );
+  opacity: 1;
+  transform: scale( .75 );
+  transition: all 0.3s ease-in;
+}
+
+[data--="menu"]
+{
+  z-index: 1;
+  position: absolute;
+  width: calc( (100 - 16) * 1vw);
+  background: var(--c_back_op);
+  transform: scaleY( var(--MENU_SHOW) );
+}
+
+[data--="article"]
+{
+  color: var(--c_prim_lo);
+  background: var(--c_back_hi);
+  font-family: var(--font_body);
+}
+
+[data--="section"]
+{
+  padding: 24px;
+  color: var(--c_prim_lo);
+  background: var(--c_back_hi);
+  font-family: var(--font_body);
+}
+
+[data--="code_ref"]
+{
+  margin: 0;
+  padding: 4px 8px;
+  position: relative;
+  top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: calc( var(--font_size) * 1.2 * 1% );
+	color: hsla(var(--c_hue_d), 80%, 20%, .8);
+  background: var(--c_decor_hi);
+}
+
+[data--="code_ref"] > h5,   /* Subtitle | File path */
+[data--="code_ref"] > h6    /* Reference | Source */
+{
+  margin-bottom: .25rem;
+  letter-spacing: -.05rem;
+  line-height: 1;
+}
+[data--="code_ref"] > h5
+{
+	color: hsla(var(--c_hue_d), 80%, 20%, .6);
+  font-size: 1.25rem;
+}
+[data--="code_ref"] > h6 > a
+{
+	color: hsla( 300, 80%, 20%, .6 );
+  font-size: 1rem;
+  font-weight: 200;
+}

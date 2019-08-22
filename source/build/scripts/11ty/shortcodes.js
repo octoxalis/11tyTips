@@ -13,20 +13,22 @@ const content__a = ( content_s, id_s ) =>
 
 const CODES_o =
 {
-  _codeblock_co__s: ( content_s, id_s='_codeblock_co' ) =>
+  _codeblock__s: ( content_s, id_s='_codeblock' ) =>
   {
     let [ content_a, content_o ] = content__a( content_s, id_s )
     let content_a1_s = content_a[1].replace( /\n\n+/g, '\n&nbsp;\n' )  //: avoid Markdown <p> insert
-    return `<hgroup>
+    return `<hgroup data--="code_ref">
 <h5>${content_o.title_s}</h5>
 <h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
 </hgroup>
-<pre><code id="${content_o.id_n}" class="language-${content_o.lang_s}">${content_a1_s}</code></pre>`
+<pre><code class="language-${content_o.lang_s}">${content_a1_s}</code></pre>`
   },
 
+  _inlineNote__s: ( content_s ) => `<ins data--="inline_note"><sup></sup><span data--="note_content">${content_s}</span></ins>`,
 }
 
 module.exports = config =>
 {
-  config.addPairedShortcode("_codeblock_co", ( content_s, id_s ) => CODES_o._codeblock_co__s( content_s, id_s ) )
+  config.addPairedShortcode("_codeblock", ( content_s, id_s ) => CODES_o._codeblock__s( content_s, id_s ) )
+  config.addPairedShortcode("_inlineNote", ( content_s, note_n ) => CODES_o._inlineNote__s( content_s, note_n ) )
 }

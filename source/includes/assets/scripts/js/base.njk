@@ -1,5 +1,6 @@
 {% set js %}
-{% include "./partials/main.js" %}
+{% include "./partials/dom.js" %}
+{% include "./partials/ui.js" %}
 {% endset %}
 {% if settings.develop === true %}{{ js | safe }}
 {% else %}{{ js | jsmin | safe }}

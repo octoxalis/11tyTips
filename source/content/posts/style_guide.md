@@ -14,7 +14,7 @@
 ---
 [comment]: # (======== Post ========)
 
-# 11ty Tips
+# Style guide
 
 Welcome to 11tyTips, a site for the awesome [11ty] static site generator users.
 
@@ -28,11 +28,11 @@ The hgroup element represents the heading of a section, which consists of all th
 
 The rank of an hgroup element is the rank of the highest-ranked h1–h6 element descendant of the hgroup element, if there are any such elements, or otherwise the same as for an h1 element (the highest rank). Other h1–h6 elements of heading content in the hgroup element indicate subheadings or subtitles or (secondary) alternative titles.
 
-{% _codeblock_co %}
+{% _codeblock %}
     title_s: '/file/path/code_bis.js',
     id_n: 43,
     lang_s: "javascript",
-[//]:#(_codeblock_co)
+[//]:#(_codeblock)
 const CALL_s = 'call_f'
 const callTest__s = ( content_o ) => `<span class="light">Callback</span> is there: ${content_o.id_n}`
 const Render_o =
@@ -51,7 +51,7 @@ const Render_o =
 }
 //: Don't forget to add a comment!
 module.exports = Render_o
-{% end_codeblock_co %}
+{% end_codeblock %}
 
 [comment]: # (======== Links ========)
 

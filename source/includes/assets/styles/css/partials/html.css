@@ -15,23 +15,7 @@ body
 
 nav
 {
-  height: 10vh;
   background: var(--c_back);
-}
-
-article
-{
-  color: var(--c_prim_lo);
-  background: var(--c_back_hi);
-  font-family: var(--font_body);
-}
-
-section
-{
-  padding: 24px;
-  color: var(--c_prim_lo);
-  background: var(--c_back_hi);
-  font-family: var(--font_body);
 }
 
 /* Headers
@@ -50,7 +34,7 @@ h3
 }
 h1    /* Title */
 {
-  margin-top: 4rem;
+  margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   font-size: 3.2rem;
   font-weight: 800;
@@ -80,39 +64,6 @@ h1 + p
   margin-bottom: 4rem;
   font-style: italic;
   font-size: 1.75rem;
-}
-
-hgroup
-{
-  margin: 0;
-  padding: 4px 8px;
-  position: relative;
-  top: 1rem;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  font-size: calc( var(--font_size) * 1.2 * 1% );
-	color: hsla(var(--c_hue_d), 80%, 20%, .8);
-  background: var(--c_decor_hi);
-}
-
-hgroup > h5,   /* Subtitle | File path */
-hgroup > h6    /* Reference | Source */
-{
-  margin-bottom: .25rem;
-  letter-spacing: -.05rem;
-  line-height: 1;
-}
-hgroup > h5
-{
-	color: hsla(var(--c_hue_d), 80%, 20%, .6);
-  font-size: 1.25rem;
-}
-hgroup > h6 > a
-{
-	color: hsla( 300, 80%, 20%, .6 );
-  font-size: 1rem;
-  font-weight: 200;
 }
 
 section > p,
