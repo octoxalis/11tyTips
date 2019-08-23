@@ -1,0 +1,12 @@
+:root
+{
+  --PAD_1: 4px;
+  --PAD_2: calc( var(--PAD_1) * 2 );
+  --PAD_4: calc( var(--PAD_1) * 4 );
+
+  --SVG_ICON_STROKE_WIDTH: 2;
+  --SVG_ICON_OPACITY: 0.6;
+  
+  --MENU_SHOW: 0;
+}
+

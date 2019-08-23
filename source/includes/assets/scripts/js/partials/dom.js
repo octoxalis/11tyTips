@@ -5,8 +5,7 @@ const DOM_rootVar = ( var_s, val_s ) => document.documentElement.style.setProper
 const DOM_loader = ( selector_s ) =>
 {
   const iframe_e = document.querySelector( selector_s )
-  iframe_e.addEventListener('load',
-    () =>
+  iframe_e.addEventListener('load', () =>
     {
       iframe_e.before( (iframe_e.contentDocument.body||iframe_e.contentDocument).children[0])
       iframe_e.remove()

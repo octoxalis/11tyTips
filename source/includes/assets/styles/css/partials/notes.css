@@ -1,14 +1,14 @@
 /* NOTES STYLES */
-.area_text
+[data--="article"]
 {
-  counter-reset: text_notes;
+  counter-reset: inline_notes;
 }
 
-.note_ins    /* <ins> */
+[data--="inline_note"]
 {
-  --text_color: hsla(var(--COLOR_HUE), var(--COLOR_SATUR_MEDIUM_L), 15%, 1.0 );
-  --bg_color:   hsla(var(--COLOR_HUE), var(--COLOR_SATUR_MEDIUM_L), 92%, 1.0 );
-  --line_color: hsla(var(--COLOR_HUE), var(--COLOR_SATUR_MEDIUM_L), 87%, 1.0 );
+  --text_color: var(--c_prim_lo);
+  --bg_color:   var(--c_back_lo);
+  --line_color: var(--c_prim_tr);
   --font_body:   85%;
   --font_sup:    50%;
   --font_strong: 125%;
@@ -17,7 +17,7 @@
   cursor: pointer;
 }
 
-.note_content
+[data--="note_content"]
 {
   display: inline-block;
   overflow: hidden;
@@ -42,9 +42,9 @@
   transition: all 0.4s ease;
 }
 
-.note_ins > sup
+[data--="inline_note"] > sup
 {
-  counter-increment: text_notes;
+  counter-increment: inline_notes;
   position: relative;
   top: -0.6rem;
   padding: 0 var(--PAD_2);
@@ -52,26 +52,26 @@
   vertical-align: baseline;
   font-size: var(--font_sup);
 }
-.note_ins > sup::after
+[data--="inline_note"] > sup::after
 {
-  content: counter( text_notes );
+  content: counter( inline_notes );
 }
 
 /* NOTES MARKUP:
 
 vertical space:  __<br>__
 horizontal line: <u></u>
-title <strong>: __Title of the note__
-bold <em>:      *Bold text*
+title <strong>:  __Title of the note__
+bold <em>:       *Bold text*
 */
-.note_content u    /* horizontal line */
+[data--="note_content"] u    /* horizontal line */
 {
   display: inline-block;
   width: 100%;
   border-top: 1px solid var(--line_color);
 }
 
-.note_content strong    /* title */
+[data--="note_content"] strong    /* title */
 {
   display: inline-block;
   margin-top: var(--PAD_4);
@@ -80,28 +80,35 @@ bold <em>:      *Bold text*
   font-style: normal;
 }
 
-.note_content em    /* emphasis */
+[data--="note_content"] em    /* emphasis */
 {
   font-weight: 900;
   font-style: normal;
 }
 
-.note_content a  /* link */
+[data--="note_content"] a  /* link */
 {
   text-decoration: none;
   pointer-events: auto;
 }
 
-.note_content cite    /* citation */
+[data--="note_content"] cite    /* citation */
 {
   display: inline-block;
   padding-left: var(--PAD_4);
 }
-.note_content cite:before
+[data--="note_content"] cite:before
 {
   content: '\00ab';
 }
-.note_content cite:after
+[data--="note_content"] cite:after
 {
   content: '\00bb';
+}
+
+[data--="note_content"] code    /* code */
+{
+  display: inline-block;
+  
+  /* see prism_theme.css */
 }

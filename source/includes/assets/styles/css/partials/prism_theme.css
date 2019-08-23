@@ -15,6 +15,7 @@
   --lum: 80%;
 }
 
+[data--="note_content"] code,    /* code inside inline_note*/
 code[class*="language-"],
 pre[class*="language-"]
 {
@@ -23,6 +24,7 @@ pre[class*="language-"]
 	font-size: calc( var(--font_size) * 0.85 * 1% );
 }
 
+[data--="note_content"] code,    /* code inside inline_note*/
 :not(pre) > code[class*="language-"],
 pre[class*="language-"]
 {

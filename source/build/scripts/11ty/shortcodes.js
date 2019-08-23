@@ -30,5 +30,5 @@ const CODES_o =
 module.exports = config =>
 {
   config.addPairedShortcode("_codeblock", ( content_s, id_s ) => CODES_o._codeblock__s( content_s, id_s ) )
-  config.addPairedShortcode("_inlineNote", ( content_s, note_n ) => CODES_o._inlineNote__s( content_s, note_n ) )
+  config.addPairedShortcode("_inlineNote", ( content_s ) => CODES_o._inlineNote__s( content_s ) )
 }

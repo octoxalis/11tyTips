@@ -20,11 +20,24 @@ Welcome to 11tyTips, a site for the awesome [11ty] static site generator users.
 
 ## The Article element
 
-The article element represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
+The article element
+{% _inlineNote %}
+__An HTML5 addition__
+<u></u>
+The &lt;article&gt; tag has been added in *HTML5* standard.
+__<br>__
+{% end_inlineNote %}
+represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
 
 ##  The Hgroup element
 
-The hgroup element represents the heading of a section, which consists of all the h1–h6 element children of the hgroup element. The element is used to group a set of h1–h6 elements when the heading has multiple levels, such as subheadings, alternative titles, or taglines.
+The hgroup element
+{% _inlineNote %}
+<code>
+for( let at = 0; at < keys_a.length; ++at )
+</code>
+{% end_inlineNote %}
+represents the heading of a section, which consists of all the h1–h6 element children of the hgroup element. The element is used to group a set of h1–h6 elements when the heading has multiple levels, such as subheadings, alternative titles, or taglines.
 
 The rank of an hgroup element is the rank of the highest-ranked h1–h6 element descendant of the hgroup element, if there are any such elements, or otherwise the same as for an h1 element (the highest rank). Other h1–h6 elements of heading content in the hgroup element indicate subheadings or subtitles or (secondary) alternative titles.
 
