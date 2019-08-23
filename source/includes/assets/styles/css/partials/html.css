@@ -91,17 +91,15 @@ pre
 code
 {
   padding: .2rem .5rem;
-  background: var(--c_back_lo);
-  border-radius: .4rem;
+  /*background: var(--c_back_lo);*/
   font-family: var(--font_mono);
-  white-space: nowrap;
+  /*white-space: nowrap;*/
 }
 
 pre > code
 {
-  border-radius: 0;
   display: block;
-  padding: 1rem 1.5rem;
+  /*padding: 1rem 1.5rem;*/
   white-space: pre;
 }
 
@@ -215,7 +213,6 @@ a:focus, a:hover
 
 blockquote,
 p,
-pre,
 table,
 dl,
 ol,
@@ -223,7 +220,10 @@ ul
 {
   margin-bottom: 2.5rem;
 }
-
+pre
+{
+  margin-bottom: 1rem;
+}
 /*
 .dark_mode
 {

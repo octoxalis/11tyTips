@@ -33,7 +33,9 @@ pre[class*="language-"]
 
 .toolbar-item > button
 {
-	font-size: calc( var(--font_size) * 0.8 * 1% );
+  padding: 4px;
+  font-size: calc( var(--font_size) * 0.8 * 1% );
+  border: 1px solid var(--c_sec_lo);
 }
 .toolbar-item > button:hover
 {

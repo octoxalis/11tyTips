@@ -62,8 +62,7 @@ const Render_o =
     return content_s
   },
 }
-//: Don't forget to add a comment!
-module.exports = Render_o
+module.exports = Render_o    //: Don't forget to add a comment!
 {% end_codeblock %}
 
 [comment]: # (======== Links ========)

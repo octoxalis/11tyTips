@@ -3,10 +3,12 @@
 {% include "./partials/rootvar.css" %}
 {% include "./partials/font.css" %}
 {% include "./partials/color.css" %}
-{% include "./partials/prism_theme.css" %}
-{% include "./partials/aspect_ratio.css" %}
 {% include "./partials/html.css" %}
+{% include "./partials/aspect_ratio.css" %}
+{% include "./partials/prism_theme.css" %}
 {% include "./partials/ui.css" %}
 {% include "./partials/notes.css" %}
 {% endset %}
-{{ css | cssmin | safe }}
+{% if settings.develop === true %}{{ css | safe }}
+{% else %}{{ css | cssmin | safe }}
+{% endif %}

@@ -70,10 +70,8 @@
 
 [data--="code_ref"]
 {
-  margin: 0;
+  margin-top: 16px;
   padding: 4px 8px;
-  position: relative;
-  top: 1rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -85,18 +83,16 @@
 [data--="code_ref"] > h5,   /* Subtitle | File path */
 [data--="code_ref"] > h6    /* Reference | Source */
 {
-  margin-bottom: .25rem;
+  font-size: 1.25rem;
   letter-spacing: -.05rem;
   line-height: 1;
 }
 [data--="code_ref"] > h5
 {
 	color: hsla(var(--c_hue_d), 80%, 20%, .6);
-  font-size: 1.25rem;
 }
 [data--="code_ref"] > h6 > a
 {
 	color: hsla( 300, 80%, 20%, .6 );
-  font-size: 1rem;
   font-weight: 200;
 }
