@@ -3,7 +3,6 @@ module.exports =
   develop:     false,
   //develop:     true,
   siteUrl:     'https://11tytips.netlify.com/',
-  //devUrl:      'http://192.168.1.67:5500/',
   devUrl:      'http://127.0.0.1:5500/',
 
   distDirs:
