@@ -16,7 +16,7 @@
 
 # Style guide
 
-Welcome to {{settings.siteId}}, a site for the awesome [11ty] static site generator users.
+Welcome to {{settings._id}}, a site for the awesome [11ty] static site generator users.
 
 ## The Article element
 

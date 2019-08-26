@@ -10,6 +10,6 @@
 {% include "./partials/notes.css" %}
 {% include "./partials/dark_mode.css" %}
 {% endset %}
-{% if settings.devUrl %}{{ css | safe }}
+{% if settings._dev %}{{ css | safe }}
 {% else %}{{ css | cssmin | safe }}
 {% endif %}

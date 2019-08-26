@@ -2,9 +2,9 @@ const C = require( './lib/const.js' )
 
 module.exports =
 {
-  siteId:      C._ID,
-  siteUrl:     C._URL,
-  //devUrl:      C._DEV,
+  _id:  C._ID,
+  _url: C._URL,
+  //_dev: C._DEV,
 
   distDirs:
   {

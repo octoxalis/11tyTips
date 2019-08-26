@@ -1,8 +1,4 @@
-{% if settings.devUrl %}
-{% set @_URL = settings.devUrl %}
-{% else %}
-{% set @_URL = settings.siteUrl %}
-{% endif %}
+{% include "layouts/partials/id.njk" %}
 
 <!doctype html>
 <html lang="en">
@@ -21,7 +17,7 @@
     {% block nav %}{% include "layouts/partials/blocks/_nav_.njk" %}{% endblock %}
     {% block article %}{% include "layouts/partials/blocks/_article_.njk" %}{% endblock %}
     {% block scripts %}
-    {% if settings.siteUrl %}{% include "layouts/partials/lib/_instant_page_.njk" %}{% endif %}
+    {% if settings._url %}{% include "layouts/partials/lib/_instant_page_.njk" %}{% endif %}
     {% include "layouts/partials/blocks/_scripts_.njk" %}
     {% endblock %}
   </body>
