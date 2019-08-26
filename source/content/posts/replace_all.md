@@ -9,28 +9,23 @@
   date:      `2019-08-09`,
   hdates:     [ `09-08-2019` ],
   abstract:  `Tips and tricks`,
-  uppercase__s: function( output_s )
-  {
-    return `**${output_s.toUpperCase()}**`
-  },
 }
 ---
 [comment]: # (======== Post ========)
 {% _replace_all %}
-    "SITE_ID": "{{settings.siteId}}",
+    {% include "content/share.njk" %},
     "FUNCTION": "**nice function**",
     "SOMETHING": "_something you know_",
-    "ELSE": "```or anything else```",
-    "E11_IO": "{{settings.E11Url}}"
+    "ELSE": "```or anything else```"
 [//]:#(_replace_all)
 # 11ty Tips
 
-Welcome to ${SITE_ID}, a site for the awesome [11ty] static site generator users.
+Welcome to ${_ID}, a site for the awesome [11ty] static site generator users.
 
 ```replace_all``` is ${FUNCTION}:
 replacing ${SOMETHING}, ${ELSE}, is easy.
 
 [comment]: # (======== Links ========)
-${E11_IO}
+${_11TY}
 
 {% end_replace_all %}

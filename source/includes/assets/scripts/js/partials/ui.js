@@ -31,8 +31,8 @@ const UI_events = () =>
         case "twitter":
           const links_o =
           {
-            github:  `https://github.com/octoxalis/${SITE_ID}`,
-            twitter: `https://twitter.com/${SITE_ID}`,
+            github:  `https://github.com/octoxalis/${_ID}`,
+            twitter: `https://twitter.com/${_ID}`,
           }
           window
             .open( links_o[icon_s], '_blank')

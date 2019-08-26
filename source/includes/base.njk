@@ -1,7 +1,7 @@
 {% if settings.devUrl %}
-{% set @SITE_URL = settings.devUrl %}
+{% set @_URL = settings.devUrl %}
 {% else %}
-{% set @SITE_URL = settings.siteUrl %}
+{% set @_URL = settings.siteUrl %}
 {% endif %}
 
 <!doctype html>
