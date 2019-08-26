@@ -14,13 +14,14 @@
 
 [data--="header_title"]
 {
+  flex-grow: 2;
   margin-left: 24px;
   font-size: 4rem;
   font-weight: 900;
   line-height: .7;
 }
 
-[data--="header_menu"]
+[data--^="header_icon"]
 {
   fill: none;
   stroke: var(--c_sec_hi);
@@ -34,7 +35,7 @@
   transform: scale( .7 );
   transition: all 0.4s ease-in;
 }
-[data--="header_menu"]:hover
+[data--^="header_icon"]:hover
 {
   cursor: pointer;
   box-shadow: 2px 3px 6px 2px hsla( var(--c_hue_p), 5%, 5%, 0.5 );
@@ -95,4 +96,11 @@
 {
 	color: hsla( 300, 80%, 20%, .6 );
   font-weight: 200;
+}
+
+p > *[data--="example"]
+{
+  color: hsla( 180, 10%, 10%, 1 );
+	background: hsla( 180, 20%, 100%, .2 );
+  border-radius: 4px;
 }

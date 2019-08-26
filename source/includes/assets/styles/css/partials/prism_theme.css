@@ -15,12 +15,19 @@
   --lum: 80%;
 }
 
+p > code
+[data--="note_content"] code,    /* code inside inline_note*/
+code[class*="language-"],
+pre[class*="language-"]
+{
+	font-family: 'Fira Code', monospace;
+}
+
 [data--="note_content"] code,    /* code inside inline_note*/
 code[class*="language-"],
 pre[class*="language-"]
 {
   color:  hsla( 180, 20%, 100%, 1 );
-	font-family: 'Fira Code', monospace;
 	font-size: calc( var(--font_size) * 0.85 * 1% );
 }
 
@@ -30,6 +37,15 @@ pre[class*="language-"]
 {
 	background: hsla( 180, 10%, 10%, .7 );
 }
+
+p > code
+{
+  color: hsla( 180, 10%, 10%, 1 );
+	background: hsla( 180, 20%, 100%, .2 );
+	font-size: calc( var(--font_size) * .6 * 1% );
+  border-radius: 4px;
+}
+
 
 .toolbar-item > button
 {

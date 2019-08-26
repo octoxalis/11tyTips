@@ -11,3 +11,12 @@ const DOM_loader = ( selector_s ) =>
       iframe_e.remove()
     } )
 }
+
+const DOM_siblings__a = ( selector_s ) =>
+{
+  const element_e = document.querySelector( selector_s )
+  return !element_e ?
+    null :
+    Array.prototype.filter
+      .call( element_e.parentNode.children, sibling => sibling !== element_e )
+}

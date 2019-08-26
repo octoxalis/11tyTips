@@ -9,20 +9,31 @@
   date:      `2019-08-09`,
   hdates:     [ `09-08-2019` ],
   abstract:  `Tips and tricks`,
-  
+  uppercase__s: function( output_s )
+  {
+    return `**${output_s.toUpperCase()}**`
+  }
 }
 ---
 [comment]: # (======== Post ========)
 
 # 11ty Tips
 
-Welcome to 11tyTips, a site for the awesome [11ty] static site generator users.
+Welcome to {{settings.siteId}}, a site for the awesome [11ty] static site generator users.
 
-{% _codeblock %}
+This page uses global settings (```settings.siteId```) in the preceding sentence and a function declared in page data (```subtitle__s```) in the following one. Output of function inside this page front matter (css bold style is from Markdown markup outside the function):
+
+{{ uppercase__s( subtitle + ': ' + abstract ) }}{[data--="example"]}
+
+This output is from a function declared in a global JavaScript data directory (```lib/utils.js```) (css italic style is from Markdown markup outside the library function):
+
+_{{ lib.utils.first__s( 'is there!' )}}_{[data--="example"]}
+
+{% _code_block %}
     title_s: '/file/path/code_bis.js',
     id_n: 43,
     lang_s: "javascript",
-[//]:#(_codeblock)
+[//]:#(_code_block)
 const CALL_s = 'call_f'
 const callTest__s = ( content_o ) => `<span class="light">Callback</span> is there: ${content_o.id_n}`
 const Render_o =
@@ -41,13 +52,13 @@ const Render_o =
 }
 //: Don't forget to add a comment!
 module.exports = Render_o
-{% end_codeblock %}
+{% end_code_block %}
 
-{% _codeblock %}
-    title_s: '11tyTips tree',
+{% _code_block %}
+    title_s: '{{settings.siteId}} tree',
     id_n: 40,
     lang_s: "txt",
-[//]:#(_codeblock)
+[//]:#(_code_block)
 source
 ├── assets
 │   ├── fonts
@@ -126,7 +137,7 @@ source
 │   └── base.njk
 ├── .eleventy.js
 └── .eleventyignore
-{% end_codeblock %}
+{% end_code_block %}
 
 
 [comment]: # (======== Links ========)

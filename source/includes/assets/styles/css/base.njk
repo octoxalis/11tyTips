@@ -8,7 +8,8 @@
 {% include "./partials/prism_theme.css" %}
 {% include "./partials/ui.css" %}
 {% include "./partials/notes.css" %}
+{% include "./partials/dark_mode.css" %}
 {% endset %}
-{% if settings.develop === true %}{{ css | safe }}
+{% if settings.devUrl %}{{ css | safe }}
 {% else %}{{ css | cssmin | safe }}
 {% endif %}

@@ -18,14 +18,6 @@ nav
   background: var(--c_back);
 }
 
-/* Headers
- * h1: Title
- * h2: Section
- * h3: Subsection
- *
- * h5: Subtitle (file path)
- * h6: Reference (Prism)
- */
 h1,
 h2,
 h3
@@ -73,7 +65,6 @@ section > table
   max-width: 55ch;
 }
 
-/* 65 + 5 == 70, same width as paragraph */
 section > ol,
 section > ul
 {
@@ -91,15 +82,19 @@ pre
 code
 {
   padding: .2rem .5rem;
-  /*background: var(--c_back_lo);*/
   font-family: var(--font_mono);
-  /*white-space: nowrap;*/
 }
 
 pre > code
 {
   display: block;
-  /*padding: 1rem 1.5rem;*/
+  white-space: pre;
+}
+
+p > code
+{
+  display: inline-block;
+  font-size: inherit;
   white-space: pre;
 }
 
@@ -224,9 +219,3 @@ pre
 {
   margin-bottom: 1rem;
 }
-/*
-.dark_mode
-{
-  filter: invert(1);
-}
-*/
