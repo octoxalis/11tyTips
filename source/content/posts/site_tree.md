@@ -12,7 +12,6 @@
   }
 ---
 [comment]: # (======== Post ========)
-
 # {{_C._ID}} site
 
 {% _code_block %}
@@ -50,13 +49,14 @@ source
 │       ├── 404.md
 │       ├── index.md
 │       ├── replace_all.md
+│       ├── site_tree.md
 │       ├── style_guide.md
 │       └── tips_list.md
 ├── data
 │   ├── lib
-│   │   ├── const.js
 │   │   └── utils.js
 │   ├── posts
+│   ├── _C.js
 │   ├── descriptions.js
 │   └── settings.js
 ├── includes
@@ -108,9 +108,7 @@ source
 │   ├── base.njk
 │   └── list.njk
 ├── .eleventy.js
-└── .eleventyignore
-{% end_code_block %}
-
+└── .eleventyignore{% end_code_block %}
 
 [comment]: # (======== Links ========)
 

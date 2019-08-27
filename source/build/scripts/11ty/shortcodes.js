@@ -11,8 +11,8 @@ const CODES_o =
 
   _code_block__s: ( content_s ) =>
   {
-    const id_s = '_code_block'
-    let [ content_a, content_o ] = content__a( content_s, id_s )
+    const ID_s = '_code_block'
+    let [ content_a, content_o ] = content__a( content_s, ID_s )
     let content_a1_s = content_a[1].replace( /\n\n+/g, '\n&nbsp;\n' )  //: avoid Markdown <p> insert
     return `<hgroup data--="code_ref">
 <h5>${content_o.title_s}</h5>
@@ -23,8 +23,8 @@ const CODES_o =
 
   _replace_all__s: ( content_s ) =>
   {
-    const id_s = '_replace_all'
-    let [ content_a, content_o ] = content__a( content_s, id_s )
+    const ID_s = '_replace_all'
+    let [ content_a, content_o ] = content__a( content_s, ID_s )
     return replace__s( content_o, content_a[1] )
   },
 

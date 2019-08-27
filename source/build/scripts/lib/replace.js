@@ -1,5 +1,4 @@
-const CALL_s = 'call_f'
-
+const CALL_s = 'call_f'    //: callback function key
 
 const replace__s = ( content_o, content_s, id_s ) =>
 {
