@@ -1,8 +1,3 @@
-
-
-
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,9 +15,11 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
-  <script>
+  
+
+<script>
 const _ID='11tyTips'
-const _URL=''
+const _URL='https://11tytips.netlify.com/'
 </script>
 
   
@@ -1248,7 +1245,7 @@ bold <em>:       *Bold text*
   <section data--="section">
   <h1>11ty Tips</h1>
 <p>Welcome to 11tyTips, a site for the awesome <a href="https://11ty.io">11ty</a> static site generator users.</p>
-<p>This page uses global settings (<code>settings._id</code>) in the preceding sentence and a function declared in page data (<code>subtitle__s</code>) in the following one. Output of function inside this page front matter (css bold style is from Markdown markup outside the function):</p>
+<p>This page uses global settings (<code>_C._ID</code>) in the preceding sentence and a function declared in page data (<code>subtitle__s</code>) in the following one. Output of function inside this page front matter (css bold style is from Markdown markup outside the function):</p>
 <p><strong [data--="example]">INSIDE AN AWESOME STATIC SITE GENERATOR: TIPS AND TRICKS</strong></p>
 <p>This output is from a function declared in a global JavaScript data directory (<code>lib/utils.js</code>) (css italic style is from Markdown markup outside the library function):</p>
 <p><em [data--="example]">11tyTips, a useful collection, is there!</em></p>
@@ -1275,6 +1272,102 @@ const Render_o =
 }
 //: Don't forget to add a comment!
 module.exports = Render_o
+</code></pre>
+<hgroup data--="code_ref">
+<h5>11tyTips tree</h5>
+<h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
+</hgroup>
+<pre><code class="language-txt">
+source
+├── assets
+│   ├── fonts
+│   │   ├── athiti-v3-latin-regular.woff2
+│   │   ├── FiraCode-Regular.woff2
+│   │   └── harmattan-v5-latin-regular.woff2
+│   ├── media
+│   │   └── GitHub-Mark.png
+│   ├── scripts
+│   │   └── js
+│   │       └── prism.min.js
+│   ├── styles
+│   │   └── css
+│   │       └── prism.min.css
+│   └── svg
+│       └── Twitter_Logo.svg
+├── build
+│   └── scripts
+│       ├── 11ty
+│       │   ├── collections.js
+│       │   ├── filters.js
+│       │   ├── libraries.js
+│       │   └── shortcodes.js
+│       └── lib
+│           ├── content_split.js
+│           └── replace.js
+├── content
+│   └── posts
+│       ├── 404.md
+│       ├── index.md
+│       ├── replace_all.md
+│       ├── style_guide.md
+│       └── tips_list.md
+├── data
+│   ├── lib
+│   │   ├── const.js
+│   │   └── utils.js
+│   ├── posts
+│   ├── descriptions.js
+│   └── settings.js
+├── includes
+│   ├── assets
+│   │   ├── icons
+│   │   │   ├── _github_.svg
+│   │   │   ├── _menu_.svg
+│   │   │   └── _twitter_.svg
+│   │   ├── scripts
+│   │   │   └── js
+│   │   │       ├── partials
+│   │   │       │   ├── dom.js
+│   │   │       │   └── ui.js
+│   │   │       └── base.njk
+│   │   └── styles
+│   │       └── css
+│   │           ├── partials
+│   │           │   ├── aspect_ratio.css
+│   │           │   ├── color.css
+│   │           │   ├── dark_mode.css
+│   │           │   ├── destyle.css
+│   │           │   ├── font.css
+│   │           │   ├── fonts_inline.css
+│   │           │   ├── html.css
+│   │           │   ├── notes.css
+│   │           │   ├── prism_theme.css
+│   │           │   ├── rootvar.css
+│   │           │   └── ui.css
+│   │           └── base.njk
+│   ├── content
+│   │   └── globals.njk
+│   ├── layouts
+│   │   └── partials
+│   │       ├── blocks
+│   │       │   ├── _article_.njk
+│   │       │   ├── _css_load_.njk
+│   │       │   ├── _description_.njk
+│   │       │   ├── _favicon_.njk
+│   │       │   ├── _fonts_.njk
+│   │       │   ├── _fonts_inline_.njk
+│   │       │   ├── _head_.njk
+│   │       │   ├── _nav_.njk
+│   │       │   ├── _scripts_.njk
+│   │       │   ├── _seo_.njk
+│   │       │   └── _styles_.njk
+│   │       ├── lib
+│   │       │   └── _instant_page_.njk
+│   │       └── _site_url_.njk
+│   ├── base.njk
+│   └── list.njk
+├── .eleventy.js
+└── .eleventyignore
 </code></pre>
 
   </section>

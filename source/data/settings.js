@@ -1,10 +1,12 @@
-const C = require( './lib/const.js' )
+const _C = require( './_C.js' )
 
-module.exports =
+const SETTINGS_o =
 {
-  _id:  C._ID,
-  _url: C._URL,
-  //_dev: C._DEV,
+  _dev: _C._DEV,
+  _pro: _C._PRO,
+  _url: null,
+  //_isDev: true,
+  _isDev: false,
 
   distDirs:
   {
@@ -21,8 +23,7 @@ module.exports =
     posts:      'posts/',
   },
 
-  links:
-  {
-    _11ty: `[11ty]: ${C._11TY}`,
-  },
 }
+;(() => SETTINGS_o._url = SETTINGS_o[SETTINGS_o._isDev ? '_dev' : '_pro'])()
+
+module.exports = SETTINGS_o

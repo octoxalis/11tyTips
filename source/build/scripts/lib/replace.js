@@ -1,6 +1,3 @@
-/*
-*
-*/
 const CALL_s = 'call_f'
 
 

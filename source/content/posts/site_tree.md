@@ -13,10 +13,10 @@
 ---
 [comment]: # (======== Post ========)
 
-# {{settings._id}} site
+# {{_C._ID}} site
 
 {% _code_block %}
-    title_s: '{{settings._id}} tree',
+    title_s: '{{_C._ID}} tree',
     lang_s: "txt",
 [//]:#(_code_block)
 source

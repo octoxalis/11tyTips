@@ -13,10 +13,9 @@
 }
 ---
 [comment]: # (======== Post ========)
-
 # Style guide
 
-Welcome to {{settings._id}}, a site for the awesome [11ty] static site generator users.
+Welcome to {{ _C._ID }}, a site for the awesome [11ty] static site generator users.
 
 ## The Article element
 
@@ -47,24 +46,25 @@ The rank of an hgroup element is the rank of the highest-ranked h1–h6 element 
     lang_s: "javascript",
 [//]:#(_code_block)
 const CALL_s = 'call_f'
-const callTest__s = ( content_o ) => `<span class="light">Callback</span> is there: ${content_o.id_n}`
-const Render_o =
+
+
+const replace__s = ( content_o, content_s, id_s ) =>
 {
-  replace__s: ( component_s, content_o, content_s ) =>
+  const keys_a = Object.keys( content_o )
+  for( let at = 0; at < keys_a.length; ++at )
   {
-    const keys_a = Object.keys( content_o )
-    for( let at = 0; at < keys_a.length; ++at )
-    {
-      const key_s = keys_a[at]
-      content_s = content_s.replace( new RegExp( \`\\$\\{${component_s}.${key_s}\\}\`, 'g' ),
-      ( key_s === CALL_s ) ? eval( content_o[key_s] )( content_o ) : content_o[key_s] )
-    }
-    return content_s
-  },
+    const key_s = keys_a[at]
+    const string_s = id_s ? `\\$\\{${id_s}.${key_s}\\}` : `\\$\\{${key_s}\\}`
+    content_s = content_s.replace( new RegExp( string_s, 'g' ),
+    ( key_s === CALL_s ) ?
+      eval( content_o[key_s] )( content_o )
+      : content_o[key_s] )
+  }
+  return content_s
 }
-module.exports = Render_o    //: Don't forget to add a comment!
+
+module.exports = replace__s
 {% end_code_block %}
 
 [comment]: # (======== Links ========)
-
-[11ty]: https://11ty.io
+{{_C._11TY_LINK }}

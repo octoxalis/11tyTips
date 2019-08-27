@@ -1,8 +1,3 @@
-
-
-
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,9 +15,11 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
-  <script>
+  
+
+<script>
 const _ID='11tyTips'
-const _URL=''
+const _URL='https://11tytips.netlify.com/'
 </script>
 
   
@@ -1272,22 +1269,23 @@ represents the heading of a section, which consists of all the h1–h6 element c
 </hgroup>
 <pre><code class="language-javascript">
 const CALL_s = 'call_f'
-const callTest__s = ( content_o ) => `<span class="light">Callback</span> is there: ${content_o.id_n}`
-const Render_o =
+&nbsp;
+const replace__s = ( content_o, content_s, id_s ) =>
 {
-  replace__s: ( component_s, content_o, content_s ) =>
+  const keys_a = Object.keys( content_o )
+  for( let at = 0; at < keys_a.length; ++at )
   {
-    const keys_a = Object.keys( content_o )
-    for( let at = 0; at < keys_a.length; ++at )
-    {
-      const key_s = keys_a[at]
-      content_s = content_s.replace( new RegExp( \`\\$\\{${component_s}.${key_s}\\}\`, 'g' ),
-      ( key_s === CALL_s ) ? eval( content_o[key_s] )( content_o ) : content_o[key_s] )
-    }
-    return content_s
-  },
+    const key_s = keys_a[at]
+    const string_s = id_s ? `\\$\\{${id_s}.${key_s}\\}` : `\\$\\{${key_s}\\}`
+    content_s = content_s.replace( new RegExp( string_s, 'g' ),
+    ( key_s === CALL_s ) ?
+      eval( content_o[key_s] )( content_o )
+      : content_o[key_s] )
+  }
+  return content_s
 }
-module.exports = Render_o    //: Don't forget to add a comment!
+&nbsp;
+module.exports = replace__s
 </code></pre>
 
   </section>
