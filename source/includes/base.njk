@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="en">
   <head>
-  {% block head %}{% include "layouts/partials/blocks/_head_.njk" %}{% endblock %}
-  {% block seo %}{% include "layouts/partials/blocks/_seo_.njk" %}{% endblock %}
-  {% block metatag %}{% include "layouts/partials/blocks/_description_.njk" %}{% endblock %}
-  {% block favicon %}{% include "layouts/partials/blocks/_favicon_.njk" %}{% endblock %}
-  {% include "layouts/partials/_site_url_.njk" %}
+  {% block head %}{% include "templates/partials/blocks/_head_.njk" %}{% endblock %}
+  {% block seo %}{% include "templates/partials/blocks/_seo_.njk" %}{% endblock %}
+  {% block metatag %}{% include "templates/partials/blocks/_description_.njk" %}{% endblock %}
+  {% block favicon %}{% include "templates/partials/blocks/_favicon_.njk" %}{% endblock %}
+  {% include "assets/scripts/js/_site_url_.njk" %}
   {% block styles %}
-  {% include "layouts/partials/blocks/_fonts_inline_.njk" %}
-  {% include "layouts/partials/blocks/_styles_.njk" %}
+  {% include "templates/partials/blocks/_fonts_inline_.njk" %}
+  {% include "templates/partials/blocks/_styles_.njk" %}
   {% endblock %}
   </head>
   <body>
-    {% block nav %}{% include "layouts/partials/blocks/_nav_.njk" %}{% endblock %}
-    {% block article %}{% include "layouts/partials/blocks/_article_.njk" %}{% endblock %}
+    {% block nav %}{% include "templates/partials/blocks/_nav_.njk" %}{% endblock %}
+    {% block article %}{% endblock %}
     {% block scripts %}
-    {% if settings.siteUrl %}{% include "layouts/partials/lib/_instant_page_.njk" %}{% endif %}
-    {% include "layouts/partials/blocks/_scripts_.njk" %}
+    {% if settings._isDev === false %}{% include "assets/scripts/js/lib/_instant_page_.njk" %}{% endif %}
+    {% include "templates/partials/blocks/_scripts_.njk" %}
     {% endblock %}
   </body>
 </html>

@@ -1,8 +1,8 @@
 ---js
 {
-  layout:    `base.njk`,
+  layout:    `templates/article.njk`,
   permalink: `style_guide.html`,
-  //tags:      [ `` ],
+  tags:      [ `tip` ],
   title:     `Eleventy tips`,
   subtitle:  `Inside an awesome static site generator`,
   author:    `Octoxalis`,

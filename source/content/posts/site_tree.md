@@ -1,6 +1,6 @@
 ---js
 {
-  layout:    `base.njk`,
+  layout:    `templates/article.njk`,
   permalink: `site_tree.html`,
   //tags:      [ `` ],
   title:     `Eleventy tips`,
@@ -88,7 +88,7 @@ source
 │   │           └── base.njk
 │   ├── content
 │   │   └── share.njk
-│   ├── layouts
+│   ├── templates
 │   │   └── partials
 │   │       ├── blocks
 │   │       │   ├── _article_.njk

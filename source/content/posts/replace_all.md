@@ -1,8 +1,8 @@
 ---js
 {
-  layout:    `base.njk`,
+  layout:    `templates/article.njk`,
   permalink: `replace_all.html`,
-  //tags:      [ `` ],
+  tags:      [ `tip` ],
   title:     `Eleventy tips - replace all`,
   subtitle:  `How to replace all content`,
   author:    `Octoxalis`,
@@ -13,7 +13,7 @@
 ---
 [comment]: # (======== Post ========)
 {% _replace_all %}
-    {% include "content/share.njk" %},
+    {% include "content/kv_links.njk" %},
     "FUNCTION": "**nice function**",
     "SOMETHING": "_something you know_",
     "ELSE": "```or anything else```"

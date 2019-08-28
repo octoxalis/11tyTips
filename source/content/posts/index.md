@@ -1,6 +1,6 @@
 ---js
 {
-  layout:    `base.njk`,
+  layout:    `templates/article.njk`,
   permalink: `index.html`,
   //tags:      [ `` ],
   title:     `Eleventy tips`,
