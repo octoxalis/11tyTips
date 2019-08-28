@@ -108,7 +108,8 @@ source
 │   ├── base.njk
 │   └── list.njk
 ├── .eleventy.js
-└── .eleventyignore{% end_code_block %}
+└── .eleventyignore
+{% end_code_block %}
 
 [comment]: # (======== Links ========)
 
