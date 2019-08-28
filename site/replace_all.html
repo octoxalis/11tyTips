@@ -3,12 +3,12 @@
   <head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eleventy tips - replace all</title>
+<title>Replace all</title>
 
   
   
 
-<meta name="description" content="How to replace all content,A blog devoted to Eleventy static site generator users,Useful tips to use Eleventy static site generator: site structure, content processing, build processing, assets minifying">
+<meta name="description" content="how to replace all content,A blog devoted to Eleventy static site generator users,Useful tips to use Eleventy static site generator: site structure, content processing, build processing, assets minifying">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1037,6 +1037,16 @@ p > code
   transition: all 0.3s ease-in-out;
 }
 
+[data--="menu_entry"] span
+{
+  margin-left: 32px;
+  padding: 2px 4px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-style: italic;
+  background: var(--c_prim_hi);  /*border-left: var(--PAD_1) solid var(--c_prim_tr);*/
+}
+
 [data--="article"]
 {
   color: var(--c_prim_lo);
@@ -1235,10 +1245,7 @@ bold <em>:       *Bold text*
 
   </svg>
 </label>
-<menu data--="menu">
-  <h3>All the tips</h3>
-  <iframe data--="tips_list" src="tips_list.html"></iframe>
-</menu>
+<iframe data--="menu_frame" src="tips_list_0.html"></iframe>
 
     <article data--="article">
   <section data--="section">
@@ -1246,7 +1253,6 @@ bold <em>:       *Bold text*
 <p>Welcome to 11tyTips, a site for the awesome <a href="https://11ty.io">11ty</a> static site generator users.</p>
 <p><code>replace_all</code> is <strong>nice function</strong>:
 replacing <em>something you know</em>, <code>or anything else</code>, is easy.</p>
-
 
   </section>
 </article>
@@ -1283,7 +1289,7 @@ const DOM_siblings__a = ( selector_s ) =>
 const UI_events = () =>
 {
   //: load
-  DOM_loader( '[data--="tips_list"]' )
+  DOM_loader( '[data--="menu_frame"]' )
 
 /**
  * Set the menu element as high as the article element

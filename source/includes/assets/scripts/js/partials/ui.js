@@ -1,7 +1,7 @@
 const UI_events = () =>
 {
   //: load
-  DOM_loader( '[data--="tips_list"]' )
+  DOM_loader( '[data--="menu_frame"]' )
 
 /**
  * Set the menu element as high as the article element

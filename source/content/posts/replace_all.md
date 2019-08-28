@@ -1,10 +1,10 @@
 ---js
 {
-  layout:    `templates/article.njk`,
+  layout:    `templates/base.njk`,
   permalink: `replace_all.html`,
   tags:      [ `tip` ],
-  title:     `Eleventy tips - replace all`,
-  subtitle:  `How to replace all content`,
+  title:     `Replace all`,
+  subtitle:  `how to replace all content`,
   author:    `Octoxalis`,
   date:      `2019-08-09`,
   hdates:     [ `09-08-2019` ],

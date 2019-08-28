@@ -54,6 +54,16 @@
   transition: all 0.3s ease-in-out;
 }
 
+[data--="menu_entry"] span
+{
+  margin-left: 32px;
+  padding: 2px 4px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-style: italic;
+  background: var(--c_prim_hi);  /*border-left: var(--PAD_1) solid var(--c_prim_tr);*/
+}
+
 [data--="article"]
 {
   color: var(--c_prim_lo);

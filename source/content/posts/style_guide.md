@@ -1,10 +1,10 @@
 ---js
 {
-  layout:    `templates/article.njk`,
+  layout:    `templates/base.njk`,
   permalink: `style_guide.html`,
   tags:      [ `tip` ],
-  title:     `Eleventy tips`,
-  subtitle:  `Inside an awesome static site generator`,
+  title:     `Style guide`,
+  subtitle:  `inside an awesome static site generator`,
   author:    `Octoxalis`,
   date:      `2019-08-09`,
   hdates:     [ `09-08-2019` ],
