@@ -7,7 +7,8 @@ const content__a = require( '../lib/content_split.js' )
 
 const CODES_o =
 {
-  _short_note__s: ( content_s ) => `<ins data--="inline_note"><sup></sup><span data--="note_content">${content_s}</span></ins>`,
+  _short_note__s: ( content_s ) =>
+    `<ins data--="inline_note"><sup></sup><span data--="note_content">${content_s}</span></ins>`,
 
   _code_block__s: ( content_s ) =>
   {

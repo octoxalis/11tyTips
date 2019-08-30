@@ -23,18 +23,19 @@ Welcome to {{_C._ID}}, a site for the awesome [11ty] static site generator users
 
 This page uses global settings (```_C._ID```) in the preceding sentence and a function declared in page data (```subtitle__s```) in the following one. Output of function inside this page front matter (css bold style is from Markdown markup outside the function):
 
-{{ uppercase__s( subtitle + ': ' + abstract ) }}{[data--="example"]}
+{{ uppercase__s( subtitle + ': ' + abstract ) }}
+{data--="example"}
 
 This output is from a function declared in a global JavaScript data directory (```lib/utils.js```) (css italic style is from Markdown markup outside the library function):
 
-_{{ lib.utils.first__s( 'is there!' )}}_{[data--="example"]}
+_{{ lib.utils.first__s( 'is there!' )}}_
+{data--="example"}
 
 {% _code_block %}
     title_s: '/file/path/code_bis.js',
     id_n: 43,
     lang_s: "javascript",
 [//]:#(_code_block)
-const CALL_s = 'call_f'
 const callTest__s = ( content_o ) => `<span class="light">Callback</span> is there: ${content_o.id_n}`
 const Render_o =
 {

@@ -9,8 +9,10 @@
 }
 ---
 <menu data--="menu">
-  <p><a href="{{ settings._url }}">Home</a></p>
-  <h3>All the tips</h3>
+  <h4><a href="{{ settings._url }}">Home</a></h4>
+  <h4><a href="{{ settings._git }}">Github</a></h4>
+  <h4><a href="{{ settings._twi }}">Twitter</a></h4>
+  <h2 data--="menu_order">All the tips</h2>
   <ol>
   {% for tip in tips %}
     <li data--="menu_entry"><a href="{{ tip.url | url }}">{{ tip.data.title }}</a><span>{{ tip.data.subtitle }}</span></li>

@@ -1,4 +1,8 @@
 const _C = require( '../_C.js' )
+
+/**
+ * Lib mockup
+ */
 const msg_s = `a useful collection`
 
 module.exports =

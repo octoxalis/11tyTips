@@ -13,24 +13,29 @@
     --c_lum_hi: 90%;
     --c_lum_lo: 10%;
 
-  --c_primary:    hsla( var(--c_hue_p), var(--c_sat),    var(--c_lum), 1 );
-    --c_prim_tr:    hsla( var(--c_hue_p), var(--c_sat),    var(--c_lum), 0.6 );
-    --c_prim_hi:    hsla( var(--c_hue_p), var(--c_sat_hi), var(--c_lum_hi), 1 );
-    --c_prim_lo:    hsla( var(--c_hue_p), var(--c_sat_hi), 16%, 1 );
+  --c_opac: .5;
+    --c_opac_hi: 1;
+    --c_opac_lo: .2;
 
-/*  --c_secondary:  hsla( var(--c_hue_s), var(--c_sat),    var(--c_lum), 1 );*/
-    --c_sec_hi:     hsla( var(--c_hue_s), var(--c_sat_hi), var(--c_lum_hi), 1 );
-    --c_sec_lo:     hsla( var(--c_hue_s), var(--c_sat_lo), var(--c_lum_lo), 1 );
+
+  --c_primary:    hsla( var(--c_hue_p), var(--c_sat),    var(--c_lum), var(--c_opac_hi) );
+    --c_prim_tr:    hsla( var(--c_hue_p), var(--c_sat),    var(--c_lum), 0.6 );
+    --c_prim_hi:    hsla( var(--c_hue_p), var(--c_sat_hi), var(--c_lum_hi), var(--c_opac_hi) );
+    --c_prim_lo:    hsla( var(--c_hue_p), var(--c_sat_hi), 16%, var(--c_opac_hi) );
+
+  --c_secondary:  hsla( var(--c_hue_s), var(--c_sat),    var(--c_lum), var(--c_opac_hi) );
+    --c_sec_hi:     hsla( var(--c_hue_s), var(--c_sat_hi), var(--c_lum_hi), var(--c_opac_hi) );
+    --c_sec_lo:     hsla( var(--c_hue_s), var(--c_sat_lo), var(--c_lum_lo), var(--c_opac_hi) );
 
     --c_back:       hsla( var(--c_hue_p), var(--c_sat_hi), var(--c_lum_hi), .4 );
     --c_back_hi:    hsla( var(--c_hue_p), var(--c_sat_hi), var(--c_lum_hi), .2 );
     --c_back_lo:    hsla( var(--c_hue_p), var(--c_sat_hi), var(--c_lum_hi), .6 );
-    --c_back_op:    hsla( var(--c_hue_p), var(--c_sat_hi), 93%, 1 );  /* equals --c_back_hi but opaque */
+    --c_back_op:    hsla( var(--c_hue_p), var(--c_sat_hi), 93%, var(--c_opac_hi) );  /* equals --c_back_hi but opaque */
   
-/*  --c_decor:       hsla( var(--c_hue_d), var(--c_sat_hi), var(--c_lum), .5 );*/
-    --c_decor_hi:    hsla( var(--c_hue_d), var(--c_sat_hi), var(--c_lum_hi), .5 );
-/*    --c_decor_lo:    hsla( var(--c_hue_d), var(--c_sat_hi), var(--c_lum_lo), .5 );*/
+/*  --c_decor:       hsla( var(--c_hue_d), var(--c_sat_hi), var(--c_lum), var(--c_opac) );*/
+    --c_decor_hi:    hsla( var(--c_hue_d), var(--c_sat_hi), var(--c_lum_hi), var(--c_opac) );
+    --c_decor_lo:    hsla( var(--c_hue_d), var(--c_sat_hi), var(--c_lum_lo), var(--c_opac_lo) );
 
-/*  --c_important:  hsla( var(--c_hue_i), var(--c_sat_hi), var(--c_lum), 1 );*/
+/*  --c_important:  hsla( var(--c_hue_i), var(--c_sat_hi), var(--c_lum), var(--c_opac_hi) );*/
 
 }

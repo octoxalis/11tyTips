@@ -13,32 +13,15 @@ const UI_events = () =>
 
   //: click
 /**
- * Handle menu icon click
- * to show || hide the menu list
+ * Handle menu click
+ * to show/hide tips list
  */
   document.querySelector( '[data--="header"]' )
     .addEventListener('click', click_o => 
     {
-      const icon_e = click_o.target.closest('svg')
-      if ( icon_e === null ) return
-      const icon_s = icon_e.dataset['-'].replace( 'header_icon_', '' )
-      switch ( icon_s )
-      {
-        case "menu":
-          DOM_rootVar( '--MENU_SHOW', DOM_rootVar__s( '--MENU_SHOW' ) === '1' ? '0' : '1' )
-          break;
-        case "github":
-        case "twitter":
-          const links_o =
-          {
-            github:  `https://github.com/octoxalis/${_ID}`,
-            twitter: `https://twitter.com/${_ID}`,
-          }
-          window
-            .open( links_o[icon_s], '_blank')
-            .focus()
-          break;
-      }
+      const menu_e = click_o.target.closest('label')
+      if ( menu_e === null ) return
+      DOM_rootVar( '--MENU_SHOW', DOM_rootVar__s( '--MENU_SHOW' ) === '1' ? '0' : '1' )
     } )
   
 /**

@@ -49,9 +49,9 @@ p > code
 
 .toolbar-item > button
 {
-  padding: 4px;
+  padding: var(--PAD_1) var(--PAD_2);
+  border: 1px solid var(--c_secondary);
   font-size: calc( var(--font_size) * 0.8 * 1% );
-  border: 1px solid var(--c_sec_lo);
 }
 .toolbar-item > button:hover
 {
