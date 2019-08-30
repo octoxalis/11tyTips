@@ -1,0 +1,34 @@
+[data--="menu"]
+{
+  z-index: 1;
+  position: absolute;
+  width: calc( (100 - 16) * 1vw);
+  background: var(--c_back_op);
+  transform: scaleY( var(--MENU_SHOW) );
+  transition: all 0.3s ease-in-out;
+}
+
+[data--="tips_order"]
+{
+  cursor: pointer;
+}
+
+[data--="tips_order"]::after
+{
+  content: '⇅';
+  margin-left: var(--PAD_4);
+  font-size: calc( var(--font_size) * 0.75 * 1% );
+  font-style: normal;
+}
+
+[data--="tips_entry"] span
+{
+  margin-left: var(--PAD_4);;
+  padding: 2px var(--PAD_1);
+  font-family: inherit;
+	font-size: calc( var(--font_size) * .75 * 1% );
+  line-height: 1.5;
+  color: hsla( 180, 10%, 10%, 1 );
+	background: var(--c_decor_hi);
+}
+

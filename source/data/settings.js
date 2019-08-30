@@ -8,8 +8,8 @@ const SETTINGS_o =
   _twi: _C._TWI,
   
   _url: null,
-  //_dev: true,
-  _dev: false,
+  //_isDev: true,
+  _isDev: false,
 
   distDirs:
   {
@@ -26,6 +26,6 @@ const SETTINGS_o =
 
 }
 ;(() => SETTINGS_o._url = SETTINGS_o[SETTINGS_o._isDev === true ? '_dev' : '_pro'])()
-console.log( `Site URL: ${SETTINGS_o._url}` )
+//xx console.log( `Site URL: ${SETTINGS_o._url}` )
 
 module.exports = SETTINGS_o

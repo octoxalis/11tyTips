@@ -2,6 +2,6 @@
 {% include "./partials/dom.js" %}
 {% include "./partials/ui.js" %}
 {% endset %}
-{% if settings._dev === true %}{{ js | safe }}
+{% if settings._isDev === true %}{{ js | safe }}
 {% else %}{{ js | jsmin | safe }}
 {% endif %}
