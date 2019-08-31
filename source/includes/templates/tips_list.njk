@@ -1,0 +1,28 @@
+---js
+{
+  pagination:
+  {
+    data: 'collections.tip',
+    size: 10,
+    alias: 'tips',
+  },
+  tipOrder__n: ( at_n ) => `${(at_n < 10) ? '00' : (at_n < 100) ? '0' : ''}${at_n}`
+}
+---
+<menu data--="menu">
+  <h4><a href="{{ settings._url }}">Home</a></h4>
+  <h4>→ <a href="{{ settings._git }}">Github</a></h4>
+  <h4>→ <a href="{{ settings._twi }}">Twitter</a></h4>
+  <h2 data--="tips_order">All the tips</h2>
+  <ol data--="tips_list">
+  {% set tip_n = 1 %}
+  {% for tip in tips %}
+    <li data--="tips_entry">
+      <span>#{{ tipOrder__n(tip_n) }}</span>
+      <a href="{{ tip.url | url }}">{{ tip.data.title }}</a>
+      <span>{{ tip.data.subtitle }}</span>
+    </li>
+    {% set tip_n = tip_n + 1 %}
+  {% endfor %}
+  </ol>
+</menu>

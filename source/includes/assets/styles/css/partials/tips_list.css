@@ -12,7 +12,6 @@
 {
   cursor: pointer;
 }
-
 [data--="tips_order"]::after
 {
   content: '⇅';
@@ -21,14 +20,24 @@
   font-style: normal;
 }
 
+[data--="tips_entry"]
+{
+  display: flex;
+
+  list-style: none;
+}
+
+[data--="tips_entry"] *
+{
+  margin-right: var(--PAD_2);
+}
+
 [data--="tips_entry"] span
 {
-  margin-left: var(--PAD_4);;
   padding: 2px var(--PAD_1);
   font-family: inherit;
-	font-size: calc( var(--font_size) * .75 * 1% );
+	font-size: calc( var(--font_size) * .8 * 1% );
   line-height: 1.5;
   color: hsla( 180, 10%, 10%, 1 );
 	background: var(--c_decor_hi);
 }
-
