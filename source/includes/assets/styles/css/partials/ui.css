@@ -7,6 +7,7 @@
   position: sticky;
   top: 0;
   padding: var(--PAD_2) 0;
+  color: var(--c_prim_lo);
   background: var(--c_back_op);
   border-bottom: 12px solid var(--c_decor_hi);
   opacity: 1;
