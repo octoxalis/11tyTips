@@ -15,7 +15,7 @@
 [comment]: # (======== Post ========)
 # Style guide
 
-Welcome to {{ _C._ID }}, a site for the awesome [11ty] static site generator users.
+Welcome to {{ _C.ID_s }}, a site for the awesome [11ty] static site generator users.
 
 ## The Article element
 
@@ -67,4 +67,4 @@ module.exports = replace__s
 {% end_code_block %}
 
 [comment]: # (======== Links ========)
-{{_C._11TY_LINK }}
+{{_C._11TY_LINK_s }}

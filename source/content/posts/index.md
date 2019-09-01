@@ -2,7 +2,7 @@
 {
   layout:    `templates/base.njk`,
   permalink: `index.html`,
-  //tags:      [ `` ],
+  tags:      [ `notag` ],
   title:     `Eleventy tips`,
   subtitle:  `Inside an awesome static site generator`,
   author:    `Octoxalis`,
@@ -19,9 +19,9 @@
 
 # 11ty Tips
 
-Welcome to {{_C._ID}}, a site for the awesome [11ty] static site generator users.
+Welcome to {{_C.ID_s}}, a site for the awesome [11ty] static site generator users.
 
-This page uses global settings (```_C._ID```) in the preceding sentence and a function declared in page data (```subtitle__s```) in the following one. Output of function inside this page front matter (css bold style is from Markdown markup outside the function):
+This page uses global settings (```_C.ID_s```) in the preceding sentence and a function declared in page data (```subtitle__s```) in the following one. Output of function inside this page front matter (css bold style is from Markdown markup outside the function):
 
 {{ uppercase__s( subtitle + ': ' + abstract ) }}
 {data--="example"}

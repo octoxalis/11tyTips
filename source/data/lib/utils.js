@@ -9,6 +9,6 @@ module.exports =
 {
   first__s: ( content_s ) =>
   {
-    return `${_C._ID}, ${msg_s}, ${content_s}`
+    return `${_C.ID_s}, ${msg_s}, ${content_s}`
   }
 }

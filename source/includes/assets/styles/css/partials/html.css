@@ -197,8 +197,12 @@ hr
 
 a
 {
+  
   color: #9b4dca;
-  text-decoration: none;
+  /*text-decoration: none;*/
+  text-decoration-color: #9b4dca;
+  text-decoration-thickness: .125em;
+  text-underline-offset: 1.5px;
 }
 
 a:focus, a:hover

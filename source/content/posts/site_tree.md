@@ -2,7 +2,7 @@
 {
   layout:    `templates/base.njk`,
   permalink: `site_tree.html`,
-  //tags:      [ `` ],
+  tags:      [ `notag` ],
   title:     `Eleventy tips`,
   subtitle:  `Structure of this site`,
   author:    `Octoxalis`,
@@ -12,10 +12,10 @@
   }
 ---
 [comment]: # (======== Post ========)
-# {{_C._ID}} site
+# {{_C.ID_s}} site
 
 {% _code_block %}
-    title_s: '{{_C._ID}} tree',
+    title_s: '{{_C.ID_s}} tree',
     lang_s: "txt",
 [//]:#(_code_block)
 source
@@ -25,15 +25,18 @@ source
 │   │   ├── FiraCode-Regular.woff2
 │   │   └── harmattan-v5-latin-regular.woff2
 │   ├── media
-│   │   └── GitHub-Mark.png
+│   │   ├── android-chrome-192x192.png
+│   │   ├── android-chrome-512x512.png
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon-16x16.png
+│   │   └── favicon-32x32.png
 │   ├── scripts
 │   │   └── js
 │   │       └── prism.min.js
 │   ├── styles
 │   │   └── css
 │   │       └── prism.min.css
-│   └── svg
-│       └── Twitter_Logo.svg
+│   └── site.webmanifest
 ├── build
 │   └── scripts
 │       ├── 11ty
@@ -45,6 +48,7 @@ source
 │           ├── content_split.js
 │           └── replace.js
 ├── content
+│   ├── includes
 │   └── posts
 │       ├── 404.md
 │       ├── index.md
@@ -67,9 +71,13 @@ source
 │   │   │   └── _twitter_.svg
 │   │   ├── scripts
 │   │   │   └── js
+│   │   │       ├── lib
+│   │   │       │   └── _instant_page_.njk
 │   │   │       ├── partials
 │   │   │       │   ├── dom.js
+│   │   │       │   ├── list_reverse.js
 │   │   │       │   └── ui.js
+│   │   │       ├── _site_url_.njk
 │   │   │       └── base.njk
 │   │   └── styles
 │   │       └── css
@@ -80,33 +88,32 @@ source
 │   │           │   ├── destyle.css
 │   │           │   ├── font.css
 │   │           │   ├── fonts_inline.css
+│   │           │   ├── full_width.css
 │   │           │   ├── html.css
 │   │           │   ├── notes.css
 │   │           │   ├── prism_theme.css
 │   │           │   ├── rootvar.css
+│   │           │   ├── tips_list.css
 │   │           │   └── ui.css
 │   │           └── base.njk
 │   ├── content
-│   │   └── share.njk
-│   ├── templates
-│   │   └── partials
-│   │       ├── blocks
-│   │       │   ├── _article_.njk
-│   │       │   ├── _css_load_.njk
-│   │       │   ├── _description_.njk
-│   │       │   ├── _favicon_.njk
-│   │       │   ├── _fonts_.njk
-│   │       │   ├── _fonts_inline_.njk
-│   │       │   ├── _head_.njk
-│   │       │   ├── _nav_.njk
-│   │       │   ├── _scripts_.njk
-│   │       │   ├── _seo_.njk
-│   │       │   └── _styles_.njk
-│   │       ├── lib
-│   │       │   └── _instant_page_.njk
-│   │       └── _site_url_.njk
-│   ├── base.njk
-│   └── list.njk
+│   │   └── kv_const.njk
+│   └── templates
+│       ├── partials
+│       │   └── blocks
+│       │       ├── _article_.njk
+│       │       ├── _css_load_.njk
+│       │       ├── _description_.njk
+│       │       ├── _favicon_.njk
+│       │       ├── _fonts_.njk
+│       │       ├── _fonts_inline_.njk
+│       │       ├── _head_.njk
+│       │       ├── _nav_.njk
+│       │       ├── _scripts_.njk
+│       │       ├── _seo_.njk
+│       │       └── _styles_.njk
+│       ├── base.njk
+│       └── tips_list.njk
 ├── .eleventy.js
 └── .eleventyignore
 {% end_code_block %}

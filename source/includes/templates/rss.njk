@@ -1,0 +1,47 @@
+---js
+{
+  permalink: 'feed.xml',
+  metadata:
+  {
+    title: `11tyTips blog`,
+    url: `https://11tytips.netlify.com/`,
+    author:
+    {
+      name: `Octoxalis`,
+      email: 'octoxalis@gmail.com',
+    },
+    feed:
+    {
+      subtitle: `Hot tips for 11ty static site generator users`,
+      filename: 'feed.xml',
+      path: 'feed.xml',
+      url: 'https://11tytips.netlify.com/feed.xml',
+      id: 'https://11tytips.netlify.com/',
+    },
+  },
+}
+---
+{% set tips_a = collections.tip %}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.feed.subtitle }}</subtitle>
+  <link href="{{ metadata.feed.url }}" rel="self"/>
+  <link href="{{ metadata.url }}"/>
+  <updated>{{ tips_a | rssLastUpdatedDate }}</updated>
+  <id>{{ metadata.feed.id }}</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+    <email>{{ metadata.author.email }}</email>
+  </author>
+  {%- for tip_o in tips_a %}
+  {% set absolutePostUrl %}{{ tip_o.url | url | absoluteUrl(metadata.url) }}{% endset %}
+  <entry>
+    <title>{{ tip_o.data.title }}</title>
+    <link href="{{ absolutePostUrl }}"/>
+    <updated>{{ tip_o.date | rssDate }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content type="html">{{ tip_o.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

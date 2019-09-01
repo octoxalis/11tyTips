@@ -1,4 +1,7 @@
-const UI_events = () =>
+/**
+ * UI events
+ */
+;( () =>
 {
   //: load
   DOM_loader( '[data--="menu_frame"]', () =>
@@ -47,4 +50,4 @@ const UI_events = () =>
         if ( note_e ) note_e.querySelector( '[data--="note_content"]' ).classList.toggle('note_open')
       } )
 
-}
+} )()

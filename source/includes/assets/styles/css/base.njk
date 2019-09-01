@@ -7,10 +7,11 @@
 {% include "./partials/aspect_ratio.css" %}
 {% include "./partials/prism_theme.css" %}
 {% include "./partials/ui.css" %}
+{#% include "./partials/sitetree.css" %#}
 {% include "./partials/notes.css" %}
 {% include "./partials/tips_list.css" %}
 {% include "./partials/dark_mode.css" %}
 {% endset %}
-{% if settings._isDev === true %}{{ css | safe }}
+{% if settings.dev_b === true %}{{ css | safe }}
 {% else %}{{ css | cssmin | safe }}
 {% endif %}

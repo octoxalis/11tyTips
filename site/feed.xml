@@ -1,0 +1,78 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>11tyTips blog</title>
+  <subtitle>Hot tips for 11ty static site generator users</subtitle>
+  <link href="https://11tytips.netlify.com/feed.xml" rel="self"/>
+  <link href="https://11tytips.netlify.com/"/>
+  <updated>2019-08-09T02:00:00+02:00</updated>
+  <id>https://11tytips.netlify.com/</id>
+  <author>
+    <name>Octoxalis</name>
+    <email>octoxalis@gmail.com</email>
+  </author>
+  
+  <entry>
+    <title>Replace all</title>
+    <link href="https://11tytips.netlify.com/replace_all.html"/>
+    <updated>2019-08-09T02:00:00+02:00</updated>
+    <id>https://11tytips.netlify.com/replace_all.html</id>
+    <content type="html">&lt;h1&gt;11ty Tips&lt;/h1&gt;
+&lt;p&gt;Welcome to 11tyTips, a site for the awesome &lt;a href=&quot;https://11ty.io/&quot;&gt;11ty&lt;/a&gt; static site generator users.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;replace_all&lt;/code&gt; is &lt;strong&gt;nice function&lt;/strong&gt;:
+replacing &lt;em&gt;something you know&lt;/em&gt;, &lt;code&gt;or anything else&lt;/code&gt;, is easy.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Style guide</title>
+    <link href="https://11tytips.netlify.com/style_guide.html"/>
+    <updated>2019-08-09T02:00:00+02:00</updated>
+    <id>https://11tytips.netlify.com/style_guide.html</id>
+    <content type="html">&lt;h1&gt;Style guide&lt;/h1&gt;
+&lt;p&gt;Welcome to 11tyTips, a site for the awesome &lt;a href=&quot;https://11ty.io/&quot;&gt;11ty&lt;/a&gt; static site generator users.&lt;/p&gt;
+&lt;h2&gt;The Article element&lt;/h2&gt;
+&lt;p&gt;The article element
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+&lt;strong&gt;An HTML5 addition&lt;/strong&gt;
+&lt;u&gt;&lt;/u&gt;
+The &amp;lt;article&amp;gt; tag has been added in &lt;em&gt;HTML5&lt;/em&gt; standard.
+&lt;strong&gt;&lt;br&gt;&lt;/strong&gt;
+&lt;/span&gt;&lt;/ins&gt;
+represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.&lt;/p&gt;
+&lt;h2&gt;The Hgroup element&lt;/h2&gt;
+&lt;p&gt;The hgroup element
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+&lt;code&gt;
+for( let at = 0; at &amp;lt; keys_a.length; ++at )
+&lt;/code&gt;
+&lt;/span&gt;&lt;/ins&gt;
+represents the heading of a section, which consists of all the h1–h6 element children of the hgroup element. The element is used to group a set of h1–h6 elements when the heading has multiple levels, such as subheadings, alternative titles, or taglines.&lt;/p&gt;
+&lt;p&gt;The rank of an hgroup element is the rank of the highest-ranked h1–h6 element descendant of the hgroup element, if there are any such elements, or otherwise the same as for an h1 element (the highest rank). Other h1–h6 elements of heading content in the hgroup element indicate subheadings or subtitles or (secondary) alternative titles.&lt;/p&gt;
+&lt;hgroup data--=&quot;code_ref&quot;&gt;
+&lt;h5&gt;/file/path/code_bis.js&lt;/h5&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;/hgroup&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+const CALL_s = &#39;call_f&#39;
+&amp;nbsp;
+const replace__s = ( content_o, content_s, id_s ) =&gt;
+{
+  const keys_a = Object.keys( content_o )
+  for( let at = 0; at &lt; keys_a.length; ++at )
+  {
+    const key_s = keys_a[at]
+    const string_s = id_s ? `\\$\\{${id_s}.${key_s}\\}` : `\\$\\{${key_s}\\}`
+    content_s = content_s.replace( new RegExp( string_s, &#39;g&#39; ),
+    ( key_s === CALL_s ) ?
+      eval( content_o[key_s] )( content_o )
+      : content_o[key_s] )
+  }
+  return content_s
+}
+&amp;nbsp;
+module.exports = replace__s
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+</feed>

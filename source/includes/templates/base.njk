@@ -15,7 +15,7 @@
     {% block nav %}{% include "templates/partials/blocks/_nav_.njk" %}{% endblock %}
     {% block article %}{% include "templates/partials/blocks/_article_.njk" %}{% endblock %}
     {% block scripts %}
-    {% if settings._isDev === false %}{% include "assets/scripts/js/lib/_instant_page_.njk" %}{% endif %}
+    {% if settings.dev_b === false %}{% include "assets/scripts/js/lib/_instant_page_.njk" %}{% endif %}
     {% include "templates/partials/blocks/_scripts_.njk" %}
     {% endblock %}
   </body>

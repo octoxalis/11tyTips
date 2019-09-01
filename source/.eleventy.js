@@ -9,24 +9,16 @@ module.exports = config_o =>
 {
   config_o.templateIncludesDir_s = ELEVENTY_o.templateIncludesDir_s
   config_o.contentIncludesDir_s = ELEVENTY_o.contentIncludesDir_s
+  config_o.addPassthroughCopy( 'assets' )    //: STATIC FILES
+  ;
+  [ 'libraries',
+    'collections',
+    'shortcodes',
+    'filters',
+    'plugins'
+  ].forEach( ( config_s ) => require( `${ELEVENTY_o.buildDir_s}${config_s}.js` )( config_o ) )
 
-  //---------- STATIC FILES
-  config_o.addPassthroughCopy( 'assets' )
-  
-  //---------- LIBRARIES
-  require( `${ELEVENTY_o.buildDir_s}libraries.js` )( config_o )
-
-  //---------- FILTERS
-  require( `${ELEVENTY_o.buildDir_s}filters.js` )( config_o )
-
-  //---------- SHORTCODES
-  require( `${ELEVENTY_o.buildDir_s}shortcodes.js` )( config_o )
-
-  //---------- COLLECTIONS
-  require( `${ELEVENTY_o.buildDir_s}collections.js` )( config_o )
-
-  // : return the config object for further customization
-  return {
+  return {    // : return the config object for further customization
     markdownTemplateEngine: 'njk',
     htmlTemplateEngine:     'njk',
     dataTemplateEngine:     'njk',

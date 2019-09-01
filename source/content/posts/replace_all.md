@@ -13,19 +13,19 @@
 ---
 [comment]: # (======== Post ========)
 {% _replace_all %}
-    {% include "content/kv_links.njk" %},
+    {% include "content/kv_const.njk" %},
     "FUNCTION": "**nice function**",
     "SOMETHING": "_something you know_",
     "ELSE": "```or anything else```"
 [//]:#(_replace_all)
 # 11ty Tips
 
-Welcome to ${_ID}, a site for the awesome [11ty] static site generator users.
+Welcome to ${_ID_s}, a site for the awesome [11ty] static site generator users.
 
 ```replace_all``` is ${FUNCTION}:
 replacing ${SOMETHING}, ${ELSE}, is easy.
 
 [comment]: # (======== Links ========)
-${_11TY}
+${_11TY_s}
 
 {% end_replace_all %}

@@ -4,25 +4,25 @@
   {
     data: 'collections.tip',
     size: 10,
-    alias: 'tips',
+    alias: 'tips_a',
   },
-  tipOrder__n: ( at_n ) => `${(at_n < 10) ? '00' : (at_n < 100) ? '0' : ''}${at_n}`
+  tipRank__s: ( at_n ) => `${(at_n < 10) ? '00' : (at_n < 100) ? '0' : ''}${at_n}`
 }
 ---
 <menu data--="menu">
-  <h4><a href="{{ settings._url }}">Home</a></h4>
-  <h4>→ <a href="{{ settings._git }}">Github</a></h4>
-  <h4>→ <a href="{{ settings._twi }}">Twitter</a></h4>
+  <h4><a href="{{ settings.url_s }}">Home</a></h4>
+  <h4>→ <a href="{{ settings.git_s }} target="_blank">Github</a></h4>
+  <h4>→ <a href="{{ settings.twi_s }}" target="_blank">Twitter</a></h4>
   <h2 data--="tips_order">All the tips</h2>
   <ol data--="tips_list">
   {% set tip_n = 1 %}
-  {% for tip in tips %}
+  {% for tip_e in tips_a %}
     <li data--="tips_entry">
-      <span>#{{ tipOrder__n(tip_n) }}</span>
-      <a href="{{ tip.url | url }}">{{ tip.data.title }}</a>
-      <span>{{ tip.data.subtitle }}</span>
+      <span>#{{ tipRank__s(tip_n) }}</span>
+      <a href="{{ tip_e.url | url }}">{{ tip_e.data.title }}</a>
+      <span>{{ tip_e.data.subtitle }}</span>
     </li>
-    {% set tip_n = tip_n + 1 %}
+  {% set tip_n = tip_n + 1 %}
   {% endfor %}
   </ol>
 </menu>
