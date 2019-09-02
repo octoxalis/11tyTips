@@ -18,14 +18,14 @@
 
 Welcome to {{_C.ID_s}}, a site for the awesome [11ty] static site generator users.
 
-This page uses global settings (```_C.ID_s```) in the preceding sentence.
+This page uses global settings (`_C.ID_s`) in the preceding sentence.
 
-In `example #1`, a function declared in page front matter (```upcase__s```) is used (css bold style is from Markdown markup outside the function):
+In `example #1`, a function declared in page front matter (`upcase__s`) is used (css bold style is from Markdown markup outside the function):
 
 {{ upcase__s( subtitle + ': ' + abstract ) }}
 {data--="example"}
 
-In `example #2`, the output is from a function declared in a global JavaScript data directory (```lib/utils.js```) (css italic style is from Markdown markup outside the library function):
+In `example #2`, the output is from a function declared in a global JavaScript data directory (`lib/utils.js`) (css italic style is from Markdown markup outside the library function):
 
 _{{ lib.utils.first__s( 'is there!' )}}_
 {data--="example"}
@@ -60,14 +60,14 @@ This is an example paragraph!
 
 Welcome to {{_C.ID_s}}, a site for the awesome [11ty] static site generator users.
 
-This page uses global settings (```_C.ID_s```) in the preceding sentence.
+This page uses global settings (`_C.ID_s`) in the preceding sentence.
 
-In `example #1`, a function declared in page front matter (```upcase__s```) is used (css bold style is from Markdown markup outside the function):
+In `example #1`, a function declared in page front matter (`upcase__s`) is used (css bold style is from Markdown markup outside the function):
 
 {{ upcase__s( subtitle + ': ' + abstract ) }}
 {data--="example"}
 
-In `example #2`, the output is from a function declared in a global JavaScript data directory (```lib/utils.js```) (css italic style is from Markdown markup outside the library function):
+In `example #2`, the output is from a function declared in a global JavaScript data directory (`lib/utils.js`) (css italic style is from Markdown markup outside the library function):
 
 _{{ lib.utils.first__s( 'is there!' )}}_
 {data--="example"}
