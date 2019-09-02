@@ -89,13 +89,14 @@
 
 [data--="example"]
 {
+  counter-increment: examples;
   padding-left: var(--PAD_2);
   color: hsla( 180, 10%, 10%, 1 );
 	background: var(--c_decor_hi);
 }
 [data--="example"]::before
 {
-  content: 'example';
+  content: 'example #' counter(examples);
   display: block;
   margin-bottom: var(--PAD_2);
   padding-left: var(--PAD_1);

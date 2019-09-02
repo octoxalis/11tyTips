@@ -2,6 +2,7 @@
 [data--="article"]
 {
   counter-reset: inline_notes;
+  counter-reset: examples;
 }
 
 [data--="inline_note"]
