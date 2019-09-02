@@ -9,10 +9,7 @@
   date:      `2019-08-09`,
   hdates:     [ `09-08-2019` ],
   abstract:  `Tips and tricks`,
-  uppercase__s: function( output_s )
-  {
-    return `**${output_s.toUpperCase()}**`
-  }
+  upcase__s: output_s => `**${output_s.toUpperCase()}**`
 }
 ---
 [comment]: # (======== Post ========)
@@ -21,12 +18,14 @@
 
 Welcome to {{_C.ID_s}}, a site for the awesome [11ty] static site generator users.
 
-This page uses global settings (```_C.ID_s```) in the preceding sentence and a function declared in page data (```subtitle__s```) in the following one. Output of function inside this page front matter (css bold style is from Markdown markup outside the function):
+This page uses global settings (```_C.ID_s```) in the preceding sentence.
 
-{{ uppercase__s( subtitle + ': ' + abstract ) }}
+A function declared in page front matter (```upcase__s```) is used in the following example (css bold style is from Markdown markup outside the function):
+
+{{ upcase__s( subtitle + ': ' + abstract ) }}
 {data--="example"}
 
-This output is from a function declared in a global JavaScript data directory (```lib/utils.js```) (css italic style is from Markdown markup outside the library function):
+The output of the following example is from a function declared in a global JavaScript data directory (```lib/utils.js```) (css italic style is from Markdown markup outside the library function):
 
 _{{ lib.utils.first__s( 'is there!' )}}_
 {data--="example"}

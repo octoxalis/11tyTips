@@ -16,7 +16,7 @@ module.exports = config_o =>
     'shortcodes',
     'filters',
     'plugins'
-  ].forEach( ( config_s ) => require( `${ELEVENTY_o.buildDir_s}${config_s}.js` )( config_o ) )
+  ].forEach( config_s => require( `${ELEVENTY_o.buildDir_s}${config_s}.js` )( config_o ) )
 
   return {    // : return the config object for further customization
     markdownTemplateEngine: 'njk',

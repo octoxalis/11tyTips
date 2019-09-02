@@ -6,13 +6,14 @@
     size: 10,
     alias: 'tips_a',
   },
-  tipRank__s: ( at_n ) => `${(at_n < 10) ? '00' : (at_n < 100) ? '0' : ''}${at_n}`
+  tipRank__s: at_n => `${(at_n < 10) ? '00' : (at_n < 100) ? '0' : ''}${at_n}`
 }
 ---
 <menu data--="menu">
   <h4><a href="{{ settings.url_s }}">Home</a></h4>
-  <h4>→ <a href="{{ settings.git_s }} target="_blank">Github</a></h4>
+  <h4>→ <a href="{{ settings.git_s }}" target="_blank">Github</a></h4>
   <h4>→ <a href="{{ settings.twi_s }}" target="_blank">Twitter</a></h4>
+  <h4>→ <a href="{{ settings.rss_s }}" target="_blank">RSS</a></h4>
   <h2 data--="tips_order">All the tips</h2>
   <ol data--="tips_list">
   {% set tip_n = 1 %}
