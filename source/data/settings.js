@@ -9,8 +9,8 @@ const SETTINGS_o =
   rss_s: _C.RSS_s,
   
   url_s: null,
-  dev_b: true,
-  //dev_b: false,
+  //dev_b: true,
+  dev_b: false,
 }
 ;(() => SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? 'dev_s' : 'pro_s'])()
 console.log( `Site URL: ${SETTINGS_o.url_s}` )
