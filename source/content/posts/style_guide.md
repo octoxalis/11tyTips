@@ -1,7 +1,7 @@
 ---js
 {
   layout:    `templates/base.njk`,
-  permalink: `style_guide.html`,
+  permalink: `tips/style_guide.html`,
   tags:      [ `tip` ],
   title:     `Style guide`,
   subtitle:  `inside an awesome static site generator`,
@@ -9,7 +9,6 @@
   date:      `2019-08-09`,
   hdates:     [ `09-08-2019` ],
   abstract:  `Tips and tricks`,
-  
 }
 ---
 [comment]: # (======== Post ========)

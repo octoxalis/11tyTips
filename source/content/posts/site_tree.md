@@ -43,6 +43,7 @@ source
 │       │   ├── collections.js
 │       │   ├── filters.js
 │       │   ├── libraries.js
+│       │   ├── plugins.js
 │       │   └── shortcodes.js
 │       └── lib
 │           ├── content_split.js
@@ -51,6 +52,7 @@ source
 │   ├── includes
 │   └── posts
 │       ├── 404.md
+│       ├── feed.md
 │       ├── index.md
 │       ├── replace_all.md
 │       ├── site_tree.md
@@ -65,17 +67,12 @@ source
 │   └── settings.js
 ├── includes
 │   ├── assets
-│   │   ├── icons
-│   │   │   ├── _github_.svg
-│   │   │   ├── _menu_.svg
-│   │   │   └── _twitter_.svg
 │   │   ├── scripts
 │   │   │   └── js
 │   │   │       ├── lib
 │   │   │       │   └── _instant_page_.njk
 │   │   │       ├── partials
 │   │   │       │   ├── dom.js
-│   │   │       │   ├── list_reverse.js
 │   │   │       │   └── ui.js
 │   │   │       ├── _site_url_.njk
 │   │   │       └── base.njk
@@ -93,6 +90,7 @@ source
 │   │           │   ├── notes.css
 │   │           │   ├── prism_theme.css
 │   │           │   ├── rootvar.css
+│   │           │   ├── sitetree.css
 │   │           │   ├── tips_list.css
 │   │           │   └── ui.css
 │   │           └── base.njk
@@ -105,6 +103,7 @@ source
 │       │       ├── _css_load_.njk
 │       │       ├── _description_.njk
 │       │       ├── _favicon_.njk
+│       │       ├── _feed_.njk
 │       │       ├── _fonts_.njk
 │       │       ├── _fonts_inline_.njk
 │       │       ├── _head_.njk
@@ -113,6 +112,7 @@ source
 │       │       ├── _seo_.njk
 │       │       └── _styles_.njk
 │       ├── base.njk
+│       ├── rss.njk
 │       └── tips_list.njk
 ├── .eleventy.js
 └── .eleventyignore

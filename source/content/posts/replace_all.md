@@ -1,7 +1,7 @@
 ---js
 {
   layout:    `templates/base.njk`,
-  permalink: `replace_all.html`,
+  permalink: `tips/replace_all.html`,
   tags:      [ `tip` ],
   title:     `Replace all`,
   subtitle:  `how to replace all content`,

@@ -87,6 +87,9 @@ The following code block is the source of this page (not including the code bloc
 
 {% end_code_block %}
 
+Have a look at the site [source tree]
+
 [comment]: # (======== Links ========)
 
+[source tree]: {{ settings.url_s + 'site_tree.html' }}
 [11ty]: https://11ty.io

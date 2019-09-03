@@ -14,9 +14,9 @@
   
   <entry>
     <title>Replace all</title>
-    <link href="https://11tytips.netlify.com/replace_all.html"/>
+    <link href="https://11tytips.netlify.com/tips/replace_all.html"/>
     <updated>2019-08-09T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/replace_all.html</id>
+    <id>https://11tytips.netlify.com/tips/replace_all.html</id>
     <content type="html">&lt;h1&gt;11ty Tips&lt;/h1&gt;
 &lt;p&gt;Welcome to 11tyTips, a site for the awesome &lt;a href=&quot;https://11ty.io/&quot;&gt;11ty&lt;/a&gt; static site generator users.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;replace_all&lt;/code&gt; is &lt;strong&gt;nice function&lt;/strong&gt;:
@@ -26,9 +26,9 @@ replacing &lt;em&gt;something you know&lt;/em&gt;, &lt;code&gt;or anything else&
   
   <entry>
     <title>Style guide</title>
-    <link href="https://11tytips.netlify.com/style_guide.html"/>
+    <link href="https://11tytips.netlify.com/tips/style_guide.html"/>
     <updated>2019-08-09T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/style_guide.html</id>
+    <id>https://11tytips.netlify.com/tips/style_guide.html</id>
     <content type="html">&lt;h1&gt;Style guide&lt;/h1&gt;
 &lt;p&gt;Welcome to 11tyTips, a site for the awesome &lt;a href=&quot;https://11ty.io/&quot;&gt;11ty&lt;/a&gt; static site generator users.&lt;/p&gt;
 &lt;h2&gt;The Article element&lt;/h2&gt;

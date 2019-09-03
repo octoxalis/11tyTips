@@ -1,7 +1,7 @@
 ---js
 {
   layout:    `templates/rss.njk`,
-  permalink: 'feed.xml',
+  permalink: `feed.xml`,
   tags:      [ `notag` ],
   title:     `Tips list!`,
   date:      `2019-08-21`,
