@@ -1,8 +1,7 @@
 /* NOTES STYLES */
 [data--="article"]
 {
-  counter-reset: inline_notes;
-  counter-reset: examples;
+  counter-reset: inline_notes examples;
 }
 
 [data--="inline_note"]

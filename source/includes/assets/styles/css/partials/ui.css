@@ -6,7 +6,7 @@
   align-items: flex-end;
   position: sticky;
   top: 0;
-  padding: var(--PAD_2) 0;
+  padding: var(--PAD_4) 0 var(--PAD_2);
   color: var(--c_prim_lo);
   background: var(--c_back_op);
   border-bottom: 12px solid var(--c_decor_hi);
@@ -17,7 +17,7 @@
 [data--="header_title"]
 {
   flex-grow: 2;
-  margin-left: 2var(--PAD_1);
+  margin-left: var(--PAD_1);
   font-family: var(--font_title);
   font-size: 4rem;
   font-weight: 900;
@@ -53,7 +53,7 @@
 
 [data--="section"]
 {
-  padding: 2var(--PAD_1);
+  padding: var(--PAD_1);
   color: var(--c_prim_lo);
   background: var(--c_back_hi);
 }

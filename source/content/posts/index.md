@@ -9,7 +9,7 @@
   date:      `2019-08-09`,
   hdates:     [ `09-08-2019` ],
   abstract:  `Tips and tricks`,
-  upcase__s: output_s => `**${output_s.toUpperCase()}**`
+  upcase__s: string_s => `**${string_s.toUpperCase()}**`
 }
 ---
 [comment]: # (======== Post ========)
@@ -30,10 +30,12 @@ In `example #2`, the output is from a function declared in a global JavaScript d
 _{{ lib.utils.first__s( 'is there!' )}}_
 {data--="example"}
 
-_markdown-it-attrs_ Node package is used to set attributes within this page Markdown, e.g. adding, on its own line, a `{data--="example"}` directive at the end of the `example #3` paragraph:
+_markdown-it-attrs_ Node package is used to set attributes in this page Markdown code, e.g. adding, on its own line, a `{data--="example"}` directive at the end of the `example #3` paragraph:
 
 This is an example paragraph!
 {data--="example"}
+
+The following code block is the source of this page (not including the code block itself):
 
 {% _code_block %}
     title_s: '{{_C.PRO_s}}index.md',
@@ -51,7 +53,7 @@ This is an example paragraph!
   date:      `2019-08-09`,
   hdates:     [ `09-08-2019` ],
   abstract:  `Tips and tricks`,
-  upcase__s: output_s => `**${output_s.toUpperCase()}**`
+  upcase__s: string_s => `**${string_s.toUpperCase()}**`
 }
 ---
 [comment]: # (======== Post ========)
@@ -72,10 +74,17 @@ In `example #2`, the output is from a function declared in a global JavaScript d
 _{{ lib.utils.first__s( 'is there!' )}}_
 {data--="example"}
 
-_markdown-it-attrs_ Node package is used to set attributes within this page Markdown, e.g. adding, on its own line, a `{data--="example"}` directive at the end of the `example #3` paragraph:
+_markdown-it-attrs_ Node package is used to set attributes in this page Markdown code, e.g. adding, on its own line, a `{data--="example"}` directive at the end of the `example #3` paragraph:
 
 This is an example paragraph!
 {data--="example"}
+
+The following code block is the source of this page (not including the code block itself):
+
+[comment]: # (======== Links ========)
+
+[11ty]: https://11ty.io
+
 {% end_code_block %}
 
 [comment]: # (======== Links ========)

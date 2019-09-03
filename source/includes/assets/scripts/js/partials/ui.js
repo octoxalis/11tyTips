@@ -36,7 +36,9 @@
     {
       const menu_e = click_o.target.closest('label')
       if ( menu_e === null ) return
-      DOM_rootVar( '--MENU_SHOW', DOM_rootVar__s( '--MENU_SHOW' ) === '1' ? '0' : '1' )
+      const show_s = DOM_rootVar__s( '--MENU_SHOW' ) === '1' ? '0' : '1'
+      DOM_rootVar( '--MENU_SHOW', show_s )
+      if ( show_s === '1' ) DOM_scrollToTop()
     } )
   
 /**
@@ -51,3 +53,10 @@
       } )
 
 } )()
+
+
+window.scroll({
+  top: 0, 
+  left: 0, 
+  behavior: 'smooth'
+})

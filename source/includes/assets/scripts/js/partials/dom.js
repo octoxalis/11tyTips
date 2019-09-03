@@ -36,3 +36,8 @@ const DOM_listReverse = selector_s =>
   const items_a = Array.prototype.slice.call(document.querySelectorAll( `${selector_s} li` ))
   items_a.forEach( item_e => item_e.parentNode.insertBefore( item_e, item_e.parentNode.firstChild ) )
 }
+
+const DOM_scrollToTop = () =>
+{
+  window.scroll( { top: 0, left: 0, behavior: 'smooth' } )
+}
