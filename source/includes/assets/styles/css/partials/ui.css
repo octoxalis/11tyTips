@@ -62,7 +62,7 @@
 {
   margin-top: var(--PAD_4);
   padding: var(--PAD_1); var(--PAD_2);
-  width: 100%;
+  max-width: var(--MAX_WIDTH);  /*width: 100%;*/
   display: flex;
   justify-content: space-between;
   font-size: calc( var(--font_size) * 1.2 * 1% );
