@@ -1,6 +1,6 @@
 const ELEVENTY_o =
 {
-  buildDir_s: './build/scripts/11ty/',
+  buildDir_s: './build/scripts/js/11ty/',
   templateIncludesDir_s: 'includes',
   contentIncludesDir_s: './content/includes',
 }

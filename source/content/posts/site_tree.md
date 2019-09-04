@@ -39,15 +39,16 @@ source
 │   └── site.webmanifest
 ├── build
 │   └── scripts
-│       ├── 11ty
-│       │   ├── collections.js
-│       │   ├── filters.js
-│       │   ├── libraries.js
-│       │   ├── plugins.js
-│       │   └── shortcodes.js
-│       └── lib
-│           ├── content_split.js
-│           └── replace.js
+│       └── js
+│           ├── 11ty
+│           │   ├── collections.js
+│           │   ├── filters.js
+│           │   ├── libraries.js
+│           │   ├── plugins.js
+│           │   └── shortcodes.js
+│           └── lib
+│               ├── content_split.js
+│               └── replace.js
 ├── content
 │   ├── includes
 │   └── posts
@@ -81,6 +82,7 @@ source
 │   │           ├── partials
 │   │           │   ├── aspect_ratio.css
 │   │           │   ├── color.css
+│   │           │   ├── comments.css
 │   │           │   ├── dark_mode.css
 │   │           │   ├── destyle.css
 │   │           │   ├── font.css
@@ -100,6 +102,7 @@ source
 │       ├── partials
 │       │   └── blocks
 │       │       ├── _article_.njk
+│       │       ├── _comments_.njk
 │       │       ├── _css_load_.njk
 │       │       ├── _description_.njk
 │       │       ├── _favicon_.njk
@@ -112,7 +115,7 @@ source
 │       │       ├── _seo_.njk
 │       │       └── _styles_.njk
 │       ├── base.njk
-│       ├── rss.njk
+│       ├── feed.njk
 │       └── tips_list.njk
 ├── .eleventy.js
 └── .eleventyignore

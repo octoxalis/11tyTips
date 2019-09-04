@@ -1,0 +1,9 @@
+.utterances
+{
+  margin: var(--PAD_8) 0;
+	background: var(--c_extern);
+}
+.utterances-frame
+{
+  padding: var(--PAD_2);
+}

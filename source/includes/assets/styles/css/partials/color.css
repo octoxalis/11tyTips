@@ -1,8 +1,9 @@
 :root
 {
-  --c_hue_p: 220;
+  --c_hue_p: 213;
   --c_hue_s: 160;
   --c_hue_i: 0;
+  --c_hue_e: 0;
   --c_hue_d: 190;
 
   --c_sat:    50%;
@@ -37,5 +38,8 @@
     --c_decor_lo:    hsla( var(--c_hue_d), var(--c_sat_hi), var(--c_lum_lo), var(--c_opac_lo) );
 
 /*  --c_important:  hsla( var(--c_hue_i), var(--c_sat_hi), var(--c_lum), var(--c_opac_hi) );*/
+
+  --c_extern:  hsla( var(--c_hue_p), var(--c_sat), var(--c_lum_lo), var(--c_opac) );
+
 
 }

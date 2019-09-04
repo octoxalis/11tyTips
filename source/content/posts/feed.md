@@ -1,6 +1,6 @@
 ---js
 {
-  layout:    `templates/rss.njk`,
+  layout:    `templates/feed.njk`,
   permalink: `feed.xml`,
   tags:      [ `notag` ],
   title:     `Tips list!`,
