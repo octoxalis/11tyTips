@@ -1,9 +1,10 @@
 body
 {
-  --pad_h: 8;
+  --pad_w: 8;
+  --body_width: calc( ( var(--pad_w) * 1vw ) + var(--MAX_WIDTH) + ( var(--pad_w) * 1vw ) );
 
-  max-width: calc( ( var(--pad_h) * 1vw ) + var(--MAX_WIDTH) + ( var(--pad_h) * 1vw ) );
-  padding: 0 calc( var(--pad_h) * 1vw );
+  max-width: var(--body_width);
+  padding: 0 calc( var(--pad_w) * 1vw );
 }
 
 [data--="header"]
@@ -15,10 +16,10 @@ body
   position: sticky;
   top: 0;
   max-width: var(--MAX_WIDTH);
-  padding: var(--PAD_4) 0 var(--PAD_2);
+  padding-top: var(--PAD_4);
   color: var(--c_prim_lo);
   background: var(--c_back_op);
-  border-bottom: 12px solid var(--c_decor_hi);
+  border-bottom: .75rem solid var(--c_decor);
   opacity: 1;
   transition: all 0.5s ease-in;
 }
@@ -46,7 +47,7 @@ body
   background: var(--c_decor_hi);
 }
 
-[data--="menu"],
+[data--="tips_menu"],
 [data--="tips_entry"],
 [data--="article"]
 {
@@ -54,7 +55,7 @@ body
   font-family: var(--font_body);
 }
 
-[data--="menu"] h4,
+[data--="tips_menu"] h4,
 [data--="tips_entry"],
 [data--="article"]
 {
@@ -113,4 +114,9 @@ body
   border-bottom: 1px solid var(--c_decor_lo);
   font-size: calc( .7 * 1% );
   font-style: italic;
+}
+
+.height_zero
+{
+  transform: scaleY( 0 );
 }

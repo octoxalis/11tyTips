@@ -18,6 +18,14 @@
     } )
   } )
 
+/**
+ * Set the menu element as high as the article element
+ * to hide it
+ */
+  window
+    .addEventListener('load',
+    () => document.querySelector( '[data--="tips_menu"]' ).style.height = `${document.querySelector( '[data--="article"]' ).offsetHeight}px`)
+
   //: click
 /**
  * Handle menu click
@@ -30,6 +38,8 @@
       if ( menu_e === null ) return
       const show_s = DOM_rootVar__s( '--MENU_SHOW' ) === '1' ? '0' : '1'
       DOM_rootVar( '--MENU_SHOW', show_s )
+      comments_e = document.querySelector( '.utterances' )
+      if ( comments_e !== null ) comments_e.classList.toggle( 'height_zero' )
       if ( show_s === '1' ) DOM_scrollToTop()
     } )
   
@@ -45,10 +55,3 @@
       } )
 
 } )()
-
-
-window.scroll({
-  top: 0, 
-  left: 0, 
-  behavior: 'smooth'
-})

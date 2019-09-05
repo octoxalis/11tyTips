@@ -1,10 +1,10 @@
-[data--="menu"]
+[data--="tips_menu"]
 {
   z-index: 1;
   position: absolute;
-  width: calc( 100vw - ( var(--pad_h) * 2vw ) );
+  padding-top: 1rem;
+  width: calc( 100% - ( var(--pad_w) * 2vw ) );
   max-width: var(--MAX_WIDTH);
-  height: 100vh;
   background: var(--c_back_op);
   transform: scaleY( var(--MENU_SHOW) );
   transition: all 0.3s ease-in-out;
