@@ -18,14 +18,6 @@
     } )
   } )
 
-/**
- * Set the menu element as high as the article element
- * to hide it
- */
-  window
-    .addEventListener('load',
-    () => document.querySelector( '[data--="menu"]' ).style.height = `${document.querySelector( '[data--="article"]' ).offsetHeight}px`)
-
   //: click
 /**
  * Handle menu click

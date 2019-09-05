@@ -1,61 +1,68 @@
 html
 {
-  font-size: calc( var(--font_size) * 1% );
+  --base_u: 8;
+  --font_min: calc( var(--base_u) * 2 );
+  --font_max: calc( var(--base_u) * 3 );
+  --screen_min: 400;
+  --screen_max: 1600;
+
+  font-size: calc( (var(--font_min) * 1px)
+  + ( var(--font_max) - var(--font_min) )
+  * ( 100vw - (var(--screen_min) * 1px) )
+  / ( var(--screen_max) - var(--screen_min) ) );
 }
 
 body
 {
-  padding: 0 8vw;
+  --font_u: 1em;  /* font unit */
+  --font_r: 1.1;  /* font ratio */
+
   background: var(--c_back_lo);
-  font-size: 1.5rem;
+  font-size: var(--font_u);
   font-weight: 400;
   letter-spacing: .01em;
   line-height: 1.2;
-}
-
-nav
-{
-  background: var(--c_back);
 }
 
 h1,
 h2,
 h3
 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   font-family: var(--font_title);
+  font-style: italic;
+  line-height: 1;
 }
 h1    /* Title */
 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-size: 3.2rem;
+  font-size: calc( var(--font_u) * var(--font_r)  * 2.4 );
   font-weight: 800;
-  line-height: 1; 
+}
+h2,
+h3
+{
+  font-weight: 400;
 }
 h2    /* Section */
 {
-  margin-top: 2.1rem;
-  margin-bottom: 1.4rem;
-  font-style: italic;
-  font-size: 2.2rem;
-  font-weight: 400;
-  line-height: 1; 
+  font-size: calc( var(--font_u) * var(--font_r)  * 1.8 );
 }
 h3    /* Subsection */
 {
-  margin-top: 2rem;
-  margin-bottom: 1.4rem;
-  font-style: italic;
-  font-size: 1.7rem;
-  font-weight: 400;
-  line-height: 1; 
+  font-size: calc( var(--font_u) * var(--font_r)  * 1.5 );
 }
 
-h1 + p
+h1 + p    /* Intro */
 {
-  margin-bottom: 4rem;
+  margin-top: 4rem;
   font-style: italic;
-  font-size: 1.75rem;
+  font-size: calc( var(--font_u) * var(--font_r)  * 1.5 );
+}
+
+nav
+{
+  background: var(--c_back);
 }
 
 section > p,
@@ -100,10 +107,10 @@ p > code
 
 blockquote
 {
-  border-left: 0.3rem solid var(--c_sec_hi);
   margin-left: 0;
   margin-right: 0;
   padding: 1rem 1.5rem;
+  border-left: 0.3rem solid var(--c_sec_hi);
 }
 
 blockquote *:last-child
@@ -130,7 +137,7 @@ ul dl,
 ul ol,
 ul ul
 {
-  font-size: 1.5rem;
+  font-size: var(--font_u);
   margin: 1.5rem 0 1.5rem 3.0rem;
 }
 
@@ -217,7 +224,7 @@ dl,
 ol,
 ul
 {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 pre
 {

@@ -29,7 +29,7 @@ code[class*="language-"],
 pre[class*="language-"]
 {
   color:  hsla( 180, 20%, 100%, 1 );
-	font-size: calc( var(--font_size) * 0.85 * 1% );
+	font-size: 80%;
 }
 
 [data--="note_content"] code,    /* code inside inline_note*/
@@ -43,7 +43,7 @@ p > code
 {
   color: hsla( 180, 10%, 10%, 1 );
 	background: hsla( 180, 20%, 100%, .2 );
-	font-size: calc( var(--font_size) * .6 * 1% );
+	font-size: 70%;    /* Fira Code adjustment */
   border-radius: 4px;
 }
 
@@ -52,7 +52,7 @@ p > code
 {
   padding: var(--PAD_1) var(--PAD_2);
   border: 1px solid var(--c_secondary);
-  font-size: calc( var(--font_size) * 0.8 * 1% );
+  font-size: 90%;
 }
 .toolbar-item > button:hover
 {

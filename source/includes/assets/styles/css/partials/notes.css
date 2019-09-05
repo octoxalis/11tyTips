@@ -9,9 +9,9 @@
   --text_color: var(--c_prim_lo);
   --bg_color:   var(--c_back_lo);
   --line_color: var(--c_prim_tr);
-  --font_body:   85%;
-  --font_sup:    50%;
-  --font_strong: 125%;
+  --font_body:   90%;
+  --font_sup:    60%;
+  --font_strong: 120%;
 
   text-decoration: none;
   cursor: pointer;
@@ -67,7 +67,6 @@ bold <em>:       *Bold text*
 [data--="note_content"] u    /* horizontal line */
 {
   display: inline-block;
-  width: 100%;
   border-top: 1px solid var(--line_color);
 }
 

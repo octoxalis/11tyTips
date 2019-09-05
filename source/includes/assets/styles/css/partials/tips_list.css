@@ -2,7 +2,9 @@
 {
   z-index: 1;
   position: absolute;
-  width: calc( (100 - 16) * 1vw);
+  width: calc( 100vw - ( var(--pad_h) * 2vw ) );
+  max-width: var(--MAX_WIDTH);
+  height: 100vh;
   background: var(--c_back_op);
   transform: scaleY( var(--MENU_SHOW) );
   transition: all 0.3s ease-in-out;
@@ -16,7 +18,7 @@
 {
   content: '⇅';
   margin-left: var(--PAD_8);
-  font-size: calc( var(--font_size) * 0.75 * 1% );
+  font-size: 80%;
   font-style: normal;
 }
 
@@ -35,9 +37,7 @@
 [data--="tips_entry"] span
 {
   padding: 2px var(--PAD_1);
-  font-family: inherit;
-	font-size: calc( var(--font_size) * .8 * 1% );
-  line-height: 1.5;
+  line-height: 1;
   color: hsla( 180, 10%, 10%, 1 );
 	background: var(--c_decor_hi);
 }
