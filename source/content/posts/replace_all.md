@@ -1,6 +1,6 @@
 ---js
 {
-  layout:    `templates/base.njk`,
+  layout:    `templates/base_comments.njk`,
   permalink: `tips/replace_all.html`,
   tags:      [ `tip` ],
   title:     `Replace all`,
@@ -20,7 +20,7 @@
 [//]:#(_replace_all)
 # 11ty Tips
 
-Welcome to ${_ID_s}, a site for the awesome [11ty] static site generator users.
+Welcome to ${_SITE_s}, a site for the awesome [11ty] static site generator users.
 
 ```replace_all``` is ${FUNCTION}:
 replacing ${SOMETHING}, ${ELSE}, is easy.

@@ -1,6 +1,6 @@
 ---js
 {
-  layout:    `templates/base.njk`,
+  layout:    `templates/base_comments.njk`,
   permalink: `tips/style_guide.html`,
   tags:      [ `tip` ],
   title:     `Style guide`,
@@ -14,7 +14,7 @@
 [comment]: # (======== Post ========)
 # Style guide
 
-Welcome to {{ _C.ID_s }}, a site for the awesome [11ty] static site generator users.
+Welcome to {{ _C.SITE_s }}, a site for the awesome [11ty] static site generator users.
 
 ## The Article element
 

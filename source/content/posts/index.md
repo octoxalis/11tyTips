@@ -1,6 +1,6 @@
 ---js
 {
-  layout:    `templates/base.njk`,
+  layout:    `templates/base_comments.njk`,
   permalink: `index.html`,
   tags:      [ `notag` ],
   title:     `Eleventy tips`,
@@ -15,7 +15,7 @@
 
 ## It's Eleventy time!
 
-Welcome to {{_C.ID_s}}, a site for the awesome [11ty] static site generator users.
+Welcome to {{_C.SITE_s}}, a site for the awesome [11ty] static site generator users.
 
 Eleventy (11ty for short) is a static site generator rapidly gaining popularity among JAMstack developers. Its learning curve is short and it offers the largest choice of templating languages compared with others popular SSG
 {% _short_note %}

@@ -1,6 +1,6 @@
 ---js
 {
-  layout:    `templates/base.njk`,
+  layout:    `templates/base_comments.njk`,
   permalink: `site_tree.html`,
   tags:      [ `notag` ],
   title:     `Eleventy tips`,
@@ -12,10 +12,10 @@
   }
 ---
 [comment]: # (======== Post ========)
-# {{_C.ID_s}} site
+# {{_C.SITE_s}} site
 
 {% _code_block %}
-    title_s: '{{_C.ID_s}} tree',
+    title_s: '{{_C.SITE_s}} tree',
     lang_s: "txt",
 [//]:#(_code_block)
 source
@@ -47,7 +47,7 @@ source
 │           │   ├── plugins.js
 │           │   └── shortcodes.js
 │           └── lib
-│               ├── content_split.js
+│               ├── block_split.js
 │               └── replace.js
 ├── content
 │   ├── includes
@@ -61,7 +61,7 @@ source
 │       └── tips_list.md
 ├── data
 │   ├── lib
-│   │   └── utils.js
+│   │   └── mockup.js
 │   ├── posts
 │   ├── _C.js
 │   ├── descriptions.js

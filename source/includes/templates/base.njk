@@ -19,7 +19,8 @@
     {% block scripts %}
     {% if settings.dev_b === false %}{% include "assets/scripts/js/lib/_instant_page_.njk" %}{% endif %}
     {% include "templates/partials/blocks/_scripts_.njk" %}
-    {% include "templates/partials/blocks/_comments_.njk" %}
     {% endblock %}
+    {% block comments %}{% endblock %}
+
   </body>
 </html>

@@ -1,7 +1,4 @@
-/*
- * Libraries definition module
- */
-module.exports = ( config_o ) =>
+module.exports = config_o =>
 {
   let markdown_o =
   {

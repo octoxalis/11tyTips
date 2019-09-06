@@ -1,19 +1,14 @@
-/*
- * Shortcodes definition module
- * Nunjucks
- */
-const replace__s = require( '../lib/replace.js' )
-const content__a = require( '../lib/content_split.js' )
+const replace__s = require( '../lib/block_replace.js' )
+const split__a   = require( '../lib/block_split.js' )
 
 const CODES_o =
 {
-  _short_note__s: ( content_s ) =>
-    `<ins data--="inline_note"><sup></sup><span data--="note_content">${content_s}</span></ins>`,
+  short_note__s: content_s =>
+`<ins data--="inline_note"><sup></sup><span data--="note_content">${content_s}</span></ins>`,
 
-  _code_block__s: ( content_s ) =>
+  code_block__s: content_s =>
   {
-    const code_s = '_code_block'
-    let [ content_a, content_o ] = content__a( content_s, code_s )
+    let [ content_a, content_o ] = split__a( content_s, '_code_block' )
     let content_a1_s = content_a[1].replace( /\n\n+/g, '\n&nbsp;\n' )  //: avoid Markdown <p> insert
     return `<hgroup data--="code_ref">
 <h5>${content_o.title_s}</h5>
@@ -22,18 +17,17 @@ const CODES_o =
 <pre><code class="language-${content_o.lang_s}">${content_a1_s}</code></pre>`
   },
 
-  _replace_all__s: ( content_s ) =>
+  replace_all__s: content_s =>
   {
-    const code_s = '_replace_all'
-    let [ content_a, content_o ] = content__a( content_s, code_s )
+    let [ content_a, content_o ] = split__a( content_s, '_replace_all' )
     return replace__s( content_o, content_a[1] )
   },
 
 }
 
-module.exports = config =>
+module.exports = config_o =>
 {
-  config.addPairedShortcode("_short_note", ( content_s ) => CODES_o._short_note__s( content_s ) )
-  config.addPairedShortcode("_code_block", ( content_s ) => CODES_o._code_block__s( content_s ) )
-  config.addPairedShortcode("_replace_all", ( content_s ) => CODES_o._replace_all__s( content_s ) )
+  config_o.addPairedShortcode("_short_note", content_s => CODES_o.short_note__s( content_s ) )
+  config_o.addPairedShortcode("_code_block", content_s => CODES_o.code_block__s( content_s ) )
+  config_o.addPairedShortcode("_replace_all", content_s => CODES_o.replace_all__s( content_s ) )
 }
