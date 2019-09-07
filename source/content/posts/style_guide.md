@@ -103,16 +103,15 @@ Unordered list:<br>
 + Tertio
 
 {% _short_note %}
-List inside an inline note:<br>
-*only after a list item*
+List inside an inline note
 {% end_short_note %}
-- Note list
+- It works...
 {% _short_note %}
+ *only preceded by a list item*
   + One
 { data--="ulist" }
   + Two
   + Three
 {% end_short_note %}
-
 
 [comment]: # (======== Links ========)

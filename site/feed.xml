@@ -29,6 +29,38 @@
   </entry>
   
   <entry>
+    <title>Global settings</title>
+    <link href="https://11tytips.netlify.com/tips/site_settings.html"/>
+    <updated>2019-09-03T02:00:00+02:00</updated>
+    <id>https://11tytips.netlify.com/tips/site_settings.html</id>
+    <content type="html">&lt;h2&gt;Data everywhere&lt;/h2&gt;
+&lt;p&gt;Eleventy provides a wide range of settings for &lt;a href=&quot;https://www.11ty.io/docs/data/&quot;&gt;data&lt;/a&gt; used in building stage or inside content: &lt;a href=&quot;https://www.11ty.io/docs/data-global/&quot;&gt;global&lt;/a&gt; data as well as &lt;a href=&quot;https://www.11ty.io/docs/data-template-dir/&quot;&gt;template and directory&lt;/a&gt; data.&lt;/p&gt;
+&lt;p&gt;11tyTips uses only global data contained in JavaScript files located inside the data directory.&lt;/p&gt;
+&lt;hgroup data--=&quot;code_ref&quot;&gt;
+&lt;h5&gt;source/data/settings.js&lt;/h5&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;/hgroup&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+const _C = require( &#39;./_C.js&#39; )
+const SETTINGS_o =
+{
+  dev_s: _C.DEV_s,
+  pro_s: _C.PRO_s,
+  git_s: _C.GIT_s,
+  twi_s: _C.TWI_s,
+  rss_s: _C.RSS_s,
+  url_s: null,
+  dev_b: true,
+  //dev_b: false,
+}
+;(() =&gt; SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? &#39;dev_s&#39; : &#39;pro_s&#39;])()
+console.log( `Site URL: ${SETTINGS_o.url_s}` )
+module.exports = SETTINGS_o
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
     <title>Site structure</title>
     <link href="https://11tytips.netlify.com/tips/site_structure.html"/>
     <updated>2019-09-03T02:00:00+02:00</updated>
@@ -270,12 +302,12 @@ Unordered list:&lt;br&gt;
 &lt;li&gt;Tertio&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
-List inside an inline note:&lt;br&gt;
-&lt;em&gt;only after a list item&lt;/em&gt;
+List inside an inline note
 &lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Note list
+&lt;li&gt;It works…
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+&lt;em&gt;only preceded by a list item&lt;/em&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;One&lt;/li&gt;
 &lt;li&gt;Two&lt;/li&gt;
