@@ -1,44 +1,67 @@
 ---js
 {
+  date:      `2019-09-01`,
   layout:    `templates/base_comments.njk`,
   permalink: `index.html`,
   tags:      [ `notag` ],
-  title:     `Eleventy tips`,
+  title:     `11tyTips`,
   subtitle:  `Inside Eleventy static site generator`,
-  author:    `Octoxalis`,
-  date:      `2019-08-09`,
-  hdates:     [ `09-08-2019` ],
   abstract:  `Eleventy tips and tricks`,
+  author:    `Octoxalis`,
 }
 ---
 [comment]: # (======== Post ========)
 
 ## It's Eleventy time!
 
-Welcome to {{_C.SITE_s}}, a site for the awesome [11ty] static site generator users.
+Welcome to {{_C.SITE_s}}, a site for the awesome [Eleventy]{target="_blank" rel="noreferrer"} static site generator users.
 
 Eleventy (11ty for short) is a static site generator rapidly gaining popularity among JAMstack developers. Its learning curve is short and it offers the largest choice of templating languages compared with others popular SSG
 {% _short_note %}
 SSGs usually provide only one templating option: React, Liquid, Go, Jinja2, etc.
-<br>
-[Hexo](https://www.staticgen.com/hexo) is the most notable exception, but Eleventy has even more options.
+[Hexo]{target="_blank" rel="noreferrer"} is the most notable exception, but 11ty has even more options.
 {% end_short_note %}
 .
 
 11ty can be used without any configuration
 {% _short_note %}
-Eleventy is really [zero-config] out ofthe box!
+it is [zero-config]{target="_blank" rel="noreferrer"} out of the box!
 {% end_short_note %}
-, but its huge power comes from the fact that it is backed by all the Node.js ecosystem. Therefore, you can do anything Node is able to do when building your static site with 11ty.
+, but its power comes from the fact that it is backed by the huge [Node.js]{target="_blank" rel="noreferrer"} ecosystem. Therefore, when building your static site with 11ty, you can do anything Node is able to do.
 
 ## Tips for newbies...and advanced users
 
+{{_C.SITE_s}} will provide you useful tips and tricks to unleash the power of 11ty. If you've never built a static site, thanks to the simplicity of this generator, you will be able to install your site, by cloning the Github repository of this site, replacing its content files with your own Markdown content
+{% _short_note %}
+Follow the [clone site] page instructions to start with a clean site skeleton.
+{% end_short_note %}
+.
 
+The styles have been carefully designed to give you a nice and simple presentation while offering advanced capabilities for a responsive layout with fluid fonts
+{% _short_note %}
+Applying Michael Riethmuller [formula]{target="_blank" rel="noreferrer"}.
+{% end_short_note %}
+, inline notes
+{% _short_note %}
+With full Markdown content, styling, linking, code blocks, etc.
+{% end_short_note %}
+as well as a good commenting system
+{% _short_note %}
+Using the Github [utteranc.es]{target="_blank" rel="noreferrer"} repository.
+{% end_short_note %}
+.
 
-Have a look at the site [source tree]
+Have a look at the site [source tree] and [style guide].
 
 [comment]: # (======== Links ========)
 
 [source tree]: {{ settings.url_s + 'site_tree.html' }}
-[11ty]: https://11ty.io
+[style guide]: {{ settings.url_s + 'tips/style_guide.html' }}
+[clone site]:  {{ settings.url_s + 'clone_site.html' }}
+
+[Eleventy]: https://11ty.io
 [zero-config]: https://www.11ty.io/docs/resources/#zero-config
+[Hexo]: https://www.staticgen.com/hexo
+[Node.js]: https://nodejs.org
+[formula]: https://www.smashingmagazine.com/2016/05/fluid-typography/#comments-fluid-typography
+[utteranc.es]: https://github.com/utterance/utterances

@@ -16,6 +16,7 @@ body
 {
   --font_u: 1em;  /* font unit */
   --font_r: 1.1;  /* font ratio */
+  --line_length: 60ch;
 
   background: var(--c_back_lo);
   font-size: var(--font_u);
@@ -29,7 +30,7 @@ h2,
 h3
 {
   margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   font-family: var(--font_title);
   font-style: italic;
   line-height: 1;
@@ -53,11 +54,16 @@ h3    /* Subsection */
   font-size: calc( var(--font_u) * var(--font_r)  * 1.5 );
 }
 
-h1 + p    /* Intro */
+p
 {
-  margin-top: 4rem;
-  font-style: italic;
-  font-size: calc( var(--font_u) * var(--font_r)  * 1.5 );
+  margin-bottom: 0;
+}
+
+hr
+{
+  border: 0;
+  border-top: .2rem solid var(--c_decor);
+  margin: 3rem 0 2rem 0;
 }
 
 nav
@@ -73,16 +79,11 @@ menu
 
 section > p,
 section > footer,
-section > table
-{
-  max-width: 55ch;
-}
-
+section > table,
 section > ol,
 section > ul
 {
-  max-width: 50ch;
-  -webkit-padding-start: 5%;
+  max-width: var(--line_length);
 }
 
 pre
@@ -147,6 +148,7 @@ ul ul
   margin: .5rem 0 .5rem 1rem;
 }
 
+/*
 ol
 {
   list-style: decimal inside;
@@ -156,6 +158,7 @@ ul
 {
   list-style: circle inside;
 }
+*/
 
 dd,
 dt,
@@ -196,21 +199,8 @@ strong
   font-weight: bold;
 }
 
-p
-{
-  margin-top: 0;
-}
-
-hr
-{
-  border: 0;
-  border-top: 0.1rem solid #f4f5f6;
-  margin: 3.0rem 0;
-}
-
 a
 {
-  
   color: #9b4dca;
   /*text-decoration: none;*/
   text-decoration-color: #9b4dca;
@@ -230,7 +220,7 @@ dl,
 ol,
 ul
 {
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 pre
 {

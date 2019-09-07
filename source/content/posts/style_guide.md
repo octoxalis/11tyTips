@@ -1,69 +1,118 @@
 ---js
 {
+  date:      `2019-09-05`,
   layout:    `templates/base_comments.njk`,
   permalink: `tips/style_guide.html`,
   tags:      [ `tip` ],
   title:     `Style guide`,
   subtitle:  `inside an awesome static site generator`,
-  author:    `Octoxalis`,
-  date:      `2019-08-09`,
-  hdates:     [ `09-08-2019` ],
   abstract:  `Tips and tricks`,
+  author:    `Octoxalis`,
 }
 ---
 [comment]: # (======== Post ========)
+{% _short_note %}h1 element<br>p element (introduction){% end_short_note %}
+
 # Style guide
 
-Welcome to {{ _C.SITE_s }}, a site for the awesome [11ty] static site generator users.
+This is an introduction paragraph which should be limited in length.{ data--="page_intro" }
 
-## The Article element
+{% _short_note %}h2 element{% end_short_note %}
 
-The article element
-{% _short_note %}
-__An HTML5 addition__
-<u></u>
-The &lt;article&gt; tag has been added in *HTML5* standard.
-__<br>__
-{% end_short_note %}
-represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
+## Paragraph title
 
-##  The Hgroup element
+{% _short_note %}h3 element{% end_short_note %}
 
-The hgroup element
-{% _short_note %}
-<code>
-for( let at = 0; at < keys_a.length; ++at )
-</code>
-{% end_short_note %}
-represents the heading of a section, which consists of all the h1–h6 element children of the hgroup element. The element is used to group a set of h1–h6 elements when the heading has multiple levels, such as subheadings, alternative titles, or taglines.
+### Paragraph subtitle
 
-The rank of an hgroup element is the rank of the highest-ranked h1–h6 element descendant of the hgroup element, if there are any such elements, or otherwise the same as for an h1 element (the highest rank). Other h1–h6 elements of heading content in the hgroup element indicate subheadings or subtitles or (secondary) alternative titles.
+NB: Titles have a `font-style: italic`
+
+{% _short_note %}p element{% end_short_note %}
+
+Paragraph content have a maximum line length fixed to 60ch, yielding to a number of  of about 70 characters per line: this is considered the best line length for readibility.
+
+{% _short_note %}inline code{% end_short_note %}
+
+`for( let at = 0; at < keys_a.length; ++at )`
+
+{% _short_note %}code block{% end_short_note %}
 
 {% _code_block %}
-    title_s: '/file/path/code_bis.js',
-    id_n: 43,
+    title_s: 'source/eleventy.js',
     lang_s: "javascript",
 [//]:#(_code_block)
-const CALL_s = 'call_f'
-
-
-const replace__s = ( content_o, content_s, id_s ) =>
+const ELEVENTY_o =
 {
-  const keys_a = Object.keys( content_o )
-  for( let at = 0; at < keys_a.length; ++at )
-  {
-    const key_s = keys_a[at]
-    const string_s = id_s ? `\\$\\{${id_s}.${key_s}\\}` : `\\$\\{${key_s}\\}`
-    content_s = content_s.replace( new RegExp( string_s, 'g' ),
-    ( key_s === CALL_s ) ?
-      eval( content_o[key_s] )( content_o )
-      : content_o[key_s] )
-  }
-  return content_s
+  buildDir_s: './build/scripts/js/11ty/',
+  templateIncludesDir_s: 'includes',
+  contentIncludesDir_s: './content/includes',
 }
 
-module.exports = replace__s
+module.exports = config_o =>
+{
+  config_o.templateIncludesDir_s = ELEVENTY_o.templateIncludesDir_s
+  config_o.contentIncludesDir_s = ELEVENTY_o.contentIncludesDir_s
+  config_o.addPassthroughCopy( 'assets' )    //: STATIC FILES
+  ;
+  [ 'libraries',
+    'collections',
+    'shortcodes',
+    'filters',
+    'plugins'
+  ].forEach( config_s => require( `${ELEVENTY_o.buildDir_s}${config_s}.js` )( config_o ) )
+
+  return {    // : return the config object for further customization
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine:     'njk',
+    dataTemplateEngine:     'njk',
+    templateFormats:        [ 'md','njk','html' ],
+    passthroughFileCopy:    true,
+    pathPrefix:             '/',
+    dir:
+    {
+      input:    '.',
+      output:   '../site',
+      data:     'data',
+      includes: 'includes',
+      passthru: 'assets',
+    },
+  }
+}
 {% end_code_block %}
 
+{% _short_note %}
+Unordered list:<br>
+`data--="ulist"` attribute has to be set on a *separate line*
+{% end_short_note %}
++ Primo
+{ data--="ulist" }
++ Secondo
++ Tertio
+
+{% _short_note %}Nested unordered list{% end_short_note %}
++ Primo
+{ data--="ulist" }
+  - One
+{ data--="ulist" }
+  - Two
+  - Three
++ Secondo
+  - Un
+{ data--="ulist" }
+  - Deux
++ Tertio
+
+{% _short_note %}
+List inside an inline note:<br>
+*only after a list item*
+{% end_short_note %}
+- Note list
+{% _short_note %}
+  + One
+{ data--="ulist" }
+  + Two
+  + Three
+{% end_short_note %}
+
+
 [comment]: # (======== Links ========)
-{{_C._11TY_LINK_s }}
