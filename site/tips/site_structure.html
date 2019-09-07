@@ -4,12 +4,12 @@
   <head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Style guide</title>
+<title>Site structure</title>
 
   
   
 
-<meta name="description" content="Inside an awesome static site generator,A blog devoted to Eleventy static site generator users,Useful tips to use Eleventy static site generator: site structure, content processing, build processing, assets minifying">
+<meta name="description" content="How to structure a JAMstack site,A blog devoted to Eleventy static site generator users,Useful tips to use Eleventy static site generator: site structure, content processing, build processing, assets minifying">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://11tytips.netlify.com/assets/media/apple-touch-icon.png">
@@ -39,103 +39,32 @@ const _URL_s='https://11tytips.netlify.com/'
 
     <article data--="article">
   <section data--="section">
-  <p><ins data--="inline_note"><sup></sup><span data--="note_content">h1 element<br>p element (introduction)</span></ins></p>
-<h1>Style guide</h1>
-<p data--="page_intro">This is an introduction paragraph which should be limited in length.</p>
-<p><ins data--="inline_note"><sup></sup><span data--="note_content">h2 element</span></ins></p>
-<h2>Paragraph title</h2>
-<p><ins data--="inline_note"><sup></sup><span data--="note_content">h3 element</span></ins></p>
-<h3>Paragraph subtitle</h3>
-<p>NB: Titles have a <code>font-style: italic</code></p>
-<p><ins data--="inline_note"><sup></sup><span data--="note_content">p element</span></ins></p>
-<p>Paragraph content have a maximum line length fixed to 60ch, yielding to a number of  of about 70 characters per line: this is considered the best line length for readibility.</p>
-<p><ins data--="inline_note"><sup></sup><span data--="note_content">inline code</span></ins></p>
-<p><code>for( let at = 0; at &lt; keys_a.length; ++at )</code></p>
-<p><ins data--="inline_note"><sup></sup><span data--="note_content">code block</span></ins></p>
-<hgroup data--="code_ref">
-<h5>source/eleventy.js</h5>
-<h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
-</hgroup>
-<pre><code class="language-javascript">
-const ELEVENTY_o =
-{
-  buildDir_s: './build/scripts/js/11ty/',
-  templateIncludesDir_s: 'includes',
-  contentIncludesDir_s: './content/includes',
-}
-&nbsp;
-module.exports = config_o =>
-{
-  config_o.templateIncludesDir_s = ELEVENTY_o.templateIncludesDir_s
-  config_o.contentIncludesDir_s = ELEVENTY_o.contentIncludesDir_s
-  config_o.addPassthroughCopy( 'assets' )    //: STATIC FILES
-  ;
-  [ 'libraries',
-    'collections',
-    'shortcodes',
-    'filters',
-    'plugins'
-  ].forEach( config_s => require( `${ELEVENTY_o.buildDir_s}${config_s}.js` )( config_o ) )
-&nbsp;
-  return {    // : return the config object for further customization
-    markdownTemplateEngine: 'njk',
-    htmlTemplateEngine:     'njk',
-    dataTemplateEngine:     'njk',
-    templateFormats:        [ 'md','njk','html' ],
-    passthroughFileCopy:    true,
-    pathPrefix:             '/',
-    dir:
-    {
-      input:    '.',
-      output:   '../site',
-      data:     'data',
-      includes: 'includes',
-      passthru: 'assets',
-    },
-  }
-}
-</code></pre>
-<p><ins data--="inline_note"><sup></sup><span data--="note_content">
-Unordered list:<br>
-<code>data--=&quot;ulist&quot;</code> attribute has to be set on a <em>separate line</em>
-</span></ins></p>
+  <h2>The JAMstack architecture</h2>
+<p>Eleventy, as most static sites, relies on an architectural paradigm called <a href="https://jamstack.org/" target="_blank" rel="noreferrer">JAMstack</a>, an acronym meaning:</p>
 <ul data--="ulist">
-<li>Primo</li>
-<li>Secondo</li>
-<li>Tertio</li>
+<li>JavaScript,</li>
+<li>APIs,</li>
+<li>Markdown.</li>
 </ul>
-<p><ins data--="inline_note"><sup></sup><span data--="note_content">Nested unordered list</span></ins></p>
-<ul data--="ulist">
-<li>Primo
-<ul data--="ulist">
-<li>One</li>
-<li>Two</li>
-<li>Three</li>
-</ul>
-</li>
-<li>Secondo
-<ul data--="ulist">
-<li>Un</li>
-<li>Deux</li>
-</ul>
-</li>
-<li>Tertio</li>
-</ul>
-<p><ins data--="inline_note"><sup></sup><span data--="note_content">
-List inside an inline note
-</span></ins></p>
-<ul>
-<li>It works…
+<p><q>a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.</q>
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-<em>only preceded by a list item</em>
-<ul data--="ulist">
-<li>One</li>
-<li>Two</li>
-<li>Three
-</span></ins></li>
-</ul>
-</li>
-</ul>
+See Mathias Biilmann &amp; Phil Hawksworth book: <a href="https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf" target="_blank" rel="noreferrer">Modern Web development on the JAMstack</a>.
+</span></ins>.</p>
+<p>In the JAMstack architecture, <em>JavaScript</em> is used not only in the browser for interactivity and presentation but also to build all the files of the site
+<ins data--="inline_note"><sup></sup><span data--="note_content">
+This is the case of Eleventy. Other generators use different languages: Go, Python, etc.
+</span></ins>
+; the <em>APIs</em> are the programming interfaces to Node packages
+<ins data--="inline_note"><sup></sup><span data--="note_content">
+Eleventy itself is a Node package.
+</span></ins>
+or other frameworks used as a back end; <em>Markdown</em> is used to set the content of each page of the site, with a settings part (front matter) using either JavaScript or a description language like YAML or TOML and a template part
+<ins data--="inline_note"><sup></sup><span data--="note_content">
+There are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
+</span></ins>
+.</p>
+<h2>11tyTips architecture</h2>
+<p>Trying to stay as simple as possible, this site is built using a minimal set of the JAMstack architecture: JavaScript backed by the Node ecosystem, Nunjucks and Markdown.</p>
 
   </section>
 </article>
