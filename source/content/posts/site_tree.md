@@ -4,7 +4,7 @@
   layout:    `templates/base_comments.njk`,
   permalink: `tips/site_tree.html`,
   tags:      [ `tip` ],
-  title:     `11tyTips source tree`,
+  title:     `Source tree`,
   subtitle:  `List of the directories and files of the site`,
   abstract:  `A bird's-eye view of the site`,
   author:    `Octoxalis`,
