@@ -1,7 +1,7 @@
 ---js
 {
   date:      `2019-09-02`,
-  layout:    `templates/base_comments.njk`,
+  layout:    `templates/base.njk`,
   permalink: `tips/clone_site.html`,
   tags:      [ `tip` ],
   title:     `Cloning 11tyTips site`,

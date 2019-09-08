@@ -1,7 +1,7 @@
 ---js
 {
   date:      `2019-09-03`,
-  layout:    `templates/base_comments.njk`,
+  layout:    `templates/base.njk`,
   permalink: `tips/site_structure.html`,
   tags:      [ `tip` ],
   title:     `Site structure`,

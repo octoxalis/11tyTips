@@ -1,7 +1,7 @@
 ---js
 {
   date:      `2019-09-01`,
-  layout:    `templates/base_comments.njk`,
+  layout:    `templates/base.njk`,
   permalink: `index.html`,
   tags:      [ `notag` ],
   title:     `11tyTips`,

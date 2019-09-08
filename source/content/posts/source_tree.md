@@ -1,7 +1,7 @@
 ---js
 {
   date:      `2019-09-04`,
-  layout:    `templates/base_comments.njk`,
+  layout:    `templates/base.njk`,
   permalink: `tips/source_tree.html`,
   tags:      [ `tip` ],
   title:     `Source tree`,

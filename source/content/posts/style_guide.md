@@ -1,7 +1,7 @@
 ---js
 {
   date:      `2019-09-05`,
-  layout:    `templates/base_comments.njk`,
+  layout:    `templates/base.njk`,
   permalink: `tips/style_guide.html`,
   tags:      [ `tip` ],
   title:     `Style guide`,
