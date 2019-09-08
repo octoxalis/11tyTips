@@ -14,13 +14,7 @@
 
 ## The JAMstack architecture
 
-Eleventy, as most static sites, relies on an architectural paradigm called [JAMstack]{target="_blank" rel="noreferrer"}, an acronym meaning:
-+ JavaScript,
-{ data--="ulist" }
-+ APIs,
-+ Markdown.
-
-<q>a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.</q>
+Eleventy, as most static sites, relies on an architectural paradigm called [JAMstack]{target="_blank" rel="noreferrer"}, an acronym meaning: <q>a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.</q>
 {% _short_note %}
 See Mathias Biilmann & Phil Hawksworth book: [Modern Web development on the JAMstack]{target="_blank" rel="noreferrer"}.
 {% end_short_note %}.
@@ -45,7 +39,6 @@ Trying to stay as simple as possible, this site is built using a minimal set of 
 
 
 [comment]: # (======== Links ========)
-{{_C._11TY_LINK_s }}
 
 [JAMstack]: https://jamstack.org/
 [Modern Web development on the JAMstack]: https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf

@@ -40,6 +40,7 @@ module.exports = SETTINGS_o
 {% end_code_block %}
 
 [comment]: # (======== Links ========)
+
 [data]: https://www.11ty.io/docs/data/
 [global]: https://www.11ty.io/docs/data-global/
 [template and directory]: https://www.11ty.io/docs/data-template-dir/

@@ -5,8 +5,8 @@
   permalink: `tips/style_guide.html`,
   tags:      [ `tip` ],
   title:     `Style guide`,
-  subtitle:  `Inside an awesome static site generator`,
-  abstract:  `Tips and tricks`,
+  subtitle:  `Styles of this site`,
+  abstract:  `Styles listing`,
   author:    `Octoxalis`,
 }
 ---

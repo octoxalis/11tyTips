@@ -55,13 +55,14 @@ Have a look at the site [source tree] and [style guide].
 
 [comment]: # (======== Links ========)
 
-[source tree]: {{ settings.url_s + 'site_tree.html' }}
-[style guide]: {{ settings.url_s + 'tips/style_guide.html' }}
-[clone site]:  {{ settings.url_s + 'clone_site.html' }}
+{{ lib.utils.siteUrl__s( 'style_guide' ) }}
+{{ lib.utils.siteUrl__s( 'clone_site' ) }}
+{{ lib.utils.siteUrl__s( 'source_tree' ) }}
 
-[Eleventy]: https://11ty.io
+{{ _C._ELEVENTY_s }}
+{{ _C._UTTERANCES_s }}
+{{ _C._NODEJS_s }}
+ 
 [zero-config]: https://www.11ty.io/docs/resources/#zero-config
 [Hexo]: https://www.staticgen.com/hexo
-[Node.js]: https://nodejs.org
 [formula]: https://www.smashingmagazine.com/2016/05/fluid-typography/#comments-fluid-typography
-[utteranc.es]: https://github.com/utterance/utterances

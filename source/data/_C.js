@@ -10,6 +10,8 @@ module.exports =
   RSS_s  : `https://${SITE_s.toLowerCase()}.netlify.com/feed.xml`,
 
 
-  _11TY_s      : `https://11ty.io`,
-  _11TY_LINK_s : `[11ty]: https://11ty.io`,
+  _HOME_s      : `[Home page]:   https://${SITE_s.toLowerCase()}.netlify.com/`,
+  _ELEVENTY_s  : `[Eleventy]:    https://11ty.io`,
+  _UTTERANCES_s: `[utteranc.es]: https://github.com/utterance/utterances`,
+  _NODEJS_s:     `[Node.js]:     https://nodejs.org`,
 }

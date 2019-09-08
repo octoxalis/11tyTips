@@ -31,19 +31,19 @@ source
 │               └── block_split.js
 ├── content
 │   ├── includes
-│   │   └── site_tree.txt
+│   │   └── source_tree.txt
 │   └── posts
 │       ├── 404.md
 │       ├── clone_site.md
 │       ├── feed.md
 │       ├── index.md
 │       ├── site_structure.md
-│       ├── site_tree.md
+│       ├── source_tree.md
 │       ├── style_guide.md
 │       └── tips_list.md
 ├── data
 │   ├── lib
-│   │   └── mockup.js
+│   │   └── utils.js
 │   ├── posts
 │   ├── _C.js
 │   ├── descriptions.js

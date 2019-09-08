@@ -2,10 +2,10 @@
 {
   date:      `2019-09-04`,
   layout:    `templates/base_comments.njk`,
-  permalink: `tips/site_tree.html`,
+  permalink: `tips/source_tree.html`,
   tags:      [ `tip` ],
   title:     `Source tree`,
-  subtitle:  `List of the directories and files of the site`,
+  subtitle:  `List of the directories and files of this site`,
   abstract:  `A bird's-eye view of the site`,
   author:    `Octoxalis`,
   }
@@ -14,12 +14,10 @@
 ## {{_C.SITE_s}} site
 
 {% _code_block %}
-    title_s: '{{_C.SITE_s}} tree',
+    title_s: '{{_C.SITE_s}} source tree',
     lang_s: "txt",
 [//]:#(_code_block)
-!!!include( site_tree.txt )!!!
+!!!include( source_tree.txt )!!!
 {% end_code_block %}
 
 [comment]: # (======== Links ========)
-
-[11ty]: https://11ty.io

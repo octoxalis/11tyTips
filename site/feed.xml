@@ -66,13 +66,7 @@ module.exports = SETTINGS_o
     <updated>2019-09-03T02:00:00+02:00</updated>
     <id>https://11tytips.netlify.com/tips/site_structure.html</id>
     <content type="html">&lt;h2&gt;The JAMstack architecture&lt;/h2&gt;
-&lt;p&gt;Eleventy, as most static sites, relies on an architectural paradigm called &lt;a href=&quot;https://jamstack.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;JAMstack&lt;/a&gt;, an acronym meaning:&lt;/p&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;JavaScript,&lt;/li&gt;
-&lt;li&gt;APIs,&lt;/li&gt;
-&lt;li&gt;Markdown.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;q&gt;a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.&lt;/q&gt;
+&lt;p&gt;Eleventy, as most static sites, relies on an architectural paradigm called &lt;a href=&quot;https://jamstack.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;JAMstack&lt;/a&gt;, an acronym meaning: &lt;q&gt;a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.&lt;/q&gt;
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 See Mathias Biilmann &amp;amp; Phil Hawksworth book: &lt;a href=&quot;https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Modern Web development on the JAMstack&lt;/a&gt;.
 &lt;/span&gt;&lt;/ins&gt;.&lt;/p&gt;
@@ -96,12 +90,12 @@ There are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
   
   <entry>
     <title>Source tree</title>
-    <link href="https://11tytips.netlify.com/tips/site_tree.html"/>
+    <link href="https://11tytips.netlify.com/tips/source_tree.html"/>
     <updated>2019-09-04T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/site_tree.html</id>
+    <id>https://11tytips.netlify.com/tips/source_tree.html</id>
     <content type="html">&lt;h2&gt;11tyTips site&lt;/h2&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips tree&lt;/h5&gt;
+&lt;h5&gt;11tyTips source tree&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;
@@ -138,19 +132,19 @@ source
 │               └── block_split.js
 ├── content
 │   ├── includes
-│   │   └── site_tree.txt
+│   │   └── source_tree.txt
 │   └── posts
 │       ├── 404.md
 │       ├── clone_site.md
 │       ├── feed.md
 │       ├── index.md
 │       ├── site_structure.md
-│       ├── site_tree.md
+│       ├── source_tree.md
 │       ├── style_guide.md
 │       └── tips_list.md
 ├── data
 │   ├── lib
-│   │   └── mockup.js
+│   │   └── utils.js
 │   ├── posts
 │   ├── _C.js
 │   ├── descriptions.js
