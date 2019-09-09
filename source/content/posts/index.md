@@ -59,9 +59,9 @@ Have a look at the site [source tree] and [style guide].
 {{ lib.utils.siteUrl__s( 'clone_site' ) }}
 {{ lib.utils.siteUrl__s( 'source_tree' ) }}
 
-{{ _C._ELEVENTY_s }}
-{{ _C._UTTERANCES_s }}
-{{ _C._NODEJS_s }}
+{{ _C.ELTY_s }}
+{{ _C.UT_s }}
+{{ _C.NODE_s }}
  
 [zero-config]: https://www.11ty.io/docs/resources/#zero-config
 [Hexo]: https://www.staticgen.com/hexo

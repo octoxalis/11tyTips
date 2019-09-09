@@ -5,7 +5,7 @@
   <link href="https://11tytips.netlify.com/feed.xml" rel="self"/>
   <link href="https://11tytips.netlify.com/"/>
 
-  <updated>2019-09-05T02:00:00+02:00</updated>
+  <updated>2019-09-06T02:00:00+02:00</updated>
   <id>https://11tytips.netlify.com/</id>
   <author>
     <name>Octoxalis</name>
@@ -310,6 +310,130 @@ List inside an inline note
 &lt;/ul&gt;
 
 
+</content>
+  </entry>
+  
+  <entry>
+    <title>Front matter</title>
+    <link href="https://11tytips.netlify.com/tips/frontmatter_data.html"/>
+    <updated>2019-09-06T02:00:00+02:00</updated>
+    <id>https://11tytips.netlify.com/tips/frontmatter_data.html</id>
+    <content type="html">&lt;h2&gt;Front matter data&lt;/h2&gt;
+&lt;p&gt;Each Markdown file has its own data, declared at the begining of the file in the front matter part
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+uses a JavaScript object for front matter.
+&lt;/span&gt;&lt;/ins&gt;
+, a few ones being mandatory
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+No so strickly speaking! For instance, you’re not requested to use a Date, but it’s more than useful if you want to sort your posts by date.
+&lt;/span&gt;&lt;/ins&gt;
+, others being used to supply some page specific content or variables
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Have a look at &lt;a href=&quot;https://11ty.io/docs/data-frontmatter/#user-defined-front-matter-customizations&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Eleventy#user-defined-front-matter-customizations&lt;/a&gt; for a list of Eleventy properties usable in front matter.
+&lt;/span&gt;&lt;/ins&gt;
+.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Mandatory data&lt;/em&gt;&lt;/p&gt;
+&lt;ul data--=&quot;ulist&quot;&gt;
+&lt;li&gt;Date
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+The Date property is mainly used to sort the posts but also to be shown it on the page.
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
+&lt;li&gt;Layout
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+This is the template used to render the page.
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
+&lt;li&gt;Permalink
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+This is the name of the output file: HTML, or any other format (e.g. minified JavaScript).
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
+&lt;li&gt;Tags
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+The collection(s) including the output file.
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Specific data&lt;/em&gt;&lt;/p&gt;
+&lt;ul data--=&quot;ulist&quot;&gt;
+&lt;li&gt;Title
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Used by 11tyTips to identify the page in the browser tab.
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
+&lt;li&gt;Subtitle
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Used by 11tyTips to describe the page content in the Tips list menu.
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
+&lt;li&gt;Abstract
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Actually not used by 11tyTips, but could be…
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
+&lt;li&gt;Author
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Useful if there are multiple authors for the posts of the site.
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hgroup data--=&quot;code_ref&quot;&gt;
+&lt;h5&gt;Page front matter data&lt;/h5&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;/hgroup&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+---js
+{
+  date:      `2019-09-06`,
+  layout:    `templates/base.njk`,
+  permalink: `tips/frontmatter_data.html`,
+  tags:      [ `tip` ],
+  title:     `Front matter`,
+  subtitle:  `Front matter data howto`,
+  abstract:  `Accessing front matter data in Markdown and templates`,
+  author:    `Octoxalis`,
+&amp;nbsp;
+  jfm_s: `/docs/data-frontmatter/#javascript-front-matter`,
+}
+---
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To access any property declared in the front matter it has to be enclosed in double parenthesis &lt;code&gt;{{ ... }}&lt;/code&gt;. For instance, the &lt;code&gt;abstract&lt;/code&gt; property in the front matter is injected in this page with the following code: &lt;code&gt;{{ abstract }}&lt;/code&gt; and renders as:&lt;br&gt;
+&lt;q&gt;Accessing front matter data in Markdown and templates&lt;/q&gt;.&lt;/p&gt;
+&lt;h2&gt;Function properties&lt;/h2&gt;
+&lt;p&gt;If you use JavaScript for the front matter
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+A very good idea because it gives you the full power of the language to process your content.
+&lt;/span&gt;&lt;/ins&gt;
+and Nunjucks as templating system, you can declare functions as properties
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+See &lt;a href=&quot;https://11ty.io/docs/data-frontmatter/#javascript-front-matter&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Eleventy#javascript-front-matter&lt;/a&gt; documentation page.
+&lt;/span&gt;&lt;/ins&gt;
+. However, apart very specific cases, it’s much more easy to declare content processing functions in a module located inside the data directory
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful.
+&lt;/span&gt;&lt;/ins&gt;
+.&lt;/p&gt;
+&lt;h2&gt;Front matter properties and global data functions&lt;/h2&gt;
+&lt;p&gt;11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an &lt;code&gt;utils.js&lt;/code&gt; file inside its &lt;code&gt;data/lib&lt;/code&gt; directory where a &lt;code&gt;eltyAnchor__s&lt;/code&gt; function compute the link to any Eleventy docs page using an acronym of the page and anchor. The acronyms could be set inside each page front matter and used as a key by the function to expand the actual link reference.&lt;/p&gt;
+&lt;p&gt;Hence to get the reference-style link and the link itself is just as easy as:
+&lt;code&gt;{{ lib.utils.eltyAnchor__s( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;
+&lt;code&gt;{{ lib.utils.eltyAnchor__s( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Actually, most of Eleventy link keys are gathered in the &lt;code&gt;_C.js&lt;/code&gt; global data file and not in the front matter.
+&lt;/span&gt;&lt;/ins&gt;
+.&lt;/p&gt;
+&lt;hgroup data--=&quot;code_ref&quot;&gt;
+&lt;h5&gt;11tytips/source/data/lib/utils.js&lt;/h5&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;/hgroup&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+eltyAnchor__s: ( key_s ) =&gt;
+{
+  const path_s = _C[ `elty_${key_s}` ]
+  const anchor_n = path_s.indexOf( &#39;#&#39;)
+  if ( anchor_n === -1 )
+  {
+    console.log( `No anchor found in path ${path_s}` )
+    return
+  }
+  const anchor_s = path_s.substring( anchor_n )
+  const anchorLink_s = _C.ELTY_s.replace( &#39;]&#39;, `${anchor_s}]`) + path_s
+  return [anchorLink_s.substring( 0, anchorLink_s.indexOf( &#39;:&#39;) ), anchorLink_s]
+}
+&lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>
 </feed>

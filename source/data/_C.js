@@ -10,8 +10,11 @@ module.exports =
   RSS_s  : `https://${SITE_s.toLowerCase()}.netlify.com/feed.xml`,
 
 
-  _HOME_s      : `[Home page]:   https://${SITE_s.toLowerCase()}.netlify.com/`,
-  _ELEVENTY_s  : `[Eleventy]:    https://11ty.io`,
-  _UTTERANCES_s: `[utteranc.es]: https://github.com/utterance/utterances`,
-  _NODEJS_s:     `[Node.js]:     https://nodejs.org`,
+  HOME_s : `[Home page]: https://${SITE_s.toLowerCase()}.netlify.com/`,
+  UT_s   : `[utteranc.es]: https://github.com/utterance/utterances`,
+  NODE_s : `[Node.js]: https://nodejs.org`,
+  ELTY_s : `[Eleventy]: https://11ty.io`,
+
+  elty_jfm_s: `/docs/data-frontmatter/#javascript-front-matter`,
+  elty_udf_s: `/docs/data-frontmatter/#user-defined-front-matter-customizations`,
 }
