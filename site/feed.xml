@@ -36,7 +36,25 @@ There are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
 &lt;/span&gt;&lt;/ins&gt;
 .&lt;/p&gt;
 &lt;h2&gt;11tyTips architecture&lt;/h2&gt;
-&lt;p&gt;Trying to stay as simple as possible, this site is built using a minimal set of the JAMstack architecture: JavaScript backed by the Node ecosystem, Nunjucks and Markdown.&lt;/p&gt;
+&lt;p&gt;Trying to stay as simple as possible, 11tyTips is built using a minimal set of the JAMstack architecture: JavaScript backed by the Node ecosystem, Nunjucks as templating system and Markdown as content markup language.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;source&lt;/code&gt; directory is designed to reflect these categories of resources:&lt;/p&gt;
+&lt;ul data--=&quot;ulist&quot;&gt;
+&lt;li&gt;build
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Contains JavaScript modules to be used during the build process. For consistancy with other source script directories, it is deeply refined in &lt;code&gt;script/js/&lt;/code&gt; and split in two directories: Eleventy modules (&lt;code&gt;11ty&lt;/code&gt;) and 11tyTips modules (&lt;code&gt;lib&lt;/code&gt;).
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
+&lt;li&gt;includes
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Gathers all the templates used either by the Markdown files (&lt;code&gt;templates&lt;/code&gt;) or the Javascript and CSS files to be joined and minified (&lt;code&gt;assets&lt;/code&gt;).
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
+&lt;li&gt;content &amp;amp; data
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+The first directory contains the Markdown files of all site posts, plus some files included in them;
+the second one gathers JavaScript data modules consumed by the Markdown content files.
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A further directory is added to contain all the third-party assets used by the site: &lt;em&gt;fonts&lt;/em&gt;, &lt;em&gt;media&lt;/em&gt;, &lt;em&gt;scripts&lt;/em&gt; and &lt;em&gt;styles&lt;/em&gt; which are passthru copied to the built site directory.&lt;/p&gt;
+&lt;p&gt;This structure has been designed to offer the maximum of flexibility and consistence in the development phase, keeping a strong separation of concerns as to ease any needed refactoring and modification of the code.&lt;/p&gt;
 </content>
   </entry>
   
@@ -182,6 +200,17 @@ source
     <updated>2019-09-05T02:00:00+02:00</updated>
     <id>https://11tytips.netlify.com/tips/eleventy_settings.html</id>
     <content type="html">&lt;h2&gt;The Eleventy JavaScript file&lt;/h2&gt;
+&lt;p&gt;Eleventy uses a simple Javascript file, named &lt;code&gt;.eleventy.js&lt;/code&gt;
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Because of the leading dot it’s an hidden file.
+&lt;/span&gt;&lt;/ins&gt;
+, to define the settings of the building environment. This file is located at the root of the source folder but it can be put anywhere, just modifying the Node &lt;code&gt;package.json&lt;/code&gt; file &lt;code&gt;&amp;quot;main&amp;quot;&lt;/code&gt; property. The name itself can also be changed, if you see fit.&lt;/p&gt;
+&lt;p&gt;This file defines the settings of the main resources used in the building process: &lt;em&gt;libraries&lt;/em&gt;, &lt;em&gt;shortcodes&lt;/em&gt;, &lt;em&gt;filters&lt;/em&gt;, &lt;em&gt;plugins&lt;/em&gt;, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to the configuration of a resource, all located in the &lt;code&gt;source/build/script/js/11ty/&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;The configuration object returned by the &lt;code&gt;.eleventy.js&lt;/code&gt; module is important because it defines the location of the main parts of building process: the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; directories, the templates processors, etc.&lt;/p&gt;
+&lt;p&gt;11tyTips declares its own set of directories, modifying some of the default names and locations
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+For instance, leading underscore character is suppressed for &lt;code&gt;output&lt;/code&gt;, &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;includes&lt;/code&gt; directories, in lieu of &lt;code&gt;_output&lt;/code&gt;, &lt;code&gt;_data&lt;/code&gt; and &lt;code&gt;_includes&lt;/code&gt;; &lt;code&gt;static&lt;/code&gt; directory is named &lt;code&gt;assets&lt;/code&gt;, etc.
+&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 </content>
   </entry>
   
@@ -242,7 +271,7 @@ module.exports = SETTINGS_o
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-const ELEVENTY_o =
+const DIRS_o =
 {
   buildDir_s: &#39;./build/scripts/js/11ty/&#39;,
   templateIncludesDir_s: &#39;includes&#39;,
@@ -251,8 +280,8 @@ const ELEVENTY_o =
 &amp;nbsp;
 module.exports = config_o =&gt;
 {
-  config_o.templateIncludesDir_s = ELEVENTY_o.templateIncludesDir_s
-  config_o.contentIncludesDir_s = ELEVENTY_o.contentIncludesDir_s
+  config_o.templateIncludesDir_s = DIRS_o.templateIncludesDir_s
+  config_o.contentIncludesDir_s = DIRS_o.contentIncludesDir_s
   config_o.addPassthroughCopy( &#39;assets&#39; )    //: STATIC FILES
   ;
   [ &#39;libraries&#39;,
@@ -260,7 +289,7 @@ module.exports = config_o =&gt;
     &#39;shortcodes&#39;,
     &#39;filters&#39;,
     &#39;plugins&#39;
-  ].forEach( config_s =&gt; require( `${ELEVENTY_o.buildDir_s}${config_s}.js` )( config_o ) )
+  ].forEach( config_s =&gt; require( `${DIRS_o.buildDir_s}${config_s}.js` )( config_o ) )
 &amp;nbsp;
   return {    // : return the config object for further customization
     markdownTemplateEngine: &#39;njk&#39;,

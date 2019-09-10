@@ -24,7 +24,6 @@ pre[class*="language-"]
 	font-family: 'Fira Code', monospace;
 }
 
-[data--="note_content"] code,    /* code inside inline_note*/
 code[class*="language-"],
 pre[class*="language-"]
 {
@@ -32,13 +31,13 @@ pre[class*="language-"]
 	font-size: 80%;
 }
 
-[data--="note_content"] code,    /* code inside inline_note*/
 :not(pre) > code[class*="language-"],
 pre[class*="language-"]
 {
 	background: hsla( 180, 10%, 10%, .7 );
 }
 
+[data--="note_content"] code,    /* code inside inline_note*/
 p > code
 {
   color: hsla( 180, 10%, 10%, 1 );

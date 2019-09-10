@@ -36,8 +36,28 @@ There are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
 
 ## {{_C.SITE_s}} architecture
 
-Trying to stay as simple as possible, this site is built using a minimal set of the JAMstack architecture: JavaScript backed by the Node ecosystem, Nunjucks and Markdown.
+Trying to stay as simple as possible, {{_C.SITE_s}} is built using a minimal set of the JAMstack architecture: JavaScript backed by the Node ecosystem, Nunjucks as templating system and Markdown as content markup language.
 
+The `source` directory is designed to reflect these categories of resources:
+
++ build
+{% _short_note %}
+Contains JavaScript modules to be used during the build process. For consistancy with other source script directories, it is deeply refined in `script/js/` and split in two directories: Eleventy modules (`11ty`) and {{_C.SITE_s}} modules (`lib`).
+{% end_short_note %}
++ includes
+{% _short_note %}
+Gathers all the templates used either by the Markdown files (`templates`) or the Javascript and CSS files to be joined and minified (`assets`).
+{% end_short_note %}
++ content & data
+{% _short_note %}
+The first directory contains the Markdown files of all site posts, plus some files included in them;
+the second one gathers JavaScript data modules consumed by the Markdown content files.
+{% end_short_note %}
+{ data--="ulist" }
+
+A further directory is added to contain all the third-party assets used by the site: _fonts_, _media_, _scripts_ and _styles_ which are passthru copied to the built site directory.
+
+This structure has been designed to offer the maximum of flexibility and consistence in the development phase, keeping a strong separation of concerns as to ease any needed refactoring and modification of the code.
 
 [comment]: # (======== Links ========)
 
