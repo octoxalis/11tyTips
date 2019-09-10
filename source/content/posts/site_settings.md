@@ -1,13 +1,14 @@
 ---js
 {
-  date:      `2019-09-03`,
+  date:      `2019-09-06`,
   layout:    `templates/base.njk`,
   permalink: `tips/site_settings.html`,
   tags:      [ `tip` ],
-  title:     `Global settings`,
-  subtitle:  `Useful data for building and content`,
-  abstract:  `Global data for frequent use`,
-  author:    `Octoxalis`,
+
+  title_s:    `Global settings`,
+  subtitle_s: `Useful data for building and content`,
+  abstract_s: `Global data for frequent use`,
+  author_s:   `Octoxalis`,
 }
 ---
 [comment]: # (======== Post ========)

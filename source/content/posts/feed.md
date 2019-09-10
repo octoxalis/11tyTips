@@ -4,7 +4,8 @@
   layout:    `templates/feed.njk`,
   permalink: `feed.xml`,
   tags:      [ `notag` ],
-  title:     `Tips list!`,
-  abstract:  `RSS feed of tips published on this site`,
+
+  title_s:    `Tips list!`,
+  abstract_s: `RSS feed of tips published on this site`,
 }
 ---

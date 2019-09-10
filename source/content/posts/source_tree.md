@@ -4,10 +4,11 @@
   layout:    `templates/base.njk`,
   permalink: `tips/source_tree.html`,
   tags:      [ `tip` ],
-  title:     `Source tree`,
-  subtitle:  `List of the directories and files of this site`,
-  abstract:  `A bird's-eye view of the site`,
-  author:    `Octoxalis`,
+
+  title_s:    `Source tree`,
+  subtitle_s: `List of the directories and files of this site`,
+  abstract_s: `A bird's-eye view of the site`,
+  author_s:   `Octoxalis`,
   }
 ---
 [comment]: # (======== Post ========)

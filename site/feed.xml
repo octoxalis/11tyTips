@@ -5,7 +5,7 @@
   <link href="https://11tytips.netlify.com/feed.xml" rel="self"/>
   <link href="https://11tytips.netlify.com/"/>
 
-  <updated>2019-09-06T02:00:00+02:00</updated>
+  <updated>2019-09-09T02:00:00+02:00</updated>
   <id>https://11tytips.netlify.com/</id>
   <author>
     <name>Octoxalis</name>
@@ -13,57 +13,9 @@
   </author>
   
   <entry>
-    <title>Cloning 11tyTips site</title>
-    <link href="https://11tytips.netlify.com/tips/clone_site.html"/>
-    <updated>2019-09-02T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/clone_site.html</id>
-    <content type="html">&lt;h2&gt;Install a clone of 11tyTips site&lt;/h2&gt;
-&lt;p&gt;11tyTips site has been carefully designed to help those who want to start to use a static site generator such as Eleventy without spending a lot of time to find the best architecture meeting their needs.&lt;/p&gt;
-&lt;p&gt;A static site is built with three different components:&lt;/p&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;assets (fonts, media, scripts, styles);&lt;/li&gt;
-&lt;li&gt;templates (proto html files with placeholders);&lt;/li&gt;
-&lt;li&gt;content (actual content to inject in the template files).&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>Global settings</title>
-    <link href="https://11tytips.netlify.com/tips/site_settings.html"/>
-    <updated>2019-09-03T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/site_settings.html</id>
-    <content type="html">&lt;h2&gt;Data everywhere&lt;/h2&gt;
-&lt;p&gt;Eleventy provides a wide range of settings for &lt;a href=&quot;https://www.11ty.io/docs/data/&quot;&gt;data&lt;/a&gt; used in building stage or inside content: &lt;a href=&quot;https://www.11ty.io/docs/data-global/&quot;&gt;global&lt;/a&gt; data as well as &lt;a href=&quot;https://www.11ty.io/docs/data-template-dir/&quot;&gt;template and directory&lt;/a&gt; data.&lt;/p&gt;
-&lt;p&gt;11tyTips uses only global data contained in JavaScript files located inside the data directory.&lt;/p&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;source/data/settings.js&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-const _C = require( &#39;./_C.js&#39; )
-const SETTINGS_o =
-{
-  dev_s: _C.DEV_s,
-  pro_s: _C.PRO_s,
-  git_s: _C.GIT_s,
-  twi_s: _C.TWI_s,
-  rss_s: _C.RSS_s,
-  url_s: null,
-  dev_b: true,
-  //dev_b: false,
-}
-;(() =&gt; SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? &#39;dev_s&#39; : &#39;pro_s&#39;])()
-console.log( `Site URL: ${SETTINGS_o.url_s}` )
-module.exports = SETTINGS_o
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-  </entry>
-  
-  <entry>
     <title>Site structure</title>
     <link href="https://11tytips.netlify.com/tips/site_structure.html"/>
-    <updated>2019-09-03T02:00:00+02:00</updated>
+    <updated>2019-09-02T02:00:00+02:00</updated>
     <id>https://11tytips.netlify.com/tips/site_structure.html</id>
     <content type="html">&lt;h2&gt;The JAMstack architecture&lt;/h2&gt;
 &lt;p&gt;Eleventy, as most static sites, relies on an architectural paradigm called &lt;a href=&quot;https://jamstack.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;JAMstack&lt;/a&gt;, an acronym meaning: &lt;q&gt;a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.&lt;/q&gt;
@@ -85,6 +37,22 @@ There are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
 .&lt;/p&gt;
 &lt;h2&gt;11tyTips architecture&lt;/h2&gt;
 &lt;p&gt;Trying to stay as simple as possible, this site is built using a minimal set of the JAMstack architecture: JavaScript backed by the Node ecosystem, Nunjucks and Markdown.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Cloning 11tyTips site</title>
+    <link href="https://11tytips.netlify.com/tips/site_cloning.html"/>
+    <updated>2019-09-03T02:00:00+02:00</updated>
+    <id>https://11tytips.netlify.com/tips/site_cloning.html</id>
+    <content type="html">&lt;h2&gt;Install a clone of 11tyTips site&lt;/h2&gt;
+&lt;p&gt;11tyTips site has been carefully designed to help those who want to start to use a static site generator such as Eleventy without spending a lot of time to find the best architecture meeting their needs.&lt;/p&gt;
+&lt;p&gt;A static site is built with three different components:&lt;/p&gt;
+&lt;ul data--=&quot;ulist&quot;&gt;
+&lt;li&gt;assets (fonts, media, scripts, styles);&lt;/li&gt;
+&lt;li&gt;templates (proto html files with placeholders);&lt;/li&gt;
+&lt;li&gt;content (actual content to inject in the template files).&lt;/li&gt;
+&lt;/ul&gt;
 </content>
   </entry>
   
@@ -135,13 +103,13 @@ source
 │   │   └── source_tree.txt
 │   └── posts
 │       ├── 404.md
-│       ├── clone_site.md
+│       ├── site_cloning.md
 │       ├── feed.md
 │       ├── index.md
 │       ├── site_settings.md
 │       ├── site_structure.md
 │       ├── source_tree.md
-│       ├── style_guide.md
+│       ├── styles_guide.md
 │       └── tips_list.md
 ├── data
 │   ├── lib
@@ -209,22 +177,65 @@ source
   </entry>
   
   <entry>
-    <title>Style guide</title>
-    <link href="https://11tytips.netlify.com/tips/style_guide.html"/>
+    <title>Eleventy settings</title>
+    <link href="https://11tytips.netlify.com/tips/eleventy_settings.html"/>
     <updated>2019-09-05T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/style_guide.html</id>
+    <id>https://11tytips.netlify.com/tips/eleventy_settings.html</id>
+    <content type="html">&lt;h2&gt;The Eleventy JavaScript file&lt;/h2&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Global settings</title>
+    <link href="https://11tytips.netlify.com/tips/site_settings.html"/>
+    <updated>2019-09-06T02:00:00+02:00</updated>
+    <id>https://11tytips.netlify.com/tips/site_settings.html</id>
+    <content type="html">&lt;h2&gt;Data everywhere&lt;/h2&gt;
+&lt;p&gt;Eleventy provides a wide range of settings for &lt;a href=&quot;https://www.11ty.io/docs/data/&quot;&gt;data&lt;/a&gt; used in building stage or inside content: &lt;a href=&quot;https://www.11ty.io/docs/data-global/&quot;&gt;global&lt;/a&gt; data as well as &lt;a href=&quot;https://www.11ty.io/docs/data-template-dir/&quot;&gt;template and directory&lt;/a&gt; data.&lt;/p&gt;
+&lt;p&gt;11tyTips uses only global data contained in JavaScript files located inside the data directory.&lt;/p&gt;
+&lt;hgroup data--=&quot;code_ref&quot;&gt;
+&lt;h5&gt;source/data/settings.js&lt;/h5&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;/hgroup&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+const _C = require( &#39;./_C.js&#39; )
+const SETTINGS_o =
+{
+  dev_s: _C.DEV_s,
+  pro_s: _C.PRO_s,
+  git_s: _C.GIT_s,
+  twi_s: _C.TWI_s,
+  rss_s: _C.RSS_s,
+  url_s: null,
+  dev_b: true,
+  //dev_b: false,
+}
+;(() =&gt; SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? &#39;dev_s&#39; : &#39;pro_s&#39;])()
+console.log( `Site URL: ${SETTINGS_o.url_s}` )
+module.exports = SETTINGS_o
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Style guide</title>
+    <link href="https://11tytips.netlify.com/tips/styles_guide.html"/>
+    <updated>2019-09-07T02:00:00+02:00</updated>
+    <id>https://11tytips.netlify.com/tips/styles_guide.html</id>
     <content type="html">&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;h1 element&lt;br&gt;p element (introduction)&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;h1&gt;Style guide&lt;/h1&gt;
 &lt;p data--=&quot;page_intro&quot;&gt;This is an introduction paragraph which should be limited in length.&lt;/p&gt;
 &lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;h2 element&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
-&lt;h2&gt;Paragraph title&lt;/h2&gt;
+&lt;h2&gt;Paragraph title_s&lt;/h2&gt;
 &lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;h3 element&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
-&lt;h3&gt;Paragraph subtitle&lt;/h3&gt;
+&lt;h3&gt;Paragraph subtitle_s&lt;/h3&gt;
 &lt;p&gt;NB: Titles have a &lt;code&gt;font-style: italic&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;p element&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;p&gt;Paragraph content have a maximum line length fixed to 60ch, yielding to a number of  of about 70 characters per line: this is considered the best line length for readibility.&lt;/p&gt;
 &lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;inline code&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;for( let at = 0; at &amp;lt; keys_a.length; ++at )&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;example&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;for( let at = 0; at &amp;lt; keys_a.length; ++at )&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;code block&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;source/eleventy.js&lt;/h5&gt;
@@ -314,14 +325,166 @@ List inside an inline note
   </entry>
   
   <entry>
+    <title>Names guide</title>
+    <link href="https://11tytips.netlify.com/tips/names_guide.html"/>
+    <updated>2019-09-08T02:00:00+02:00</updated>
+    <id>https://11tytips.netlify.com/tips/names_guide.html</id>
+    <content type="html">&lt;h2&gt;A question of names and types&lt;/h2&gt;
+&lt;p&gt;Every developer knows that JavaScript is not a static typed language, a useful feature eliminating lots of bugs.
+A language like Typescript has been created as a remedy to that important lack of safety. Even for code modules counting less than a few tens of lines, it’s easy to forget what kind of type is exactly a variable or constant declared at the begining of the file and then make a mistake when assining a wrong type to a variable.&lt;/p&gt;
+&lt;p&gt;I’ve adopted a simple recipe to avoid such mistakes: just add a mnemonic letter at the end of each identifier to specify the variable or constant type.
+This simple adjonction have a secondary benefice: it simplifies the names variations.&lt;/p&gt;
+&lt;p&gt;Just an example: the JavaScript &lt;code&gt;String.prototype.split&lt;/code&gt; function returns an array of Strings:&lt;/p&gt;
+&lt;hgroup data--=&quot;code_ref&quot;&gt;
+&lt;h5&gt;MDN web doc&lt;/h5&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;/hgroup&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+var str = &#39;The quick brown fox jumps over the lazy dog.&#39;;
+var words = str.split(&#39; &#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Two different words for two tightly related entities! Isn’t it more meaningful to use the same identifier with different specifiers?&lt;/p&gt;
+&lt;hgroup data--=&quot;code_ref&quot;&gt;
+&lt;h5&gt;11tyTips: Pseudo-typed identifiers&lt;/h5&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;/hgroup&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+var lazyDog_s = &#39;The quick brown fox jumps over the lazy dog.&#39;;
+var lazyDog_a = lazyDog_s.split(&#39; &#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A more tricky example:&lt;/p&gt;
+&lt;hgroup data--=&quot;code_ref&quot;&gt;
+&lt;h5&gt;11tyTips: Tricky pseudo-typed identifiers&lt;/h5&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;/hgroup&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+const oneTwoThree_s = &#39;123&#39;
+const oneTwoThree_n = +&#39;123&#39;          //: type conversion to Number
+const oneTwoFour_s = &#39;&#39; + ++ID_n      //: type conversion to String
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This naming recipe applies to all primitive immutable types:&lt;/p&gt;
+&lt;ul data--=&quot;ulist&quot;&gt;
+&lt;li&gt;Null&lt;/li&gt;
+&lt;li&gt;Undefined&lt;/li&gt;
+&lt;li&gt;Boolean&lt;/li&gt;
+&lt;li&gt;Number&lt;/li&gt;
+&lt;li&gt;BigInt&lt;/li&gt;
+&lt;li&gt;String&lt;/li&gt;
+&lt;li&gt;Array&lt;/li&gt;
+&lt;li&gt;Object&lt;/li&gt;
+&lt;li&gt;Symbol&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It extends to specific Object types:&lt;/p&gt;
+&lt;ul data--=&quot;ulist&quot;&gt;
+&lt;li&gt;Function&lt;/li&gt;
+&lt;li&gt;Class&lt;/li&gt;
+&lt;li&gt;RegExp&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Suffixes specifying the type are a single letter preceded by an underscore character, lowercase letters for “wrapped” types
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Boolean, Number, BigInt, String, Array, Object, Symbol, Function, Class, RegExp.
+See &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Glossary/Primitive&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt; MDN Primitive description&lt;/a&gt;.
+&lt;/span&gt;&lt;/ins&gt;
+, uppercase letters for “unwrapped” types
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Null, Undefined.
+&lt;/span&gt;&lt;/ins&gt;
+.&lt;/p&gt;
+&lt;table class=&quot;middle_wide&quot;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Specifier&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Null&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;N&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Undefined&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;U&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Boolean&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;b&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Number&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;n&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BigInt&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;i&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;s&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Array&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;a&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Object&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;o&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Symbol&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;y&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Function&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;f&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Class&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;c&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RegExp&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;r&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;To give further meaningful information, function identifiers have different specifiers:
+in an assignment, the previous convention is used, but for a declaration,
+two underscore characters before the type specifier of the return value is used and no specifier when the function returns nothing.&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;const awesome__s = () =&amp;gt; &#39;An awesome String&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;const clone_f = awesome__s&lt;/code&gt;&lt;/p&gt;
+&lt;hgroup data--=&quot;code_ref&quot;&gt;
+&lt;h5&gt;11tyTips/source/includes/assets/scripts/js/partials/dom.js&lt;/h5&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;/hgroup&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+const DOM_siblings__a = selector_s =&gt;
+{
+  const node_e = document.querySelector( selector_s )
+  return !node_e ?
+    null :
+    Array.prototype.filter
+      .call( node_e.parentNode.children, sibling =&gt; sibling !== node_e )
+}
+&amp;nbsp;
+const DOM_listReverse = selector_s =&gt;
+{
+  const nodes_a = Array.prototype.slice.call(document.querySelectorAll( `${selector_s} li` ))
+  nodes_a.forEach( node_e =&gt; node_e.parentNode.insertBefore( node_e, node_e.parentNode.firstChild ) )
+}
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
     <title>Front matter</title>
     <link href="https://11tytips.netlify.com/tips/frontmatter_data.html"/>
-    <updated>2019-09-06T02:00:00+02:00</updated>
+    <updated>2019-09-09T02:00:00+02:00</updated>
     <id>https://11tytips.netlify.com/tips/frontmatter_data.html</id>
     <content type="html">&lt;h2&gt;Front matter data&lt;/h2&gt;
 &lt;p&gt;Each Markdown file has its own data, declared at the begining of the file in the front matter part
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
-uses a JavaScript object for front matter.
+11tyTips uses a JavaScript object for front matter.
 &lt;/span&gt;&lt;/ins&gt;
 , a few ones being mandatory
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
@@ -367,7 +530,7 @@ Actually not used by 11tyTips, but could be…
 &lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;li&gt;Author
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
-Useful if there are multiple authors for the posts of the site.
+Useful if there are multiple author_ss for the posts of the site.
 &lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
@@ -381,16 +544,17 @@ Useful if there are multiple authors for the posts of the site.
   layout:    `templates/base.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
-  title:     `Front matter`,
-  subtitle:  `Front matter data howto`,
-  abstract:  `Accessing front matter data in Markdown and templates`,
-  author:    `Octoxalis`,
+&amp;nbsp;
+  title_s:     `Front matter`,
+  subtitle_s:  `Front matter data access`,
+  abstract_s:  `Accessing front matter data in Markdown and templates`,
+  author_s:    `Octoxalis`,
 &amp;nbsp;
   jfm_s: `/docs/data-frontmatter/#javascript-front-matter`,
 }
 ---
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To access any property declared in the front matter it has to be enclosed in double parenthesis &lt;code&gt;{{ ... }}&lt;/code&gt;. For instance, the &lt;code&gt;abstract&lt;/code&gt; property in the front matter is injected in this page with the following code: &lt;code&gt;{{ abstract }}&lt;/code&gt; and renders as:&lt;br&gt;
+&lt;p&gt;To access any property declared in the front matter it has to be enclosed in double parenthesis &lt;code&gt;{{ ... }}&lt;/code&gt;. For instance, the &lt;code&gt;abstract_s&lt;/code&gt; property in the front matter is injected in this page with the following code: &lt;code&gt;{{ abstract_s }}&lt;/code&gt; and renders as:&lt;br&gt;
 &lt;q&gt;Accessing front matter data in Markdown and templates&lt;/q&gt;.&lt;/p&gt;
 &lt;h2&gt;Function properties&lt;/h2&gt;
 &lt;p&gt;If you use JavaScript for the front matter
@@ -407,22 +571,15 @@ Because it will be accessible from any Markdown content or any template and with
 &lt;/span&gt;&lt;/ins&gt;
 .&lt;/p&gt;
 &lt;h2&gt;Front matter properties and global data functions&lt;/h2&gt;
-&lt;p&gt;11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an &lt;code&gt;utils.js&lt;/code&gt; file inside its &lt;code&gt;data/lib&lt;/code&gt; directory where a &lt;code&gt;eltyAnchor__s&lt;/code&gt; function compute the link to any Eleventy docs page using an acronym of the page and anchor. The acronyms could be set inside each page front matter and used as a key by the function to expand the actual link reference.&lt;/p&gt;
-&lt;p&gt;Hence to get the reference-style link and the link itself is just as easy as:
-&lt;code&gt;{{ lib.utils.eltyAnchor__s( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;
-&lt;code&gt;{{ lib.utils.eltyAnchor__s( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;
-&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
-Actually, most of Eleventy link keys are gathered in the &lt;code&gt;_C.js&lt;/code&gt; global data file and not in the front matter.
-&lt;/span&gt;&lt;/ins&gt;
-.&lt;/p&gt;
+&lt;p&gt;11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an &lt;code&gt;utils.js&lt;/code&gt; file inside its &lt;code&gt;data/lib&lt;/code&gt; directory where a &lt;code&gt;EleventyLink__s&lt;/code&gt; function compute the link to any Eleventy docs page using an acronym of the page and anchor.&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;11tytips/source/data/lib/utils.js&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-eltyAnchor__s: ( key_s ) =&gt;
+EleventyLink__s: ( key_s ) =&gt;
 {
-  const path_s = _C[ `elty_${key_s}` ]
+  const path_s = _C[ `eleventy_${key_s}` ]
   const anchor_n = path_s.indexOf( &#39;#&#39;)
   if ( anchor_n === -1 )
   {
@@ -430,10 +587,35 @@ eltyAnchor__s: ( key_s ) =&gt;
     return
   }
   const anchor_s = path_s.substring( anchor_n )
-  const anchorLink_s = _C.ELTY_s.replace( &#39;]&#39;, `${anchor_s}]`) + path_s
+  const anchorLink_s = _C.ELEVENTY_s.replace( &#39;]&#39;, `${anchor_s}]`) + path_s
   return [anchorLink_s.substring( 0, anchorLink_s.indexOf( &#39;:&#39;) ), anchorLink_s]
 }
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The acronyms, used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.&lt;/p&gt;
+&lt;p&gt;Hence to get the reference-style link and the link itself is just as easy as:
+&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;
+&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Actually, most of Eleventy link keys are gathered in the &lt;code&gt;_C.js&lt;/code&gt; global data file and not in the front matter.
+&lt;/span&gt;&lt;/ins&gt;
+.&lt;/p&gt;
+&lt;h3&gt;Even shorter&lt;/h3&gt;
+&lt;p&gt;But we can do more, using Nunjucks &lt;code&gt;set&lt;/code&gt; directive in each Markdown file referencing an Eleventy documentation page:
+&lt;code&gt;{% set @11link_f = lib.utils.EleventyLink__s %}&lt;/code&gt;
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+This declaration comes at the very begining of the Markdown content, just after the initial front matter section in a section named Aliases.
+&lt;/span&gt;&lt;/ins&gt;
+.&lt;/p&gt;
+&lt;p&gt;Then call the link function as follow:
+&lt;code&gt;{{ @11link_f( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+reference-style link inside content.
+&lt;/span&gt;&lt;/ins&gt;
+&lt;code&gt;{{ @11link_f( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+Link located in Links section, after the Aliases section.
+&lt;/span&gt;&lt;/ins&gt;
+.&lt;/p&gt;
 </content>
   </entry>
 </feed>

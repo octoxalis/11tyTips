@@ -164,3 +164,8 @@ body
 {
   transform: scaleY( 0 );
 }
+
+.middle_wide
+{
+  width: calc( var(--line_length) * .5 );
+}

@@ -37,7 +37,7 @@
   {%- for tip_o in tips_a %}
   {% set absolutePostUrl %}{{ tip_o.url | url | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
-    <title>{{ tip_o.data.title }}</title>
+    <title>{{ tip_o.data.title_s }}</title>
     <link href="{{ absolutePostUrl }}"/>
     <updated>{{ tip_o.date | rssDate }}</updated>
     <id>{{ absolutePostUrl }}</id>

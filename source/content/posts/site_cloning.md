@@ -1,13 +1,14 @@
 ---js
 {
-  date:      `2019-09-02`,
+  date:      `2019-09-03`,
   layout:    `templates/base.njk`,
-  permalink: `tips/clone_site.html`,
+  permalink: `tips/site_cloning.html`,
   tags:      [ `tip` ],
-  title:     `Cloning 11tyTips site`,
-  subtitle:  `Install a new skeleton site`,
-  abstract:  `Start bloging with a clean site structure`,
-  author:    `Octoxalis`,
+
+  title_s:     `Cloning 11tyTips site`,
+  subtitle_s:  `Install a new skeleton site`,
+  abstract_s:  `Start bloging with a clean site structure`,
+  author_s:    `Octoxalis`,
 }
 ---
 [comment]: # (======== Post ========)

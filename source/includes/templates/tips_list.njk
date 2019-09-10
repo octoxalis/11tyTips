@@ -20,8 +20,8 @@
   {% for tip_e in tips_a %}
     <li data--="tips_entry">
       <span>#{{ tipRank__s(tip_n) }}</span>
-      <a href="{{ tip_e.url | url }}">{{ tip_e.data.title }}</a>
-      <span>{{ tip_e.data.subtitle }}</span>
+      <a href="{{ tip_e.url | url }}">{{ tip_e.data.title_s }}</a>
+      <span>{{ tip_e.data.subtitle_s }}</span>
     </li>
   {% set tip_n = tip_n + 1 %}
   {% endfor %}

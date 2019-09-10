@@ -3,11 +3,11 @@
   layout:    `templates/base.njk`,
   permalink: `__tip__.html`,
   tags:      [ `tip` ],
-  title:     `__TITLE__`,
-  subtitle:  `__SUBTITLE__`,
-  author:    `__AUTHOR__`,
+  title_s:     `__TITLE__`,
+  subtitle_s:  `__SUBTITLE__`,
+  author_s:    `__AUTHOR__`,
   date:      `2019-01-01`,
-  abstract:  `__ABSTRACT__`,
+  abstract_s:  `__ABSTRACT__`,
 }
 ---
 [comment]: # (======== Post ========)

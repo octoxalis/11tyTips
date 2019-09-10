@@ -1,13 +1,14 @@
 ---js
 {
-  date:      `2019-09-03`,
+  date:      `2019-09-02`,
   layout:    `templates/base.njk`,
   permalink: `tips/site_structure.html`,
   tags:      [ `tip` ],
-  title:     `Site structure`,
-  subtitle:  `How to structure a JAMstack site`,
-  abstract:  `Site structure and directories`,
-  author:    `Octoxalis`,
+
+  title_s:    `Site structure`,
+  subtitle_s: `How to structure a JAMstack site`,
+  abstract_s: `Site structure and directories`,
+  author_s:   `Octoxalis`,
 }
 ---
 [comment]: # (======== Post ========)

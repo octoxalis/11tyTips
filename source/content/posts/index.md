@@ -4,10 +4,11 @@
   layout:    `templates/base.njk`,
   permalink: `index.html`,
   tags:      [ `notag` ],
-  title:     `11tyTips`,
-  subtitle:  `Inside Eleventy static site generator`,
-  abstract:  `Eleventy tips and tricks`,
-  author:    `Octoxalis`,
+
+  title_s:    `11tyTips`,
+  subtitle_s: `Inside Eleventy static site generator`,
+  abstract_s: `Eleventy tips and tricks`,
+  author_s:   `Octoxalis`,
 }
 ---
 [comment]: # (======== Post ========)
@@ -55,11 +56,11 @@ Have a look at the site [source tree] and [style guide].
 
 [comment]: # (======== Links ========)
 
-{{ lib.utils.siteUrl__s( 'style_guide' ) }}
-{{ lib.utils.siteUrl__s( 'clone_site' ) }}
+{{ lib.utils.siteUrl__s( 'styles_guide' ) }}
+{{ lib.utils.siteUrl__s( 'site_cloning' ) }}
 {{ lib.utils.siteUrl__s( 'source_tree' ) }}
 
-{{ _C.ELTY_s }}
+{{ _C.ELEVENTY_s }}
 {{ _C.UT_s }}
 {{ _C.NODE_s }}
  

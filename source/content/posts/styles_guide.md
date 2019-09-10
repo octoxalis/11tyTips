@@ -1,13 +1,14 @@
 ---js
 {
-  date:      `2019-09-05`,
+  date:      `2019-09-07`,
   layout:    `templates/base.njk`,
-  permalink: `tips/style_guide.html`,
+  permalink: `tips/styles_guide.html`,
   tags:      [ `tip` ],
-  title:     `Style guide`,
-  subtitle:  `Styles of this site`,
-  abstract:  `Styles listing`,
-  author:    `Octoxalis`,
+
+  title_s:    `Style guide`,
+  subtitle_s: `Styles of this site`,
+  abstract_s: `Styles listing`,
+  author_s:   `Octoxalis`,
 }
 ---
 [comment]: # (======== Post ========)
@@ -19,11 +20,11 @@ This is an introduction paragraph which should be limited in length.{ data--="pa
 
 {% _short_note %}h2 element{% end_short_note %}
 
-## Paragraph title
+## Paragraph title_s
 
 {% _short_note %}h3 element{% end_short_note %}
 
-### Paragraph subtitle
+### Paragraph subtitle_s
 
 NB: Titles have a `font-style: italic`
 
@@ -34,6 +35,11 @@ Paragraph content have a maximum line length fixed to 60ch, yielding to a number
 {% _short_note %}inline code{% end_short_note %}
 
 `for( let at = 0; at < keys_a.length; ++at )`
+
+{% _short_note %}example{% end_short_note %}
+
+`for( let at = 0; at < keys_a.length; ++at )`
+{data--="example"}
 
 {% _short_note %}code block{% end_short_note %}
 

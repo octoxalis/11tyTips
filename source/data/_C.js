@@ -13,8 +13,8 @@ module.exports =
   HOME_s : `[Home page]: https://${SITE_s.toLowerCase()}.netlify.com/`,
   UT_s   : `[utteranc.es]: https://github.com/utterance/utterances`,
   NODE_s : `[Node.js]: https://nodejs.org`,
-  ELTY_s : `[Eleventy]: https://11ty.io`,
+  ELEVENTY_s : `[Eleventy]: https://11ty.io`,
 
-  elty_jfm_s: `/docs/data-frontmatter/#javascript-front-matter`,
-  elty_udf_s: `/docs/data-frontmatter/#user-defined-front-matter-customizations`,
+  eleventy_jfm_s: `/docs/data-frontmatter/#javascript-front-matter`,
+  eleventy_udf_s: `/docs/data-frontmatter/#user-defined-front-matter-customizations`,
 }

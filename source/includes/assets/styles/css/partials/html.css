@@ -176,15 +176,15 @@ table
 td,
 th
 {
-  border-bottom: 0.1rem solid #e1e1e1;
-  padding: 1.2rem 1.5rem;
+  border: 0.1rem solid hsla( var(--c_hue_p), var(--c_sat), 80%, .6 );
+  padding: .4rem .8rem;
   text-align: left;
 }
 
 td:first-child,
 th:first-child
 {
-  padding-left: 0;
+  padding-left: 1rem;
 }
 
 td:last-child,

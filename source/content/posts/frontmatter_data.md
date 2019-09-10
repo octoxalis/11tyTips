@@ -1,22 +1,29 @@
 ---js
 {
-  date:      `2019-09-06`,
+  date:      `2019-09-09`,
   layout:    `templates/base.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
-  title:     `Front matter`,
-  subtitle:  `Front matter data howto`,
-  abstract:  `Accessing front matter data in Markdown and templates`,
-  author:    `Octoxalis`,
+
+  title_s:    `Front matter`,
+  subtitle_s: `Front matter data howto`,
+  abstract_s: `Accessing front matter data in Markdown and templates`,
+  author_s:   `Octoxalis`,
 }
 ---
-[comment]: # (======== Post ========)
+[comment]: # (======== Aliases ========)
+{% set @11link_f = lib.utils.EleventyLink__s %}
 
+[comment]: # (======== Links ========)
+{{ @11link_f( 'jfm_s' )[1] }}
+{{ @11link_f( 'udf_s' )[1] }}
+
+[comment]: # (======== Post ========)
 ## Front matter data
 
 Each Markdown file has its own data, declared at the begining of the file in the front matter part
 {% _short_note %}
-{{site_s}} uses a JavaScript object for front matter.
+{{_C.SITE_s}} uses a JavaScript object for front matter.
 {% end_short_note %}
 , a few ones being mandatory
 {% _short_note %}
@@ -24,7 +31,7 @@ No so strickly speaking! For instance, you're not requested to use a Date, but i
 {% end_short_note %}
 , others being used to supply some page specific content or variables
 {% _short_note %}
-Have a look at {{ lib.utils.eltyAnchor__s( 'udf_s' )[0] }}{target="_blank" rel="noreferrer"} for a list of Eleventy properties usable in front matter.
+Have a look at {{ @11link_f( 'udf_s' )[0] }}{target="_blank" rel="noreferrer"} for a list of Eleventy properties usable in front matter.
 {% end_short_note %}
 .
 
@@ -64,7 +71,7 @@ Actually not used by {{_C.SITE_s}}, but could be...
 {% end_short_note %}
 + Author
 {% _short_note %}
-Useful if there are multiple authors for the posts of the site.
+Useful if there are multiple author_ss for the posts of the site.
 {% end_short_note %}
 
 {% _code_block %}
@@ -77,18 +84,19 @@ Useful if there are multiple authors for the posts of the site.
   layout:    `templates/base.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
-  title:     `Front matter`,
-  subtitle:  `Front matter data howto`,
-  abstract:  `Accessing front matter data in Markdown and templates`,
-  author:    `Octoxalis`,
+
+  title_s:     `Front matter`,
+  subtitle_s:  `Front matter data access`,
+  abstract_s:  `Accessing front matter data in Markdown and templates`,
+  author_s:    `Octoxalis`,
 
   jfm_s: `/docs/data-frontmatter/#javascript-front-matter`,
 }
 ---
 {% end_code_block %}
 
-To access any property declared in the front matter it has to be enclosed in double parenthesis {% raw %}`{{ ... }}`{% endraw %}. For instance, the `abstract` property in the front matter is injected in this page with the following code: {% raw %}`{{ abstract }}`{% endraw %} and renders as:<br>
-<q>{{ abstract }}</q>.
+To access any property declared in the front matter it has to be enclosed in double parenthesis {% raw %}`{{ ... }}`{% endraw %}. For instance, the `abstract_s` property in the front matter is injected in this page with the following code: {% raw %}`{{ abstract_s }}`{% endraw %} and renders as:<br>
+<q>{{ abstract_s }}</q>.
 
 ## Function properties
 
@@ -98,7 +106,7 @@ A very good idea because it gives you the full power of the language to process 
 {% end_short_note %}
 and Nunjucks as templating system, you can declare functions as properties
 {% _short_note %}
-See {{ lib.utils.eltyAnchor__s( 'jfm_s' )[0] }}{target="_blank" rel="noreferrer"} documentation page.
+See {{ @11link_f( 'jfm_s' )[0] }}{target="_blank" rel="noreferrer"} documentation page.
 {% end_short_note %}
 . However, apart very specific cases, it's much more easy to declare content processing functions in a module located inside the data directory
 {% _short_note %}
@@ -110,23 +118,15 @@ Because it will be accessible from any Markdown content or any template and with
 
 ## Front matter properties and global data functions
 
-{{_C.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{_C.SITE_s}} source has an `utils.js` file inside its `data/lib` directory where a `eltyAnchor__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor. The acronyms could be set inside each page front matter and used as a key by the function to expand the actual link reference.
-
-Hence to get the reference-style link and the link itself is just as easy as:
-{% raw %}`{{ lib.utils.eltyAnchor__s( 'jfm_s' )[0] }}`{% endraw %}
-{% raw %}`{{ lib.utils.eltyAnchor__s( 'jfm_s' )[1] }}`{% endraw %}
-{% _short_note %}
-Actually, most of Eleventy link keys are gathered in the `_C.js` global data file and not in the front matter.
-{% end_short_note %}
-.
+{{_C.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{_C.SITE_s}} source has an `utils.js` file inside its `data/lib` directory where a `EleventyLink__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor.
 
 {% _code_block %}
     title_s: '11tytips/source/data/lib/utils.js',
     lang_s: "javascript",
 [//]:#(_code_block)
-eltyAnchor__s: ( key_s ) =>
+EleventyLink__s: ( key_s ) =>
 {
-  const path_s = _C[ `elty_${key_s}` ]
+  const path_s = _C[ `eleventy_${key_s}` ]
   const anchor_n = path_s.indexOf( '#')
   if ( anchor_n === -1 )
   {
@@ -134,12 +134,37 @@ eltyAnchor__s: ( key_s ) =>
     return
   }
   const anchor_s = path_s.substring( anchor_n )
-  const anchorLink_s = _C.ELTY_s.replace( ']', `${anchor_s}]`) + path_s
+  const anchorLink_s = _C.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
   return [anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), anchorLink_s]
 }
 {% end_code_block %}
 
-[comment]: # (======== Links ========)
+The acronyms, used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.
 
-{{ lib.utils.eltyAnchor__s( 'jfm_s' )[1] }}
-{{ lib.utils.eltyAnchor__s( 'udf_s' )[1] }}
+Hence to get the reference-style link and the link itself is just as easy as:
+{% raw %}`{{ lib.utils.EleventyLink__s( 'jfm_s' )[0] }}`{% endraw %}
+{% raw %}`{{ lib.utils.EleventyLink__s( 'jfm_s' )[1] }}`{% endraw %}
+{% _short_note %}
+Actually, most of Eleventy link keys are gathered in the `_C.js` global data file and not in the front matter.
+{% end_short_note %}
+.
+
+### Even shorter
+
+But we can do more, using Nunjucks `set` directive in each Markdown file referencing an Eleventy documentation page:
+{% raw %}`{% set @11link_f = lib.utils.EleventyLink__s %}`{% endraw %}
+{% _short_note %}
+This declaration comes at the very begining of the Markdown content, just after the initial front matter section in a section named Aliases.
+{% end_short_note %}
+.
+
+Then call the link function as follow:
+{% raw %}`{{ @11link_f( 'jfm_s' )[0] }}`{% endraw %}
+{% _short_note %}
+reference-style link inside content.
+{% end_short_note %}
+{% raw %}`{{ @11link_f( 'jfm_s' )[1] }}`{% endraw %}
+{% _short_note %}
+Link located in Links section, after the Aliases section.
+{% end_short_note %}
+.

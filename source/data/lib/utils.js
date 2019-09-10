@@ -5,9 +5,9 @@ module.exports =
 {
   siteUrl__s: ( file_s, dir_s='tips/' ) => `[${file_s.replace('_', ' ')}]: ${settings.url_s}${dir_s}${file_s}.html`,
 
-  eltyAnchor__s: ( key_s ) =>
+  EleventyLink__s: ( key_s ) =>
   {
-    const path_s = _C[ `elty_${key_s}` ]
+    const path_s = _C[ `eleventy_${key_s}` ]
     const anchor_n = path_s.indexOf( '#')
     if ( anchor_n === -1 )
     {
@@ -15,7 +15,7 @@ module.exports =
       return
     }
     const anchor_s = path_s.substring( anchor_n )
-    const anchorLink_s = _C.ELTY_s.replace( ']', `${anchor_s}]`) + path_s
+    const anchorLink_s = _C.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
     return [anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), anchorLink_s]
   }
 }

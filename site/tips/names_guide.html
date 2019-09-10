@@ -4,12 +4,12 @@
   <head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Front matter</title>
+<title>Names guide</title>
 
   
   
 
-<meta name="description" content="Front matter data howto,A blog devoted to Eleventy static site generator users,Useful tips to use Eleventy static site generator: site structure, content processing, build processing, assets minifying">
+<meta name="description" content="Variable naming convention,A blog devoted to Eleventy static site generator users,Useful tips to use Eleventy static site generator: site structure, content processing, build processing, assets minifying">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://11tytips.netlify.com/assets/media/apple-touch-icon.png">
@@ -39,141 +39,150 @@ const _URL_s='https://11tytips.netlify.com/'
 
   <article data--="article">
   <section data--="section">
-  <h2>Front matter data</h2>
-<p>Each Markdown file has its own data, declared at the begining of the file in the front matter part
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-11tyTips uses a JavaScript object for front matter.
-</span></ins>
-, a few ones being mandatory
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-No so strickly speaking! For instance, you’re not requested to use a Date, but it’s more than useful if you want to sort your posts by date.
-</span></ins>
-, others being used to supply some page specific content or variables
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-Have a look at <a href="https://11ty.io/docs/data-frontmatter/#user-defined-front-matter-customizations" target="_blank" rel="noreferrer">Eleventy#user-defined-front-matter-customizations</a> for a list of Eleventy properties usable in front matter.
-</span></ins>
-.</p>
-<p><em>Mandatory data</em></p>
-<ul data--="ulist">
-<li>Date
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-The Date property is mainly used to sort the posts but also to be shown it on the page.
-</span></ins></li>
-<li>Layout
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-This is the template used to render the page.
-</span></ins></li>
-<li>Permalink
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-This is the name of the output file: HTML, or any other format (e.g. minified JavaScript).
-</span></ins></li>
-<li>Tags
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-The collection(s) including the output file.
-</span></ins></li>
-</ul>
-<p><em>Specific data</em></p>
-<ul data--="ulist">
-<li>Title
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-Used by 11tyTips to identify the page in the browser tab.
-</span></ins></li>
-<li>Subtitle
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-Used by 11tyTips to describe the page content in the Tips list menu.
-</span></ins></li>
-<li>Abstract
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-Actually not used by 11tyTips, but could be…
-</span></ins></li>
-<li>Author
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-Useful if there are multiple author_ss for the posts of the site.
-</span></ins></li>
-</ul>
+  <h2>A question of names and types</h2>
+<p>Every developer knows that JavaScript is not a static typed language, a useful feature eliminating lots of bugs.
+A language like Typescript has been created as a remedy to that important lack of safety. Even for code modules counting less than a few tens of lines, it’s easy to forget what kind of type is exactly a variable or constant declared at the begining of the file and then make a mistake when assining a wrong type to a variable.</p>
+<p>I’ve adopted a simple recipe to avoid such mistakes: just add a mnemonic letter at the end of each identifier to specify the variable or constant type.
+This simple adjonction have a secondary benefice: it simplifies the names variations.</p>
+<p>Just an example: the JavaScript <code>String.prototype.split</code> function returns an array of Strings:</p>
 <hgroup data--="code_ref">
-<h5>Page front matter data</h5>
+<h5>MDN web doc</h5>
 <h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
 </hgroup>
 <pre><code class="language-javascript">
----js
-{
-  date:      `2019-09-06`,
-  layout:    `templates/base.njk`,
-  permalink: `tips/frontmatter_data.html`,
-  tags:      [ `tip` ],
-&nbsp;
-  title_s:     `Front matter`,
-  subtitle_s:  `Front matter data access`,
-  abstract_s:  `Accessing front matter data in Markdown and templates`,
-  author_s:    `Octoxalis`,
-&nbsp;
-  jfm_s: `/docs/data-frontmatter/#javascript-front-matter`,
-}
----
+var str = 'The quick brown fox jumps over the lazy dog.';
+var words = str.split(' ');
 </code></pre>
-<p>To access any property declared in the front matter it has to be enclosed in double parenthesis <code>{{ ... }}</code>. For instance, the <code>abstract_s</code> property in the front matter is injected in this page with the following code: <code>{{ abstract_s }}</code> and renders as:<br>
-<q>Accessing front matter data in Markdown and templates</q>.</p>
-<h2>Function properties</h2>
-<p>If you use JavaScript for the front matter
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-A very good idea because it gives you the full power of the language to process your content.
-</span></ins>
-and Nunjucks as templating system, you can declare functions as properties
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-See <a href="https://11ty.io/docs/data-frontmatter/#javascript-front-matter" target="_blank" rel="noreferrer">Eleventy#javascript-front-matter</a> documentation page.
-</span></ins>
-. However, apart very specific cases, it’s much more easy to declare content processing functions in a module located inside the data directory
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-Because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful.
-</span></ins>
-.</p>
-<h2>Front matter properties and global data functions</h2>
-<p>11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an <code>utils.js</code> file inside its <code>data/lib</code> directory where a <code>EleventyLink__s</code> function compute the link to any Eleventy docs page using an acronym of the page and anchor.</p>
+<p>Two different words for two tightly related entities! Isn’t it more meaningful to use the same identifier with different specifiers?</p>
 <hgroup data--="code_ref">
-<h5>11tytips/source/data/lib/utils.js</h5>
+<h5>11tyTips: Pseudo-typed identifiers</h5>
 <h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
 </hgroup>
 <pre><code class="language-javascript">
-EleventyLink__s: ( key_s ) =>
+var lazyDog_s = 'The quick brown fox jumps over the lazy dog.';
+var lazyDog_a = lazyDog_s.split(' ');
+</code></pre>
+<p>A more tricky example:</p>
+<hgroup data--="code_ref">
+<h5>11tyTips: Tricky pseudo-typed identifiers</h5>
+<h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
+</hgroup>
+<pre><code class="language-javascript">
+const oneTwoThree_s = '123'
+const oneTwoThree_n = +'123'          //: type conversion to Number
+const oneTwoFour_s = '' + ++ID_n      //: type conversion to String
+</code></pre>
+<p>This naming recipe applies to all primitive immutable types:</p>
+<ul data--="ulist">
+<li>Null</li>
+<li>Undefined</li>
+<li>Boolean</li>
+<li>Number</li>
+<li>BigInt</li>
+<li>String</li>
+<li>Array</li>
+<li>Object</li>
+<li>Symbol</li>
+</ul>
+<p>It extends to specific Object types:</p>
+<ul data--="ulist">
+<li>Function</li>
+<li>Class</li>
+<li>RegExp</li>
+</ul>
+<p>Suffixes specifying the type are a single letter preceded by an underscore character, lowercase letters for “wrapped” types
+<ins data--="inline_note"><sup></sup><span data--="note_content">
+Boolean, Number, BigInt, String, Array, Object, Symbol, Function, Class, RegExp.
+See <a href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive" target="_blank" rel="noreferrer"> MDN Primitive description</a>.
+</span></ins>
+, uppercase letters for “unwrapped” types
+<ins data--="inline_note"><sup></sup><span data--="note_content">
+Null, Undefined.
+</span></ins>
+.</p>
+<table class="middle_wide">
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align:center">Specifier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Null</td>
+<td style="text-align:center">_<em>N</em></td>
+</tr>
+<tr>
+<td>Undefined</td>
+<td style="text-align:center">_<em>U</em></td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td style="text-align:center">_<em>b</em></td>
+</tr>
+<tr>
+<td>Number</td>
+<td style="text-align:center">_<em>n</em></td>
+</tr>
+<tr>
+<td>BigInt</td>
+<td style="text-align:center">_<em>i</em></td>
+</tr>
+<tr>
+<td>String</td>
+<td style="text-align:center">_<em>s</em></td>
+</tr>
+<tr>
+<td>Array</td>
+<td style="text-align:center">_<em>a</em></td>
+</tr>
+<tr>
+<td>Object</td>
+<td style="text-align:center">_<em>o</em></td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td style="text-align:center">_<em>y</em></td>
+</tr>
+<tr>
+<td>Function</td>
+<td style="text-align:center">_<em>f</em></td>
+</tr>
+<tr>
+<td>Class</td>
+<td style="text-align:center">_<em>c</em></td>
+</tr>
+<tr>
+<td>RegExp</td>
+<td style="text-align:center">_<em>r</em></td>
+</tr>
+</tbody>
+</table>
+<p>To give further meaningful information, function identifiers have different specifiers:
+in an assignment, the previous convention is used, but for a declaration,
+two underscore characters before the type specifier of the return value is used and no specifier when the function returns nothing.</p>
+<p data--="example"><code>const awesome__s = () =&gt; 'An awesome String'</code></p>
+<p data--="example"><code>const clone_f = awesome__s</code></p>
+<hgroup data--="code_ref">
+<h5>11tyTips/source/includes/assets/scripts/js/partials/dom.js</h5>
+<h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
+</hgroup>
+<pre><code class="language-javascript">
+const DOM_siblings__a = selector_s =>
 {
-  const path_s = _C[ `eleventy_${key_s}` ]
-  const anchor_n = path_s.indexOf( '#')
-  if ( anchor_n === -1 )
-  {
-    console.log( `No anchor found in path ${path_s}` )
-    return
-  }
-  const anchor_s = path_s.substring( anchor_n )
-  const anchorLink_s = _C.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
-  return [anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), anchorLink_s]
+  const node_e = document.querySelector( selector_s )
+  return !node_e ?
+    null :
+    Array.prototype.filter
+      .call( node_e.parentNode.children, sibling => sibling !== node_e )
+}
+&nbsp;
+const DOM_listReverse = selector_s =>
+{
+  const nodes_a = Array.prototype.slice.call(document.querySelectorAll( `${selector_s} li` ))
+  nodes_a.forEach( node_e => node_e.parentNode.insertBefore( node_e, node_e.parentNode.firstChild ) )
 }
 </code></pre>
-<p>The acronyms, used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.</p>
-<p>Hence to get the reference-style link and the link itself is just as easy as:
-<code>{{ lib.utils.EleventyLink__s( 'jfm_s' )[0] }}</code>
-<code>{{ lib.utils.EleventyLink__s( 'jfm_s' )[1] }}</code>
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-Actually, most of Eleventy link keys are gathered in the <code>_C.js</code> global data file and not in the front matter.
-</span></ins>
-.</p>
-<h3>Even shorter</h3>
-<p>But we can do more, using Nunjucks <code>set</code> directive in each Markdown file referencing an Eleventy documentation page:
-<code>{% set @11link_f = lib.utils.EleventyLink__s %}</code>
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-This declaration comes at the very begining of the Markdown content, just after the initial front matter section in a section named Aliases.
-</span></ins>
-.</p>
-<p>Then call the link function as follow:
-<code>{{ @11link_f( 'jfm_s' )[0] }}</code>
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-reference-style link inside content.
-</span></ins>
-<code>{{ @11link_f( 'jfm_s' )[1] }}</code>
-<ins data--="inline_note"><sup></sup><span data--="note_content">
-Link located in Links section, after the Aliases section.
-</span></ins>
-.</p>
 
   </section>
 </article>
