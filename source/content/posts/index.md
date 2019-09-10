@@ -52,7 +52,7 @@ Using the Github [utteranc.es]{target="_blank" rel="noreferrer"} repository.
 {% end_short_note %}
 .
 
-Have a look at the site [source tree] and [style guide].
+Have a look at the site [source tree] and [styles guide].
 
 [comment]: # (======== Links ========)
 
