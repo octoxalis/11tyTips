@@ -549,8 +549,6 @@ Useful if there are multiple author_ss for the posts of the site.
   subtitle_s:  `Front matter data access`,
   abstract_s:  `Accessing front matter data in Markdown and templates`,
   author_s:    `Octoxalis`,
-&amp;nbsp;
-  jfm_s: `/docs/data-frontmatter/#javascript-front-matter`,
 }
 ---
 &lt;/code&gt;&lt;/pre&gt;
@@ -573,7 +571,7 @@ Because it will be accessible from any Markdown content or any template and with
 &lt;h2&gt;Front matter properties and global data functions&lt;/h2&gt;
 &lt;p&gt;11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an &lt;code&gt;utils.js&lt;/code&gt; file inside its &lt;code&gt;data/lib&lt;/code&gt; directory where a &lt;code&gt;EleventyLink__s&lt;/code&gt; function compute the link to any Eleventy docs page using an acronym of the page and anchor.&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tytips/source/data/lib/utils.js&lt;/h5&gt;
+&lt;h5&gt;11tyTips/source/data/lib/utils.js&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
@@ -600,22 +598,31 @@ Actually, most of Eleventy link keys are gathered in the &lt;code&gt;_C.js&lt;/c
 &lt;/span&gt;&lt;/ins&gt;
 .&lt;/p&gt;
 &lt;h3&gt;Even shorter&lt;/h3&gt;
-&lt;p&gt;But we can do more, using Nunjucks &lt;code&gt;set&lt;/code&gt; directive in each Markdown file referencing an Eleventy documentation page:
-&lt;code&gt;{% set @11link_f = lib.utils.EleventyLink__s %}&lt;/code&gt;
-&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
-This declaration comes at the very begining of the Markdown content, just after the initial front matter section in a section named Aliases.
-&lt;/span&gt;&lt;/ins&gt;
-.&lt;/p&gt;
-&lt;p&gt;Then call the link function as follow:
-&lt;code&gt;{{ @11link_f( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;
-&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
-reference-style link inside content.
-&lt;/span&gt;&lt;/ins&gt;
-&lt;code&gt;{{ @11link_f( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;
+&lt;p&gt;But we can do more, using Nunjucks &lt;code&gt;set&lt;/code&gt; directive in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ @11link_f( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Link located in Links section, after the Aliases section.
-&lt;/span&gt;&lt;/ins&gt;
-.&lt;/p&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ @11link_f( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+reference-style link inside content.
+&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
+&lt;hgroup data--=&quot;code_ref&quot;&gt;
+&lt;h5&gt;11tyTips/source/content/posts/frontmatter_data.md&lt;/h5&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;/hgroup&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+&amp;nbsp;
+[comment]: # (======== Aliases ========)
+{% set @11link_f = lib.utils.EleventyLink__s %}
+&amp;nbsp;
+[comment]: # (======== Links ========)
+{{ @11link_f( &#39;jfm_s&#39; )[1] }}
+{{ @11link_f( &#39;udf_s&#39; )[1] }}
+&amp;nbsp;
+[comment]: # (======== Post ========)
+&amp;nbsp;
+&lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>
 </feed>

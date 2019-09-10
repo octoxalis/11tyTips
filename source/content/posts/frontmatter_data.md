@@ -89,8 +89,6 @@ Useful if there are multiple author_ss for the posts of the site.
   subtitle_s:  `Front matter data access`,
   abstract_s:  `Accessing front matter data in Markdown and templates`,
   author_s:    `Octoxalis`,
-
-  jfm_s: `/docs/data-frontmatter/#javascript-front-matter`,
 }
 ---
 {% end_code_block %}
@@ -121,7 +119,7 @@ Because it will be accessible from any Markdown content or any template and with
 {{_C.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{_C.SITE_s}} source has an `utils.js` file inside its `data/lib` directory where a `EleventyLink__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor.
 
 {% _code_block %}
-    title_s: '11tytips/source/data/lib/utils.js',
+    title_s: '{{_C.SITE_s}}/source/data/lib/utils.js',
     lang_s: "javascript",
 [//]:#(_code_block)
 EleventyLink__s: ( key_s ) =>
@@ -151,20 +149,32 @@ Actually, most of Eleventy link keys are gathered in the `_C.js` global data fil
 
 ### Even shorter
 
-But we can do more, using Nunjucks `set` directive in each Markdown file referencing an Eleventy documentation page:
-{% raw %}`{% set @11link_f = lib.utils.EleventyLink__s %}`{% endraw %}
-{% _short_note %}
-This declaration comes at the very begining of the Markdown content, just after the initial front matter section in a section named Aliases.
-{% end_short_note %}
-.
+But we can do more, using Nunjucks `set` directive in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:
 
-Then call the link function as follow:
-{% raw %}`{{ @11link_f( 'jfm_s' )[0] }}`{% endraw %}
-{% _short_note %}
-reference-style link inside content.
-{% end_short_note %}
 {% raw %}`{{ @11link_f( 'jfm_s' )[1] }}`{% endraw %}
 {% _short_note %}
 Link located in Links section, after the Aliases section.
 {% end_short_note %}
-.
+{data--="example"}
+
+{% raw %}`{{ @11link_f( 'jfm_s' )[0] }}`{% endraw %}
+{% _short_note %}
+reference-style link inside content.
+{% end_short_note %}
+{data--="example"}
+
+{% _code_block %}
+    title_s: '{{_C.SITE_s}}/source/content/posts/frontmatter_data.md',
+    lang_s: "javascript",
+[//]:#(_code_block)
+{% raw %}
+[comment]: # (======== Aliases ========)
+{% set @11link_f = lib.utils.EleventyLink__s %}
+
+[comment]: # (======== Links ========)
+{{ @11link_f( 'jfm_s' )[1] }}
+{{ @11link_f( 'udf_s' )[1] }}
+
+[comment]: # (======== Post ========)
+{% endraw %}
+{% end_code_block %}
