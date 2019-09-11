@@ -64,7 +64,7 @@ p > code
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: hsla( var(--h_comment), var(--sat), 5%, 0.7);
+	color: hsla( var(--h_comment), var(--sat), 65%, 0.9);
 }
 
 .token.punctuation {

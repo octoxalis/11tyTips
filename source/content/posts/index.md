@@ -34,7 +34,7 @@ it is [zero-config]{target="_blank" rel="noreferrer"} out of the box!
 
 {{_C.SITE_s}} will provide you useful tips and tricks to unleash the power of 11ty. If you've never built a static site, thanks to the simplicity of this generator, you will be able to install your site, by cloning the Github repository of this site, replacing its content files with your own Markdown content
 {% _short_note %}
-Follow the [clone site] page instructions to start with a clean site skeleton.
+Follow the [site cloning] page instructions to start with a clean site skeleton.
 {% end_short_note %}
 .
 
@@ -52,7 +52,7 @@ Using the Github [utteranc.es]{target="_blank" rel="noreferrer"} repository.
 {% end_short_note %}
 .
 
-Have a look at the site [source tree] and [styles guide].
+Have a look at the site [source tree] and [styles guide] pages.
 
 [comment]: # (======== Links ========)
 

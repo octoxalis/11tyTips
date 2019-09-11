@@ -71,7 +71,7 @@ Actually not used by {{_C.SITE_s}}, but could be...
 {% end_short_note %}
 + Author
 {% _short_note %}
-Useful if there are multiple author_ss for the posts of the site.
+Useful if there are multiple authors for the posts of the site.
 {% end_short_note %}
 
 {% _code_block %}
@@ -106,13 +106,69 @@ and Nunjucks as templating system, you can declare functions as properties
 {% _short_note %}
 See {{ @11link_f( 'jfm_s' )[0] }}{target="_blank" rel="noreferrer"} documentation page.
 {% end_short_note %}
-. However, apart very specific cases, it's much more easy to declare content processing functions in a module located inside the data directory
+. Usually, apart very specific cases, it's much more easy to declare content processing functions in a module located inside the data directory
 {% _short_note %}
 Because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful.
 {% end_short_note %}
 .
 
-[comment]: # (======== ## Front matter variables ========)
+However, {{_C.SITE_s}} tips list menu is such a case: the `rank__s` property calls the `String.prototype.padStart` method to add one or two `0` before the tip rank to normalize it and is called this way:
+
+{% raw %}`<span>{{ rank__s(tip_n) }}</span>`{% endraw %}
+{data--="example"}
+
+[comment]: # (======== Escape Nunjucks ========)
+{% set @code %}
+{% raw %}
+<menu data--="tips_menu">
+  <h4><a href="{{ settings.url_s }}">Home</a></h4>
+  <h4>→ <a href="{{ settings.git_s }}" target="_blank" rel="noreferrer">Github</a></h4>
+  <h4>→ <a href="{{ settings.twi_s }}" target="_blank" rel="noreferrer">Twitter</a></h4>
+  <h4>→ <a href="{{ settings.rss_s }}" target="_blank">RSS</a></h4>
+  <h2 data--="tips_order">All the tips</h2>
+  <ol data--="tips_list">
+  {% set tip_n = 1 %}
+  {% for tip_e in tips_a %}
+    <li data--="tips_entry">
+      <span>{{ rank__s(tip_n) }}</span>
+      <a href="{{ tip_e.url | url }}">{{ tip_e.data.title_s }}</a>
+      <span>{{ tip_e.data.subtitle_s }}</span>
+    </li>
+  {% set tip_n = tip_n + 1 %}
+  {% endfor %}
+  </ol>
+</menu>
+{% endraw %}
+{% endset %}
+
+{% _code_block %}
+    title_s: '{{_C.SITE_s}}/source/includes/templates/tips_list.njk',
+    lang_s: "javascript"
+[//]:#(_code_block)
+---js
+{
+  pagination:
+  {
+    data: 'collections.tip',
+    size: 10,
+    alias: 'tips_a',
+  },
+  rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
+}
+---
+{{ @code }}
+{% end_code_block %}
+
+But the same result would have been possible calling directly the `padStart` method inside the template
+{% _short_note %}
+Nevertheless, my prefered solution is the property function because it's more readable.
+{% end_short_note %}
+:
+
+{% raw %}`<span>#{{ ('' + tip_n).padStart( 3, '0' ) }}</span>`{% endraw %}
+{data--="example"}
+
+[comment]: # (======== TODO: ## Front matter variables ========)
 
 ## Front matter properties and global data functions
 
@@ -149,7 +205,7 @@ Actually, most of Eleventy link keys are gathered in the `_C.js` global data fil
 
 ### Even shorter
 
-But we can do more, using Nunjucks `set` directive in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:
+But we can do more, using Nunjucks `set` tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:
 
 {% raw %}`{{ @11link_f( 'jfm_s' )[1] }}`{% endraw %}
 {% _short_note %}

@@ -18,8 +18,8 @@
 Every developer knows that JavaScript is not a static typed language, a useful feature eliminating lots of bugs.
  A language like Typescript has been created as a remedy to that important lack of safety. Even for code modules counting less than a few tens of lines, it's easy to forget what kind of type is exactly a variable or constant declared at the begining of the file and then make a mistake when assining a wrong type to a variable.
 
-I've adopted a simple recipe to avoid such mistakes: just add a mnemonic letter at the end of each identifier to specify the variable or constant type.
-This simple adjonction have a secondary benefice: it simplifies the names variations.
+{{_C.SITE_s}} adopts a simple recipe to avoid such mistakes: only adding a mnemonic letter at the end of each identifier to specify the variable or constant type.
+This simple adjonction has a secondary benefice: it simplifies the identifier derivations.
 
 Just an example: the JavaScript `String.prototype.split` function returns an array of Strings:
 
@@ -31,7 +31,7 @@ var str = 'The quick brown fox jumps over the lazy dog.';
 var words = str.split(' ');
 {% end_code_block %}
 
-Two different words for two tightly related entities! Isn't it more meaningful to use the same identifier with different specifiers?
+Two different words for two tightly related entities! Isn't it semantically more meaningful to use the same identifier with different specifiers?
 
 {% _code_block %}
     title_s: '{{_C.SITE_s}}: Pseudo-typed identifiers',
@@ -41,15 +41,19 @@ var lazyDog_s = 'The quick brown fox jumps over the lazy dog.';
 var lazyDog_a = lazyDog_s.split(' ');
 {% end_code_block %}
 
-A more tricky example:
+A more tricky example
+{% _short_note %}
+With smart inline type coercion tricks!
+{% end_short_note %}
+:
 
 {% _code_block %}
     title_s: '{{_C.SITE_s}}: Tricky pseudo-typed identifiers',
     lang_s: "javascript",
 [//]:#(_code_block)
 const oneTwoThree_s = '123'
-const oneTwoThree_n = +'123'          //: type conversion to Number
-const oneTwoFour_s = '' + ++ID_n      //: type conversion to String
+let   oneTwoThree_n = +oneTwoThree_s          //: to Number
+const oneTwoFour_s  = '' + ++oneTwoThree_n    //: to String
 {% end_code_block %}
 
 This naming recipe applies to all primitive immutable types:
