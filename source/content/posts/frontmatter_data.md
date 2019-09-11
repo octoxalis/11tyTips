@@ -23,7 +23,7 @@
 
 Each Markdown file has its own data, declared at the begining of the file in the front matter part
 {% _short_note %}
-{{_C.SITE_s}} uses a JavaScript object for front matter.
+{{_C.SITE_s}} uses a JavaScript `Object` for the front matter.
 {% end_short_note %}
 , a few ones being mandatory
 {% _short_note %}
@@ -93,7 +93,11 @@ Useful if there are multiple authors for the posts of the site.
 ---
 {% end_code_block %}
 
-To access any property declared in the front matter it has to be enclosed in double parenthesis {% raw %}`{{ ... }}`{% endraw %}. For instance, the `abstract_s` property in the front matter is injected in this page with the following code: {% raw %}`{{ abstract_s }}`{% endraw %} and renders as:<br>
+To access any property declared in the front matter it has to be enclosed in double parenthesis {% raw %}`{{ ... }}`{% endraw %}
+{% _short_note %}
+{{_C.SITE_s}} uses Nunjucks. Using other templating systems, this is a bit different.
+{% end_short_note %}
+. For instance, the `abstract_s` property in the front matter is injected in this page with the following code: {% raw %}`{{ abstract_s }}`{% endraw %} and renders as:<br>
 <q>{{ abstract_s }}</q>.
 
 ## Function properties
@@ -193,15 +197,21 @@ EleventyLink__s: ( key_s ) =>
 }
 {% end_code_block %}
 
-The acronyms, used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.
-
-Hence to get the reference-style link and the link itself is just as easy as:
-{% raw %}`{{ lib.utils.EleventyLink__s( 'jfm_s' )[0] }}`{% endraw %}
-{% raw %}`{{ lib.utils.EleventyLink__s( 'jfm_s' )[1] }}`{% endraw %}
+The acronyms, used as keys
 {% _short_note %}
-Actually, most of Eleventy link keys are gathered in the `_C.js` global data file and not in the front matter.
+`jfm_s` is the acronym of `#javascript-front-matter`,
+`udf_s` is the acronym of `#user-defined-front-matter-customizations`.
+Usually three charachters are enough to get a unique identifier.
 {% end_short_note %}
-.
+, could be set inside each page front matter and used as a key by the function to expand the actual link reference.
+
+Hence to get the _reference-style link_ and the _link_ itself is just as easy as:
+
+{% raw %}`{{ lib.utils.EleventyLink__s( 'jfm_s' )[0] }}`{% endraw %}<br>
+{% raw %}`{{ lib.utils.EleventyLink__s( 'jfm_s' )[1] }}`{% endraw %}
+{data--="example"}
+
+Actually, most of Eleventy link keys are gathered in the `_C.js` global data file and not in the front matter!
 
 ### Even shorter
 

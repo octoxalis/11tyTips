@@ -1,10 +1,9 @@
 body
 {
-  --pad_w: 8;
-  --body_width: calc( ( var(--pad_w) * 1vw ) + var(--MAX_WIDTH) + ( var(--pad_w) * 1vw ) );
+  --body_width: calc( ( var(--PAD_W) * 1vw ) + var(--CONTENT_WIDTH) + ( var(--PAD_W) * 1vw ) );
 
   max-width: var(--body_width);
-  padding: 0 calc( var(--pad_w) * 1vw );
+  padding: 0 calc( var(--PAD_W) * 1vw );
 }
 
 [data--="header"]
@@ -15,7 +14,6 @@ body
   align-items: flex-end;
   position: sticky;
   top: 0;
-  max-width: var(--MAX_WIDTH);
   padding-top: var(--PAD_4);
   color: var(--c_prim_lo);
   background: var(--c_back_op);
@@ -64,7 +62,7 @@ body
 
 [data--="section"]
 {
-  /*????? max-width: var(--MAX_WIDTH);*/
+  /*????? max-width: var(--CONTENT_WIDTH);*/
   padding: var(--PAD_1);
   color: var(--c_prim_lo);
   background: var(--c_back_hi);
@@ -81,7 +79,7 @@ body
 {
   margin-top: var(--PAD_4);
   padding: var(--PAD_1); var(--PAD_2);
-  max-width: var(--MAX_WIDTH);
+  max-width: var(--CONTENT_WIDTH);
   display: flex;
   justify-content: space-between;
 	color: hsla(var(--c_hue_d), 80%, 20%, .8);
@@ -108,9 +106,11 @@ body
 [data--="example"]
 {
   counter-increment: examples;
+  max-width: var(--CONTENT_WIDTH);
   padding-left: var(--PAD_2);
   color: hsla( 180, 10%, 10%, 1 );
 	background: var(--c_decor_hi);
+	font-size: 90%;    /* Fira Code adjustment */
 }
 [data--="example"]::before
 {
@@ -119,7 +119,7 @@ body
   margin-bottom: var(--PAD_2);
   padding-left: var(--PAD_1);
   border-bottom: 1px solid var(--c_decor_lo);
-  font-size: 70%;
+  font-size: 90%;
   font-style: italic;
 }
 

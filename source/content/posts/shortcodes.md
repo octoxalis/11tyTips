@@ -13,9 +13,9 @@
 ---
 [comment]: # (======== Post ========)
 
-## Corner stone
+## A corner stone
 
-_Shorcodes_ are probably the most powerful tool to process Markdown content inline. They are simple to create and use, almost anything can be done with them, and they represent an important opportunity that should not be missed. Eleventy has two kinds of shortcode:
+Shortcodes are probably the most powerful tool to process Markdown content inline. They are simple to create and use, almost anything can be done with them, and they represent an important opportunity that should not be missed. Eleventy has two kinds of shortcode:
 + simple
 {% _short_note %}
 The shortcode argument (i.e. content) is passed to a single tag (example #1).
@@ -25,13 +25,20 @@ The shortcode argument (i.e. content) is passed to a single tag (example #1).
 {% _short_note %}
 The shortcode argument is passed enclosed between two tags (example #2).
 {% end_short_note %}
-{% raw %}
-`{% shortcode_id "argument" %}`{data--="example"}
-{% endraw %}
-{% raw %}
-`{% shortcode_id %}... Content to be processed ...{% end_shortcode_id %}`{data--="example"}
-{% endraw %}
 
-{{ _C.SITE_s }} doesn't use a lot of shortcodes, but they are essential to its content. Let's dissect the most omnipresent of it: the `_code_block` shortcode.
+{% raw %}`{% shortcode_id "argument" %}`{% endraw %}<br>
+{% raw %}`{% shortcode_id %}... Content to be processed ...{% end_shortcode_id %}`{% endraw %}
+{data--="example"}
+
+{{ _C.SITE_s }} doesn't use a lot of shortcodes, but they are essential to its content. Let's dissect the most omnipresent of it: the `_code_block` paired shortcode.
+It is passed to Eleventy configuration method `addPairedShortcode` this way:
+
+{% raw %}`config_o.addPairedShortcode('_code_block', content_s => CODES_o.code_block__s( content_s ) )`{% endraw %}
+{data--="example"}
+
+Here, `_code_block` is the shortcode identifier
+{% _short_note %}
+{{ _C.SITE_s }} uses a leading underscore character because the shortcode closing tag adds the word `end` before the shortcode identifier: `end_shortcode` is more readable than `endshortcode`, isn't it?
+{% end_short_note %}
 
 [comment]: # (======== Links ========)

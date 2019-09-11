@@ -121,9 +121,13 @@ source
 │   │   └── source_tree.txt
 │   └── posts
 │       ├── 404.md
-│       ├── site_cloning.md
+│       ├── eleventy_settings.md
 │       ├── feed.md
+│       ├── frontmatter_data.md
 │       ├── index.md
+│       ├── names_guide.md
+│       ├── shortcodes.md
+│       ├── site_cloning.md
 │       ├── site_settings.md
 │       ├── site_structure.md
 │       ├── source_tree.md
@@ -132,7 +136,6 @@ source
 ├── data
 │   ├── lib
 │   │   └── utils.js
-│   ├── posts
 │   ├── _C.js
 │   ├── descriptions.js
 │   └── settings.js
@@ -206,10 +209,10 @@ Because of the leading dot it’s an hidden file.
 &lt;/span&gt;&lt;/ins&gt;
 , to define the settings of the building environment. This file is located at the root of the source folder but it can be put anywhere, just modifying the Node &lt;code&gt;package.json&lt;/code&gt; file &lt;code&gt;&amp;quot;main&amp;quot;&lt;/code&gt; property. The name itself can also be changed, if you see fit.&lt;/p&gt;
 &lt;p&gt;This file defines the settings of the main resources used in the building process: &lt;em&gt;libraries&lt;/em&gt;, &lt;em&gt;shortcodes&lt;/em&gt;, &lt;em&gt;filters&lt;/em&gt;, &lt;em&gt;plugins&lt;/em&gt;, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to the configuration of a resource, all located in the &lt;code&gt;source/build/script/js/11ty/&lt;/code&gt; directory.&lt;/p&gt;
-&lt;p&gt;The configuration object returned by the &lt;code&gt;.eleventy.js&lt;/code&gt; module is important because it defines the location of the main parts of building process: the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; directories, the templates processors, etc.&lt;/p&gt;
+&lt;p&gt;The configuration object returned by the &lt;code&gt;.eleventy.js&lt;/code&gt; module is important because it defines the location of the main parts of the building process: the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; directories, the templates processors, etc.&lt;/p&gt;
 &lt;p&gt;11tyTips declares its own set of directories, modifying some of the default names and locations
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
-For instance, leading underscore character is suppressed for &lt;code&gt;output&lt;/code&gt;, &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;includes&lt;/code&gt; directories, in lieu of &lt;code&gt;_output&lt;/code&gt;, &lt;code&gt;_data&lt;/code&gt; and &lt;code&gt;_includes&lt;/code&gt;; &lt;code&gt;static&lt;/code&gt; directory is named &lt;code&gt;assets&lt;/code&gt;, etc.
+For instance, the leading underscore character is suppressed for &lt;code&gt;output&lt;/code&gt;, &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;includes&lt;/code&gt; directories, in lieu of &lt;code&gt;_output&lt;/code&gt;, &lt;code&gt;_data&lt;/code&gt; and &lt;code&gt;_includes&lt;/code&gt;; &lt;code&gt;static&lt;/code&gt; directory is named &lt;code&gt;assets&lt;/code&gt;, etc.
 &lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 </content>
   </entry>
@@ -271,42 +274,44 @@ module.exports = SETTINGS_o
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+const ELEVENTY_o =
+{
+  markdownTemplateEngine: &#39;njk&#39;,
+  htmlTemplateEngine:     &#39;njk&#39;,
+  dataTemplateEngine:     &#39;njk&#39;,
+  templateFormats:        [ &#39;md&#39;,&#39;njk&#39;,&#39;html&#39; ],
+  passthroughFileCopy:    true,
+  pathPrefix:             &#39;/&#39;,
+  dir:
+  {
+    input:    &#39;.&#39;,
+    output:   &#39;../site&#39;,
+    data:     &#39;data&#39;,
+    includes: &#39;includes&#39;,
+    passthru: &#39;assets&#39;,
+  },
+}
+&amp;nbsp;
 const DIRS_o =
 {
   buildDir_s: &#39;./build/scripts/js/11ty/&#39;,
-  templateIncludesDir_s: &#39;includes&#39;,
   contentIncludesDir_s: &#39;./content/includes&#39;,
 }
 &amp;nbsp;
 module.exports = config_o =&gt;
 {
-  config_o.templateIncludesDir_s = DIRS_o.templateIncludesDir_s
+  config_o.templateIncludesDir_s = ELEVENTY_o.dir.includes
   config_o.contentIncludesDir_s = DIRS_o.contentIncludesDir_s
-  config_o.addPassthroughCopy( &#39;assets&#39; )    //: STATIC FILES
+  config_o.addPassthroughCopy( &#39;assets&#39; )    //: static files
   ;
   [ &#39;libraries&#39;,
-    &#39;collections&#39;,
     &#39;shortcodes&#39;,
     &#39;filters&#39;,
-    &#39;plugins&#39;
+    &#39;plugins&#39;,
+    &#39;collections&#39;
   ].forEach( config_s =&gt; require( `${DIRS_o.buildDir_s}${config_s}.js` )( config_o ) )
 &amp;nbsp;
-  return {    // : return the config object for further customization
-    markdownTemplateEngine: &#39;njk&#39;,
-    htmlTemplateEngine:     &#39;njk&#39;,
-    dataTemplateEngine:     &#39;njk&#39;,
-    templateFormats:        [ &#39;md&#39;,&#39;njk&#39;,&#39;html&#39; ],
-    passthroughFileCopy:    true,
-    pathPrefix:             &#39;/&#39;,
-    dir:
-    {
-      input:    &#39;.&#39;,
-      output:   &#39;../site&#39;,
-      data:     &#39;data&#39;,
-      includes: &#39;includes&#39;,
-      passthru: &#39;assets&#39;,
-    },
-  }
+  return ELEVENTY_o    // : return the config object for further customization
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
@@ -363,7 +368,7 @@ List inside an inline note
 A language like Typescript has been created as a remedy to that important lack of safety. Even for code modules counting less than a few tens of lines, it’s easy to forget what kind of type is exactly a variable or constant declared at the begining of the file and then make a mistake when assining a wrong type to a variable.&lt;/p&gt;
 &lt;p&gt;11tyTips adopts a simple recipe to avoid such mistakes: only adding a mnemonic letter at the end of each identifier to specify the variable or constant type.
 This simple adjonction has a secondary benefice: it simplifies the identifier derivations.&lt;/p&gt;
-&lt;p&gt;Just an example: the JavaScript &lt;code&gt;String.prototype.split&lt;/code&gt; function returns an array of Strings:&lt;/p&gt;
+&lt;p&gt;Just an example: the JavaScript &lt;code&gt;String.prototype.split&lt;/code&gt; method returns an array of Strings:&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;MDN web doc&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com/&quot; target&quot;_blank&quot;=&quot;&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
@@ -395,6 +400,7 @@ const oneTwoThree_s = &#39;123&#39;
 let   oneTwoThree_n = +oneTwoThree_s          //: to Number
 const oneTwoFour_s  = &#39;&#39; + ++oneTwoThree_n    //: to String
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Types specifiers&lt;/h3&gt;
 &lt;p&gt;This naming recipe applies to all primitive immutable types:&lt;/p&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;Null&lt;/li&gt;
@@ -413,7 +419,7 @@ const oneTwoFour_s  = &#39;&#39; + ++oneTwoThree_n    //: to String
 &lt;li&gt;Class&lt;/li&gt;
 &lt;li&gt;RegExp&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Suffixes specifying the type are a single letter preceded by an underscore character, lowercase letters for “wrapped” types
+&lt;p&gt;The suffix specifying the type is a single letter preceded by an underscore character, lowercase letters for “wrapped” types
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Boolean, Number, BigInt, String, Array, Object, Symbol, Function, Class, RegExp.
 See &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Glossary/Primitive&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt; MDN Primitive description&lt;/a&gt;.
@@ -506,6 +512,9 @@ const DOM_listReverse = selector_s =&gt;
   nodes_a.forEach( node_e =&gt; node_e.parentNode.insertBefore( node_e, node_e.parentNode.firstChild ) )
 }
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The previous code shows an &lt;strong&gt;exception&lt;/strong&gt; to the specifiers convention used: for &lt;code&gt;DOM&lt;/code&gt; elements, it seems more appropriate to use the &lt;code&gt;_e&lt;/code&gt; suffix than the &lt;code&gt;_o&lt;/code&gt; suffix used for &lt;code&gt;Object&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This useful convention is used not only in JavaScript context but also in Nunjucks context. However, in templates, identifiers are prefixed with an &lt;em&gt;at&lt;/em&gt; character:&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{% set @URL_s = settings.url_s %}&lt;/code&gt;&lt;/p&gt;
 </content>
   </entry>
   
@@ -517,7 +526,7 @@ const DOM_listReverse = selector_s =&gt;
     <content type="html">&lt;h2&gt;Front matter data&lt;/h2&gt;
 &lt;p&gt;Each Markdown file has its own data, declared at the begining of the file in the front matter part
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
-11tyTips uses a JavaScript object for front matter.
+11tyTips uses a JavaScript &lt;code&gt;Object&lt;/code&gt; for the front matter.
 &lt;/span&gt;&lt;/ins&gt;
 , a few ones being mandatory
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
@@ -585,7 +594,11 @@ Useful if there are multiple authors for the posts of the site.
 }
 ---
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To access any property declared in the front matter it has to be enclosed in double parenthesis &lt;code&gt;{{ ... }}&lt;/code&gt;. For instance, the &lt;code&gt;abstract_s&lt;/code&gt; property in the front matter is injected in this page with the following code: &lt;code&gt;{{ abstract_s }}&lt;/code&gt; and renders as:&lt;br&gt;
+&lt;p&gt;To access any property declared in the front matter it has to be enclosed in double parenthesis &lt;code&gt;{{ ... }}&lt;/code&gt;
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+11tyTips uses Nunjucks. Using other templating systems, this is a bit different.
+&lt;/span&gt;&lt;/ins&gt;
+. For instance, the &lt;code&gt;abstract_s&lt;/code&gt; property in the front matter is injected in this page with the following code: &lt;code&gt;{{ abstract_s }}&lt;/code&gt; and renders as:&lt;br&gt;
 &lt;q&gt;Accessing front matter data in Markdown and templates&lt;/q&gt;.&lt;/p&gt;
 &lt;h2&gt;Function properties&lt;/h2&gt;
 &lt;p&gt;If you use JavaScript for the front matter
@@ -667,14 +680,17 @@ EleventyLink__s: ( key_s ) =&gt;
   return [anchorLink_s.substring( 0, anchorLink_s.indexOf( &#39;:&#39;) ), anchorLink_s]
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The acronyms, used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.&lt;/p&gt;
-&lt;p&gt;Hence to get the reference-style link and the link itself is just as easy as:
-&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;
-&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;
+&lt;p&gt;The acronyms, used as keys
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
-Actually, most of Eleventy link keys are gathered in the &lt;code&gt;_C.js&lt;/code&gt; global data file and not in the front matter.
+&lt;code&gt;jfm_s&lt;/code&gt; is the acronym of &lt;code&gt;#javascript-front-matter&lt;/code&gt;,
+&lt;code&gt;udf_s&lt;/code&gt; is the acronym of &lt;code&gt;#user-defined-front-matter-customizations&lt;/code&gt;.
+Usually three charachters are enough to get a unique identifier.
 &lt;/span&gt;&lt;/ins&gt;
-.&lt;/p&gt;
+, could be set inside each page front matter and used as a key by the function to expand the actual link reference.&lt;/p&gt;
+&lt;p&gt;Hence to get the &lt;em&gt;reference-style link&lt;/em&gt; and the &lt;em&gt;link&lt;/em&gt; itself is just as easy as:&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Actually, most of Eleventy link keys are gathered in the &lt;code&gt;_C.js&lt;/code&gt; global data file and not in the front matter!&lt;/p&gt;
 &lt;h3&gt;Even shorter&lt;/h3&gt;
 &lt;p&gt;But we can do more, using Nunjucks &lt;code&gt;set&lt;/code&gt; tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ @11link_f( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;
@@ -709,8 +725,8 @@ reference-style link inside content.
     <link href="https://11tytips.netlify.com/tips/shortcodes.html"/>
     <updated>2019-09-10T02:00:00+02:00</updated>
     <id>https://11tytips.netlify.com/tips/shortcodes.html</id>
-    <content type="html">&lt;h2&gt;Corner stone&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;Shorcodes&lt;/em&gt; are probably the most powerful tool to process Markdown content inline. They are simple to create and use, almost anything can be done with them, and they represent an important opportunity that should not be missed. Eleventy has two kinds of shortcode:&lt;/p&gt;
+    <content type="html">&lt;h2&gt;A corner stone&lt;/h2&gt;
+&lt;p&gt;Shortcodes are probably the most powerful tool to process Markdown content inline. They are simple to create and use, almost anything can be done with them, and they represent an important opportunity that should not be missed. Eleventy has two kinds of shortcode:&lt;/p&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;simple
 &lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
@@ -721,9 +737,15 @@ The shortcode argument (i.e. content) is passed to a single tag (example #1).
 The shortcode argument is passed enclosed between two tags (example #2).
 &lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;code data--=&quot;example&quot;&gt;{% shortcode_id &amp;quot;argument&amp;quot; %}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code data--=&quot;example&quot;&gt;{% shortcode_id %}... Content to be processed ...{% end_shortcode_id %}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;11tyTips doesn’t use a lot of shortcodes, but they are essential to its content. Let’s dissect the most omnipresent of it: the &lt;code&gt;_code_block&lt;/code&gt; shortcode.&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{% shortcode_id &amp;quot;argument&amp;quot; %}&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;{% shortcode_id %}... Content to be processed ...{% end_shortcode_id %}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;11tyTips doesn’t use a lot of shortcodes, but they are essential to its content. Let’s dissect the most omnipresent of it: the &lt;code&gt;_code_block&lt;/code&gt; paired shortcode.
+It is passed to Eleventy configuration method &lt;code&gt;addPairedShortcode&lt;/code&gt; this way:&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;config_o.addPairedShortcode(&#39;_code_block&#39;, content_s =&amp;gt; CODES_o.code_block__s( content_s ) )&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Here, &lt;code&gt;_code_block&lt;/code&gt; is the shortcode identifier
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+11tyTips uses a leading underscore character because the shortcode closing tag adds the word &lt;code&gt;end&lt;/code&gt; before the shortcode identifier: &lt;code&gt;end_shortcode&lt;/code&gt; is more readable than &lt;code&gt;endshortcode&lt;/code&gt;, isn’t it?
+&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>

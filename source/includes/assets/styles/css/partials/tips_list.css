@@ -1,10 +1,15 @@
+:root
+{
+  --MENU_SHOW: 0;
+}
+
 [data--="tips_menu"]
 {
   z-index: 1;
   position: absolute;
   padding-top: 1rem;
-  width: calc( 100% - ( var(--pad_w) * 2vw ) );
-  max-width: var(--MAX_WIDTH);
+  width: calc( 100% - ( var(--PAD_W) * 2vw ) );
+  max-width: var(--CONTENT_WIDTH);
   background: var(--c_back_op);
   transform: scaleY( var(--MENU_SHOW) );
   transition: all 0.3s ease-in-out;

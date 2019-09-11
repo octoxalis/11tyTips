@@ -1,6 +1,6 @@
 .utterances
 {
-  max-width: var(--MAX_WIDTH);
+  max-width: var(--CONTENT_WIDTH);
   margin: var(--PAD_2) 0;
 	background: var(--c_extern);
 }

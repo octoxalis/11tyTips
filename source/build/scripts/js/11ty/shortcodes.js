@@ -27,7 +27,7 @@ const CODES_o =
 
 module.exports = config_o =>
 {
-  config_o.addPairedShortcode("_short_note", content_s => CODES_o.short_note__s( content_s ) )
-  config_o.addPairedShortcode("_code_block", content_s => CODES_o.code_block__s( content_s ) )
-  config_o.addPairedShortcode("_replace_all", content_s => CODES_o.replace_all__s( content_s ) )
+  config_o.addPairedShortcode('_short_note', content_s => CODES_o.short_note__s( content_s ) )
+  config_o.addPairedShortcode('_code_block', content_s => CODES_o.code_block__s( content_s ) )
+  config_o.addPairedShortcode('_replace_all', content_s => CODES_o.replace_all__s( content_s ) )
 }

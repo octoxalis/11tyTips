@@ -26,7 +26,7 @@ module.exports = config_o =>
 {
   config_o.templateIncludesDir_s = ELEVENTY_o.dir.includes
   config_o.contentIncludesDir_s = DIRS_o.contentIncludesDir_s
-  config_o.addPassthroughCopy( 'assets' )    //: STATIC FILES
+  config_o.addPassthroughCopy( 'assets' )    //: static files
   ;
   [ 'libraries',
     'shortcodes',

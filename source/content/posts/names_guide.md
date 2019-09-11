@@ -21,7 +21,7 @@ Every developer knows that JavaScript is not a static typed language, a useful f
 {{_C.SITE_s}} adopts a simple recipe to avoid such mistakes: only adding a mnemonic letter at the end of each identifier to specify the variable or constant type.
 This simple adjonction has a secondary benefice: it simplifies the identifier derivations.
 
-Just an example: the JavaScript `String.prototype.split` function returns an array of Strings:
+Just an example: the JavaScript `String.prototype.split` method returns an array of Strings:
 
 {% _code_block %}
     title_s: 'MDN web doc',
@@ -56,6 +56,8 @@ let   oneTwoThree_n = +oneTwoThree_s          //: to Number
 const oneTwoFour_s  = '' + ++oneTwoThree_n    //: to String
 {% end_code_block %}
 
+### Types specifiers
+
 This naming recipe applies to all primitive immutable types:
 + Null
 { data--="ulist" }
@@ -74,7 +76,7 @@ It extends to specific Object types:
 + Class
 + RegExp
 
-Suffixes specifying the type are a single letter preceded by an underscore character, lowercase letters for "wrapped" types
+The suffix specifying the type is a single letter preceded by an underscore character, lowercase letters for "wrapped" types
 {% _short_note %}
 Boolean, Number, BigInt, String, Array, Object, Symbol, Function, Class, RegExp.
 See [ MDN Primitive description](https://developer.mozilla.org/en-US/docs/Glossary/Primitive){target="_blank" rel="noreferrer"}.
@@ -130,3 +132,10 @@ const DOM_listReverse = selector_s =>
   nodes_a.forEach( node_e => node_e.parentNode.insertBefore( node_e, node_e.parentNode.firstChild ) )
 }
 {% end_code_block %}
+
+The previous code shows an **exception** to the specifiers convention used: for `DOM` elements, it seems more appropriate to use the `_e` suffix than the `_o` suffix used for `Object`.
+
+This useful convention is used not only in JavaScript context but also in Nunjucks context. However, in templates, identifiers are prefixed with an _at_ character:
+
+{% raw %}`{% set @URL_s = settings.url_s %}`{% endraw %}
+{data--="example"}

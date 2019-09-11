@@ -34,9 +34,13 @@ source
 │   │   └── source_tree.txt
 │   └── posts
 │       ├── 404.md
-│       ├── site_cloning.md
+│       ├── eleventy_settings.md
 │       ├── feed.md
+│       ├── frontmatter_data.md
 │       ├── index.md
+│       ├── names_guide.md
+│       ├── shortcodes.md
+│       ├── site_cloning.md
 │       ├── site_settings.md
 │       ├── site_structure.md
 │       ├── source_tree.md
@@ -45,7 +49,6 @@ source
 ├── data
 │   ├── lib
 │   │   └── utils.js
-│   ├── posts
 │   ├── _C.js
 │   ├── descriptions.js
 │   └── settings.js
