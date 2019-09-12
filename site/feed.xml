@@ -8,7 +8,7 @@
   <id>https://11tytips.netlify.com/</id>
   <author>
     <name>Octoxalis</name>
-    <email>octoxalis at gmail.com</email>
+    <email>octoxalis@gmail.com</email>
   </author>
 
   <entry>
@@ -18,39 +18,39 @@
     <id>https://11tytips.netlify.com/tips/site_structure.html</id>
     <content type="html">&lt;h2&gt;The JAMstack architecture&lt;/h2&gt;
 &lt;p&gt;Eleventy, as most static sites, relies on an architectural paradigm called &lt;a href=&quot;https://jamstack.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;JAMstack&lt;/a&gt;, an acronym meaning: &lt;q&gt;a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.&lt;/q&gt;
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 See Mathias Biilmann &amp;amp; Phil Hawksworth book: &lt;a href=&quot;https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Modern Web development on the JAMstack&lt;/a&gt;.
-).&lt;/p&gt;
+&lt;/span&gt;&lt;/ins&gt;.&lt;/p&gt;
 &lt;p&gt;In the JAMstack architecture, &lt;em&gt;JavaScript&lt;/em&gt; is used not only in the browser for interactivity and presentation but also to build all the files of the site
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 This is the case of Eleventy. Other generators use different languages: Go, Python, etc.
-)
+&lt;/span&gt;&lt;/ins&gt;
 ; the &lt;em&gt;APIs&lt;/em&gt; are the programming interfaces to Node packages
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Eleventy itself is a Node package.
-)
+&lt;/span&gt;&lt;/ins&gt;
 or other frameworks used as a back end; &lt;em&gt;Markdown&lt;/em&gt; is used to set the content of each page of the site, with a settings part (front matter) using either JavaScript or a description language like YAML or TOML and a template part
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 There are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
-)
+&lt;/span&gt;&lt;/ins&gt;
 .&lt;/p&gt;
 &lt;h2&gt;11tyTips architecture&lt;/h2&gt;
 &lt;p&gt;Trying to stay as simple as possible, 11tyTips is built using a minimal set of the JAMstack architecture: JavaScript backed by the Node ecosystem, Nunjucks as templating system and Markdown as content markup language.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;source&lt;/code&gt; directory is designed to reflect these categories of resources:&lt;/p&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;build
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Contains JavaScript modules to be used during the build process. For consistancy with other source script directories, it is deeply refined in &lt;code&gt;script/js/&lt;/code&gt; and split in two directories: Eleventy modules (&lt;code&gt;11ty&lt;/code&gt;) and 11tyTips modules (&lt;code&gt;lib&lt;/code&gt;).
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;li&gt;includes
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Gathers all the templates used either by the Markdown files (&lt;code&gt;templates&lt;/code&gt;) or the Javascript and CSS files to be joined and minified (&lt;code&gt;assets&lt;/code&gt;).
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;li&gt;content &amp;amp; data
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 The first directory contains the Markdown files of all site posts, plus some files included in them;
 the second one gathers JavaScript data modules consumed by the Markdown content files.
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;A further directory is added to contain all the third-party assets used by the site: &lt;em&gt;fonts&lt;/em&gt;, &lt;em&gt;media&lt;/em&gt;, &lt;em&gt;scripts&lt;/em&gt; and &lt;em&gt;styles&lt;/em&gt; which are passthru copied to the built site directory.&lt;/p&gt;
 &lt;p&gt;This structure has been designed to offer the maximum of flexibility and consistence in the development phase, keeping a strong separation of concerns as to ease any needed refactoring and modification of the code.&lt;/p&gt;
@@ -81,7 +81,7 @@ the second one gathers JavaScript data modules consumed by the Markdown content 
     <content type="html">&lt;h2&gt;11tyTips site&lt;/h2&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;11tyTips source tree&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;
 source
@@ -203,16 +203,16 @@ source
     <id>https://11tytips.netlify.com/tips/eleventy_settings.html</id>
     <content type="html">&lt;h2&gt;The Eleventy JavaScript file&lt;/h2&gt;
 &lt;p&gt;Eleventy uses a simple Javascript file, named &lt;code&gt;.eleventy.js&lt;/code&gt;
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Because of the leading dot it’s an hidden file.
-)
+&lt;/span&gt;&lt;/ins&gt;
 , to define the settings of the building environment. This file is located at the root of the source folder but it can be put anywhere, just modifying the Node &lt;code&gt;package.json&lt;/code&gt; file &lt;code&gt;&amp;quot;main&amp;quot;&lt;/code&gt; property. The name itself can also be changed, if you see fit.&lt;/p&gt;
 &lt;p&gt;This file defines the settings of the main resources used in the building process: &lt;em&gt;libraries&lt;/em&gt;, &lt;em&gt;shortcodes&lt;/em&gt;, &lt;em&gt;filters&lt;/em&gt;, &lt;em&gt;plugins&lt;/em&gt;, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to the configuration of a resource, all located in the &lt;code&gt;source/build/script/js/11ty/&lt;/code&gt; directory.&lt;/p&gt;
 &lt;p&gt;The configuration object returned by the &lt;code&gt;.eleventy.js&lt;/code&gt; module is important because it defines the location of the main parts of the building process: the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; directories, the templates processors, etc.&lt;/p&gt;
 &lt;p&gt;11tyTips declares its own set of directories, modifying some of the default names and locations
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 For instance, the leading underscore character is suppressed for &lt;code&gt;output&lt;/code&gt;, &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;includes&lt;/code&gt; directories, in lieu of &lt;code&gt;_output&lt;/code&gt;, &lt;code&gt;_data&lt;/code&gt; and &lt;code&gt;_includes&lt;/code&gt;; &lt;code&gt;static&lt;/code&gt; directory is named &lt;code&gt;assets&lt;/code&gt;, etc.
-)&lt;/p&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 </content>
   </entry>
 
@@ -226,7 +226,7 @@ For instance, the leading underscore character is suppressed for &lt;code&gt;out
 &lt;p&gt;11tyTips uses only global data contained in JavaScript files located inside the data directory.&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;source/data/settings.js&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 const _C = require( &#39;./_C.js&#39; )
@@ -253,24 +253,24 @@ module.exports = SETTINGS_o
     <link href="https://11tytips.netlify.com/tips/styles_guide.html"/>
     <updated>2019-09-07T02:00:00+02:00</updated>
     <id>https://11tytips.netlify.com/tips/styles_guide.html</id>
-    <content type="html">&lt;p&gt;(h1 element&lt;br&gt;p element (introduction))&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;h1 element&lt;br&gt;p element (introduction)&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;h1&gt;Style guide&lt;/h1&gt;
 &lt;p data--=&quot;page_intro&quot;&gt;This is an introduction paragraph which should be limited in length.&lt;/p&gt;
-&lt;p&gt;(h2 element)&lt;/p&gt;
+&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;h2 element&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;h2&gt;Paragraph title_s&lt;/h2&gt;
-&lt;p&gt;(h3 element)&lt;/p&gt;
+&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;h3 element&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;h3&gt;Paragraph subtitle_s&lt;/h3&gt;
 &lt;p&gt;NB: Titles have a &lt;code&gt;font-style: italic&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;(p element)&lt;/p&gt;
+&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;p element&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;p&gt;Paragraph content have a maximum line length fixed to 60ch, yielding to a number of  of about 70 characters per line: this is considered the best line length for readibility.&lt;/p&gt;
-&lt;p&gt;(inline code)&lt;/p&gt;
+&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;inline code&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;for( let at = 0; at &amp;lt; keys_a.length; ++at )&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;(example)&lt;/p&gt;
+&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;example&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;for( let at = 0; at &amp;lt; keys_a.length; ++at )&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;(code block)&lt;/p&gt;
+&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;code block&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;source/eleventy.js&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 const ELEVENTY_o =
@@ -313,16 +313,16 @@ module.exports = config_o =&gt;
   return ELEVENTY_o    // : return the config object for further customization
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(
+&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Unordered list:&lt;br&gt;
 &lt;code&gt;data--=&amp;quot;ulist&amp;quot;&lt;/code&gt; attribute has to be set on a &lt;em&gt;separate line&lt;/em&gt;
-)&lt;/p&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;Primo&lt;/li&gt;
 &lt;li&gt;Secondo&lt;/li&gt;
 &lt;li&gt;Tertio&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;(Nested unordered list)&lt;/p&gt;
+&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;Nested unordered list&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;Primo
 &lt;ul data--=&quot;ulist&quot;&gt;
@@ -339,18 +339,18 @@ Unordered list:&lt;br&gt;
 &lt;/li&gt;
 &lt;li&gt;Tertio&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;(
+&lt;p&gt;&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 List inside an inline note
-)&lt;/p&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;It works…
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 &lt;em&gt;only preceded by a list item&lt;/em&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;One&lt;/li&gt;
 &lt;li&gt;Two&lt;/li&gt;
 &lt;li&gt;Three
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -370,7 +370,7 @@ This simple adjonction has a secondary benefice: it simplifies the identifier de
 &lt;p&gt;Just an example: the JavaScript &lt;code&gt;String.prototype.split&lt;/code&gt; method returns an array of Strings:&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;MDN web doc&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 var str = &#39;The quick brown fox jumps over the lazy dog.&#39;;
@@ -379,20 +379,20 @@ var words = str.split(&#39; &#39;);
 &lt;p&gt;Two different words for two tightly related entities! Isn’t it semantically more meaningful to use the same identifier with different specifiers?&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;11tyTips: Pseudo-typed identifiers&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 var lazyDog_s = &#39;The quick brown fox jumps over the lazy dog.&#39;;
 var lazyDog_a = lazyDog_s.split(&#39; &#39;);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;A more tricky example
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 With smart inline type coercion tricks!
-)
+&lt;/span&gt;&lt;/ins&gt;
 :&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;11tyTips: Tricky pseudo-typed identifiers&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 const oneTwoThree_s = &#39;123&#39;
@@ -419,14 +419,14 @@ const oneTwoFour_s  = &#39;&#39; + ++oneTwoThree_n    //: to String
 &lt;li&gt;RegExp&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The suffix specifying the type is a single letter preceded by an underscore character, lowercase letters for “wrapped” types
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Boolean, Number, BigInt, String, Array, Object, Symbol, Function, Class, RegExp.
 See &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Glossary/Primitive&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt; MDN Primitive description&lt;/a&gt;.
-)
+&lt;/span&gt;&lt;/ins&gt;
 , uppercase letters for “unwrapped” types
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Null, Undefined.
-)
+&lt;/span&gt;&lt;/ins&gt;
 .&lt;/p&gt;
 &lt;table class=&quot;middle_wide&quot;&gt;
 &lt;thead&gt;
@@ -493,7 +493,7 @@ two underscore characters before the type specifier of the return value is used 
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;const clone_f = awesome__s&lt;/code&gt;&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;11tyTips/source/includes/assets/scripts/js/partials/dom.js&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 const DOM_siblings__a = selector_s =&gt;
@@ -524,59 +524,59 @@ const DOM_listReverse = selector_s =&gt;
     <id>https://11tytips.netlify.com/tips/frontmatter_data.html</id>
     <content type="html">&lt;h2&gt;Front matter data&lt;/h2&gt;
 &lt;p&gt;Each Markdown file has its own data, declared at the begining of the file in the front matter part
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 11tyTips uses a JavaScript &lt;code&gt;Object&lt;/code&gt; for the front matter.
-)
+&lt;/span&gt;&lt;/ins&gt;
 , a few ones being mandatory
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 No so strickly speaking! For instance, you’re not requested to use a Date, but it’s more than useful if you want to sort your posts by date.
-)
+&lt;/span&gt;&lt;/ins&gt;
 , others being used to supply some page specific content or variables
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Have a look at &lt;a href=&quot;https://11ty.io/docs/data-frontmatter/#user-defined-front-matter-customizations&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Eleventy#user-defined-front-matter-customizations&lt;/a&gt; for a list of Eleventy properties usable in front matter.
-)
+&lt;/span&gt;&lt;/ins&gt;
 .&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Mandatory data&lt;/em&gt;&lt;/p&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;Date
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 The Date property is mainly used to sort the posts but also to be shown it on the page.
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;li&gt;Layout
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 This is the template used to render the page.
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;li&gt;Permalink
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 This is the name of the output file: HTML, or any other format (e.g. minified JavaScript).
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;li&gt;Tags
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 The collection(s) including the output file.
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;Specific data&lt;/em&gt;&lt;/p&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;Title
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Used by 11tyTips to identify the page in the browser tab.
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;li&gt;Subtitle
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Used by 11tyTips to describe the page content in the Tips list menu.
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;li&gt;Abstract
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Actually not used by 11tyTips, but could be…
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;li&gt;Author
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Useful if there are multiple authors for the posts of the site.
-)&lt;/li&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;Page front matter data&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 ---js
@@ -594,30 +594,30 @@ Useful if there are multiple authors for the posts of the site.
 ---
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To access any property declared in the front matter it has to be enclosed in double parenthesis &lt;code&gt;{{ ... }}&lt;/code&gt;
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 11tyTips uses Nunjucks. Using other templating systems, this is a bit different.
-)
+&lt;/span&gt;&lt;/ins&gt;
 . For instance, the &lt;code&gt;abstract_s&lt;/code&gt; property in the front matter is injected in this page with the following code: &lt;code&gt;{{ abstract_s }}&lt;/code&gt; and renders as:&lt;br&gt;
 &lt;q&gt;Accessing front matter data in Markdown and templates&lt;/q&gt;.&lt;/p&gt;
 &lt;h2&gt;Function properties&lt;/h2&gt;
 &lt;p&gt;If you use JavaScript for the front matter
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 A very good idea because it gives you the full power of the language to process your content.
-)
+&lt;/span&gt;&lt;/ins&gt;
 and Nunjucks as templating system, you can declare functions as properties
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 See &lt;a href=&quot;https://11ty.io/docs/data-frontmatter/#javascript-front-matter&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Eleventy#javascript-front-matter&lt;/a&gt; documentation page.
-)
+&lt;/span&gt;&lt;/ins&gt;
 . Usually, apart very specific cases, it’s much more easy to declare content processing functions in a module located inside the data directory
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful.
-)
+&lt;/span&gt;&lt;/ins&gt;
 .&lt;/p&gt;
 &lt;p&gt;However, 11tyTips tips list menu is such a case: the &lt;code&gt;rank__s&lt;/code&gt; property calls the &lt;code&gt;String.prototype.padStart&lt;/code&gt; method to add one or two &lt;code&gt;0&lt;/code&gt; before the tip rank to normalize it and is called this way:&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;&amp;lt;span&amp;gt;{{ rank__s(tip_n) }}&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;11tyTips/source/includes/templates/tips_list.njk&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 ---js
@@ -645,16 +645,16 @@ Because it will be accessible from any Markdown content or any template and with
 &amp;nbsp;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;But the same result would have been possible calling directly the &lt;code&gt;padStart&lt;/code&gt; method inside the template
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Nevertheless, my prefered solution is the property function because it’s more readable.
-)
+&lt;/span&gt;&lt;/ins&gt;
 :&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;&amp;lt;span&amp;gt;#{{ (&#39;&#39; + tip_n).padStart( 3, &#39;0&#39; ) }}&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;h2&gt;Front matter properties and global data functions&lt;/h2&gt;
 &lt;p&gt;11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an &lt;code&gt;utils.js&lt;/code&gt; file inside its &lt;code&gt;data/lib&lt;/code&gt; directory where a &lt;code&gt;EleventyLink__s&lt;/code&gt; function compute the link to any Eleventy docs page using an acronym of the page and anchor.&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;11tyTips/source/data/lib/utils.js&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 EleventyLink__s: ( key_s ) =&gt;
@@ -672,11 +672,11 @@ EleventyLink__s: ( key_s ) =&gt;
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The acronyms, used as keys
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 &lt;code&gt;jfm_s&lt;/code&gt; is the acronym of &lt;code&gt;#javascript-front-matter&lt;/code&gt;,
 &lt;code&gt;udf_s&lt;/code&gt; is the acronym of &lt;code&gt;#user-defined-front-matter-customizations&lt;/code&gt;.
 Usually three charachters are enough to get a unique identifier.
-)
+&lt;/span&gt;&lt;/ins&gt;
 , could be set inside each page front matter and used as a key by the function to expand the actual link reference.&lt;/p&gt;
 &lt;p&gt;Hence to get the &lt;em&gt;reference-style link&lt;/em&gt; and the &lt;em&gt;link&lt;/em&gt; itself is just as easy as:&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;&lt;br&gt;
@@ -685,16 +685,16 @@ Usually three charachters are enough to get a unique identifier.
 &lt;h3&gt;Even shorter&lt;/h3&gt;
 &lt;p&gt;But we can do more, using Nunjucks &lt;code&gt;set&lt;/code&gt; tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ _link_f( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 Link located in Links section, after the Aliases section.
-)&lt;/p&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ _link_f( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 reference-style link inside content.
-)&lt;/p&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;11tyTips/source/content/posts/frontmatter_data.md&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
+&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 &amp;nbsp;
@@ -720,23 +720,23 @@ reference-style link inside content.
 &lt;p&gt;Shortcodes are probably the most powerful tool to process Markdown content inline. They are simple to create and use, almost anything can be done with them, and they represent an important opportunity that should not be missed. Eleventy has two kinds of shortcode:&lt;/p&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;simple
-(
-The shortcode argument (i.e. content) is passed to a single tag (example #1).
-)&lt;/li&gt;
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+the shortcode argument (i.e. content) is passed to a single tag (ex. #1).
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;li&gt;paired
-(
-The shortcode argument is passed enclosed between two tags (example #2).
-)&lt;/li&gt;
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
+the shortcode argument is passed enclosed between two tags (ex. #2).
+&lt;/span&gt;&lt;/ins&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{% _shortcode_id &amp;quot;argument&amp;quot; %}&lt;/code&gt;&lt;br&gt;
-&lt;code&gt;{% _shortcode_id %}... Content to be processed ...{% end_shortcode_id %}&lt;/code&gt;&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{% _shortcode_id &amp;quot;argument&amp;quot; %}&lt;/code&gt;&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{% _shortcode_id %}... Content to be processed ...{% end_shortcode_id %}&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;11tyTips doesn’t use a lot of shortcodes, but they are essential to its content. Let’s dissect the most omnipresent of it: the &lt;code&gt;_code_block&lt;/code&gt; paired shortcode.
 It is passed to Eleventy configuration method &lt;code&gt;addPairedShortcode&lt;/code&gt; this way:&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;config_o.addPairedShortcode(&#39;_code_block&#39;, content_s =&amp;gt; CODES_o.code_block__s( content_s ) )&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Here, &lt;code&gt;_code_block&lt;/code&gt; is the shortcode identifier
-(
+&lt;ins data--=&quot;inline_note&quot;&gt;&lt;sup&gt;&lt;/sup&gt;&lt;span data--=&quot;note_content&quot;&gt;
 11tyTips uses a leading underscore character because the shortcode closing tag adds the word &lt;code&gt;end&lt;/code&gt; before the shortcode identifier: &lt;code&gt;end_shortcode&lt;/code&gt; is more readable than &lt;code&gt;endshortcode&lt;/code&gt;, isn’t it?
-)&lt;/p&gt;
+&lt;/span&gt;&lt;/ins&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>

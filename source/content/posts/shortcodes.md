@@ -19,15 +19,17 @@
 Shortcodes are probably the most powerful tool to process Markdown content inline. They are simple to create and use, almost anything can be done with them, and they represent an important opportunity that should not be missed. Eleventy has two kinds of shortcode:
 + simple
 {% _short_note %}
-The shortcode argument (i.e. content) is passed to a single tag (example #1).
+the shortcode argument (i.e. content) is passed to a single tag (ex. #1).
 {% end_short_note %}
 { data--="ulist" }
 + paired
 {% _short_note %}
-The shortcode argument is passed enclosed between two tags (example #2).
+the shortcode argument is passed enclosed between two tags (ex. #2).
 {% end_short_note %}
 
-{% raw %}`{% _shortcode_id "argument" %}`{% endraw %}<br>
+{% raw %}`{% _shortcode_id "argument" %}`{% endraw %}
+{data--="example"}
+
 {% raw %}`{% _shortcode_id %}... Content to be processed ...{% end_shortcode_id %}`{% endraw %}
 {data--="example"}
 

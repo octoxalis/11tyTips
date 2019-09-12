@@ -12,7 +12,7 @@ const CODES_o =
     let content_a1_s = content_a[1].replace( /\n\n+/g, '\n&nbsp;\n' )  //: avoid Markdown <p> insert
     return `<hgroup data--="code_ref">
 <h5>${content_o.title_s}</h5>
-<h6><a href="https://prismjs.com" target"_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
+<h6><a href="https://prismjs.com" target="_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
 </hgroup>
 <pre><code class="language-${content_o.lang_s}">${content_a1_s}</code></pre>`
   },

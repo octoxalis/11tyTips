@@ -8,7 +8,7 @@
     author:
     {
       name: `Octoxalis`,
-      email: 'octoxalis at gmail.com',
+      email: 'octoxalis@gmail.com',
     },
     feed:
     {
@@ -40,7 +40,7 @@
     <link href="{{ absolutePostUrl }}"/>
     <updated>{{ _post_o.date | rssDate }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ _post_o.templateContent | RSSfeed }}</content>
+    <content type="html">{{ _post_o.templateContent }}</content>
   </entry>
 {%- endfor %}
 </feed>
