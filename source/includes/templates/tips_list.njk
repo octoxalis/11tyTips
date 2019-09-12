@@ -10,11 +10,11 @@
   <h4>→ <a href="{{ settings.rss_s }}" target="_blank">RSS</a></h4>
   <h2 data--="tips_order">All the tips</h2>
   <ol data--="tips_list">
-{% for _tip_o in collections.tip %}
+{% for _post_o in collections.tip %}
     <li data--="tips_entry">
       <span>{{ rank__s(loop.index) }}</span>
-      <a href="{{ _tip_o.url | url }}">{{ _tip_o.data.title_s }}</a>
-      <span>{{ _tip_o.data.subtitle_s }}</span>
+      <a href="{{ _post_o.url | url }}">{{ _post_o.data.title_s }}</a>
+      <span>{{ _post_o.data.subtitle_s }}</span>
     </li>
 {% endfor %}
   </ol>

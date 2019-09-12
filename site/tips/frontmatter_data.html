@@ -131,7 +131,7 @@ Because it will be accessible from any Markdown content or any template and with
 </span></ins>
 .</p>
 <p>However, 11tyTips tips list menu is such a case: the <code>rank__s</code> property calls the <code>String.prototype.padStart</code> method to add one or two <code>0</code> before the tip rank to normalize it and is called this way:</p>
-<p data--="example"><code>&lt;span&gt;{{ rank__s(tip_n) }}&lt;/span&gt;</code></p>
+<p data--="example"><code>&lt;span&gt;{{ rank__s(loop.index) }}&lt;/span&gt;</code></p>
 <hgroup data--="code_ref">
 <h5>11tyTips/source/includes/templates/tips_list.njk</h5>
 <h6><a href="https://prismjs.com" target="_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
@@ -150,11 +150,11 @@ Because it will be accessible from any Markdown content or any template and with
   &lt;h4&gt;→ &lt;a href=&quot;{{ settings.rss_s }}&quot; target=&quot;_blank&quot;&gt;RSS&lt;/a&gt;&lt;/h4&gt;
   &lt;h2 data--=&quot;tips_order&quot;&gt;All the tips&lt;/h2&gt;
   &lt;ol data--=&quot;tips_list&quot;&gt;
-  {% for _tip_o in collections.tip %}
+  {% for _post_o in collections.tip %}
     &lt;li data--=&quot;tips_entry&quot;&gt;
       &lt;span&gt;{{ rank__s(loop.index) }}&lt;/span&gt;
-      &lt;a href=&quot;{{ _tip_o.url | url }}&quot;&gt;{{ _tip_o.data.title_s }}&lt;/a&gt;
-      &lt;span&gt;{{ _tip_o.data.subtitle_s }}&lt;/span&gt;
+      &lt;a href=&quot;{{ _post_o.url | url }}&quot;&gt;{{ _post_o.data.title_s }}&lt;/a&gt;
+      &lt;span&gt;{{ _post_o.data.subtitle_s }}&lt;/span&gt;
     &lt;/li&gt;
   {% endfor %}
   &lt;/ol&gt;

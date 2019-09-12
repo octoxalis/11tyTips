@@ -119,7 +119,7 @@ Because it will be accessible from any Markdown content or any template and with
 
 However, {{_C.SITE_s}} tips list menu is such a case: the `rank__s` property calls the `String.prototype.padStart` method to add one or two `0` before the tip rank to normalize it and is called this way:
 
-{% raw %}`<span>{{ rank__s(tip_n) }}</span>`{% endraw %}
+{% raw %}`<span>{{ rank__s(loop.index) }}</span>`{% endraw %}
 {data--="example"}
 
 [comment]: # (======== Escape Nunjucks ========)
@@ -132,11 +132,11 @@ However, {{_C.SITE_s}} tips list menu is such a case: the `rank__s` property cal
   <h4>→ <a href="{{ settings.rss_s }}" target="_blank">RSS</a></h4>
   <h2 data--="tips_order">All the tips</h2>
   <ol data--="tips_list">
-  {% for _tip_o in collections.tip %}
+  {% for _post_o in collections.tip %}
     <li data--="tips_entry">
       <span>{{ rank__s(loop.index) }}</span>
-      <a href="{{ _tip_o.url | url }}">{{ _tip_o.data.title_s }}</a>
-      <span>{{ _tip_o.data.subtitle_s }}</span>
+      <a href="{{ _post_o.url | url }}">{{ _post_o.data.title_s }}</a>
+      <span>{{ _post_o.data.subtitle_s }}</span>
     </li>
   {% endfor %}
   </ol>
