@@ -12,11 +12,11 @@
 }
 ---
 [comment]: # (======== Aliases ========)
-{% set @11link_f = lib.utils.EleventyLink__s %}
+{% set _link_f = lib.utils.EleventyLink__s %}
 
 [comment]: # (======== Links ========)
-{{ @11link_f( 'jfm_s' )[1] }}
-{{ @11link_f( 'udf_s' )[1] }}
+{{ _link_f( 'jfm_s' )[1] }}
+{{ _link_f( 'udf_s' )[1] }}
 
 [comment]: # (======== Post ========)
 ## Front matter data
@@ -31,7 +31,7 @@ No so strickly speaking! For instance, you're not requested to use a Date, but i
 {% end_short_note %}
 , others being used to supply some page specific content or variables
 {% _short_note %}
-Have a look at {{ @11link_f( 'udf_s' )[0] }}{target="_blank" rel="noreferrer"} for a list of Eleventy properties usable in front matter.
+Have a look at {{ _link_f( 'udf_s' )[0] }}{target="_blank" rel="noreferrer"} for a list of Eleventy properties usable in front matter.
 {% end_short_note %}
 .
 
@@ -108,7 +108,7 @@ A very good idea because it gives you the full power of the language to process 
 {% end_short_note %}
 and Nunjucks as templating system, you can declare functions as properties
 {% _short_note %}
-See {{ @11link_f( 'jfm_s' )[0] }}{target="_blank" rel="noreferrer"} documentation page.
+See {{ _link_f( 'jfm_s' )[0] }}{target="_blank" rel="noreferrer"} documentation page.
 {% end_short_note %}
 . Usually, apart very specific cases, it's much more easy to declare content processing functions in a module located inside the data directory
 {% _short_note %}
@@ -122,7 +122,7 @@ However, {{_C.SITE_s}} tips list menu is such a case: the `rank__s` property cal
 {data--="example"}
 
 [comment]: # (======== Escape Nunjucks ========)
-{% set @code %}
+{% set _code %}
 {% raw %}
 <menu data--="tips_menu">
   <h4><a href="{{ settings.url_s }}">Home</a></h4>
@@ -131,14 +131,12 @@ However, {{_C.SITE_s}} tips list menu is such a case: the `rank__s` property cal
   <h4>→ <a href="{{ settings.rss_s }}" target="_blank">RSS</a></h4>
   <h2 data--="tips_order">All the tips</h2>
   <ol data--="tips_list">
-  {% set tip_n = 1 %}
-  {% for tip_e in tips_a %}
+  {% for _tip_o in collections.tip %}
     <li data--="tips_entry">
-      <span>{{ rank__s(tip_n) }}</span>
-      <a href="{{ tip_e.url | url }}">{{ tip_e.data.title_s }}</a>
-      <span>{{ tip_e.data.subtitle_s }}</span>
+      <span>{{ rank__s(loop.index) }}</span>
+      <a href="{{ _tip_o.url | url }}">{{ _tip_o.data.title_s }}</a>
+      <span>{{ _tip_o.data.subtitle_s }}</span>
     </li>
-  {% set tip_n = tip_n + 1 %}
   {% endfor %}
   </ol>
 </menu>
@@ -151,16 +149,10 @@ However, {{_C.SITE_s}} tips list menu is such a case: the `rank__s` property cal
 [//]:#(_code_block)
 ---js
 {
-  pagination:
-  {
-    data: 'collections.tip',
-    size: 10,
-    alias: 'tips_a',
-  },
   rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
 }
 ---
-{{ @code }}
+{{ _code }}
 {% end_code_block %}
 
 But the same result would have been possible calling directly the `padStart` method inside the template
@@ -217,13 +209,13 @@ Actually, most of Eleventy link keys are gathered in the `_C.js` global data fil
 
 But we can do more, using Nunjucks `set` tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:
 
-{% raw %}`{{ @11link_f( 'jfm_s' )[1] }}`{% endraw %}
+{% raw %}`{{ _link_f( 'jfm_s' )[1] }}`{% endraw %}
 {% _short_note %}
 Link located in Links section, after the Aliases section.
 {% end_short_note %}
 {data--="example"}
 
-{% raw %}`{{ @11link_f( 'jfm_s' )[0] }}`{% endraw %}
+{% raw %}`{{ _link_f( 'jfm_s' )[0] }}`{% endraw %}
 {% _short_note %}
 reference-style link inside content.
 {% end_short_note %}
@@ -235,11 +227,11 @@ reference-style link inside content.
 [//]:#(_code_block)
 {% raw %}
 [comment]: # (======== Aliases ========)
-{% set @11link_f = lib.utils.EleventyLink__s %}
+{% set _link_f = lib.utils.EleventyLink__s %}
 
 [comment]: # (======== Links ========)
-{{ @11link_f( 'jfm_s' )[1] }}
-{{ @11link_f( 'udf_s' )[1] }}
+{{ _link_f( 'jfm_s' )[1] }}
+{{ _link_f( 'udf_s' )[1] }}
 
 [comment]: # (======== Post ========)
 {% endraw %}

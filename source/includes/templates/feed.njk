@@ -27,21 +27,20 @@
   <subtitle>{{ metadata.feed.subtitle }}</subtitle>
   <link href="{{ metadata.feed.url }}" rel="self"/>
   <link href="{{ metadata.url }}"/>
-{% set tips_a = collections.tip %}
-  <updated>{{ tips_a | rssLastUpdatedDate }}</updated>
+  <updated>{{ collections.tip | rssLastUpdatedDate }}</updated>
   <id>{{ metadata.feed.id }}</id>
   <author>
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
   </author>
-  {%- for tip_o in tips_a %}
-  {% set absolutePostUrl %}{{ tip_o.url | url | absoluteUrl(metadata.url) }}{% endset %}
+  {%- for _tip_o in collections.tip %}
+{% set absolutePostUrl %}{{ _tip_o.url | url | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
-    <title>{{ tip_o.data.title_s }}</title>
+    <title>{{ _tip_o.data.title_s }}</title>
     <link href="{{ absolutePostUrl }}"/>
-    <updated>{{ tip_o.date | rssDate }}</updated>
+    <updated>{{ _tip_o.date | rssDate }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ tip_o.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    <content type="html">{{ _tip_o.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
   </entry>
   {%- endfor %}
 </feed>

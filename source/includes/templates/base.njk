@@ -1,26 +1,26 @@
 <!doctype html>
 <html lang="en">
-{% set @URL_s = settings.url_s %}
+{% set _URL_s = settings.url_s %}
   <head>
-  {% block head %}{% include "templates/partials/blocks/_head_.njk" %}{% endblock %}
-  {% block seo %}{% include "templates/partials/blocks/_seo_.njk" %}{% endblock %}
-  {% block metatag %}{% include "templates/partials/blocks/_description_.njk" %}{% endblock %}
-  {% block favicon %}{% include "templates/partials/blocks/_favicon_.njk" %}{% endblock %}
-  {% block feed %}{% include "templates/partials/blocks/_feed_.njk" %}{% endblock %}
+  {% block HEAD %}{% include "templates/partials/blocks/_head_.njk" %}{% endblock %}
+  {% block SEO %}{% include "templates/partials/blocks/_seo_.njk" %}{% endblock %}
+  {% block METATAG %}{% include "templates/partials/blocks/_description_.njk" %}{% endblock %}
+  {% block FAVICON %}{% include "templates/partials/blocks/_favicon_.njk" %}{% endblock %}
+  {% block FEED %}{% include "templates/partials/blocks/_feed_.njk" %}{% endblock %}
   {% include "assets/scripts/js/_site_url_.njk" %}
-  {% block styles %}
+  {% block STYLES %}
   {% include "templates/partials/blocks/_fonts_inline_.njk" %}
   {% include "templates/partials/blocks/_styles_.njk" %}
   {% endblock %}
   </head>
   <body>
-  {% block nav %}{% include "templates/partials/blocks/_nav_.njk" %}{% endblock %}
-  {% block article %}{% include "templates/partials/blocks/_article_.njk" %}{% endblock %}
-  {% block scripts %}
+  {% block NAV %}{% include "templates/partials/blocks/_nav_.njk" %}{% endblock %}
+  {% block ARTICLE %}{% include "templates/partials/blocks/_article_.njk" %}{% endblock %}
+  {% block SCRIPTS %}
   {% if settings.dev_b === false %}{% include "assets/scripts/js/lib/_instant_page_.njk" %}{% endif %}
   {% include "templates/partials/blocks/_scripts_.njk" %}
   {% endblock %}
-  {% block comments %}
+  {% block COMMENTS %}
   {% include "templates/partials/_colophon_.njk" %}
   {% include "templates/partials/blocks/_comments_.njk" %}
   {% endblock %}

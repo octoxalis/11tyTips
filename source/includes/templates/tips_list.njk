@@ -1,11 +1,5 @@
 ---js
 {
-  pagination:
-  {
-    data: 'collections.tip',
-    size: 10,
-    alias: 'tips_a',
-  },
   rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
 }
 ---
@@ -16,14 +10,12 @@
   <h4>→ <a href="{{ settings.rss_s }}" target="_blank">RSS</a></h4>
   <h2 data--="tips_order">All the tips</h2>
   <ol data--="tips_list">
-  {% set tip_n = 1 %}
-  {% for tip_e in tips_a %}
+  {% for _tip_o in collections.tip %}
     <li data--="tips_entry">
-      <span>{{ rank__s(tip_n) }}</span>
-      <a href="{{ tip_e.url | url }}">{{ tip_e.data.title_s }}</a>
-      <span>{{ tip_e.data.subtitle_s }}</span>
+      <span>{{ rank__s(loop.index) }}</span>
+      <a href="{{ _tip_o.url | url }}">{{ _tip_o.data.title_s }}</a>
+      <span>{{ _tip_o.data.subtitle_s }}</span>
     </li>
-  {% set tip_n = tip_n + 1 %}
   {% endfor %}
   </ol>
 </menu>

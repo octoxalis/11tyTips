@@ -135,7 +135,7 @@ const DOM_listReverse = selector_s =>
 
 The previous code shows an **exception** to the specifiers convention used: for `DOM` elements, it seems more appropriate to use the `_e` suffix than the `_o` suffix used for `Object`.
 
-This useful convention is used not only in JavaScript context but also in Nunjucks context. However, in templates, identifiers are prefixed with an _at_ character:
+This useful convention is used not only in JavaScript context but also in Nunjucks context. However, in templates, variable identifiers are prefixed with an _underscore_ character:
 
-{% raw %}`{% set @URL_s = settings.url_s %}`{% endraw %}
+{% raw %}`{% set _URL_s = settings.url_s %}`{% endraw %}
 {data--="example"}

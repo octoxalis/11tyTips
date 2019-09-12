@@ -26,8 +26,8 @@ The shortcode argument (i.e. content) is passed to a single tag (example #1).
 The shortcode argument is passed enclosed between two tags (example #2).
 {% end_short_note %}
 
-{% raw %}`{% shortcode_id "argument" %}`{% endraw %}<br>
-{% raw %}`{% shortcode_id %}... Content to be processed ...{% end_shortcode_id %}`{% endraw %}
+{% raw %}`{% _shortcode_id "argument" %}`{% endraw %}<br>
+{% raw %}`{% _shortcode_id %}... Content to be processed ...{% end_shortcode_id %}`{% endraw %}
 {data--="example"}
 
 {{ _C.SITE_s }} doesn't use a lot of shortcodes, but they are essential to its content. Let's dissect the most omnipresent of it: the `_code_block` paired shortcode.

@@ -35,7 +35,7 @@ const _URL_s='https://11tytips.netlify.com/'
   <span data--="header_title">11ty Tips</span>
   <span data--="header_menu">All tips</span>
 </label>
-<iframe data--="menu_frame" src="https://11tytips.netlify.com/tips_list_0.html"></iframe>
+<iframe data--="menu_frame" src="https://11tytips.netlify.com/tips_list.html"></iframe>
 
   <article data--="article">
   <section data--="section">
@@ -139,12 +139,6 @@ Because it will be accessible from any Markdown content or any template and with
 <pre><code class="language-javascript">
 ---js
 {
-  pagination:
-  {
-    data: 'collections.tip',
-    size: 10,
-    alias: 'tips_a',
-  },
   rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
 }
 ---
@@ -156,14 +150,12 @@ Because it will be accessible from any Markdown content or any template and with
   &lt;h4&gt;→ &lt;a href=&quot;{{ settings.rss_s }}&quot; target=&quot;_blank&quot;&gt;RSS&lt;/a&gt;&lt;/h4&gt;
   &lt;h2 data--=&quot;tips_order&quot;&gt;All the tips&lt;/h2&gt;
   &lt;ol data--=&quot;tips_list&quot;&gt;
-  {% set tip_n = 1 %}
-  {% for tip_e in tips_a %}
+  {% for _tip_o in collections.tip %}
     &lt;li data--=&quot;tips_entry&quot;&gt;
-      &lt;span&gt;{{ rank__s(tip_n) }}&lt;/span&gt;
-      &lt;a href=&quot;{{ tip_e.url | url }}&quot;&gt;{{ tip_e.data.title_s }}&lt;/a&gt;
-      &lt;span&gt;{{ tip_e.data.subtitle_s }}&lt;/span&gt;
+      &lt;span&gt;{{ rank__s(loop.index) }}&lt;/span&gt;
+      &lt;a href=&quot;{{ _tip_o.url | url }}&quot;&gt;{{ _tip_o.data.title_s }}&lt;/a&gt;
+      &lt;span&gt;{{ _tip_o.data.subtitle_s }}&lt;/span&gt;
     &lt;/li&gt;
-  {% set tip_n = tip_n + 1 %}
   {% endfor %}
   &lt;/ol&gt;
 &lt;/menu&gt;
@@ -209,11 +201,11 @@ Usually three charachters are enough to get a unique identifier.
 <p>Actually, most of Eleventy link keys are gathered in the <code>_C.js</code> global data file and not in the front matter!</p>
 <h3>Even shorter</h3>
 <p>But we can do more, using Nunjucks <code>set</code> tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:</p>
-<p data--="example"><code>{{ @11link_f( 'jfm_s' )[1] }}</code>
+<p data--="example"><code>{{ _link_f( 'jfm_s' )[1] }}</code>
 <ins data--="inline_note"><sup></sup><span data--="note_content">
 Link located in Links section, after the Aliases section.
 </span></ins></p>
-<p data--="example"><code>{{ @11link_f( 'jfm_s' )[0] }}</code>
+<p data--="example"><code>{{ _link_f( 'jfm_s' )[0] }}</code>
 <ins data--="inline_note"><sup></sup><span data--="note_content">
 reference-style link inside content.
 </span></ins></p>
@@ -224,11 +216,11 @@ reference-style link inside content.
 <pre><code class="language-javascript">
 &nbsp;
 [comment]: # (======== Aliases ========)
-{% set @11link_f = lib.utils.EleventyLink__s %}
+{% set _link_f = lib.utils.EleventyLink__s %}
 &nbsp;
 [comment]: # (======== Links ========)
-{{ @11link_f( 'jfm_s' )[1] }}
-{{ @11link_f( 'udf_s' )[1] }}
+{{ _link_f( 'jfm_s' )[1] }}
+{{ _link_f( 'udf_s' )[1] }}
 &nbsp;
 [comment]: # (======== Post ========)
 &nbsp;
