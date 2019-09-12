@@ -28,38 +28,38 @@ Each Markdown file has its own data, declared at the begining of the file in the
 {% end_short_note %}
 , a few ones being mandatory
 {% _short_note %}
-No so strickly speaking! For instance, you're not requested to use a Date, but it's more than useful if you want to sort your posts by date.
+no so strickly speaking! For instance, you're not requested to use a Date, but it's more than useful if you want to sort your posts by date.
 {% end_short_note %}
 , others being used to supply some page specific content or variables
 {% _short_note %}
-Have a look at {{ _link_f( 'udf_s' )[0] }}{target="_blank" rel="noreferrer"} for a list of Eleventy properties usable in front matter.
+have a look at {{ _link_f( 'udf_s' )[0] }}{target="_blank" rel="noreferrer"} for a list of Eleventy properties usable in front matter.
 {% end_short_note %}
 .
 
 *Mandatory data*
 + Date
 {% _short_note %}
-The Date property is mainly used to sort the posts but also to be shown it on the page.
+the Date property is mainly used to sort the posts but also to be shown it on the page.
 {% end_short_note %}
 { data--="ulist" }
 + Layout
 {% _short_note %}
-This is the template used to render the page.
+this is the template used to render the page.
 {% end_short_note %}
 + Permalink
 {% _short_note %}
-This is the name of the output file: HTML, or any other format (e.g. minified JavaScript).
+this is the name of the output file: HTML, or any other format (e.g. minified JavaScript).
 {% end_short_note %}
 + Tags
 {% _short_note %}
-The collection(s) including the output file.
+the collection(s) including the output file.
 {% end_short_note %}
 
 
 *Specific data*
 + Title
 {% _short_note %}
-Used by {{_C.SITE_s}} to identify the page in the browser tab.
+used by {{_C.SITE_s}} to identify the page in the browser tab.
 {% end_short_note %}
 { data--="ulist" }
 + Subtitle
@@ -68,11 +68,11 @@ Used by {{_C.SITE_s}} to describe the page content in the Tips list menu.
 {% end_short_note %}
 + Abstract
 {% _short_note %}
-Actually not used by {{_C.SITE_s}}, but could be...
+actually not used by {{_C.SITE_s}}, but could be...
 {% end_short_note %}
 + Author
 {% _short_note %}
-Useful if there are multiple authors for the posts of the site.
+useful if there are multiple authors for the posts of the site.
 {% end_short_note %}
 
 {% _code_block %}
@@ -109,11 +109,11 @@ A very good idea because it gives you the full power of the language to process 
 {% end_short_note %}
 and Nunjucks as templating system, you can declare functions as properties
 {% _short_note %}
-See {{ _link_f( 'jfm_s' )[0] }}{target="_blank" rel="noreferrer"} documentation page.
+see {{ _link_f( 'jfm_s' )[0] }}{target="_blank" rel="noreferrer"} documentation page.
 {% end_short_note %}
 . Usually, apart very specific cases, it's much more easy to declare content processing functions in a module located inside the data directory
 {% _short_note %}
-Because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful.
+because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful.
 {% end_short_note %}
 .
 

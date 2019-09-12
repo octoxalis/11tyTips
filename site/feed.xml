@@ -19,11 +19,11 @@
     <content type="html">&lt;h2&gt;The JAMstack architecture&lt;/h2&gt;
 &lt;p&gt;Eleventy, as most static sites, relies on an architectural paradigm called &lt;a href=&quot;https://jamstack.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;JAMstack&lt;/a&gt;, an acronym meaning: &lt;q&gt;a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.&lt;/q&gt;
 (
-See Mathias Biilmann &amp;amp; Phil Hawksworth book: &lt;a href=&quot;https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Modern Web development on the JAMstack&lt;/a&gt;.
+see Mathias Biilmann &amp;amp; Phil Hawksworth book: &lt;a href=&quot;https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Modern Web development on the JAMstack&lt;/a&gt;.
 ).&lt;/p&gt;
 &lt;p&gt;In the JAMstack architecture, &lt;em&gt;JavaScript&lt;/em&gt; is used not only in the browser for interactivity and presentation but also to build all the files of the site
 (
-This is the case of Eleventy. Other generators use different languages: Go, Python, etc.
+this is the case of Eleventy. Other generators use different languages: Go, Python, etc.
 )
 ; the &lt;em&gt;APIs&lt;/em&gt; are the programming interfaces to Node packages
 (
@@ -31,7 +31,7 @@ Eleventy itself is a Node package.
 )
 or other frameworks used as a back end; &lt;em&gt;Markdown&lt;/em&gt; is used to set the content of each page of the site, with a settings part (front matter) using either JavaScript or a description language like YAML or TOML and a template part
 (
-There are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
+there are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
 )
 .&lt;/p&gt;
 &lt;h2&gt;11tyTips architecture&lt;/h2&gt;
@@ -44,11 +44,11 @@ Contains JavaScript modules to be used during the build process. For consistancy
 )&lt;/li&gt;
 &lt;li&gt;includes
 (
-Gathers all the templates used either by the Markdown files (&lt;code&gt;templates&lt;/code&gt;) or the Javascript and CSS files to be joined and minified (&lt;code&gt;assets&lt;/code&gt;).
+gathers all the templates used either by the Markdown files (&lt;code&gt;templates&lt;/code&gt;) or the Javascript and CSS files to be joined and minified (&lt;code&gt;assets&lt;/code&gt;).
 )&lt;/li&gt;
 &lt;li&gt;content &amp;amp; data
 (
-The first directory contains the Markdown files of all site posts, plus some files included in them;
+the first directory contains the Markdown files of all site posts, plus some files included in them;
 the second one gathers JavaScript data modules consumed by the Markdown content files.
 )&lt;/li&gt;
 &lt;/ul&gt;
@@ -204,14 +204,14 @@ source
     <content type="html">&lt;h2&gt;The Eleventy JavaScript file&lt;/h2&gt;
 &lt;p&gt;Eleventy uses a simple Javascript file, named &lt;code&gt;.eleventy.js&lt;/code&gt;
 (
-Because of the leading dot it’s an hidden file.
+because of the leading dot it’s an hidden file.
 )
 , to define the settings of the building environment. This file is located at the root of the source folder but it can be put anywhere, just modifying the Node &lt;code&gt;package.json&lt;/code&gt; file &lt;code&gt;&amp;quot;main&amp;quot;&lt;/code&gt; property. The name itself can also be changed, if you see fit.&lt;/p&gt;
 &lt;p&gt;This file defines the settings of the main resources used in the building process: &lt;em&gt;libraries&lt;/em&gt;, &lt;em&gt;shortcodes&lt;/em&gt;, &lt;em&gt;filters&lt;/em&gt;, &lt;em&gt;plugins&lt;/em&gt;, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to the configuration of a resource, all located in the &lt;code&gt;source/build/script/js/11ty/&lt;/code&gt; directory.&lt;/p&gt;
 &lt;p&gt;The configuration object returned by the &lt;code&gt;.eleventy.js&lt;/code&gt; module is important because it defines the location of the main parts of the building process: the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; directories, the templates processors, etc.&lt;/p&gt;
 &lt;p&gt;11tyTips declares its own set of directories, modifying some of the default names and locations
 (
-For instance, the leading underscore character is suppressed for &lt;code&gt;output&lt;/code&gt;, &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;includes&lt;/code&gt; directories, in lieu of &lt;code&gt;_output&lt;/code&gt;, &lt;code&gt;_data&lt;/code&gt; and &lt;code&gt;_includes&lt;/code&gt;; &lt;code&gt;static&lt;/code&gt; directory is named &lt;code&gt;assets&lt;/code&gt;, etc.
+for instance, the leading underscore character is suppressed for &lt;code&gt;output&lt;/code&gt;, &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;includes&lt;/code&gt; directories, in lieu of &lt;code&gt;_output&lt;/code&gt;, &lt;code&gt;_data&lt;/code&gt; and &lt;code&gt;_includes&lt;/code&gt;; &lt;code&gt;static&lt;/code&gt; directory is named &lt;code&gt;assets&lt;/code&gt;, etc.
 )&lt;/p&gt;
 </content>
   </entry>
@@ -387,7 +387,7 @@ var lazyDog_a = lazyDog_s.split(&#39; &#39;);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;A more tricky example
 (
-With smart inline type coercion tricks!
+with smart inline type coercion tricks!
 )
 :&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
@@ -529,37 +529,37 @@ const DOM_listReverse = selector_s =&gt;
 )
 , a few ones being mandatory
 (
-No so strickly speaking! For instance, you’re not requested to use a Date, but it’s more than useful if you want to sort your posts by date.
+no so strickly speaking! For instance, you’re not requested to use a Date, but it’s more than useful if you want to sort your posts by date.
 )
 , others being used to supply some page specific content or variables
 (
-Have a look at &lt;a href=&quot;https://11ty.io/docs/data-frontmatter/#user-defined-front-matter-customizations&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Eleventy#user-defined-front-matter-customizations&lt;/a&gt; for a list of Eleventy properties usable in front matter.
+have a look at &lt;a href=&quot;https://11ty.io/docs/data-frontmatter/#user-defined-front-matter-customizations&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Eleventy#user-defined-front-matter-customizations&lt;/a&gt; for a list of Eleventy properties usable in front matter.
 )
 .&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Mandatory data&lt;/em&gt;&lt;/p&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;Date
 (
-The Date property is mainly used to sort the posts but also to be shown it on the page.
+the Date property is mainly used to sort the posts but also to be shown it on the page.
 )&lt;/li&gt;
 &lt;li&gt;Layout
 (
-This is the template used to render the page.
+this is the template used to render the page.
 )&lt;/li&gt;
 &lt;li&gt;Permalink
 (
-This is the name of the output file: HTML, or any other format (e.g. minified JavaScript).
+this is the name of the output file: HTML, or any other format (e.g. minified JavaScript).
 )&lt;/li&gt;
 &lt;li&gt;Tags
 (
-The collection(s) including the output file.
+the collection(s) including the output file.
 )&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;Specific data&lt;/em&gt;&lt;/p&gt;
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;Title
 (
-Used by 11tyTips to identify the page in the browser tab.
+used by 11tyTips to identify the page in the browser tab.
 )&lt;/li&gt;
 &lt;li&gt;Subtitle
 (
@@ -567,11 +567,11 @@ Used by 11tyTips to describe the page content in the Tips list menu.
 )&lt;/li&gt;
 &lt;li&gt;Abstract
 (
-Actually not used by 11tyTips, but could be…
+actually not used by 11tyTips, but could be…
 )&lt;/li&gt;
 &lt;li&gt;Author
 (
-Useful if there are multiple authors for the posts of the site.
+useful if there are multiple authors for the posts of the site.
 )&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
@@ -606,11 +606,11 @@ A very good idea because it gives you the full power of the language to process 
 )
 and Nunjucks as templating system, you can declare functions as properties
 (
-See &lt;a href=&quot;https://11ty.io/docs/data-frontmatter/#javascript-front-matter&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Eleventy#javascript-front-matter&lt;/a&gt; documentation page.
+see &lt;a href=&quot;https://11ty.io/docs/data-frontmatter/#javascript-front-matter&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Eleventy#javascript-front-matter&lt;/a&gt; documentation page.
 )
 . Usually, apart very specific cases, it’s much more easy to declare content processing functions in a module located inside the data directory
 (
-Because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful.
+because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful.
 )
 .&lt;/p&gt;
 &lt;p&gt;However, 11tyTips tips list menu is such a case: the &lt;code&gt;rank__s&lt;/code&gt; property calls the &lt;code&gt;String.prototype.padStart&lt;/code&gt; method to add one or two &lt;code&gt;0&lt;/code&gt; before the tip rank to normalize it and is called this way:&lt;/p&gt;

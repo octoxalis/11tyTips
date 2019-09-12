@@ -35,21 +35,21 @@ it is [zero-config]{target="_blank" rel="noreferrer"} out of the box!
 
 {{_C.SITE_s}} will provide you useful tips and tricks to unleash the power of 11ty. If you've never built a static site, thanks to the simplicity of this generator, you will be able to install your site, by cloning the Github repository of this site, replacing its content files with your own Markdown content
 {% _short_note %}
-Follow the [site cloning] page instructions to start with a clean site skeleton.
+follow the [site cloning] page instructions to start with a clean site skeleton.
 {% end_short_note %}
 .
 
 The styles have been carefully designed to give you a nice and simple presentation while offering advanced capabilities for a responsive layout with fluid fonts
 {% _short_note %}
-Applying Michael Riethmuller [formula]{target="_blank" rel="noreferrer"}.
+applying Michael Riethmuller [formula]{target="_blank" rel="noreferrer"}.
 {% end_short_note %}
 , inline notes
 {% _short_note %}
-With full Markdown content, styling, linking, code blocks, etc.
+with full Markdown content, styling, linking, code blocks, etc.
 {% end_short_note %}
 as well as a good commenting system
 {% _short_note %}
-Using the Github [utteranc.es]{target="_blank" rel="noreferrer"} repository.
+using the Github [utteranc.es]{target="_blank" rel="noreferrer"} repository.
 {% end_short_note %}
 .
 

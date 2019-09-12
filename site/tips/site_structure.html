@@ -42,11 +42,11 @@ const _URL_s='https://11tytips.netlify.com/'
   <h2>The JAMstack architecture</h2>
 <p>Eleventy, as most static sites, relies on an architectural paradigm called <a href="https://jamstack.org/" target="_blank" rel="noreferrer">JAMstack</a>, an acronym meaning: <q>a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.</q>
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-See Mathias Biilmann &amp; Phil Hawksworth book: <a href="https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf" target="_blank" rel="noreferrer">Modern Web development on the JAMstack</a>.
+see Mathias Biilmann &amp; Phil Hawksworth book: <a href="https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf" target="_blank" rel="noreferrer">Modern Web development on the JAMstack</a>.
 </span></ins>.</p>
 <p>In the JAMstack architecture, <em>JavaScript</em> is used not only in the browser for interactivity and presentation but also to build all the files of the site
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-This is the case of Eleventy. Other generators use different languages: Go, Python, etc.
+this is the case of Eleventy. Other generators use different languages: Go, Python, etc.
 </span></ins>
 ; the <em>APIs</em> are the programming interfaces to Node packages
 <ins data--="inline_note"><sup></sup><span data--="note_content">
@@ -54,7 +54,7 @@ Eleventy itself is a Node package.
 </span></ins>
 or other frameworks used as a back end; <em>Markdown</em> is used to set the content of each page of the site, with a settings part (front matter) using either JavaScript or a description language like YAML or TOML and a template part
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-There are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
+there are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
 </span></ins>
 .</p>
 <h2>11tyTips architecture</h2>
@@ -67,11 +67,11 @@ Contains JavaScript modules to be used during the build process. For consistancy
 </span></ins></li>
 <li>includes
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-Gathers all the templates used either by the Markdown files (<code>templates</code>) or the Javascript and CSS files to be joined and minified (<code>assets</code>).
+gathers all the templates used either by the Markdown files (<code>templates</code>) or the Javascript and CSS files to be joined and minified (<code>assets</code>).
 </span></ins></li>
 <li>content &amp; data
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-The first directory contains the Markdown files of all site posts, plus some files included in them;
+the first directory contains the Markdown files of all site posts, plus some files included in them;
 the second one gathers JavaScript data modules consumed by the Markdown content files.
 </span></ins></li>
 </ul>

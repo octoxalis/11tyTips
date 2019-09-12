@@ -44,7 +44,7 @@ var lazyDog_a = lazyDog_s.split(' ');
 
 A more tricky example
 {% _short_note %}
-With smart inline type coercion tricks!
+with smart inline type coercion tricks!
 {% end_short_note %}
 :
 

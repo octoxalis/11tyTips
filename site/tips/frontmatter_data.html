@@ -46,37 +46,37 @@ const _URL_s='https://11tytips.netlify.com/'
 </span></ins>
 , a few ones being mandatory
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-No so strickly speaking! For instance, you’re not requested to use a Date, but it’s more than useful if you want to sort your posts by date.
+no so strickly speaking! For instance, you’re not requested to use a Date, but it’s more than useful if you want to sort your posts by date.
 </span></ins>
 , others being used to supply some page specific content or variables
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-Have a look at <a href="https://11ty.io/docs/data-frontmatter/#user-defined-front-matter-customizations" target="_blank" rel="noreferrer">Eleventy#user-defined-front-matter-customizations</a> for a list of Eleventy properties usable in front matter.
+have a look at <a href="https://11ty.io/docs/data-frontmatter/#user-defined-front-matter-customizations" target="_blank" rel="noreferrer">Eleventy#user-defined-front-matter-customizations</a> for a list of Eleventy properties usable in front matter.
 </span></ins>
 .</p>
 <p><em>Mandatory data</em></p>
 <ul data--="ulist">
 <li>Date
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-The Date property is mainly used to sort the posts but also to be shown it on the page.
+the Date property is mainly used to sort the posts but also to be shown it on the page.
 </span></ins></li>
 <li>Layout
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-This is the template used to render the page.
+this is the template used to render the page.
 </span></ins></li>
 <li>Permalink
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-This is the name of the output file: HTML, or any other format (e.g. minified JavaScript).
+this is the name of the output file: HTML, or any other format (e.g. minified JavaScript).
 </span></ins></li>
 <li>Tags
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-The collection(s) including the output file.
+the collection(s) including the output file.
 </span></ins></li>
 </ul>
 <p><em>Specific data</em></p>
 <ul data--="ulist">
 <li>Title
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-Used by 11tyTips to identify the page in the browser tab.
+used by 11tyTips to identify the page in the browser tab.
 </span></ins></li>
 <li>Subtitle
 <ins data--="inline_note"><sup></sup><span data--="note_content">
@@ -84,11 +84,11 @@ Used by 11tyTips to describe the page content in the Tips list menu.
 </span></ins></li>
 <li>Abstract
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-Actually not used by 11tyTips, but could be…
+actually not used by 11tyTips, but could be…
 </span></ins></li>
 <li>Author
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-Useful if there are multiple authors for the posts of the site.
+useful if there are multiple authors for the posts of the site.
 </span></ins></li>
 </ul>
 <hgroup data--="code_ref">
@@ -123,11 +123,11 @@ A very good idea because it gives you the full power of the language to process 
 </span></ins>
 and Nunjucks as templating system, you can declare functions as properties
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-See <a href="https://11ty.io/docs/data-frontmatter/#javascript-front-matter" target="_blank" rel="noreferrer">Eleventy#javascript-front-matter</a> documentation page.
+see <a href="https://11ty.io/docs/data-frontmatter/#javascript-front-matter" target="_blank" rel="noreferrer">Eleventy#javascript-front-matter</a> documentation page.
 </span></ins>
 . Usually, apart very specific cases, it’s much more easy to declare content processing functions in a module located inside the data directory
 <ins data--="inline_note"><sup></sup><span data--="note_content">
-Because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful.
+because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful.
 </span></ins>
 .</p>
 <p>However, 11tyTips tips list menu is such a case: the <code>rank__s</code> property calls the <code>String.prototype.padStart</code> method to add one or two <code>0</code> before the tip rank to normalize it and is called this way:</p>
