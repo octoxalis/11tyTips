@@ -4,6 +4,7 @@
   layout:    `templates/base.njk`,
   permalink: `tips/shortcodes.html`,
   tags:      [ `tip` ],
+  eleventyExcludeFromCollections: false,
 
   title_s:     `Shortcodes`,
   subtitle_s:  `Forging shortcodes`,

@@ -4,6 +4,7 @@
   layout:    `templates/base.njk`,
   permalink: `tips/names_guide.html`,
   tags:      [ `tip` ],
+  eleventyExcludeFromCollections: false,
 
   title_s:    `Names guide`,
   subtitle_s: `Variable naming convention`,

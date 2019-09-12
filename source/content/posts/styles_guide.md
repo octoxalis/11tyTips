@@ -4,6 +4,7 @@
   layout:    `templates/base.njk`,
   permalink: `tips/styles_guide.html`,
   tags:      [ `tip` ],
+  eleventyExcludeFromCollections: false,
 
   title_s:    `Style guide`,
   subtitle_s: `Styles of this site`,

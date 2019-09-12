@@ -19,4 +19,7 @@ module.exports = config_o =>
     }
     return jsmin.code
   })
+
+  // : RSS feed
+  config_o.addFilter('RSSfeed', code_s => require('../lib/feed_content.js')( code_s ) )
 }

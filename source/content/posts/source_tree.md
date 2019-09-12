@@ -4,6 +4,7 @@
   layout:    `templates/base.njk`,
   permalink: `tips/source_tree.html`,
   tags:      [ `tip` ],
+  eleventyExcludeFromCollections: false,
 
   title_s:    `Source tree`,
   subtitle_s: `List of the directories and files of this site`,

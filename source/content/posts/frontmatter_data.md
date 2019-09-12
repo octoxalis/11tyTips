@@ -4,6 +4,7 @@
   layout:    `templates/base.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
+  eleventyExcludeFromCollections: false,
 
   title_s:    `Front matter`,
   subtitle_s: `Front matter data howto`,

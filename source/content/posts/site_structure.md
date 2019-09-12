@@ -4,6 +4,7 @@
   layout:    `templates/base.njk`,
   permalink: `tips/site_structure.html`,
   tags:      [ `tip` ],
+  eleventyExcludeFromCollections: false,
 
   title_s:    `Site structure`,
   subtitle_s: `How to structure a JAMstack site`,

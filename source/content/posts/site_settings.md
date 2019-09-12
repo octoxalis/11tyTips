@@ -4,6 +4,7 @@
   layout:    `templates/base.njk`,
   permalink: `tips/site_settings.html`,
   tags:      [ `tip` ],
+  eleventyExcludeFromCollections: false,
 
   title_s:    `Global settings`,
   subtitle_s: `Useful data for building and content`,

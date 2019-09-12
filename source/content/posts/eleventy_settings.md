@@ -4,6 +4,7 @@
   layout:    `templates/base.njk`,
   permalink: `tips/eleventy_settings.html`,
   tags:      [ `tip` ],
+  eleventyExcludeFromCollections: false,
 
   title_s:     `Eleventy settings`,
   subtitle_s:  `Customizing Eleventy`,

@@ -4,6 +4,7 @@
   layout:    `templates/base.njk`,
   permalink: `index.html`,
   tags:      [ `notag` ],
+  eleventyExcludeFromCollections: false,
 
   title_s:    `11tyTips`,
   subtitle_s: `Inside Eleventy static site generator`,

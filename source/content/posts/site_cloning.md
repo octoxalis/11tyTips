@@ -4,6 +4,7 @@
   layout:    `templates/base.njk`,
   permalink: `tips/site_cloning.html`,
   tags:      [ `tip` ],
+  eleventyExcludeFromCollections: false,
 
   title_s:     `Cloning 11tyTips site`,
   subtitle_s:  `Install a new skeleton site`,

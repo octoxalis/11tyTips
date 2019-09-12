@@ -8,7 +8,7 @@
     author:
     {
       name: `Octoxalis`,
-      email: 'octoxalis@gmail.com',
+      email: 'octoxalis at gmail.com',
     },
     feed:
     {
@@ -33,14 +33,14 @@
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
   </author>
-  {%- for _tip_o in collections.tip %}
-{% set absolutePostUrl %}{{ _tip_o.url | url | absoluteUrl(metadata.url) }}{% endset %}
+{%- for _post_o in collections.tip %}
+{% set absolutePostUrl %}{{ settings.url_s + _post_o.data.permalink }}{% endset %}
   <entry>
-    <title>{{ _tip_o.data.title_s }}</title>
+    <title>{{ _post_o.data.title_s }}</title>
     <link href="{{ absolutePostUrl }}"/>
-    <updated>{{ _tip_o.date | rssDate }}</updated>
+    <updated>{{ _post_o.date | rssDate }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ _tip_o.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    <content type="html">{{ _post_o.templateContent | RSSfeed }}</content>
   </entry>
-  {%- endfor %}
+{%- endfor %}
 </feed>
