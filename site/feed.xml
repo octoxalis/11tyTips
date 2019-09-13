@@ -602,7 +602,7 @@ useful if there are multiple authors for the posts of the site.
 &lt;h2&gt;Function properties&lt;/h2&gt;
 &lt;p&gt;If you use JavaScript for the front matter
 (
-A very good idea because it gives you the full power of the language to process your content.
+a very good idea because it gives you the full power of the language to process your content.
 )
 and Nunjucks as templating system, you can declare functions as properties
 (
@@ -634,7 +634,7 @@ because it will be accessible from any Markdown content or any template and with
   &amp;lt;h2 data--=&amp;quot;tips_order&amp;quot;&amp;gt;All the tips&amp;lt;/h2&amp;gt;
   &amp;lt;ol data--=&amp;quot;tips_list&amp;quot;&amp;gt;
   {% for _post_o in collections.tip %}
-    &amp;lt;li data--=&amp;quot;tips_entry&amp;quot;&amp;gt;
+    &amp;lt;li data--=&amp;quot;tips_item&amp;quot;&amp;gt;
       &amp;lt;span&amp;gt;{{ rank__s(loop.index) }}&amp;lt;/span&amp;gt;
       &amp;lt;a href=&amp;quot;{{ _post_o.url | url }}&amp;quot;&amp;gt;{{ _post_o.data.title_s }}&amp;lt;/a&amp;gt;
       &amp;lt;span&amp;gt;{{ _post_o.data.subtitle_s }}&amp;lt;/span&amp;gt;
@@ -646,7 +646,7 @@ because it will be accessible from any Markdown content or any template and with
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;But the same result would have been possible calling directly the &lt;code&gt;padStart&lt;/code&gt; method inside the template
 (
-Nevertheless, my prefered solution is the property function because it’s more readable.
+nevertheless, my prefered solution is the property function because it’s more readable.
 )
 :&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;&amp;lt;span&amp;gt;#{{ (&#39;&#39; + tip_n).padStart( 3, &#39;0&#39; ) }}&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/p&gt;
@@ -659,38 +659,39 @@ Nevertheless, my prefered solution is the property function because it’s more 
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 EleventyLink__s: ( key_s ) =&gt;
 {
-  const path_s = _C[ `eleventy_${key_s}` ]
+  const path_s = _C[ `ELEVENTY_${key_s}` ]
   const anchor_n = path_s.indexOf( &#39;#&#39;)
-  if ( anchor_n === -1 )
+  if ( anchor_n === -1 )    //: return a link to 11ty.io
   {
-    console.log( `No anchor found in path ${path_s}` )
-    return
+    console.log( `ALERT! (EleventyLink__s) no anchor found in path: ${path_s}` )
+    const ref_n = _C.ELEVENTY_s.indexOf( &#39;:&#39; )
+    return { ref: _C.ELEVENTY_s.substring( 0, ref_n ), link: _C.ELEVENTY_s }
   }
   const anchor_s = path_s.substring( anchor_n )
   const anchorLink_s = _C.ELEVENTY_s.replace( &#39;]&#39;, `${anchor_s}]`) + path_s
-  return [anchorLink_s.substring( 0, anchorLink_s.indexOf( &#39;:&#39;) ), anchorLink_s]
+  return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( &#39;:&#39;) ), link: anchorLink_s }
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The acronyms, used as keys
+&lt;p&gt;The acronyms
 (
-&lt;code&gt;jfm_s&lt;/code&gt; is the acronym of &lt;code&gt;#javascript-front-matter&lt;/code&gt;,
-&lt;code&gt;udf_s&lt;/code&gt; is the acronym of &lt;code&gt;#user-defined-front-matter-customizations&lt;/code&gt;.
-Usually three charachters are enough to get a unique identifier.
+usually three characters are enough to get a unique identifier:&lt;br&gt;
+&lt;code&gt;JFM_s&lt;/code&gt; for &lt;code&gt;#javascript-front-matter&lt;/code&gt;,&lt;br&gt;
+&lt;code&gt;UDF_s&lt;/code&gt; for &lt;code&gt;#user-defined-front-matter-customizations&lt;/code&gt;.
 )
-, could be set inside each page front matter and used as a key by the function to expand the actual link reference.&lt;/p&gt;
-&lt;p&gt;Hence to get the &lt;em&gt;reference-style link&lt;/em&gt; and the &lt;em&gt;link&lt;/em&gt; itself is just as easy as:&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;&lt;br&gt;
-&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;&lt;/p&gt;
+, used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.&lt;/p&gt;
+&lt;p&gt;Hence to get the &lt;em&gt;reference&lt;/em&gt; and the &lt;em&gt;link&lt;/em&gt; of a &lt;em&gt;reference-style link&lt;/em&gt; is just as easy as:&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;JFM_s&#39; ).ref }}&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;JFM_s&#39; ).link }}&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Actually, most of Eleventy link keys are gathered in the &lt;code&gt;_C.js&lt;/code&gt; global data file and not in the front matter!&lt;/p&gt;
 &lt;h3&gt;Even shorter&lt;/h3&gt;
 &lt;p&gt;But we can do more, using Nunjucks &lt;code&gt;set&lt;/code&gt; tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ _link_f( &#39;jfm_s&#39; )[1] }}&lt;/code&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ _11ty_f( &#39;JFM_s&#39; ).link }}&lt;/code&gt;
 (
-Link located in Links section, after the Aliases section.
+Reference-style link located in Links section, after the Aliases section.
 )&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ _link_f( &#39;jfm_s&#39; )[0] }}&lt;/code&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ _11ty_f( &#39;JFM_s&#39; ).ref }}&lt;/code&gt;
 (
-reference-style link inside content.
+reference inside content.
 )&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
 &lt;h5&gt;11tyTips/source/content/posts/frontmatter_data.md&lt;/h5&gt;
@@ -699,11 +700,11 @@ reference-style link inside content.
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
 &amp;nbsp;
 [comment]: # (======== Aliases ========)
-{% set _link_f = lib.utils.EleventyLink__s %}
+{% set _11ty_f = lib.utils.EleventyLink__s %}
 &amp;nbsp;
 [comment]: # (======== Links ========)
-{{ _link_f( &#39;jfm_s&#39; )[1] }}
-{{ _link_f( &#39;udf_s&#39; )[1] }}
+{{ _11ty_f( &#39;JFM_s&#39; ).link }}
+{{ _11ty_f( &#39;UDF_s&#39; ).link }}
 &amp;nbsp;
 [comment]: # (======== Post ========)
 &amp;nbsp;

@@ -13,11 +13,11 @@
 }
 ---
 [comment]: # (======== Aliases ========)
-{% set _link_f = lib.utils.EleventyLink__s %}
+{% set _11ty_f = lib.utils.EleventyLink__s %}
 
 [comment]: # (======== Links ========)
-{{ _link_f( 'jfm_s' )[1] }}
-{{ _link_f( 'udf_s' )[1] }}
+{{ _11ty_f( 'JFM_s' ).link }}
+{{ _11ty_f( 'UDF_s' ).link }}
 
 [comment]: # (======== Post ========)
 ## Front matter data
@@ -32,7 +32,7 @@ no so strickly speaking! For instance, you're not requested to use a Date, but i
 {% end_short_note %}
 , others being used to supply some page specific content or variables
 {% _short_note %}
-have a look at {{ _link_f( 'udf_s' )[0] }}{target="_blank" rel="noreferrer"} for a list of Eleventy properties usable in front matter.
+have a look at {{ _11ty_f( 'UDF_s' ).ref }}{target="_blank" rel="noreferrer"} for a list of Eleventy properties usable in front matter.
 {% end_short_note %}
 .
 
@@ -105,11 +105,11 @@ To access any property declared in the front matter it has to be enclosed in dou
 
 If you use JavaScript for the front matter
 {% _short_note %}
-A very good idea because it gives you the full power of the language to process your content.
+a very good idea because it gives you the full power of the language to process your content.
 {% end_short_note %}
 and Nunjucks as templating system, you can declare functions as properties
 {% _short_note %}
-see {{ _link_f( 'jfm_s' )[0] }}{target="_blank" rel="noreferrer"} documentation page.
+see {{ _11ty_f( 'JFM_s' ).ref }}{target="_blank" rel="noreferrer"} documentation page.
 {% end_short_note %}
 . Usually, apart very specific cases, it's much more easy to declare content processing functions in a module located inside the data directory
 {% _short_note %}
@@ -133,7 +133,7 @@ However, {{_C.SITE_s}} tips list menu is such a case: the `rank__s` property cal
   <h2 data--="tips_order">All the tips</h2>
   <ol data--="tips_list">
   {% for _post_o in collections.tip %}
-    <li data--="tips_entry">
+    <li data--="tips_item">
       <span>{{ rank__s(loop.index) }}</span>
       <a href="{{ _post_o.url | url }}">{{ _post_o.data.title_s }}</a>
       <span>{{ _post_o.data.subtitle_s }}</span>
@@ -158,7 +158,7 @@ However, {{_C.SITE_s}} tips list menu is such a case: the `rank__s` property cal
 
 But the same result would have been possible calling directly the `padStart` method inside the template
 {% _short_note %}
-Nevertheless, my prefered solution is the property function because it's more readable.
+nevertheless, my prefered solution is the property function because it's more readable.
 {% end_short_note %}
 :
 
@@ -177,31 +177,32 @@ Nevertheless, my prefered solution is the property function because it's more re
 [//]:#(_code_block)
 EleventyLink__s: ( key_s ) =>
 {
-  const path_s = _C[ `eleventy_${key_s}` ]
+  const path_s = _C[ `ELEVENTY_${key_s}` ]
   const anchor_n = path_s.indexOf( '#')
-  if ( anchor_n === -1 )
+  if ( anchor_n === -1 )    //: return a link to 11ty.io
   {
-    console.log( `No anchor found in path ${path_s}` )
-    return
+    console.log( `ALERT! (EleventyLink__s) no anchor found in path: ${path_s}` )
+    const ref_n = _C.ELEVENTY_s.indexOf( ':' )
+    return { ref: _C.ELEVENTY_s.substring( 0, ref_n ), link: _C.ELEVENTY_s }
   }
   const anchor_s = path_s.substring( anchor_n )
   const anchorLink_s = _C.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
-  return [anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), anchorLink_s]
+  return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link: anchorLink_s }
 }
 {% end_code_block %}
 
-The acronyms, used as keys
+The acronyms
 {% _short_note %}
-`jfm_s` is the acronym of `#javascript-front-matter`,
-`udf_s` is the acronym of `#user-defined-front-matter-customizations`.
-Usually three charachters are enough to get a unique identifier.
+usually three characters are enough to get a unique identifier:<br>
+`JFM_s` for `#javascript-front-matter`,<br>
+`UDF_s` for `#user-defined-front-matter-customizations`.
 {% end_short_note %}
-, could be set inside each page front matter and used as a key by the function to expand the actual link reference.
+, used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.
 
-Hence to get the _reference-style link_ and the _link_ itself is just as easy as:
+Hence to get the _reference_ and the _link_ of a _reference-style link_ is just as easy as:
 
-{% raw %}`{{ lib.utils.EleventyLink__s( 'jfm_s' )[0] }}`{% endraw %}<br>
-{% raw %}`{{ lib.utils.EleventyLink__s( 'jfm_s' )[1] }}`{% endraw %}
+{% raw %}`{{ lib.utils.EleventyLink__s( 'JFM_s' ).ref }}`{% endraw %}<br>
+{% raw %}`{{ lib.utils.EleventyLink__s( 'JFM_s' ).link }}`{% endraw %}
 {data--="example"}
 
 Actually, most of Eleventy link keys are gathered in the `_C.js` global data file and not in the front matter!
@@ -210,15 +211,15 @@ Actually, most of Eleventy link keys are gathered in the `_C.js` global data fil
 
 But we can do more, using Nunjucks `set` tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:
 
-{% raw %}`{{ _link_f( 'jfm_s' )[1] }}`{% endraw %}
+{% raw %}`{{ _11ty_f( 'JFM_s' ).link }}`{% endraw %}
 {% _short_note %}
-Link located in Links section, after the Aliases section.
+Reference-style link located in Links section, after the Aliases section.
 {% end_short_note %}
 {data--="example"}
 
-{% raw %}`{{ _link_f( 'jfm_s' )[0] }}`{% endraw %}
+{% raw %}`{{ _11ty_f( 'JFM_s' ).ref }}`{% endraw %}
 {% _short_note %}
-reference-style link inside content.
+reference inside content.
 {% end_short_note %}
 {data--="example"}
 
@@ -228,11 +229,11 @@ reference-style link inside content.
 [//]:#(_code_block)
 {% raw %}
 [comment]: # (======== Aliases ========)
-{% set _link_f = lib.utils.EleventyLink__s %}
+{% set _11ty_f = lib.utils.EleventyLink__s %}
 
 [comment]: # (======== Links ========)
-{{ _link_f( 'jfm_s' )[1] }}
-{{ _link_f( 'udf_s' )[1] }}
+{{ _11ty_f( 'JFM_s' ).link }}
+{{ _11ty_f( 'UDF_s' ).link }}
 
 [comment]: # (======== Post ========)
 {% endraw %}

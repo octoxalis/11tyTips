@@ -39,7 +39,7 @@ follow the [site cloning] page instructions to start with a clean site skeleton.
 {% end_short_note %}
 .
 
-The styles have been carefully designed to give you a nice and simple presentation while offering advanced capabilities for a responsive layout with fluid fonts
+The styles have been carefully designed to give you a nice and simple presentation while offering advanced capabilities for a responsive layout with fluid typography
 {% _short_note %}
 applying Michael Riethmuller [formula]{target="_blank" rel="noreferrer"}.
 {% end_short_note %}
@@ -47,7 +47,7 @@ applying Michael Riethmuller [formula]{target="_blank" rel="noreferrer"}.
 {% _short_note %}
 with full Markdown content, styling, linking, code blocks, etc.
 {% end_short_note %}
-as well as a good commenting system
+, an Atom RSS feed, a sitemap for search engines, as well as a good commenting system
 {% _short_note %}
 using the Github [utteranc.es]{target="_blank" rel="noreferrer"} repository.
 {% end_short_note %}
