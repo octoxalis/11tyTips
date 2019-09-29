@@ -40,7 +40,7 @@ there are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
 &lt;ul data--=&quot;ulist&quot;&gt;
 &lt;li&gt;build
 (
-Contains JavaScript modules to be used during the build process. For consistancy with other source script directories, it is deeply refined in &lt;code&gt;script/js/&lt;/code&gt; and split in two directories: Eleventy modules (&lt;code&gt;11ty&lt;/code&gt;) and 11tyTips modules (&lt;code&gt;lib&lt;/code&gt;).
+contains JavaScript modules to be used during the build process. For consistancy with other source script directories, it is deeply refined in &lt;code&gt;script/js/&lt;/code&gt; and split in two directories: Eleventy modules (&lt;code&gt;11ty&lt;/code&gt;) and 11tyTips modules (&lt;code&gt;lib&lt;/code&gt;).
 )&lt;/li&gt;
 &lt;li&gt;includes
 (
@@ -114,82 +114,81 @@ source
 │           │   └── shortcodes.js
 │           └── lib
 │               ├── block_replace.js
-│               └── block_split.js
+│               ├── block_split.js
+│               └── feed_content.js
 ├── content
-│   ├── includes
-│   │   └── source_tree.txt
-│   └── posts
-│       ├── 404.md
-│       ├── eleventy_settings.md
-│       ├── feed.md
-│       ├── frontmatter_data.md
-│       ├── index.md
-│       ├── names_guide.md
-│       ├── shortcodes.md
-│       ├── site_cloning.md
-│       ├── site_settings.md
-│       ├── site_structure.md
-│       ├── source_tree.md
-│       ├── styles_guide.md
-│       └── tips_list.md
+│   ├── parts
+│   │   └── _source_tree_.txt
+│   ├── 404.md
+│   ├── eleventy_settings.md
+│   ├── feed.md
+│   ├── frontmatter_data.md
+│   ├── index.md
+│   ├── names_guide.md
+│   ├── shortcodes.md
+│   ├── site_cloning.md
+│   ├── site_settings.md
+│   ├── site_structure.md
+│   ├── sitemap.md
+│   ├── source_tree.md
+│   ├── styles_guide.md
+│   └── tips_list.md
 ├── data
 │   ├── lib
 │   │   └── utils.js
 │   ├── _C.js
 │   ├── descriptions.js
 │   └── settings.js
-├── includes
+├── templates
 │   ├── assets
 │   │   ├── scripts
 │   │   │   └── js
 │   │   │       ├── lib
 │   │   │       │   └── _instant_page_.njk
-│   │   │       ├── partials
-│   │   │       │   ├── dom.js
-│   │   │       │   └── ui.js
+│   │   │       ├── parts
+│   │   │       │   ├── _dom_.js
+│   │   │       │   └── _ui_.js
 │   │   │       ├── _site_url_.njk
 │   │   │       └── base.njk
 │   │   └── styles
 │   │       └── css
-│   │           ├── partials
-│   │           │   ├── aspect_ratio.css
-│   │           │   ├── color.css
-│   │           │   ├── comments.css
-│   │           │   ├── dark_mode.css
-│   │           │   ├── destyle.css
-│   │           │   ├── font.css
-│   │           │   ├── fonts_inline.css
-│   │           │   ├── full_width.css
-│   │           │   ├── html.css
-│   │           │   ├── notes.css
-│   │           │   ├── prism_theme.css
-│   │           │   ├── rootvar.css
-│   │           │   ├── sitetree.css
-│   │           │   ├── tips_list.css
-│   │           │   └── ui.css
+│   │           ├── parts
+│   │           │   ├── _aspect_ratio_.css
+│   │           │   ├── _color_.css
+│   │           │   ├── _comments_.css
+│   │           │   ├── _dark_mode_.css
+│   │           │   ├── _destyle_.css
+│   │           │   ├── _font_.css
+│   │           │   ├── _fonts_inline_.css
+│   │           │   ├── _full_width_.css
+│   │           │   ├── _html_.css
+│   │           │   ├── _notes_.css
+│   │           │   ├── _prism_theme_.css
+│   │           │   ├── _rootvar_.css
+│   │           │   ├── _source_tree_.css
+│   │           │   ├── _tips_list_.css
+│   │           │   └── _ui_.css
 │   │           └── base.njk
-│   ├── content
-│   └── templates
-│       ├── partials
-│       │   ├── blocks
-│       │   │   ├── _article_.njk
-│       │   │   ├── _comments_.njk
-│       │   │   ├── _css_load_.njk
-│       │   │   ├── _description_.njk
-│       │   │   ├── _favicon_.njk
-│       │   │   ├── _feed_.njk
-│       │   │   ├── _fonts_.njk
-│       │   │   ├── _fonts_inline_.njk
-│       │   │   ├── _head_.njk
-│       │   │   ├── _nav_.njk
-│       │   │   ├── _scripts_.njk
-│       │   │   ├── _seo_.njk
-│       │   │   └── _styles_.njk
-│       │   └── _colophon_.njk
-│       ├── base_nocomments.njk
-│       ├── base.njk
-│       ├── feed.njk
-│       └── tips_list.njk
+│   ├── parts
+│   │   ├── _article_.njk
+│   │   ├── _colophon_.njk
+│   │   ├── _comments_.njk
+│   │   ├── _css_load_.njk
+│   │   ├── _description_.njk
+│   │   ├── _favicon_.njk
+│   │   ├── _feed_.njk
+│   │   ├── _fonts_.njk
+│   │   ├── _fonts_inline_.njk
+│   │   ├── _head_.njk
+│   │   ├── _nav_.njk
+│   │   ├── _scripts_.njk
+│   │   ├── _seo_.njk
+│   │   └── _styles_.njk
+│   ├── base_nocomments.njk
+│   ├── base.njk
+│   ├── feed.njk
+│   ├── sitemap.njk
+│   └── tips_list.njk
 ├── .eleventy.js
 └── .eleventyignore
 &lt;/code&gt;&lt;/pre&gt;
@@ -211,7 +210,7 @@ because of the leading dot it’s an hidden file.
 &lt;p&gt;The configuration object returned by the &lt;code&gt;.eleventy.js&lt;/code&gt; module is important because it defines the location of the main parts of the building process: the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; directories, the templates processors, etc.&lt;/p&gt;
 &lt;p&gt;11tyTips declares its own set of directories, modifying some of the default names and locations
 (
-for instance, the leading underscore character is suppressed for &lt;code&gt;output&lt;/code&gt;, &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;includes&lt;/code&gt; directories, in lieu of &lt;code&gt;_output&lt;/code&gt;, &lt;code&gt;_data&lt;/code&gt; and &lt;code&gt;_includes&lt;/code&gt;; &lt;code&gt;static&lt;/code&gt; directory is named &lt;code&gt;assets&lt;/code&gt;, etc.
+for instance, the leading underscore character is suppressed for &lt;code&gt;output&lt;/code&gt;, &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;templates&lt;/code&gt; directories, in lieu of &lt;code&gt;_output&lt;/code&gt;, &lt;code&gt;_data&lt;/code&gt; and &lt;code&gt;_includes&lt;/code&gt;; &lt;code&gt;static&lt;/code&gt; directory is named &lt;code&gt;assets&lt;/code&gt;, etc.
 )&lt;/p&gt;
 </content>
   </entry>
@@ -294,13 +293,13 @@ const ELEVENTY_o =
 const DIRS_o =
 {
   buildDir_s: &#39;./build/scripts/js/11ty/&#39;,
-  contentIncludesDir_s: &#39;./content/includes&#39;,
+  contentPartsDir_s: &#39;./content/includes&#39;,
 }
 &amp;nbsp;
 module.exports = config_o =&gt;
 {
   config_o.templateIncludesDir_s = ELEVENTY_o.dir.includes
-  config_o.contentIncludesDir_s = DIRS_o.contentIncludesDir_s
+  config_o.contentPartsDir_s = DIRS_o.contentPartsDir_s
   config_o.addPassthroughCopy( &#39;assets&#39; )    //: static files
   ;
   [ &#39;libraries&#39;,
@@ -492,7 +491,7 @@ two underscore characters before the type specifier of the return value is used 
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;const awesome__s = () =&amp;gt; &#39;An awesome String&#39;&lt;/code&gt;&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;const clone_f = awesome__s&lt;/code&gt;&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips/source/includes/assets/scripts/js/partials/dom.js&lt;/h5&gt;
+&lt;h5&gt;11tyTips/source/templates/assets/scripts/js/parts/dom.js&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
@@ -582,7 +581,7 @@ useful if there are multiple authors for the posts of the site.
 ---js
 {
   date:      `2019-09-06`,
-  layout:    `templates/base.njk`,
+  layout:    `base.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
 &amp;nbsp;
@@ -616,7 +615,7 @@ because it will be accessible from any Markdown content or any template and with
 &lt;p&gt;However, 11tyTips tips list menu is such a case: the &lt;code&gt;rank__s&lt;/code&gt; property calls the &lt;code&gt;String.prototype.padStart&lt;/code&gt; method to add one or two &lt;code&gt;0&lt;/code&gt; before the tip rank to normalize it and is called this way:&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;&amp;lt;span&amp;gt;{{ rank__s(loop.index) }}&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips/source/includes/templates/tips_list.njk&lt;/h5&gt;
+&lt;h5&gt;11tyTips/source/templates/tips_list.njk&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;

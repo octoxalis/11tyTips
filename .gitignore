@@ -1,0 +1,9 @@
+node_modules
+package.json
+package-lock.json
+prototypes
+source
+.vscode
+chercheurd.art.code-workspace
+markdown.code-snippets
+_workspace_

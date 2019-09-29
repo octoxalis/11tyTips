@@ -1,7 +1,12 @@
+
 <!doctype html>
 <html lang="en">
-
   <head>
+  <script>
+const _SITE_s='11tyTips'
+const _URL_s='https://11tytips.netlify.com/'
+</script>
+
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Source tree</title>
@@ -17,11 +22,6 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://11tytips.netlify.com/assets/media/favicon-16x16.png">
 <link rel="manifest" href="https://11tytips.netlify.com/assets/site.webmanifest">
   <link rel="alternate" type="application/atom+xml" href="feed.xml" title="11tyTips">
-  <script>
-const _SITE_s='11tyTips'
-const _URL_s='https://11tytips.netlify.com/'
-</script>
-
   
   <style type="text/css">@font-face {font-display:swap;font-family:'Harmattan';font-style:normal;font-weight:400;src:local('Harmattan'),local('Harmattan-Regular'),url('https://11tytips.netlify.com/assets/fonts/harmattan-v5-latin-regular.woff2')format('woff2')}@font-face {font-family:'Athiti';font-style:normal;font-weight:400;src:local('Athiti'),local('Athiti-Regular'),url('https://11tytips.netlify.com/assets/fonts/athiti-v3-latin-regular.woff2')format('woff2')}@font-face {font-display:swap;font-family:'Fira Code';src:local('Fira Code'),local('Fira Code-Regular'),url('https://11tytips.netlify.com/assets/fonts/FiraCode-Regular.woff2')format('woff2');font-weight:400;font-style:normal}</style>
   <style type="text/css">
@@ -75,82 +75,81 @@ source
 │           │   └── shortcodes.js
 │           └── lib
 │               ├── block_replace.js
-│               └── block_split.js
+│               ├── block_split.js
+│               └── feed_content.js
 ├── content
-│   ├── includes
-│   │   └── source_tree.txt
-│   └── posts
-│       ├── 404.md
-│       ├── eleventy_settings.md
-│       ├── feed.md
-│       ├── frontmatter_data.md
-│       ├── index.md
-│       ├── names_guide.md
-│       ├── shortcodes.md
-│       ├── site_cloning.md
-│       ├── site_settings.md
-│       ├── site_structure.md
-│       ├── source_tree.md
-│       ├── styles_guide.md
-│       └── tips_list.md
+│   ├── parts
+│   │   └── _source_tree_.txt
+│   ├── 404.md
+│   ├── eleventy_settings.md
+│   ├── feed.md
+│   ├── frontmatter_data.md
+│   ├── index.md
+│   ├── names_guide.md
+│   ├── shortcodes.md
+│   ├── site_cloning.md
+│   ├── site_settings.md
+│   ├── site_structure.md
+│   ├── sitemap.md
+│   ├── source_tree.md
+│   ├── styles_guide.md
+│   └── tips_list.md
 ├── data
 │   ├── lib
 │   │   └── utils.js
 │   ├── _C.js
 │   ├── descriptions.js
 │   └── settings.js
-├── includes
+├── templates
 │   ├── assets
 │   │   ├── scripts
 │   │   │   └── js
 │   │   │       ├── lib
 │   │   │       │   └── _instant_page_.njk
-│   │   │       ├── partials
-│   │   │       │   ├── dom.js
-│   │   │       │   └── ui.js
+│   │   │       ├── parts
+│   │   │       │   ├── _dom_.js
+│   │   │       │   └── _ui_.js
 │   │   │       ├── _site_url_.njk
 │   │   │       └── base.njk
 │   │   └── styles
 │   │       └── css
-│   │           ├── partials
-│   │           │   ├── aspect_ratio.css
-│   │           │   ├── color.css
-│   │           │   ├── comments.css
-│   │           │   ├── dark_mode.css
-│   │           │   ├── destyle.css
-│   │           │   ├── font.css
-│   │           │   ├── fonts_inline.css
-│   │           │   ├── full_width.css
-│   │           │   ├── html.css
-│   │           │   ├── notes.css
-│   │           │   ├── prism_theme.css
-│   │           │   ├── rootvar.css
-│   │           │   ├── sitetree.css
-│   │           │   ├── tips_list.css
-│   │           │   └── ui.css
+│   │           ├── parts
+│   │           │   ├── _aspect_ratio_.css
+│   │           │   ├── _color_.css
+│   │           │   ├── _comments_.css
+│   │           │   ├── _dark_mode_.css
+│   │           │   ├── _destyle_.css
+│   │           │   ├── _font_.css
+│   │           │   ├── _fonts_inline_.css
+│   │           │   ├── _full_width_.css
+│   │           │   ├── _html_.css
+│   │           │   ├── _notes_.css
+│   │           │   ├── _prism_theme_.css
+│   │           │   ├── _rootvar_.css
+│   │           │   ├── _source_tree_.css
+│   │           │   ├── _tips_list_.css
+│   │           │   └── _ui_.css
 │   │           └── base.njk
-│   ├── content
-│   └── templates
-│       ├── partials
-│       │   ├── blocks
-│       │   │   ├── _article_.njk
-│       │   │   ├── _comments_.njk
-│       │   │   ├── _css_load_.njk
-│       │   │   ├── _description_.njk
-│       │   │   ├── _favicon_.njk
-│       │   │   ├── _feed_.njk
-│       │   │   ├── _fonts_.njk
-│       │   │   ├── _fonts_inline_.njk
-│       │   │   ├── _head_.njk
-│       │   │   ├── _nav_.njk
-│       │   │   ├── _scripts_.njk
-│       │   │   ├── _seo_.njk
-│       │   │   └── _styles_.njk
-│       │   └── _colophon_.njk
-│       ├── base_nocomments.njk
-│       ├── base.njk
-│       ├── feed.njk
-│       └── tips_list.njk
+│   ├── parts
+│   │   ├── _article_.njk
+│   │   ├── _colophon_.njk
+│   │   ├── _comments_.njk
+│   │   ├── _css_load_.njk
+│   │   ├── _description_.njk
+│   │   ├── _favicon_.njk
+│   │   ├── _feed_.njk
+│   │   ├── _fonts_.njk
+│   │   ├── _fonts_inline_.njk
+│   │   ├── _head_.njk
+│   │   ├── _nav_.njk
+│   │   ├── _scripts_.njk
+│   │   ├── _seo_.njk
+│   │   └── _styles_.njk
+│   ├── base_nocomments.njk
+│   ├── base.njk
+│   ├── feed.njk
+│   ├── sitemap.njk
+│   └── tips_list.njk
 ├── .eleventy.js
 └── .eleventyignore
 </code></pre>

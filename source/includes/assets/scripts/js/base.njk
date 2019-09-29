@@ -1,7 +1,0 @@
-{% set _js %}
-{% include "./partials/dom.js" %}
-{% include "./partials/ui.js" %}
-{% endset %}
-{% if settings.dev_b === true %}{{ _js | safe }}
-{% else %}{{ _js | jsmin | safe }}
-{% endif %}

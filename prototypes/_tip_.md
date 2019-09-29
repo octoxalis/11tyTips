@@ -1,6 +1,6 @@
 ---js
 {
-  layout:    `templates/base.njk`,
+  layout:    `base.njk`,
   permalink: `__tip__.html`,
   tags:      [ `tip` ],
   title_s:     `__TITLE__`,
