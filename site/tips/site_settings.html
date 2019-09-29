@@ -55,14 +55,14 @@ const SETTINGS_o =
   git_s: _C.GIT_s,
   twi_s: _C.TWI_s,
   rss_s: _C.RSS_s,
-  url_s: null,
-  dev_b: true,
-  //dev_b: false,
+<p>url_s: null,
+dev_b: true,
+//dev_b: false,
 }
-;(() => SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? 'dev_s' : 'pro_s'])()
-console.log( `Site URL: ${SETTINGS_o.url_s}` )
+;(() =&gt; SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? ‘dev_s’ : ‘pro_s’])()
+console.log( <code>Site URL: ${SETTINGS_o.url_s}</code> )
 module.exports = SETTINGS_o
-</code></pre>
+</code></pre></p>
 
   </section>
 </article>

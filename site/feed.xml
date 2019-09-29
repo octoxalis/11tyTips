@@ -236,14 +236,14 @@ const SETTINGS_o =
   git_s: _C.GIT_s,
   twi_s: _C.TWI_s,
   rss_s: _C.RSS_s,
-  url_s: null,
-  dev_b: true,
-  //dev_b: false,
+&lt;p&gt;url_s: null,
+dev_b: true,
+//dev_b: false,
 }
-;(() =&gt; SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? &#39;dev_s&#39; : &#39;pro_s&#39;])()
-console.log( `Site URL: ${SETTINGS_o.url_s}` )
+;(() =&amp;gt; SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? ‘dev_s’ : ‘pro_s’])()
+console.log( &lt;code&gt;Site URL: ${SETTINGS_o.url_s}&lt;/code&gt; )
 module.exports = SETTINGS_o
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 </content>
   </entry>
 
@@ -284,16 +284,16 @@ const ELEVENTY_o =
   {
     input:    &#39;.&#39;,
     output:   &#39;../site&#39;,
-    data:     &#39;data&#39;,
-    includes: &#39;includes&#39;,
     passthru: &#39;assets&#39;,
+    data:     &#39;data&#39;,
+    includes: &#39;templates&#39;,
   },
 }
 &amp;nbsp;
 const DIRS_o =
 {
   buildDir_s: &#39;./build/scripts/js/11ty/&#39;,
-  contentPartsDir_s: &#39;./content/includes&#39;,
+  contentPartsDir_s: &#39;./content/parts&#39;,
 }
 &amp;nbsp;
 module.exports = config_o =&gt;
@@ -301,14 +301,12 @@ module.exports = config_o =&gt;
   config_o.templateIncludesDir_s = ELEVENTY_o.dir.includes
   config_o.contentPartsDir_s = DIRS_o.contentPartsDir_s
   config_o.addPassthroughCopy( &#39;assets&#39; )    //: static files
-  ;
-  [ &#39;libraries&#39;,
+; [ &#39;libraries&#39;,
     &#39;shortcodes&#39;,
     &#39;filters&#39;,
     &#39;plugins&#39;,
     &#39;collections&#39;
   ].forEach( config_s =&gt; require( `${DIRS_o.buildDir_s}${config_s}.js` )( config_o ) )
-&amp;nbsp;
   return ELEVENTY_o    // : return the config object for further customization
 }
 &lt;/code&gt;&lt;/pre&gt;
