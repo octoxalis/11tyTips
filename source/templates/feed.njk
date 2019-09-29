@@ -1,0 +1,46 @@
+---js
+{
+  permalink: 'feed.xml',
+  metadata:
+  {
+    title: `11tyTips blog`,
+    url: `https://11tytips.netlify.com/`,
+    author:
+    {
+      name: `Octoxalis`,
+      email: 'octoxalis@gmail.com',
+    },
+    feed:
+    {
+      subtitle: `Hot tips for 11ty static site generator users`,
+      filename: 'feed.xml',
+      path: 'feed.xml',
+      url: 'https://11tytips.netlify.com/feed.xml',
+      id: 'https://11tytips.netlify.com/',
+    },
+  },
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.feed.subtitle }}</subtitle>
+  <link href="{{ metadata.feed.url }}" rel="self"/>
+  <link href="{{ metadata.url }}"/>
+  <updated>{{ collections.tip | rssLastUpdatedDate }}</updated>
+  <id>{{ metadata.feed.id }}</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+    <email>{{ metadata.author.email }}</email>
+  </author>
+{%- for _post_o in collections.tip %}
+{% set absolutePostUrl %}{{ settings.url_s + _post_o.data.permalink }}{% endset %}
+  <entry>
+    <title>{{ _post_o.data.title_s }}</title>
+    <link href="{{ absolutePostUrl }}"/>
+    <updated>{{ _post_o.date | rssDate }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content type="html">{{ _post_o.templateContent | RSSfeed }}</content>
+  </entry>
+{%- endfor %}
+</feed>

@@ -1,0 +1,49 @@
+:root
+{
+  --MENU_SHOW: 0;
+}
+
+[data--="tips_menu"]
+{
+  z-index: 1;
+  position: absolute;
+  padding-top: 1rem;
+  width: calc( 100% - ( var(--PAD_W) * 2vw ) );
+  max-width: var(--CONTENT_WIDTH);
+  background: var(--c_back_op);
+  transform: scaleY( var(--MENU_SHOW) );
+  transition: all 0.3s ease-in-out;
+}
+
+[data--="tips_order"]
+{
+  cursor: pointer;
+}
+[data--="tips_order"]::after
+{
+  content: '⇅';
+  margin-left: var(--PAD_8);
+  font-size: 80%;
+  font-style: normal;
+}
+
+[data--="tips_item"]
+{
+  display: flex;
+  list-style: none;
+  margin: 0;
+}
+
+[data--="tips_item"] *
+{
+  margin-right: var(--PAD_2);
+}
+
+[data--="tips_item"] span
+{
+  padding: 2px var(--PAD_1);
+  font-style: oblique;
+  line-height: 1;
+  color: hsla( 180, 10%, 10%, 1 );
+	background: var(--c_decor_hi);
+}

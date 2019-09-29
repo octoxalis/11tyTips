@@ -1,9 +1,5 @@
 node_modules
 package.json
 package-lock.json
-prototypes
-source
-.vscode
 11tyTips-workspace.code-workspace
-markdown.code-snippets
 @workspace

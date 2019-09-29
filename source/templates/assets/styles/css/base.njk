@@ -1,0 +1,18 @@
+{% set _css %}
+{% include "./parts/_destyle_.css" %}
+{% include "./parts/_rootvar_.css" %}
+{% include "./parts/_font_.css" %}
+{% include "./parts/_color_.css" %}
+{% include "./parts/_html_.css" %}
+{% include "./parts/_aspect_ratio_.css" %}
+{% include "./parts/_prism_theme_.css" %}
+{% include "./parts/_ui_.css" %}
+{#% include "./parts/_source_tree_.css" %#}
+{% include "./parts/_notes_.css" %}
+{% include "./parts/_tips_list_.css" %}
+{% include "./parts/_comments_.css" %}
+{% include "./parts/_dark_mode_.css" %}
+{% endset %}
+{% if settings.dev_b === true %}{{ _css | safe }}
+{% else %}{{ _css | cssmin | safe }}
+{% endif %}

@@ -1,0 +1,21 @@
+---js
+{
+  rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
+}
+---
+<menu data--="tips_menu">
+  <h4><a href="{{ settings.url_s }}">Home</a></h4>
+  <h4>→ <a href="{{ settings.git_s }}" target="_blank" rel="noreferrer">Github</a></h4>
+  <h4>→ <a href="{{ settings.twi_s }}" target="_blank" rel="noreferrer">Twitter</a></h4>
+  <h4>→ <a href="{{ settings.rss_s }}" target="_blank">RSS</a></h4>
+  <h2 data--="tips_order">All the tips</h2>
+  <ol data--="tips_list">
+{% for _post_o in collections.tip %}
+    <li data--="tips_item">
+      <span>{{ rank__s(loop.index) }}</span>
+      <a href="{{ _post_o.url | url }}">{{ _post_o.data.title_s }}</a>
+      <span>{{ _post_o.data.subtitle_s }}</span>
+    </li>
+{% endfor %}
+  </ol>
+</menu>
