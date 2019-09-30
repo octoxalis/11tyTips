@@ -62,7 +62,6 @@ source
 │   │   │       ├── parts
 │   │   │       │   ├── _dom_.js
 │   │   │       │   └── _ui_.js
-│   │   │       ├── _site_url_.njk
 │   │   │       └── frame.njk
 │   │   └── styles
 │   │       └── css
@@ -97,10 +96,11 @@ source
 │   │   ├── _nav_.njk
 │   │   ├── _scripts_.njk
 │   │   ├── _seo_.njk
+│   │   ├── _site_url_.njk
 │   │   └── _styles_.njk
+│   ├── feed.njk
 │   ├── frame_nocomments.njk
 │   ├── frame.njk
-│   ├── feed.njk
 │   ├── sitemap.njk
 │   └── tips_list.njk
 ├── .eleventy.js
