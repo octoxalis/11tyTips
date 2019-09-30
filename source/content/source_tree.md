@@ -1,7 +1,7 @@
 ---js
 {
   date:      `2019-09-04`,
-  layout:    `base.njk`,
+  layout:    `frame.njk`,
   permalink: `tips/source_tree.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,

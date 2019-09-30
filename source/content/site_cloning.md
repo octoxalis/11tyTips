@@ -1,7 +1,7 @@
 ---js
 {
   date:      `2019-09-03`,
-  layout:    `base.njk`,
+  layout:    `frame.njk`,
   permalink: `tips/site_cloning.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,

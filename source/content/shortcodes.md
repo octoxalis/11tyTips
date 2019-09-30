@@ -1,7 +1,7 @@
 ---js
 {
   date:      `2019-09-10`,
-  layout:    `base.njk`,
+  layout:    `frame.njk`,
   permalink: `tips/shortcodes.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,

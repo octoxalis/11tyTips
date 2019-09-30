@@ -1,7 +1,7 @@
 ---js
 {
   date:      `2019-09-09`,
-  layout:    `base.njk`,
+  layout:    `frame.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
@@ -82,7 +82,7 @@ useful if there are multiple authors for the posts of the site.
 ---js
 {
   date:      `2019-09-06`,
-  layout:    `base.njk`,
+  layout:    `frame.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
 

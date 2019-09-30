@@ -63,7 +63,7 @@ source
 │   │   │       │   ├── _dom_.js
 │   │   │       │   └── _ui_.js
 │   │   │       ├── _site_url_.njk
-│   │   │       └── base.njk
+│   │   │       └── frame.njk
 │   │   └── styles
 │   │       └── css
 │   │           ├── parts
@@ -82,7 +82,7 @@ source
 │   │           │   ├── _source_tree_.css
 │   │           │   ├── _tips_list_.css
 │   │           │   └── _ui_.css
-│   │           └── base.njk
+│   │           └── frame.njk
 │   ├── parts
 │   │   ├── _article_.njk
 │   │   ├── _colophon_.njk
@@ -98,8 +98,8 @@ source
 │   │   ├── _scripts_.njk
 │   │   ├── _seo_.njk
 │   │   └── _styles_.njk
-│   ├── base_nocomments.njk
-│   ├── base.njk
+│   ├── frame_nocomments.njk
+│   ├── frame.njk
 │   ├── feed.njk
 │   ├── sitemap.njk
 │   └── tips_list.njk

@@ -1,16 +1,17 @@
 const SITE_s = '11tyTips'
+const URL_s = `https://${SITE_s.toLowerCase()}.netlify.com/`
 
 module.exports =
 {
   SITE_s : `${SITE_s}`,
   DEV_s  : `http://127.0.0.1:5500/`,
-  PRO_s  : `https://${SITE_s.toLowerCase()}.netlify.com/`,
+  PRO_s  : `${URL_s}`,
   GIT_s  : `https://github.com/octoxalis/11tyTips/`,
   TWI_s  : `https://twitter.com/11tyTips/`,
-  RSS_s  : `https://${SITE_s.toLowerCase()}.netlify.com/feed.xml`,
+  RSS_s  : `${URL_s}feed.xml`,
 
 
-  HOME_s : `[Home page]: https://${SITE_s.toLowerCase()}.netlify.com/`,
+  HOME_s : `[Home page]: ${URL_s}`,
   UT_s   : `[utteranc.es]: https://github.com/utterance/utterances`,
   NODE_s : `[Node.js]: https://nodejs.org`,
 

@@ -6,5 +6,5 @@
   --PAD_4: calc( var(--PAD_1) * 4 );
   --PAD_8: calc( var(--PAD_1) * 8 );
 
-  --CONTENT_WIDTH: calc( var(--PAD_W) * 120px );    /* 960px*/
+  --CONTENT_WIDTH: calc( var(--PAD_W) * 120px );    /* 960px */
 }
