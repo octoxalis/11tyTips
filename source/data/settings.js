@@ -7,7 +7,6 @@ const SETTINGS_o =
   git_s: _C.GIT_s,
   twi_s: _C.TWI_s,
   rss_s: _C.RSS_s,
-  
   url_s: null,
   //dev_b: true,
   dev_b: false,
