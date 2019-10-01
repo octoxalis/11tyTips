@@ -2,7 +2,7 @@
 {
   date:      `2019-09-06`,
   layout:    `frame.njk`,
-  permalink: `tips/site_settings.html`,
+  permalink: `tips/site_configure.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
@@ -21,11 +21,12 @@ Eleventy provides a wide range of settings for [data] used in building stage or 
 {{_G_.SITE_s}} uses only global data contained in JavaScript files located inside the data directory.
 
 {% _code_block %}
-    title_s: 'source/data/settings.js',
+    title_s: 'source/store/data/_U_.js',
     lang_s: "javascript",
 [//]:#(_code_block)
-const Y = require( './_G_.js' )
-const SETTINGS_o =
+const _G_ = require( './_G_.js' )
+
+const _U_o =
 {
   dev_s: _G_.DEV_s,
   pro_s: _G_.PRO_s,
@@ -37,9 +38,10 @@ const SETTINGS_o =
   //dev_b: false,
   url_s: null,
 }
-;(() => SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? 'dev_s' : 'pro_s'])()
-console.log( `Site URL: ${SETTINGS_o.url_s}` )
-module.exports = SETTINGS_o
+;(() => _U_o.url_s = _U_o[_U_o.dev_b === true ? 'dev_s' : 'pro_s'])()
+console.log( `Site URL: ${_U_o.url_s}` )
+
+module.exports = _U_o
 {% end_code_block %}
 
 [comment]: # (======== Links ========)

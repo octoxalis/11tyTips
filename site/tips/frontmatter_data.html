@@ -133,7 +133,7 @@ because it will be accessible from any Markdown content or any template and with
 <p>However, 11tyTips tips list menu is such a case: the <code>rank__s</code> property calls the <code>String.prototype.padStart</code> method to add one or two <code>0</code> before the tip rank to normalize it and is called this way:</p>
 <p data--="example"><code>&lt;span&gt;{{ rank__s(loop.index) }}&lt;/span&gt;</code></p>
 <hgroup data--="code_ref">
-<h5>11tyTips/source/templates/tips_list.njk</h5>
+<h5>11tyTips/source/store/items/tips_list.njk</h5>
 <h6><a href="https://prismjs.com" target="_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
 </hgroup>
 <pre><code class="language-javascript">
@@ -170,7 +170,7 @@ nevertheless, my prefered solution is the property function because it’s more 
 <h2>Front matter properties and global data functions</h2>
 <p>11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an <code>utils.js</code> file inside its <code>data/lib</code> directory where a <code>EleventyLink__s</code> function compute the link to any Eleventy docs page using an acronym of the page and anchor.</p>
 <hgroup data--="code_ref">
-<h5>11tyTips/source/data/lib/utils.js</h5>
+<h5>11tyTips/source/store/data/lib/utils.js</h5>
 <h6><a href="https://prismjs.com" target="_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
 </hgroup>
 <pre><code class="language-javascript">

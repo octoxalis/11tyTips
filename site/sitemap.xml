@@ -46,13 +46,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://11tytips.netlify.com/tips/eleventy_settings.html</loc>
+    <loc>https://11tytips.netlify.com/tips/eleventy_configure.html</loc>
     <lastmod>2019-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://11tytips.netlify.com/tips/site_settings.html</loc>
+    <loc>https://11tytips.netlify.com/tips/site_configure.html</loc>
     <lastmod>2019-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

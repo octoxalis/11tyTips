@@ -45,10 +45,10 @@ Paragraph content have a maximum line length fixed to 60ch, yielding to a number
 {% _short_note %}code block{% end_short_note %}
 
 {% _code_block %}
-    title_s: 'source/eleventy.js',
+    title_s: 'source/configure.js',
     lang_s: "javascript",
 [//]:#(_code_block)
-const CONFIG_o =
+const CONFIGURE_o =
 {
   markdownTemplateEngine: 'njk',
   htmlTemplateEngine:     'njk',
@@ -60,30 +60,29 @@ const CONFIG_o =
   {
     input:    '.',
     output:   '../site',
-    passthru: 'assets',
-    data:     'data',
-    includes: 'templates',
+    data:     'store/data',
+    includes: 'factory',
   },
 }
 
 const DIRS_o =
 {
-  configDir_s: './configure/scripts/js/11ty/',
-  itemsPartsDir_s: './items/parts',
+  configureDir_s:  './configure/scripts/js/11ty/',
+  itemsPartsDir_s: './store/items/parts',
 }
 
-module.exports = config_o =>
+module.exports = configure_o =>
 {
-  config_o.templateIncludesDir_s = CONFIG_o.dir.includes
-  config_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
-  config_o.addPassthroughCopy( 'assets' )    //: static files
+  configure_o.factoryDir_s = CONFIGURE_o.dir.includes
+  configure_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
+  configure_o.addPassthroughCopy( { "factory/assets/static": "assets" } )    //: static files
 ; [ 'libraries',
     'shortcodes',
     'filters',
     'plugins',
     'collections'
-  ].forEach( config_s => require( `${DIRS_o.configDir_s}${config_s}.js` )( config_o ) )
-  return CONFIG_o    // : return the config object for further customization
+  ].forEach( config_s => require( `${DIRS_o.configureDir_s}${config_s}.js` )( configure_o ) )
+  return CONFIGURE_o    // : return the config object for further customization
 }
 {% end_code_block %}
 

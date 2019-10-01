@@ -1,4 +1,4 @@
-module.exports = config_o =>
+module.exports = configure_o =>
 {
-  config_o.addCollection('tip', collection_a => collection_a.getFilteredByTag('tip') )
+  configure_o.addCollection( 'tip', collection_a => collection_a.getFilteredByTag( 'tip' ) )
 }

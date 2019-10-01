@@ -55,7 +55,7 @@ the shortcode argument is passed enclosed between two tags (ex. #2).
 <p data--="example"><code>{% _shortcode_id %}... Content to be processed ...{% end_shortcode_id %}</code></p>
 <p>11tyTips doesn’t use a lot of shortcodes, but they are essential to its content. Let’s dissect the most omnipresent of it: the <code>_code_block</code> paired shortcode.
 It is passed to Eleventy configuration method <code>addPairedShortcode</code> this way:</p>
-<p data--="example"><code>config_o.addPairedShortcode('_code_block', content_s =&gt; CODES_o.code_block__s( content_s ) )</code></p>
+<p data--="example"><code>configure_o.addPairedShortcode('_code_block', content_s =&gt; CODES_o.code_block__s( content_s ) )</code></p>
 <p>Here, <code>_code_block</code> is the shortcode identifier
 <ins data--="inline_note"><sup></sup><span data--="note_content">
 11tyTips uses a leading underscore character because the shortcode closing tag adds the word <code>end</code> before the shortcode identifier: <code>end_shortcode</code> is more readable than <code>endshortcode</code>, isn’t it?

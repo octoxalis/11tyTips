@@ -145,7 +145,7 @@ However, {{_G_.SITE_s}} tips list menu is such a case: the `rank__s` property ca
 {% endset %}
 
 {% _code_block %}
-    title_s: '{{_G_.SITE_s}}/source/templates/tips_list.njk',
+    title_s: '{{_G_.SITE_s}}/source/store/items/tips_list.njk',
     lang_s: "javascript"
 [//]:#(_code_block)
 ---js
@@ -172,7 +172,7 @@ nevertheless, my prefered solution is the property function because it's more re
 {{_G_.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{_G_.SITE_s}} source has an `utils.js` file inside its `data/lib` directory where a `EleventyLink__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor.
 
 {% _code_block %}
-    title_s: '{{_G_.SITE_s}}/source/data/lib/utils.js',
+    title_s: '{{_G_.SITE_s}}/source/store/data/lib/utils.js',
     lang_s: "javascript",
 [//]:#(_code_block)
 EleventyLink__s: ( key_s ) =>

@@ -177,14 +177,14 @@ the second one gathers JavaScript data modules consumed by the Markdown content 
 │       ├── parts
 │       │   └── _source_tree_.txt
 │       ├── 404.md
-│       ├── eleventy_settings.md
+│       ├── eleventy_configure.md
 │       ├── feed.md
 │       ├── frontmatter_data.md
 │       ├── index.md
 │       ├── names_guide.md
 │       ├── shortcodes.md
 │       ├── site_cloning.md
-│       ├── site_settings.md
+│       ├── site_configure.md
 │       ├── site_structure.md
 │       ├── sitemap.md
 │       ├── source_tree.md
@@ -197,9 +197,9 @@ the second one gathers JavaScript data modules consumed by the Markdown content 
 
   <entry>
     <title>Eleventy settings</title>
-    <link href="https://11tytips.netlify.com/tips/eleventy_settings.html"/>
+    <link href="https://11tytips.netlify.com/tips/eleventy_configure.html"/>
     <updated>2019-09-05T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/eleventy_settings.html</id>
+    <id>https://11tytips.netlify.com/tips/eleventy_configure.html</id>
     <content type="html">&lt;h2&gt;The Eleventy JavaScript file&lt;/h2&gt;
 &lt;p&gt;Eleventy uses a simple Javascript file, named &lt;code&gt;.eleventy.js&lt;/code&gt;
 (
@@ -217,19 +217,20 @@ for instance, the leading underscore character is suppressed for &lt;code&gt;out
 
   <entry>
     <title>Global settings</title>
-    <link href="https://11tytips.netlify.com/tips/site_settings.html"/>
+    <link href="https://11tytips.netlify.com/tips/site_configure.html"/>
     <updated>2019-09-06T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/site_settings.html</id>
+    <id>https://11tytips.netlify.com/tips/site_configure.html</id>
     <content type="html">&lt;h2&gt;Data everywhere&lt;/h2&gt;
 &lt;p&gt;Eleventy provides a wide range of settings for &lt;a href=&quot;https://www.11ty.io/docs/data/&quot;&gt;data&lt;/a&gt; used in building stage or inside content: &lt;a href=&quot;https://www.11ty.io/docs/data-global/&quot;&gt;global&lt;/a&gt; data as well as &lt;a href=&quot;https://www.11ty.io/docs/data-template-dir/&quot;&gt;template and directory&lt;/a&gt; data.&lt;/p&gt;
 &lt;p&gt;11tyTips uses only global data contained in JavaScript files located inside the data directory.&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;source/data/settings.js&lt;/h5&gt;
+&lt;h5&gt;source/store/data/_U_.js&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-const Y = require( &#39;./_G_.js&#39; )
-const SETTINGS_o =
+const _G_ = require( &#39;./_G_.js&#39; )
+&lt;br&gt;
+const _U_o =
 {
   dev_s: _G_.DEV_s,
   pro_s: _G_.PRO_s,
@@ -241,9 +242,10 @@ const SETTINGS_o =
   //dev_b: false,
   url_s: null,
 }
-;(() =&gt; SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? &#39;dev_s&#39; : &#39;pro_s&#39;])()
-console.log( `Site URL: ${SETTINGS_o.url_s}` )
-module.exports = SETTINGS_o
+;(() =&gt; _U_o.url_s = _U_o[_U_o.dev_b === true ? &#39;dev_s&#39; : &#39;pro_s&#39;])()
+console.log( `Site URL: ${_U_o.url_s}` )
+&lt;br&gt;
+module.exports = _U_o
 &lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>
@@ -269,11 +271,11 @@ module.exports = SETTINGS_o
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;for( let at = 0; at &amp;lt; keys_a.length; ++at )&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;(code block)&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;source/eleventy.js&lt;/h5&gt;
+&lt;h5&gt;source/configure.js&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-const CONFIG_o =
+const CONFIGURE_o =
 {
   markdownTemplateEngine: &#39;njk&#39;,
   htmlTemplateEngine:     &#39;njk&#39;,
@@ -285,30 +287,29 @@ const CONFIG_o =
   {
     input:    &#39;.&#39;,
     output:   &#39;../site&#39;,
-    passthru: &#39;assets&#39;,
-    data:     &#39;data&#39;,
-    includes: &#39;templates&#39;,
+    data:     &#39;store/data&#39;,
+    includes: &#39;factory&#39;,
   },
 }
 &lt;br&gt;
 const DIRS_o =
 {
-  configDir_s: &#39;./configure/scripts/js/11ty/&#39;,
-  itemsPartsDir_s: &#39;./items/parts&#39;,
+  configureDir_s:  &#39;./configure/scripts/js/11ty/&#39;,
+  itemsPartsDir_s: &#39;./store/items/parts&#39;,
 }
 &lt;br&gt;
-module.exports = config_o =&gt;
+module.exports = configure_o =&gt;
 {
-  config_o.templateIncludesDir_s = CONFIG_o.dir.includes
-  config_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
-  config_o.addPassthroughCopy( &#39;assets&#39; )    //: static files
+  configure_o.factoryDir_s = CONFIGURE_o.dir.includes
+  configure_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
+  configure_o.addPassthroughCopy( { &quot;factory/assets/static&quot;: &quot;assets&quot; } )    //: static files
 ; [ &#39;libraries&#39;,
     &#39;shortcodes&#39;,
     &#39;filters&#39;,
     &#39;plugins&#39;,
     &#39;collections&#39;
-  ].forEach( config_s =&gt; require( `${DIRS_o.configDir_s}${config_s}.js` )( config_o ) )
-  return CONFIG_o    // : return the config object for further customization
+  ].forEach( config_s =&gt; require( `${DIRS_o.configureDir_s}${config_s}.js` )( configure_o ) )
+  return CONFIGURE_o    // : return the config object for further customization
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;(
@@ -490,7 +491,7 @@ two underscore characters before the type specifier of the return value is used 
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;const awesome__s = () =&amp;gt; &#39;An awesome String&#39;&lt;/code&gt;&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;const clone_f = awesome__s&lt;/code&gt;&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips/source/templates/assets/scripts/js/parts/dom.js&lt;/h5&gt;
+&lt;h5&gt;11tyTips/source/factory/assets/static/scripts/js/parts/dom.js&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
@@ -614,7 +615,7 @@ because it will be accessible from any Markdown content or any template and with
 &lt;p&gt;However, 11tyTips tips list menu is such a case: the &lt;code&gt;rank__s&lt;/code&gt; property calls the &lt;code&gt;String.prototype.padStart&lt;/code&gt; method to add one or two &lt;code&gt;0&lt;/code&gt; before the tip rank to normalize it and is called this way:&lt;/p&gt;
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;&amp;lt;span&amp;gt;{{ rank__s(loop.index) }}&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips/source/templates/tips_list.njk&lt;/h5&gt;
+&lt;h5&gt;11tyTips/source/store/items/tips_list.njk&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
@@ -651,7 +652,7 @@ nevertheless, my prefered solution is the property function because it’s more 
 &lt;h2&gt;Front matter properties and global data functions&lt;/h2&gt;
 &lt;p&gt;11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an &lt;code&gt;utils.js&lt;/code&gt; file inside its &lt;code&gt;data/lib&lt;/code&gt; directory where a &lt;code&gt;EleventyLink__s&lt;/code&gt; function compute the link to any Eleventy docs page using an acronym of the page and anchor.&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips/source/data/lib/utils.js&lt;/h5&gt;
+&lt;h5&gt;11tyTips/source/store/data/lib/utils.js&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
@@ -731,7 +732,7 @@ the shortcode argument is passed enclosed between two tags (ex. #2).
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{% _shortcode_id %}... Content to be processed ...{% end_shortcode_id %}&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;11tyTips doesn’t use a lot of shortcodes, but they are essential to its content. Let’s dissect the most omnipresent of it: the &lt;code&gt;_code_block&lt;/code&gt; paired shortcode.
 It is passed to Eleventy configuration method &lt;code&gt;addPairedShortcode&lt;/code&gt; this way:&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;config_o.addPairedShortcode(&#39;_code_block&#39;, content_s =&amp;gt; CODES_o.code_block__s( content_s ) )&lt;/code&gt;&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;configure_o.addPairedShortcode(&#39;_code_block&#39;, content_s =&amp;gt; CODES_o.code_block__s( content_s ) )&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Here, &lt;code&gt;_code_block&lt;/code&gt; is the shortcode identifier
 (
 11tyTips uses a leading underscore character because the shortcode closing tag adds the word &lt;code&gt;end&lt;/code&gt; before the shortcode identifier: &lt;code&gt;end_shortcode&lt;/code&gt; is more readable than &lt;code&gt;endshortcode&lt;/code&gt;, isn’t it?

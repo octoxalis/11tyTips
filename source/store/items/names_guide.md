@@ -115,7 +115,7 @@ two underscore characters before the type specifier of the return value is used 
 {data--="example"}
 
 {% _code_block %}
-    title_s: '{{_G_.SITE_s}}/source/templates/assets/scripts/js/parts/dom.js',
+    title_s: '{{_G_.SITE_s}}/source/factory/assets/static/scripts/js/parts/dom.js',
     lang_s: "javascript",
 [//]:#(_code_block)
 const DOM_siblings__a = selector_s =>

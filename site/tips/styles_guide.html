@@ -55,11 +55,11 @@ const _URL_s='https://11tytips.netlify.com/'
 <p data--="example"><code>for( let at = 0; at &lt; keys_a.length; ++at )</code></p>
 <p><ins data--="inline_note"><sup></sup><span data--="note_content">code block</span></ins></p>
 <hgroup data--="code_ref">
-<h5>source/eleventy.js</h5>
+<h5>source/configure.js</h5>
 <h6><a href="https://prismjs.com" target="_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
 </hgroup>
 <pre><code class="language-javascript">
-const CONFIG_o =
+const CONFIGURE_o =
 {
   markdownTemplateEngine: 'njk',
   htmlTemplateEngine:     'njk',
@@ -71,30 +71,29 @@ const CONFIG_o =
   {
     input:    '.',
     output:   '../site',
-    passthru: 'assets',
-    data:     'data',
-    includes: 'templates',
+    data:     'store/data',
+    includes: 'factory',
   },
 }
 <br>
 const DIRS_o =
 {
-  configDir_s: './configure/scripts/js/11ty/',
-  itemsPartsDir_s: './items/parts',
+  configureDir_s:  './configure/scripts/js/11ty/',
+  itemsPartsDir_s: './store/items/parts',
 }
 <br>
-module.exports = config_o =>
+module.exports = configure_o =>
 {
-  config_o.templateIncludesDir_s = CONFIG_o.dir.includes
-  config_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
-  config_o.addPassthroughCopy( 'assets' )    //: static files
+  configure_o.factoryDir_s = CONFIGURE_o.dir.includes
+  configure_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
+  configure_o.addPassthroughCopy( { "factory/assets/static": "assets" } )    //: static files
 ; [ 'libraries',
     'shortcodes',
     'filters',
     'plugins',
     'collections'
-  ].forEach( config_s => require( `${DIRS_o.configDir_s}${config_s}.js` )( config_o ) )
-  return CONFIG_o    // : return the config object for further customization
+  ].forEach( config_s => require( `${DIRS_o.configureDir_s}${config_s}.js` )( configure_o ) )
+  return CONFIGURE_o    // : return the config object for further customization
 }
 </code></pre>
 <p><ins data--="inline_note"><sup></sup><span data--="note_content">

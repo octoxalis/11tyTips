@@ -2,7 +2,7 @@
 {
   date:      `2019-09-05`,
   layout:    `frame.njk`,
-  permalink: `tips/eleventy_settings.html`,
+  permalink: `tips/eleventy_configure.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 

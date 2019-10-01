@@ -1,4 +1,4 @@
-module.exports = config_o =>
+module.exports = configure_o =>
 {
   let markdown_o =
   {
@@ -6,14 +6,14 @@ module.exports = config_o =>
     linkify:     true,
     typographer: true
   }
-  config_o.setLibrary('md',
+  configure_o.setLibrary('md',
     require( 'markdown-it' )( markdown_o )
       .use( require( 'markdown-it-attrs' ) )
       .use( require( 'markdown-it-deflist' ) )
-      .use( require( 'markdown-it-include' ), config_o.itemsPartsDir_s )
+      .use( require( 'markdown-it-include' ), configure_o.itemsPartsDir_s )
   )
 
-  config_o.setLibrary('njk',
+  configure_o.setLibrary('njk',
     require('nunjucks')
-      .configure( config_o.templateIncludesDir_s ) )
+      .configure( configure_o.factoryDir_s ) )
 }

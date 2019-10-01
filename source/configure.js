@@ -1,4 +1,4 @@
-const CONFIG_o =
+const CONFIGURE_o =
 {
   markdownTemplateEngine: 'njk',
   htmlTemplateEngine:     'njk',
@@ -17,20 +17,20 @@ const CONFIG_o =
 
 const DIRS_o =
 {
-  configDir_s: './configure/scripts/js/11ty/',
+  configureDir_s:  './configure/scripts/js/11ty/',
   itemsPartsDir_s: './store/items/parts',
 }
 
-module.exports = config_o =>
+module.exports = configure_o =>
 {
-  config_o.templateIncludesDir_s = CONFIG_o.dir.includes
-  config_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
-  config_o.addPassthroughCopy( { "factory/assets/static": "assets" } )    //: static files
+  configure_o.factoryDir_s = CONFIGURE_o.dir.includes
+  configure_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
+  configure_o.addPassthroughCopy( { "factory/assets/static": "assets" } )    //: static files
 ; [ 'libraries',
     'shortcodes',
     'filters',
     'plugins',
     'collections'
-  ].forEach( config_s => require( `${DIRS_o.configDir_s}${config_s}.js` )( config_o ) )
-  return CONFIG_o    // : return the config object for further customization
+  ].forEach( config_s => require( `${DIRS_o.configureDir_s}${config_s}.js` )( configure_o ) )
+  return CONFIGURE_o    // : return the config object for further customization
 }

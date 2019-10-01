@@ -1,4 +1,4 @@
-module.exports = config_o =>
+module.exports = configure_o =>
 {
-  config_o.addPlugin( require( '@11ty/eleventy-plugin-rss' ) )
+  configure_o.addPlugin( require( '@11ty/eleventy-plugin-rss' ) )
 }
