@@ -144,10 +144,10 @@ because it will be accessible from any Markdown content or any template and with
 ---
 <br>
 &lt;menu data--=&quot;tips_menu&quot;&gt;
-  &lt;h4&gt;&lt;a href=&quot;{{ settings.url_s }}&quot;&gt;Home&lt;/a&gt;&lt;/h4&gt;
-  &lt;h4&gt;→ &lt;a href=&quot;{{ settings.git_s }}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Github&lt;/a&gt;&lt;/h4&gt;
-  &lt;h4&gt;→ &lt;a href=&quot;{{ settings.twi_s }}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Twitter&lt;/a&gt;&lt;/h4&gt;
-  &lt;h4&gt;→ &lt;a href=&quot;{{ settings.rss_s }}&quot; target=&quot;_blank&quot;&gt;RSS&lt;/a&gt;&lt;/h4&gt;
+  &lt;h4&gt;&lt;a href=&quot;{{ _U_.url_s }}&quot;&gt;Home&lt;/a&gt;&lt;/h4&gt;
+  &lt;h4&gt;→ &lt;a href=&quot;{{ _U_.git_s }}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Github&lt;/a&gt;&lt;/h4&gt;
+  &lt;h4&gt;→ &lt;a href=&quot;{{ _U_.twi_s }}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Twitter&lt;/a&gt;&lt;/h4&gt;
+  &lt;h4&gt;→ &lt;a href=&quot;{{ _U_.rss_s }}&quot; target=&quot;_blank&quot;&gt;RSS&lt;/a&gt;&lt;/h4&gt;
   &lt;h2 data--=&quot;tips_order&quot;&gt;All the tips&lt;/h2&gt;
   &lt;ol data--=&quot;tips_list&quot;&gt;
   {% for _post_o in collections.tip %}
@@ -176,16 +176,16 @@ nevertheless, my prefered solution is the property function because it’s more 
 <pre><code class="language-javascript">
 EleventyLink__s: ( key_s ) =>
 {
-  const path_s = _C[ `ELEVENTY_${key_s}` ]
+  const path_s = Y[ `ELEVENTY_${key_s}` ]
   const anchor_n = path_s.indexOf( '#')
   if ( anchor_n === -1 )    //: return a link to 11ty.io
   {
     console.log( `ALERT! (EleventyLink__s) no anchor found in path: ${path_s}` )
-    const ref_n = _C.ELEVENTY_s.indexOf( ':' )
-    return { ref: _C.ELEVENTY_s.substring( 0, ref_n ), link: _C.ELEVENTY_s }
+    const ref_n = _G_.ELEVENTY_s.indexOf( ':' )
+    return { ref: _G_.ELEVENTY_s.substring( 0, ref_n ), link: _G_.ELEVENTY_s }
   }
   const anchor_s = path_s.substring( anchor_n )
-  const anchorLink_s = _C.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
+  const anchorLink_s = _G_.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
   return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link: anchorLink_s }
 }
 </code></pre>
@@ -199,7 +199,7 @@ usually three characters are enough to get a unique identifier:<br>
 <p>Hence to get the <em>reference</em> and the <em>link</em> of a <em>reference-style link</em> is just as easy as:</p>
 <p data--="example"><code>{{ lib.utils.EleventyLink__s( 'JFM_s' ).ref }}</code><br>
 <code>{{ lib.utils.EleventyLink__s( 'JFM_s' ).link }}</code></p>
-<p>Actually, most of Eleventy link keys are gathered in the <code>_C.js</code> global data file and not in the front matter!</p>
+<p>Actually, most of Eleventy link keys are gathered in the <code>_G_.js</code> global data file and not in the front matter!</p>
 <h3>Even shorter</h3>
 <p>But we can do more, using Nunjucks <code>set</code> tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:</p>
 <p data--="example"><code>{{ _11ty_f( 'JFM_s' ).link }}</code>

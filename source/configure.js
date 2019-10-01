@@ -25,7 +25,7 @@ module.exports = config_o =>
 {
   config_o.templateIncludesDir_s = CONFIG_o.dir.includes
   config_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
-  config_o.addPassthroughCopy( { "store/assets": "assets" } )    //: static files
+  config_o.addPassthroughCopy( { "factory/assets/static": "assets" } )    //: static files
 ; [ 'libraries',
     'shortcodes',
     'filters',

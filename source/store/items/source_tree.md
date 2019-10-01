@@ -13,10 +13,10 @@
   }
 ---
 [comment]: # (======== Post ========)
-## {{_C.SITE_s}} site
+## {{_G_.SITE_s}} site
 
 {% _code_block %}
-    title_s: '{{_C.SITE_s}} source tree',
+    title_s: '{{_G_.SITE_s}} source tree',
     lang_s: "txt",
 [//]:#(_code_block)
 !!!include( _source_tree_.txt )!!!

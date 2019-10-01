@@ -19,7 +19,7 @@
 Every developer knows that JavaScript is not a static typed language, a useful feature eliminating lots of bugs.
  A language like Typescript has been created as a remedy to that important lack of safety. Even for code modules counting less than a few tens of lines, it's easy to forget what kind of type is exactly a variable or constant declared at the begining of the file and then make a mistake when assining a wrong type to a variable.
 
-{{_C.SITE_s}} adopts a simple recipe to avoid such mistakes: only adding a mnemonic letter at the end of each identifier to specify the variable or constant type.
+{{_G_.SITE_s}} adopts a simple recipe to avoid such mistakes: only adding a mnemonic letter at the end of each identifier to specify the variable or constant type.
 This simple adjonction has a secondary benefice: it simplifies the identifier derivations.
 
 Just an example: the JavaScript `String.prototype.split` method returns an array of Strings:
@@ -35,7 +35,7 @@ var words = str.split(' ');
 Two different words for two tightly related entities! Isn't it semantically more meaningful to use the same identifier with different specifiers?
 
 {% _code_block %}
-    title_s: '{{_C.SITE_s}}: Pseudo-typed identifiers',
+    title_s: '{{_G_.SITE_s}}: Pseudo-typed identifiers',
     lang_s: "javascript",
 [//]:#(_code_block)
 var lazyDog_s = 'The quick brown fox jumps over the lazy dog.';
@@ -49,7 +49,7 @@ with smart inline type coercion tricks!
 :
 
 {% _code_block %}
-    title_s: '{{_C.SITE_s}}: Tricky pseudo-typed identifiers',
+    title_s: '{{_G_.SITE_s}}: Tricky pseudo-typed identifiers',
     lang_s: "javascript",
 [//]:#(_code_block)
 const oneTwoThree_s = '123'
@@ -115,7 +115,7 @@ two underscore characters before the type specifier of the return value is used 
 {data--="example"}
 
 {% _code_block %}
-    title_s: '{{_C.SITE_s}}/source/templates/assets/scripts/js/parts/dom.js',
+    title_s: '{{_G_.SITE_s}}/source/templates/assets/scripts/js/parts/dom.js',
     lang_s: "javascript",
 [//]:#(_code_block)
 const DOM_siblings__a = selector_s =>
@@ -138,5 +138,5 @@ The previous code shows an **exception** to the specifiers convention used: for 
 
 This useful convention is used not only in JavaScript context but also in Nunjucks context. However, in templates, variable identifiers are prefixed with an _underscore_ character:
 
-{% raw %}`{% set _URL_s = settings.url_s %}`{% endraw %}
+{% raw %}`{% set _URL_s = _U_.url_s %}`{% endraw %}
 {data--="example"}

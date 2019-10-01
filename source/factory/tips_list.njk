@@ -4,10 +4,10 @@
 }
 ---
 <menu data--="tips_menu">
-  <h4><a href="{{ settings.url_s }}">Home</a></h4>
-  <h4>→ <a href="{{ settings.git_s }}" target="_blank" rel="noreferrer">Github</a></h4>
-  <h4>→ <a href="{{ settings.twi_s }}" target="_blank" rel="noreferrer">Twitter</a></h4>
-  <h4>→ <a href="{{ settings.rss_s }}" target="_blank">RSS</a></h4>
+  <h4><a href="{{ _U_.url_s }}">Home</a></h4>
+  <h4>→ <a href="{{ _U_.git_s }}" target="_blank" rel="noreferrer">Github</a></h4>
+  <h4>→ <a href="{{ _U_.twi_s }}" target="_blank" rel="noreferrer">Twitter</a></h4>
+  <h4>→ <a href="{{ _U_.rss_s }}" target="_blank">RSS</a></h4>
   <h2 data--="tips_order">All the tips</h2>
   <ol data--="tips_list">
 {% for _post_o in collections.tip %}

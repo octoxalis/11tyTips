@@ -24,7 +24,7 @@
 
 Each Markdown file has its own data, declared at the begining of the file in the front matter part
 {% _short_note %}
-{{_C.SITE_s}} uses a JavaScript `Object` for the front matter.
+{{_G_.SITE_s}} uses a JavaScript `Object` for the front matter.
 {% end_short_note %}
 , a few ones being mandatory
 {% _short_note %}
@@ -59,16 +59,16 @@ the collection(s) including the output file.
 *Specific data*
 + Title
 {% _short_note %}
-used by {{_C.SITE_s}} to identify the page in the browser tab.
+used by {{_G_.SITE_s}} to identify the page in the browser tab.
 {% end_short_note %}
 { data--="ulist" }
 + Subtitle
 {% _short_note %}
-Used by {{_C.SITE_s}} to describe the page content in the Tips list menu.
+Used by {{_G_.SITE_s}} to describe the page content in the Tips list menu.
 {% end_short_note %}
 + Abstract
 {% _short_note %}
-actually not used by {{_C.SITE_s}}, but could be...
+actually not used by {{_G_.SITE_s}}, but could be...
 {% end_short_note %}
 + Author
 {% _short_note %}
@@ -96,7 +96,7 @@ useful if there are multiple authors for the posts of the site.
 
 To access any property declared in the front matter it has to be enclosed in double parenthesis {% raw %}`{{ ... }}`{% endraw %}
 {% _short_note %}
-{{_C.SITE_s}} uses Nunjucks. Using other templating systems, this is a bit different.
+{{_G_.SITE_s}} uses Nunjucks. Using other templating systems, this is a bit different.
 {% end_short_note %}
 . For instance, the `abstract_s` property in the front matter is injected in this page with the following code: {% raw %}`{{ abstract_s }}`{% endraw %} and renders as:<br>
 <q>{{ abstract_s }}</q>.
@@ -117,7 +117,7 @@ because it will be accessible from any Markdown content or any template and with
 {% end_short_note %}
 .
 
-However, {{_C.SITE_s}} tips list menu is such a case: the `rank__s` property calls the `String.prototype.padStart` method to add one or two `0` before the tip rank to normalize it and is called this way:
+However, {{_G_.SITE_s}} tips list menu is such a case: the `rank__s` property calls the `String.prototype.padStart` method to add one or two `0` before the tip rank to normalize it and is called this way:
 
 {% raw %}`<span>{{ rank__s(loop.index) }}</span>`{% endraw %}
 {data--="example"}
@@ -126,10 +126,10 @@ However, {{_C.SITE_s}} tips list menu is such a case: the `rank__s` property cal
 {% set _code %}
 {% raw %}
 <menu data--="tips_menu">
-  <h4><a href="{{ settings.url_s }}">Home</a></h4>
-  <h4>→ <a href="{{ settings.git_s }}" target="_blank" rel="noreferrer">Github</a></h4>
-  <h4>→ <a href="{{ settings.twi_s }}" target="_blank" rel="noreferrer">Twitter</a></h4>
-  <h4>→ <a href="{{ settings.rss_s }}" target="_blank">RSS</a></h4>
+  <h4><a href="{{ _U_.url_s }}">Home</a></h4>
+  <h4>→ <a href="{{ _U_.git_s }}" target="_blank" rel="noreferrer">Github</a></h4>
+  <h4>→ <a href="{{ _U_.twi_s }}" target="_blank" rel="noreferrer">Twitter</a></h4>
+  <h4>→ <a href="{{ _U_.rss_s }}" target="_blank">RSS</a></h4>
   <h2 data--="tips_order">All the tips</h2>
   <ol data--="tips_list">
   {% for _post_o in collections.tip %}
@@ -145,7 +145,7 @@ However, {{_C.SITE_s}} tips list menu is such a case: the `rank__s` property cal
 {% endset %}
 
 {% _code_block %}
-    title_s: '{{_C.SITE_s}}/source/templates/tips_list.njk',
+    title_s: '{{_G_.SITE_s}}/source/templates/tips_list.njk',
     lang_s: "javascript"
 [//]:#(_code_block)
 ---js
@@ -169,24 +169,24 @@ nevertheless, my prefered solution is the property function because it's more re
 
 ## Front matter properties and global data functions
 
-{{_C.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{_C.SITE_s}} source has an `utils.js` file inside its `data/lib` directory where a `EleventyLink__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor.
+{{_G_.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{_G_.SITE_s}} source has an `utils.js` file inside its `data/lib` directory where a `EleventyLink__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor.
 
 {% _code_block %}
-    title_s: '{{_C.SITE_s}}/source/data/lib/utils.js',
+    title_s: '{{_G_.SITE_s}}/source/data/lib/utils.js',
     lang_s: "javascript",
 [//]:#(_code_block)
 EleventyLink__s: ( key_s ) =>
 {
-  const path_s = _C[ `ELEVENTY_${key_s}` ]
+  const path_s = Y[ `ELEVENTY_${key_s}` ]
   const anchor_n = path_s.indexOf( '#')
   if ( anchor_n === -1 )    //: return a link to 11ty.io
   {
     console.log( `ALERT! (EleventyLink__s) no anchor found in path: ${path_s}` )
-    const ref_n = _C.ELEVENTY_s.indexOf( ':' )
-    return { ref: _C.ELEVENTY_s.substring( 0, ref_n ), link: _C.ELEVENTY_s }
+    const ref_n = _G_.ELEVENTY_s.indexOf( ':' )
+    return { ref: _G_.ELEVENTY_s.substring( 0, ref_n ), link: _G_.ELEVENTY_s }
   }
   const anchor_s = path_s.substring( anchor_n )
-  const anchorLink_s = _C.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
+  const anchorLink_s = _G_.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
   return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link: anchorLink_s }
 }
 {% end_code_block %}
@@ -205,7 +205,7 @@ Hence to get the _reference_ and the _link_ of a _reference-style link_ is just 
 {% raw %}`{{ lib.utils.EleventyLink__s( 'JFM_s' ).link }}`{% endraw %}
 {data--="example"}
 
-Actually, most of Eleventy link keys are gathered in the `_C.js` global data file and not in the front matter!
+Actually, most of Eleventy link keys are gathered in the `_G_.js` global data file and not in the front matter!
 
 ### Even shorter
 
@@ -224,7 +224,7 @@ reference inside content.
 {data--="example"}
 
 {% _code_block %}
-    title_s: '{{_C.SITE_s}}/source/store/items/frontmatter_data.md',
+    title_s: '{{_G_.SITE_s}}/source/store/items/frontmatter_data.md',
     lang_s: "javascript",
 [//]:#(_code_block)
 {% raw %}

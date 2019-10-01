@@ -13,6 +13,6 @@
 {% include "./parts/_comments_.css" %}
 {% include "./parts/_dark_mode_.css" %}
 {% endset %}
-{% if settings.dev_b === true %}{{ _css | safe }}
+{% if _U_.dev_b === true %}{{ _css | safe }}
 {% else %}{{ _css | cssmin | safe }}
 {% endif %}

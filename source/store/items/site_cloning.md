@@ -14,9 +14,9 @@
 ---
 [comment]: # (======== Post ========)
 
-## Install a clone of {{ _C.SITE_s }} site
+## Install a clone of {{ _G_.SITE_s }} site
 
-{{ _C.SITE_s }} site has been carefully designed to help those who want to start to use a static site generator such as Eleventy without spending a lot of time to find the best architecture meeting their needs.
+{{ _G_.SITE_s }} site has been carefully designed to help those who want to start to use a static site generator such as Eleventy without spending a lot of time to find the best architecture meeting their needs.
 
 A static site is built with three different components:
 + assets (fonts, media, scripts, styles);

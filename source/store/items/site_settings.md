@@ -18,20 +18,20 @@
 
 Eleventy provides a wide range of settings for [data] used in building stage or inside content: [global] data as well as [template and directory] data.
 
-{{_C.SITE_s}} uses only global data contained in JavaScript files located inside the data directory.
+{{_G_.SITE_s}} uses only global data contained in JavaScript files located inside the data directory.
 
 {% _code_block %}
     title_s: 'source/data/settings.js',
     lang_s: "javascript",
 [//]:#(_code_block)
-const _C = require( './_C.js' )
+const Y = require( './_G_.js' )
 const SETTINGS_o =
 {
-  dev_s: _C.DEV_s,
-  pro_s: _C.PRO_s,
-  git_s: _C.GIT_s,
-  twi_s: _C.TWI_s,
-  rss_s: _C.RSS_s,
+  dev_s: _G_.DEV_s,
+  pro_s: _G_.PRO_s,
+  git_s: _G_.GIT_s,
+  twi_s: _G_.TWI_s,
+  rss_s: _G_.RSS_s,
   //: development/production switch
   dev_b: true,
   //dev_b: false,

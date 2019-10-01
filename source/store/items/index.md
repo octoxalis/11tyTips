@@ -16,7 +16,7 @@
 
 ## It's Eleventy time!
 
-Welcome to {{_C.SITE_s}}, a site for the awesome [Eleventy]{target="_blank" rel="noreferrer"} static site generator users.
+Welcome to {{_G_.SITE_s}}, a site for the awesome [Eleventy]{target="_blank" rel="noreferrer"} static site generator users.
 
 Eleventy (11ty for short) is a static site generator rapidly gaining popularity among JAMstack developers. Its learning curve is short and it offers the largest choice of templating languages compared with others popular SSG
 {% _short_note %}
@@ -33,7 +33,7 @@ it is [zero-config]{target="_blank" rel="noreferrer"} out of the box!
 
 ## Tips for newbies...and advanced users
 
-{{_C.SITE_s}} will provide you useful tips and tricks to unleash the power of 11ty. If you've never built a static site, thanks to the simplicity of this generator, you will be able to install your site, by cloning the Github repository of this site, replacing its content files with your own Markdown content
+{{_G_.SITE_s}} will provide you useful tips and tricks to unleash the power of 11ty. If you've never built a static site, thanks to the simplicity of this generator, you will be able to install your site, by cloning the Github repository of this site, replacing its content files with your own Markdown content
 {% _short_note %}
 follow the [site cloning] page instructions to start with a clean site skeleton.
 {% end_short_note %}
@@ -61,9 +61,9 @@ Have a look at the site [source tree] and [styles guide] pages.
 {{ lib.utils.siteUrl__s( 'site_cloning' ) }}
 {{ lib.utils.siteUrl__s( 'source_tree' ) }}
 
-{{ _C.ELEVENTY_s }}
-{{ _C.UT_s }}
-{{ _C.NODE_s }}
+{{ _G_.ELEVENTY_s }}
+{{ _G_.UT_s }}
+{{ _G_.NODE_s }}
  
 [zero-config]: https://www.11ty.io/docs/resources/#zero-config
 [Hexo]: https://www.staticgen.com/hexo

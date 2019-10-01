@@ -34,7 +34,7 @@
     <email>{{ metadata.author.email }}</email>
   </author>
 {%- for _post_o in collections.tip %}
-{% set absolutePostUrl %}{{ settings.url_s + _post_o.data.permalink }}{% endset %}
+{% set absolutePostUrl %}{{ _U_.url_s + _post_o.data.permalink }}{% endset %}
   <entry>
     <title>{{ _post_o.data.title_s }}</title>
     <link href="{{ absolutePostUrl }}"/>

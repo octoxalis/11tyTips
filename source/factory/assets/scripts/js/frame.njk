@@ -2,6 +2,6 @@
 {% include "./parts/_dom_.js" %}
 {% include "./parts/_ui_.js" %}
 {% endset %}
-{% if settings.dev_b === true %}{{ _js | safe }}
+{% if _U_.dev_b === true %}{{ _js | safe }}
 {% else %}{{ _js | jsmin | safe }}
 {% endif %}

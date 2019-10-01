@@ -190,7 +190,7 @@ const DOM_listReverse = selector_s =>
 </code></pre>
 <p>The previous code shows an <strong>exception</strong> to the specifiers convention used: for <code>DOM</code> elements, it seems more appropriate to use the <code>_e</code> suffix than the <code>_o</code> suffix used for <code>Object</code>.</p>
 <p>This useful convention is used not only in JavaScript context but also in Nunjucks context. However, in templates, variable identifiers are prefixed with an <em>underscore</em> character:</p>
-<p data--="example"><code>{% set _URL_s = settings.url_s %}</code></p>
+<p data--="example"><code>{% set _URL_s = _U_.url_s %}</code></p>
 
   </section>
 </article>

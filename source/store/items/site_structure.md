@@ -35,15 +35,15 @@ there are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
 {% end_short_note %}
 .
 
-## {{_C.SITE_s}} architecture
+## {{_G_.SITE_s}} architecture
 
-Trying to stay as simple as possible, {{_C.SITE_s}} is built using a minimal set of the JAMstack architecture: JavaScript backed by the Node ecosystem, Nunjucks as templating system and Markdown as content markup language.
+Trying to stay as simple as possible, {{_G_.SITE_s}} is built using a minimal set of the JAMstack architecture: JavaScript backed by the Node ecosystem, Nunjucks as templating system and Markdown as content markup language.
 
 The `source` directory is designed to reflect these categories of resources:
 
 + build
 {% _short_note %}
-contains JavaScript modules to be used during the build process. For consistancy with other source script directories, it is deeply refined in `script/js/` and split in two directories: Eleventy modules (`11ty`) and {{_C.SITE_s}} modules (`lib`).
+contains JavaScript modules to be used during the build process. For consistancy with other source script directories, it is deeply refined in `script/js/` and split in two directories: Eleventy modules (`11ty`) and {{_G_.SITE_s}} modules (`lib`).
 {% end_short_note %}
 + includes
 {% _short_note %}
