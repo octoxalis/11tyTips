@@ -48,7 +48,7 @@ Paragraph content have a maximum line length fixed to 60ch, yielding to a number
     title_s: 'source/configure.js',
     lang_s: "javascript",
 [//]:#(_code_block)
-const CONFIGURE_o =
+const GENERATOR_o =
 {
   markdownTemplateEngine: 'njk',
   htmlTemplateEngine:     'njk',
@@ -67,22 +67,22 @@ const CONFIGURE_o =
 
 const DIRS_o =
 {
-  configureDir_s:  './configure/scripts/js/11ty/',
+  generatorDir_s:  './generator/scripts/js/11ty/',
   itemsPartsDir_s: './store/items/parts',
 }
 
-module.exports = configure_o =>
+module.exports = generator_o =>
 {
-  configure_o.factoryDir_s = CONFIGURE_o.dir.includes
-  configure_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
-  configure_o.addPassthroughCopy( { "factory/assets/static": "assets" } )    //: static files
+  generator_o.factoryDir_s = GENERATOR_o.dir.includes
+  generator_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
+  generator_o.addPassthroughCopy( { "factory/assets/static": "assets" } )    //: static files
 ; [ 'libraries',
     'shortcodes',
     'filters',
     'plugins',
     'collections'
-  ].forEach( config_s => require( `${DIRS_o.configureDir_s}${config_s}.js` )( configure_o ) )
-  return CONFIGURE_o    // : return the config object for further customization
+  ].forEach( generator_s => require( `${DIRS_o.generatorDir_s}${generator_s}.js` )( generator_o ) )
+  return GENERATOR_o    // : return the config object for further customization
 }
 {% end_code_block %}
 

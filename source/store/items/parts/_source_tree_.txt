@@ -1,17 +1,4 @@
 .
-├── configure
-│   └── scripts
-│       └── js
-│           ├── 11ty
-│           │   ├── collections.js
-│           │   ├── filters.js
-│           │   ├── libraries.js
-│           │   ├── plugins.js
-│           │   └── shortcodes.js
-│           └── lib
-│               ├── block_replace.js
-│               ├── block_split.js
-│               └── feed_content.js
 ├── factory
 │   ├── assets
 │   │   ├── scripts
@@ -80,6 +67,19 @@
 │   ├── frame.njk
 │   ├── sitemap.njk
 │   └── tips_list.njk
+├── generator
+│   └── scripts
+│       └── js
+│           ├── 11ty
+│           │   ├── collections.js
+│           │   ├── filters.js
+│           │   ├── libraries.js
+│           │   ├── plugins.js
+│           │   └── shortcodes.js
+│           └── lib
+│               ├── block_replace.js
+│               ├── block_split.js
+│               └── feed_content.js
 ├── store
 │   ├── data
 │   │   ├── lib

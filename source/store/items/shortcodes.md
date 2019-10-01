@@ -36,7 +36,7 @@ the shortcode argument is passed enclosed between two tags (ex. #2).
 {{ _G_.SITE_s }} doesn't use a lot of shortcodes, but they are essential to its content. Let's dissect the most omnipresent of it: the `_code_block` paired shortcode.
 It is passed to Eleventy configuration method `addPairedShortcode` this way:
 
-{% raw %}`configure_o.addPairedShortcode('_code_block', content_s => CODES_o.code_block__s( content_s ) )`{% endraw %}
+{% raw %}`generator_o.addPairedShortcode('_code_block', content_s => CODES_o.code_block__s( content_s ) )`{% endraw %}
 {data--="example"}
 
 Here, `_code_block` is the shortcode identifier

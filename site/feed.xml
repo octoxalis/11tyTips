@@ -85,19 +85,6 @@ the second one gathers JavaScript data modules consumed by the Markdown content 
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;
 .
-├── configure
-│   └── scripts
-│       └── js
-│           ├── 11ty
-│           │   ├── collections.js
-│           │   ├── filters.js
-│           │   ├── libraries.js
-│           │   ├── plugins.js
-│           │   └── shortcodes.js
-│           └── lib
-│               ├── block_replace.js
-│               ├── block_split.js
-│               └── feed_content.js
 ├── factory
 │   ├── assets
 │   │   ├── scripts
@@ -166,6 +153,19 @@ the second one gathers JavaScript data modules consumed by the Markdown content 
 │   ├── frame.njk
 │   ├── sitemap.njk
 │   └── tips_list.njk
+├── generator
+│   └── scripts
+│       └── js
+│           ├── 11ty
+│           │   ├── collections.js
+│           │   ├── filters.js
+│           │   ├── libraries.js
+│           │   ├── plugins.js
+│           │   └── shortcodes.js
+│           └── lib
+│               ├── block_replace.js
+│               ├── block_split.js
+│               └── feed_content.js
 ├── store
 │   ├── data
 │   │   ├── lib
@@ -206,7 +206,7 @@ the second one gathers JavaScript data modules consumed by the Markdown content 
 because of the leading dot it’s an hidden file.
 )
 , to define the settings of the building environment. This file is located at the root of the source folder but it can be put anywhere, just modifying the Node &lt;code&gt;package.json&lt;/code&gt; file &lt;code&gt;&amp;quot;main&amp;quot;&lt;/code&gt; property. The name itself can also be changed, if you see fit.&lt;/p&gt;
-&lt;p&gt;This file defines the settings of the main resources used in the building process: &lt;em&gt;libraries&lt;/em&gt;, &lt;em&gt;shortcodes&lt;/em&gt;, &lt;em&gt;filters&lt;/em&gt;, &lt;em&gt;plugins&lt;/em&gt;, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to the configuration of a resource, all located in the &lt;code&gt;source/configure/script/js/11ty/&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;This file defines the settings of the main resources used in the building process: &lt;em&gt;libraries&lt;/em&gt;, &lt;em&gt;shortcodes&lt;/em&gt;, &lt;em&gt;filters&lt;/em&gt;, &lt;em&gt;plugins&lt;/em&gt;, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to the configuration of a resource, all located in the &lt;code&gt;source/generator/script/js/11ty/&lt;/code&gt; directory.&lt;/p&gt;
 &lt;p&gt;The configuration object returned by the &lt;code&gt;.eleventy.js&lt;/code&gt; module is important because it defines the location of the main parts of the building process: the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; directories, the templates processors, etc.&lt;/p&gt;
 &lt;p&gt;11tyTips declares its own set of directories, modifying some of the default names and locations
 (
@@ -275,7 +275,7 @@ module.exports = _U_o
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-const CONFIGURE_o =
+const GENERATOR_o =
 {
   markdownTemplateEngine: &#39;njk&#39;,
   htmlTemplateEngine:     &#39;njk&#39;,
@@ -294,22 +294,22 @@ const CONFIGURE_o =
 &lt;br&gt;
 const DIRS_o =
 {
-  configureDir_s:  &#39;./configure/scripts/js/11ty/&#39;,
+  generatorDir_s:  &#39;./generator/scripts/js/11ty/&#39;,
   itemsPartsDir_s: &#39;./store/items/parts&#39;,
 }
 &lt;br&gt;
-module.exports = configure_o =&gt;
+module.exports = generator_o =&gt;
 {
-  configure_o.factoryDir_s = CONFIGURE_o.dir.includes
-  configure_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
-  configure_o.addPassthroughCopy( { &quot;factory/assets/static&quot;: &quot;assets&quot; } )    //: static files
+  generator_o.factoryDir_s = GENERATOR_o.dir.includes
+  generator_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
+  generator_o.addPassthroughCopy( { &quot;factory/assets/static&quot;: &quot;assets&quot; } )    //: static files
 ; [ &#39;libraries&#39;,
     &#39;shortcodes&#39;,
     &#39;filters&#39;,
     &#39;plugins&#39;,
     &#39;collections&#39;
-  ].forEach( config_s =&gt; require( `${DIRS_o.configureDir_s}${config_s}.js` )( configure_o ) )
-  return CONFIGURE_o    // : return the config object for further customization
+  ].forEach( generator_s =&gt; require( `${DIRS_o.generatorDir_s}${generator_s}.js` )( generator_o ) )
+  return GENERATOR_o    // : return the config object for further customization
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;(
@@ -732,7 +732,7 @@ the shortcode argument is passed enclosed between two tags (ex. #2).
 &lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{% _shortcode_id %}... Content to be processed ...{% end_shortcode_id %}&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;11tyTips doesn’t use a lot of shortcodes, but they are essential to its content. Let’s dissect the most omnipresent of it: the &lt;code&gt;_code_block&lt;/code&gt; paired shortcode.
 It is passed to Eleventy configuration method &lt;code&gt;addPairedShortcode&lt;/code&gt; this way:&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;configure_o.addPairedShortcode(&#39;_code_block&#39;, content_s =&amp;gt; CODES_o.code_block__s( content_s ) )&lt;/code&gt;&lt;/p&gt;
+&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;generator_o.addPairedShortcode(&#39;_code_block&#39;, content_s =&amp;gt; CODES_o.code_block__s( content_s ) )&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Here, &lt;code&gt;_code_block&lt;/code&gt; is the shortcode identifier
 (
 11tyTips uses a leading underscore character because the shortcode closing tag adds the word &lt;code&gt;end&lt;/code&gt; before the shortcode identifier: &lt;code&gt;end_shortcode&lt;/code&gt; is more readable than &lt;code&gt;endshortcode&lt;/code&gt;, isn’t it?

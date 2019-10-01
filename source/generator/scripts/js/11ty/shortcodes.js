@@ -25,10 +25,10 @@ const CODES_o =
 
 }
 
-module.exports = configure_o =>
+module.exports = generator_o =>
 {
   [ 'short_note',
     'code_block',
     'replace_all'
-  ].forEach( code_s => configure_o.addPairedShortcode( `_${code_s}`, content_s => CODES_o[ `${code_s}__s` ]( content_s ) ) )
+  ].forEach( code_s => generator_o.addPairedShortcode( `_${code_s}`, content_s => CODES_o[ `${code_s}__s` ]( content_s ) ) )
 }
