@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "source"
+		}
+	],
+  "settings": {
+    "liveServer.settings.root": "../site/",
+		},
+}

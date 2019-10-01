@@ -10,7 +10,7 @@ module.exports = config_o =>
     require( 'markdown-it' )( markdown_o )
       .use( require( 'markdown-it-attrs' ) )
       .use( require( 'markdown-it-deflist' ) )
-      .use( require( 'markdown-it-include' ), config_o.contentPartsDir_s )
+      .use( require( 'markdown-it-include' ), config_o.itemsPartsDir_s )
   )
 
   config_o.setLibrary('njk',

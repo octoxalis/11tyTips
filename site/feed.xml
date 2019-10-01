@@ -206,7 +206,7 @@ source
 because of the leading dot it’s an hidden file.
 )
 , to define the settings of the building environment. This file is located at the root of the source folder but it can be put anywhere, just modifying the Node &lt;code&gt;package.json&lt;/code&gt; file &lt;code&gt;&amp;quot;main&amp;quot;&lt;/code&gt; property. The name itself can also be changed, if you see fit.&lt;/p&gt;
-&lt;p&gt;This file defines the settings of the main resources used in the building process: &lt;em&gt;libraries&lt;/em&gt;, &lt;em&gt;shortcodes&lt;/em&gt;, &lt;em&gt;filters&lt;/em&gt;, &lt;em&gt;plugins&lt;/em&gt;, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to the configuration of a resource, all located in the &lt;code&gt;source/build/script/js/11ty/&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;This file defines the settings of the main resources used in the building process: &lt;em&gt;libraries&lt;/em&gt;, &lt;em&gt;shortcodes&lt;/em&gt;, &lt;em&gt;filters&lt;/em&gt;, &lt;em&gt;plugins&lt;/em&gt;, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to the configuration of a resource, all located in the &lt;code&gt;source/configure/script/js/11ty/&lt;/code&gt; directory.&lt;/p&gt;
 &lt;p&gt;The configuration object returned by the &lt;code&gt;.eleventy.js&lt;/code&gt; module is important because it defines the location of the main parts of the building process: the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; directories, the templates processors, etc.&lt;/p&gt;
 &lt;p&gt;11tyTips declares its own set of directories, modifying some of the default names and locations
 (
@@ -236,14 +236,15 @@ const SETTINGS_o =
   git_s: _C.GIT_s,
   twi_s: _C.TWI_s,
   rss_s: _C.RSS_s,
-&lt;p&gt;url_s: null,
-dev_b: true,
-//dev_b: false,
+  //: development/production switch
+  dev_b: true,
+  //dev_b: false,
+  url_s: null,
 }
-;(() =&amp;gt; SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? ‘dev_s’ : ‘pro_s’])()
-console.log( &lt;code&gt;Site URL: ${SETTINGS_o.url_s}&lt;/code&gt; )
+;(() =&gt; SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? &#39;dev_s&#39; : &#39;pro_s&#39;])()
+console.log( `Site URL: ${SETTINGS_o.url_s}` )
 module.exports = SETTINGS_o
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>
 
@@ -272,7 +273,7 @@ module.exports = SETTINGS_o
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-const ELEVENTY_o =
+const CONFIG_o =
 {
   markdownTemplateEngine: &#39;njk&#39;,
   htmlTemplateEngine:     &#39;njk&#39;,
@@ -289,25 +290,25 @@ const ELEVENTY_o =
     includes: &#39;templates&#39;,
   },
 }
-&amp;nbsp;
+&lt;br&gt;
 const DIRS_o =
 {
-  buildDir_s: &#39;./build/scripts/js/11ty/&#39;,
-  contentPartsDir_s: &#39;./content/parts&#39;,
+  configDir_s: &#39;./configure/scripts/js/11ty/&#39;,
+  itemsPartsDir_s: &#39;./items/parts&#39;,
 }
-&amp;nbsp;
+&lt;br&gt;
 module.exports = config_o =&gt;
 {
-  config_o.templateIncludesDir_s = ELEVENTY_o.dir.includes
-  config_o.contentPartsDir_s = DIRS_o.contentPartsDir_s
+  config_o.templateIncludesDir_s = CONFIG_o.dir.includes
+  config_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
   config_o.addPassthroughCopy( &#39;assets&#39; )    //: static files
 ; [ &#39;libraries&#39;,
     &#39;shortcodes&#39;,
     &#39;filters&#39;,
     &#39;plugins&#39;,
     &#39;collections&#39;
-  ].forEach( config_s =&gt; require( `${DIRS_o.buildDir_s}${config_s}.js` )( config_o ) )
-  return ELEVENTY_o    // : return the config object for further customization
+  ].forEach( config_s =&gt; require( `${DIRS_o.configDir_s}${config_s}.js` )( config_o ) )
+  return CONFIG_o    // : return the config object for further customization
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;(
@@ -501,7 +502,7 @@ const DOM_siblings__a = selector_s =&gt;
     Array.prototype.filter
       .call( node_e.parentNode.children, sibling =&gt; sibling !== node_e )
 }
-&amp;nbsp;
+&lt;br&gt;
 const DOM_listReverse = selector_s =&gt;
 {
   const nodes_a = Array.prototype.slice.call(document.querySelectorAll( `${selector_s} li` ))
@@ -582,7 +583,7 @@ useful if there are multiple authors for the posts of the site.
   layout:    `frame.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
-&amp;nbsp;
+&lt;br&gt;
   title_s:     `Front matter`,
   subtitle_s:  `Front matter data access`,
   abstract_s:  `Accessing front matter data in Markdown and templates`,
@@ -622,7 +623,7 @@ because it will be accessible from any Markdown content or any template and with
   rank__s: at_n =&gt; `#${(&#39;&#39; + at_n).padStart( 3, &#39;0&#39; )}`
 }
 ---
-&amp;nbsp;
+&lt;br&gt;
 &amp;lt;menu data--=&amp;quot;tips_menu&amp;quot;&amp;gt;
   &amp;lt;h4&amp;gt;&amp;lt;a href=&amp;quot;{{ settings.url_s }}&amp;quot;&amp;gt;Home&amp;lt;/a&amp;gt;&amp;lt;/h4&amp;gt;
   &amp;lt;h4&amp;gt;→ &amp;lt;a href=&amp;quot;{{ settings.git_s }}&amp;quot; target=&amp;quot;_blank&amp;quot; rel=&amp;quot;noreferrer&amp;quot;&amp;gt;Github&amp;lt;/a&amp;gt;&amp;lt;/h4&amp;gt;
@@ -639,7 +640,7 @@ because it will be accessible from any Markdown content or any template and with
   {% endfor %}
   &amp;lt;/ol&amp;gt;
 &amp;lt;/menu&amp;gt;
-&amp;nbsp;
+&lt;br&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;But the same result would have been possible calling directly the &lt;code&gt;padStart&lt;/code&gt; method inside the template
 (
@@ -691,20 +692,20 @@ Reference-style link located in Links section, after the Aliases section.
 reference inside content.
 )&lt;/p&gt;
 &lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips/source/content/posts/frontmatter_data.md&lt;/h5&gt;
+&lt;h5&gt;11tyTips/source/store/items/frontmatter_data.md&lt;/h5&gt;
 &lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
 &lt;/hgroup&gt;
 &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-&amp;nbsp;
+&lt;br&gt;
 [comment]: # (======== Aliases ========)
 {% set _11ty_f = lib.utils.EleventyLink__s %}
-&amp;nbsp;
+&lt;br&gt;
 [comment]: # (======== Links ========)
 {{ _11ty_f( &#39;JFM_s&#39; ).link }}
 {{ _11ty_f( &#39;UDF_s&#39; ).link }}
-&amp;nbsp;
+&lt;br&gt;
 [comment]: # (======== Post ========)
-&amp;nbsp;
+&lt;br&gt;
 &lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>

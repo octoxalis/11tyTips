@@ -48,7 +48,7 @@ Paragraph content have a maximum line length fixed to 60ch, yielding to a number
     title_s: 'source/eleventy.js',
     lang_s: "javascript",
 [//]:#(_code_block)
-const ELEVENTY_o =
+const CONFIG_o =
 {
   markdownTemplateEngine: 'njk',
   htmlTemplateEngine:     'njk',
@@ -68,22 +68,22 @@ const ELEVENTY_o =
 
 const DIRS_o =
 {
-  buildDir_s: './build/scripts/js/11ty/',
-  contentPartsDir_s: './content/parts',
+  configDir_s: './configure/scripts/js/11ty/',
+  itemsPartsDir_s: './items/parts',
 }
 
 module.exports = config_o =>
 {
-  config_o.templateIncludesDir_s = ELEVENTY_o.dir.includes
-  config_o.contentPartsDir_s = DIRS_o.contentPartsDir_s
+  config_o.templateIncludesDir_s = CONFIG_o.dir.includes
+  config_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
   config_o.addPassthroughCopy( 'assets' )    //: static files
 ; [ 'libraries',
     'shortcodes',
     'filters',
     'plugins',
     'collections'
-  ].forEach( config_s => require( `${DIRS_o.buildDir_s}${config_s}.js` )( config_o ) )
-  return ELEVENTY_o    // : return the config object for further customization
+  ].forEach( config_s => require( `${DIRS_o.configDir_s}${config_s}.js` )( config_o ) )
+  return CONFIG_o    // : return the config object for further customization
 }
 {% end_code_block %}
 

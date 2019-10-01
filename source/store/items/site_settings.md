@@ -32,10 +32,10 @@ const SETTINGS_o =
   git_s: _C.GIT_s,
   twi_s: _C.TWI_s,
   rss_s: _C.RSS_s,
-  
-  url_s: null,
+  //: development/production switch
   dev_b: true,
   //dev_b: false,
+  url_s: null,
 }
 ;(() => SETTINGS_o.url_s = SETTINGS_o[SETTINGS_o.dev_b === true ? 'dev_s' : 'pro_s'])()
 console.log( `Site URL: ${SETTINGS_o.url_s}` )

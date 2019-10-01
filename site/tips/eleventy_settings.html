@@ -45,7 +45,7 @@ const _URL_s='https://11tytips.netlify.com/'
 because of the leading dot it’s an hidden file.
 </span></ins>
 , to define the settings of the building environment. This file is located at the root of the source folder but it can be put anywhere, just modifying the Node <code>package.json</code> file <code>&quot;main&quot;</code> property. The name itself can also be changed, if you see fit.</p>
-<p>This file defines the settings of the main resources used in the building process: <em>libraries</em>, <em>shortcodes</em>, <em>filters</em>, <em>plugins</em>, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to the configuration of a resource, all located in the <code>source/build/script/js/11ty/</code> directory.</p>
+<p>This file defines the settings of the main resources used in the building process: <em>libraries</em>, <em>shortcodes</em>, <em>filters</em>, <em>plugins</em>, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to the configuration of a resource, all located in the <code>source/configure/script/js/11ty/</code> directory.</p>
 <p>The configuration object returned by the <code>.eleventy.js</code> module is important because it defines the location of the main parts of the building process: the <code>input</code> and <code>output</code> directories, the templates processors, etc.</p>
 <p>11tyTips declares its own set of directories, modifying some of the default names and locations
 <ins data--="inline_note"><sup></sup><span data--="note_content">

@@ -1,4 +1,4 @@
-module.exports = ( content_s ) =>
+module.exports = content_s =>
 {
   return content_s
     .replace( /<ins data--="inline_note"><sup><\/sup><span data--="note_content">/g, '(' )

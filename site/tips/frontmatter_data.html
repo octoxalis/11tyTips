@@ -102,7 +102,7 @@ useful if there are multiple authors for the posts of the site.
   layout:    `frame.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
-&nbsp;
+<br>
   title_s:     `Front matter`,
   subtitle_s:  `Front matter data access`,
   abstract_s:  `Accessing front matter data in Markdown and templates`,
@@ -142,7 +142,7 @@ because it will be accessible from any Markdown content or any template and with
   rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
 }
 ---
-&nbsp;
+<br>
 &lt;menu data--=&quot;tips_menu&quot;&gt;
   &lt;h4&gt;&lt;a href=&quot;{{ settings.url_s }}&quot;&gt;Home&lt;/a&gt;&lt;/h4&gt;
   &lt;h4&gt;→ &lt;a href=&quot;{{ settings.git_s }}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Github&lt;/a&gt;&lt;/h4&gt;
@@ -159,7 +159,7 @@ because it will be accessible from any Markdown content or any template and with
   {% endfor %}
   &lt;/ol&gt;
 &lt;/menu&gt;
-&nbsp;
+<br>
 </code></pre>
 <p>But the same result would have been possible calling directly the <code>padStart</code> method inside the template
 <ins data--="inline_note"><sup></sup><span data--="note_content">
@@ -211,20 +211,20 @@ Reference-style link located in Links section, after the Aliases section.
 reference inside content.
 </span></ins></p>
 <hgroup data--="code_ref">
-<h5>11tyTips/source/content/posts/frontmatter_data.md</h5>
+<h5>11tyTips/source/store/items/frontmatter_data.md</h5>
 <h6><a href="https://prismjs.com" target="_blank" rel="noreferrer" title="Highlighting provided by Prism.js">Prism</a></h6>
 </hgroup>
 <pre><code class="language-javascript">
-&nbsp;
+<br>
 [comment]: # (======== Aliases ========)
 {% set _11ty_f = lib.utils.EleventyLink__s %}
-&nbsp;
+<br>
 [comment]: # (======== Links ========)
 {{ _11ty_f( 'JFM_s' ).link }}
 {{ _11ty_f( 'UDF_s' ).link }}
-&nbsp;
+<br>
 [comment]: # (======== Post ========)
-&nbsp;
+<br>
 </code></pre>
 
   </section>

@@ -224,7 +224,7 @@ reference inside content.
 {data--="example"}
 
 {% _code_block %}
-    title_s: '{{_C.SITE_s}}/source/content/posts/frontmatter_data.md',
+    title_s: '{{_C.SITE_s}}/source/store/items/frontmatter_data.md',
     lang_s: "javascript",
 [//]:#(_code_block)
 {% raw %}
