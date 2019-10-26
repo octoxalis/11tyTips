@@ -1,6 +1,0 @@
-{% set _common = descriptions.site + ',' + descriptions.global %}
-{% if description %}
-<meta name="description" content="{{ description + ',' + _common }}">
-{% else %}
-<meta name="description" content="{{ subtitle_s + ',' + _common }}">
-{% endif %}

@@ -1,0 +1,40 @@
+{% include "parts/_template_start_.njk" %}{# ante process #}
+
+{%- set _URL_s = _U_.url_s -%}
+
+{%- set _head_block_s %}
+<head>
+{% include "parts/_site_url_.njk" %}
+{% include "parts/_head_.njk" %}
+{% include "parts/_seo_.njk" %}
+{% include "parts/_description_.njk" %}
+{% include "parts/_favicon_.njk" %}
+{% include "parts/_feed_.njk" %}
+{% include "parts/_font_inline_.njk" %}
+{% include "parts/_style_inline_.njk" %}
+{% include "parts/_style_.njk" %}
+</head>
+{% endset -%}
+
+{%- set _body_block_s %}
+<body>
+{% include "parts/_nav_.njk" %}
+{% include "parts/_article_.njk" %}
+{% if _U_.dev_b === false %}{% include "parts/_instant_page_.njk" %}{% endif %}
+{% include "parts/_script_.njk" %}
+{% if no_comments !== true %}
+{#% include "parts/_colophon_.njk" %#}
+{#% include "parts/_comment_.njk" %#}
+{% endif %}
+</body>
+{% endset -%}
+
+{%- set _template_s %}
+<!doctype html>
+<html lang="en">
+{{ _head_block_s | safe }}
+{{ _body_block_s | safe }}
+</html>
+{% endset -%}
+
+{% include "parts/_template_end_.njk" %}{# post process #}

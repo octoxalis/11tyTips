@@ -1,100 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>11tyTips blog</title>
-  <subtitle>Hot tips for 11ty static site generator users</subtitle>
-  <link href="https://11tytips.netlify.com/feed.xml" rel="self"/>
-  <link href="https://11tytips.netlify.com/"/>
-  <updated>2019-09-10T02:00:00+02:00</updated>
-  <id>https://11tytips.netlify.com/</id>
-  <author>
-    <name>Octoxalis</name>
-    <email>octoxalis@gmail.com</email>
-  </author>
-
-  <entry>
-    <title>Site structure</title>
-    <link href="https://11tytips.netlify.com/tips/site_structure.html"/>
-    <updated>2019-09-02T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/site_structure.html</id>
-    <content type="html">&lt;h2&gt;The JAMstack architecture&lt;/h2&gt;
-&lt;p&gt;Eleventy, as most static sites, relies on an architectural paradigm called &lt;a href=&quot;https://jamstack.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;JAMstack&lt;/a&gt;, an acronym meaning: &lt;q&gt;a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.&lt;/q&gt;
-(
-see Mathias Biilmann &amp;amp; Phil Hawksworth book: &lt;a href=&quot;https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Modern Web development on the JAMstack&lt;/a&gt;.
-).&lt;/p&gt;
-&lt;p&gt;In the JAMstack architecture, &lt;em&gt;JavaScript&lt;/em&gt; is used not only in the browser for interactivity and presentation but also to build all the files of the site
-(
-this is the case of Eleventy. Other generators use different languages: Go, Python, etc.
-)
-; the &lt;em&gt;APIs&lt;/em&gt; are the programming interfaces to Node packages
-(
-Eleventy itself is a Node package.
-)
-or other frameworks used as a back end; &lt;em&gt;Markdown&lt;/em&gt; is used to set the content of each page of the site, with a settings part (front matter) using either JavaScript or a description language like YAML or TOML and a template part
-(
-there are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
-)
-.&lt;/p&gt;
-&lt;h2&gt;11tyTips architecture&lt;/h2&gt;
-&lt;p&gt;Trying to stay as simple as possible, 11tyTips is built using a minimal set of the JAMstack architecture: JavaScript backed by the Node ecosystem, Nunjucks as templating system and Markdown as content markup language.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;source&lt;/code&gt; directory is designed to reflect these categories of resources:&lt;/p&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;build
-(
-contains JavaScript modules to be used during the build process. For consistancy with other source script directories, it is deeply refined in &lt;code&gt;script/js/&lt;/code&gt; and split in two directories: Eleventy modules (&lt;code&gt;11ty&lt;/code&gt;) and 11tyTips modules (&lt;code&gt;lib&lt;/code&gt;).
-)&lt;/li&gt;
-&lt;li&gt;includes
-(
-gathers all the templates used either by the Markdown files (&lt;code&gt;templates&lt;/code&gt;) or the Javascript and CSS files to be joined and minified (&lt;code&gt;assets&lt;/code&gt;).
-)&lt;/li&gt;
-&lt;li&gt;content &amp;amp; data
-(
-the first directory contains the Markdown files of all site posts, plus some files included in them;
-the second one gathers JavaScript data modules consumed by the Markdown content files.
-)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;A further directory is added to contain all the third-party assets used by the site: &lt;em&gt;fonts&lt;/em&gt;, &lt;em&gt;media&lt;/em&gt;, &lt;em&gt;scripts&lt;/em&gt; and &lt;em&gt;styles&lt;/em&gt; which are passthru copied to the built site directory.&lt;/p&gt;
-&lt;p&gt;This structure has been designed to offer the maximum of flexibility and consistence in the development phase, keeping a strong separation of concerns as to ease any needed refactoring and modification of the code.&lt;/p&gt;
-</content>
-  </entry>
-
-  <entry>
-    <title>Cloning 11tyTips site</title>
-    <link href="https://11tytips.netlify.com/tips/site_cloning.html"/>
-    <updated>2019-09-03T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/site_cloning.html</id>
-    <content type="html">&lt;h2&gt;Install a clone of 11tyTips site&lt;/h2&gt;
-&lt;p&gt;11tyTips site has been carefully designed to help those who want to start to use a static site generator such as Eleventy without spending a lot of time to find the best architecture meeting their needs.&lt;/p&gt;
-&lt;p&gt;A static site is built with three different components:&lt;/p&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;assets (fonts, media, scripts, styles);&lt;/li&gt;
-&lt;li&gt;templates (proto html files with placeholders);&lt;/li&gt;
-&lt;li&gt;content (actual content to inject in the template files).&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-  </entry>
-
-  <entry>
-    <title>Source tree</title>
-    <link href="https://11tytips.netlify.com/tips/source_tree.html"/>
-    <updated>2019-09-04T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/source_tree.html</id>
-    <content type="html">&lt;h2&gt;11tyTips site&lt;/h2&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips source tree&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-txt&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?> <feed xmlns="http://www.w3.org/2005/Atom"><title>11tyTips blog</title><subtitle>Hot tips for 11ty static site generator users</subtitle><link href="https://11tytips.netlify.com/feed.xml" rel="self"><link href="https://11tytips.netlify.com/"><updated>2019-10-26T02:00:00+02:00</updated><id>https://11tytips.netlify.com/</id><author><name>Octoxalis</name><email>octoxalis@gmail.com</email></author><entry><title>Site structure</title><link href="https://11tytips.netlify.com/tips/site_structure.html"><updated>2019-09-02T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/site_structure.html</id><content type="html"><h1>The JAMstack architecture</h1><p data--="page_intro">The principles of JAMstack static site.</p><h2 id="what_is_jamstack?">What is JAMstack?</h2><p>Eleventy, as most static sites, relies on an architectural paradigm called <a href="https://jamstack.org/" target="_blank" rel="noreferrer noopener">JAMstack</a>, an acronym meaning: <q>a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.</q> (see Mathias Biilmann &amp; Phil Hawksworth book: <a href="https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf" target="_blank" rel="noreferrer noopener">Modern Web development on the JAMstack</a>. ).</p><p>In the JAMstack architecture, <em>JavaScript</em> is used not only in the browser for interactivity and presentation but also to build all the files of the site (this is the case of Eleventy. Other generators use different languages: Go, Python, etc. ); the <em>APIs</em> are the programming interfaces to Node packages (Eleventy itself is a Node package. )or other frameworks used as a back end; <em>Markdown</em> is used to set the content of each page of the site, with a settings part (front matter) using either JavaScript or a description language like YAML or TOML and a template part (there are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc. ).</p><h2 id="11tytips_architecture">11tyTips architecture</h2><p>Trying to stay as simple as possible, 11tyTips is built using a minimal set of the JAMstack architecture: <strong>JavaScript</strong>, backed by the Node ecosystem, <strong>Nunjucks</strong>, as templating system, and <strong>Markdown</strong> as content markup language. It doesn’t follow the canonical dispatching of files promoted by Eleventy and most satic site generators (data, templates, contents), but follows a pattern examplifying the JAMstack paradigm.</p><p>The <code>source</code> directory design reflects the JAMstack categories:</p><ul><li data--="ulist">make (contains JavaScript modules to be used during the build process and is split in two directories: Eleventy modules (<code>11ty</code>) and 11tyTips modules (<code>lib</code>).<br><em>This is also where the initial JavaScript file firing the building process is located</em>. Instead of <code>.eleventy.js</code> this file is named <code>make.js</code> (without the starting dot because it is not hidden). )+ matrix (gathers, in <code>./</code> and <code>parts</code> directories, all the templates producing the site HTML files; plus the Javascript and CSS files concatenated and minified (<code>assets</code>). )+ matter (contains the Markdown files of all site posts (<code>pages</code> subdirectory), plus some files they include (<code>parts</code>). )</li></ul><p>I sometimes like to call it the <em>3M</em> directory (all of its subdirectory having names begining with an <em>m</em> letter, enumerating these directory names sounds like a slogan: <q>make matrix matter(s)!</q> ). All subdirectories of the three first level directories follow a consistent naming scheme:</p><ul><li data--="ulist">assets (for directories containing both script files, style files and files not to be processed and just to be passthru copied to output site; )+ scripts (for JavaScript files and, eventually, other scripting language files )+ styles (for Cascading stylesheet files and, eventually, other styling language files (SCCS, etc.) )+ parts (for partial files to be included by other files. )</li></ul><p>This structure departs deliberately from what is generaly adopted by static sites built with Eleventy (see, for instance, <a href="https://github.com/11ty/eleventy-base-blog" target="_blank" rel="noreferrer noopener">Eleventy base blog</a> structure ), examplifying the versatility of the tool (Eleventy configuration object has two properties allowing this precious flexibility: <code>dir.data</code> and <code>dir.includes</code>. ): <strong>Eleventy doesn’t lock you into a predefined scheme</strong> and let you express your specific needs with ease.</p><p>11tyTips has been designed to offer the maximum of flexibility and consistency in the development phase, keeping a strong separation of concerns as to ease any needed refactoring and modification of the code. The site <a href="https://11tytips.netlify.com/tips/source_tree.html">source tree</a> gives an overview of the source directory hierarchy.</p><p>Following these configuration options leads to a command line <em>requiring</em> the <code>--config</code> argument:</p><p data--="example"><code>npx eleventy --config=make/11ty/make.js</code></p></content></entry><entry><title>Cloning 11tyTips site</title><link href="https://11tytips.netlify.com/tips/site_cloning.html"><updated>2019-09-03T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/site_cloning.html</id><content type="html"><h1>Cloning of 11tyTips site</h1><p data--="page_intro">Why not use 11tyTips as a boilerplate for your own new site?</p><h2 id="install_a_clone_of_11tytips_site">Install a clone of 11tyTips site</h2><p>11tyTips site has been designed to help those wanting to start with a static site generator such as Eleventy, without spending a lot of time to find the best architecture meeting their needs. All tips explained in its pages are examplified by its source code: the dogfooding principle!</p><p data--="important">Install process <em>(to be continued...)</em></p></content></entry><entry><title>Source tree</title><link href="https://11tytips.netlify.com/tips/source_tree.html"><updated>2019-09-04T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/source_tree.html</id><content type="html"><h1>11tyTips site tree</h1><p data--="page_intro">A bird’s eye view of 11tyTips site.</p><hgroup data--="code_ref"><h5>11tyTips source tree</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-txt">
 .
-├── factory
+├── make
+│   ├── 11ty
+│   │   ├── collections.js
+│   │   ├── filters.js
+│   │   ├── libraries.js
+│   │   ├── make.js
+│   │   ├── plugins.js
+│   │   └── shortcodes.js
+│   └── lib
+│       ├── block_replace.js
+│       ├── block_split.js
+│       ├── template_end.js
+│       ├── feed_content.js
+│       └── template_start.js
+├── matrix
 │   ├── assets
 │   │   ├── scripts
 │   │   │   └── js
-│   │   │       ├── lib
-│   │   │       │   └── _instant_page_.njk
 │   │   │       ├── parts
 │   │   │       │   ├── _dom_.js
 │   │   │       │   └── _ui_.js
-│   │   │       └── frame.njk
+│   │   │       └── lib.njk
 │   │   ├── static
 │   │   │   ├── fonts
 │   │   │   │   ├── athiti-v3-latin-regular.woff2
@@ -118,118 +45,114 @@ the second one gathers JavaScript data modules consumed by the Markdown content 
 │   │           ├── parts
 │   │           │   ├── _aspect_ratio_.css
 │   │           │   ├── _color_.css
-│   │           │   ├── _comments_.css
+│   │           │   ├── _comment_.css
 │   │           │   ├── _dark_mode_.css
 │   │           │   ├── _destyle_.css
 │   │           │   ├── _font_.css
-│   │           │   ├── _fonts_inline_.css
+│   │           │   ├── _font_face_.css
 │   │           │   ├── _full_width_.css
 │   │           │   ├── _html_.css
-│   │           │   ├── _notes_.css
+│   │           │   ├── _note_.css
 │   │           │   ├── _prism_theme_.css
+│   │           │   ├── _pro_1st_.css
 │   │           │   ├── _rootvar_.css
 │   │           │   ├── _source_tree_.css
 │   │           │   ├── _tips_list_.css
 │   │           │   └── _ui_.css
-│   │           └── frame.njk
+│   │           └── lib.njk
 │   ├── parts
 │   │   ├── _article_.njk
 │   │   ├── _colophon_.njk
-│   │   ├── _comments_.njk
-│   │   ├── _css_load_.njk
+│   │   ├── _comment_.njk
 │   │   ├── _description_.njk
 │   │   ├── _favicon_.njk
 │   │   ├── _feed_.njk
-│   │   ├── _fonts_.njk
-│   │   ├── _fonts_inline_.njk
+│   │   ├── _font_inline_.njk
 │   │   ├── _head_.njk
+│   │   ├── _instant_page_.njk
 │   │   ├── _nav_.njk
-│   │   ├── _scripts_.njk
+│   │   ├── _script_.njk
 │   │   ├── _seo_.njk
 │   │   ├── _site_url_.njk
-│   │   └── _styles_.njk
+│   │   ├── _style_.njk
+│   │   ├── _style_inline_.njk
 │   ├── feed.njk
-│   ├── frame_nocomments.njk
 │   ├── frame.njk
 │   ├── sitemap.njk
 │   └── tips_list.njk
-├── store
-│   ├── data
-│   │   ├── lib
-│   │   │   └── utils.js
-│   │   ├── _G_.js
-│   │   ├── _U_.js
-│   │   └── descriptions.js
-│   └── items
-│       ├── parts
-│       │   └── _source_tree_.txt
-│       ├── 404.md
-│       ├── eleventy_configure.md
-│       ├── feed.md
-│       ├── frontmatter_data.md
-│       ├── index.md
-│       ├── names_guide.md
-│       ├── shortcodes.md
-│       ├── site_cloning.md
-│       ├── site_configure.md
-│       ├── site_structure.md
-│       ├── sitemap.md
-│       ├── source_tree.md
-│       ├── styles_guide.md
-│       └── tips_list.md
-├── generator
-│   └── scripts
-│       └── js
-│           ├── 11ty
-│           │   ├── collections.js
-│           │   ├── filters.js
-│           │   ├── libraries.js
-│           │   ├── plugins.js
-│           │   └── shortcodes.js
-│           └── lib
-│               ├── block_replace.js
-│               ├── block_split.js
-│               └── feed_content.js
-└── configure.js
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-  </entry>
-
-  <entry>
-    <title>Eleventy settings</title>
-    <link href="https://11tytips.netlify.com/tips/eleventy_configure.html"/>
-    <updated>2019-09-05T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/eleventy_configure.html</id>
-    <content type="html">&lt;h2&gt;The Eleventy JavaScript file&lt;/h2&gt;
-&lt;p&gt;Eleventy uses a simple Javascript file, named &lt;code&gt;.eleventy.js&lt;/code&gt;
-(
-because of the leading dot it’s an hidden file.
-)
-, to define the settings of the building environment. This file is located at the root of the source folder but it can be put anywhere, just modifying the Node &lt;code&gt;package.json&lt;/code&gt; file &lt;code&gt;&amp;quot;main&amp;quot;&lt;/code&gt; property. The name itself can also be changed, if you see fit.&lt;/p&gt;
-&lt;p&gt;This file defines the settings of the main resources used in the building process: &lt;em&gt;libraries&lt;/em&gt;, &lt;em&gt;shortcodes&lt;/em&gt;, &lt;em&gt;filters&lt;/em&gt;, &lt;em&gt;plugins&lt;/em&gt;, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to the configuration of a resource, all located in the &lt;code&gt;source/generator/script/js/11ty/&lt;/code&gt; directory.&lt;/p&gt;
-&lt;p&gt;The configuration object returned by the &lt;code&gt;.eleventy.js&lt;/code&gt; module is important because it defines the location of the main parts of the building process: the &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;output&lt;/code&gt; directories, the templates processors, etc.&lt;/p&gt;
-&lt;p&gt;11tyTips declares its own set of directories, modifying some of the default names and locations
-(
-for instance, the leading underscore character is suppressed for &lt;code&gt;output&lt;/code&gt;, &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;templates&lt;/code&gt; directories, in lieu of &lt;code&gt;_output&lt;/code&gt;, &lt;code&gt;_data&lt;/code&gt; and &lt;code&gt;_includes&lt;/code&gt;; &lt;code&gt;static&lt;/code&gt; directory is named &lt;code&gt;assets&lt;/code&gt;, etc.
-)&lt;/p&gt;
-</content>
-  </entry>
-
-  <entry>
-    <title>Global settings</title>
-    <link href="https://11tytips.netlify.com/tips/site_configure.html"/>
-    <updated>2019-09-06T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/site_configure.html</id>
-    <content type="html">&lt;h2&gt;Data everywhere&lt;/h2&gt;
-&lt;p&gt;Eleventy provides a wide range of settings for &lt;a href=&quot;https://www.11ty.io/docs/data/&quot;&gt;data&lt;/a&gt; used in building stage or inside content: &lt;a href=&quot;https://www.11ty.io/docs/data-global/&quot;&gt;global&lt;/a&gt; data as well as &lt;a href=&quot;https://www.11ty.io/docs/data-template-dir/&quot;&gt;template and directory&lt;/a&gt; data.&lt;/p&gt;
-&lt;p&gt;11tyTips uses only global data contained in JavaScript files located inside the data directory.&lt;/p&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;source/store/data/_U_.js&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-const _G_ = require( &#39;./_G_.js&#39; )
-&lt;br&gt;
+└── matter
+    ├── assets
+    │   ├── scripts
+    │   │   └── js
+    │   │       ├── lib
+    │   │       │   ├── _G_.js
+    │   │       │   ├── _U_.js
+    │   │       │   ├── _V_.js
+    │   │       │   └── description.js
+    │   │       └── lib.md
+    │   └── styles
+    │       └── css
+    │           └── lib.md
+    └── pages
+        ├── parts
+        │   └── _source_tree_.txt
+        ├── 404.md
+        ├── eleventy_configure.md
+        ├── feed.md
+        ├── frontmatter_data.md
+        ├── frontmatter_function.md
+        ├── index.md
+        ├── minifying.md
+        ├── names_guide.md
+        ├── pre_post_processing.md
+        ├── shortcodes.md
+        ├── shorthands.md
+        ├── site_cloning.md
+        ├── site_configure.md
+        ├── site_structure.md
+        ├── sitemap.md
+        ├── source_tree.md
+        ├── styles_guide.md
+        └── tips_list.md
+</code></pre></content></entry><entry><title>Eleventy settings</title><link href="https://11tytips.netlify.com/tips/eleventy_configure.html"><updated>2019-09-05T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/eleventy_configure.html</id><content type="html"><h1>Eleventy configuration</h1><p data--="page_intro">You can customize Eleventy starting file as you see fit.</p><h2 id="the_eleventy_javascript_file">The Eleventy JavaScript file</h2><p>Eleventy uses a simple file, named by default <code>.eleventy.js</code> (because of the leading dot it’s an hidden file ), to define the settings of the building environment. This file is, by default, located at the root of the source folder but it can be put anywhere. The name itself can also be changed, if you see fit. (11tyTips modifies both the name, calling it <code>make.js</code>, and the location, putting it in the <code>source/make/11ty</code> directory. ) This file defines the settings of the main resources used in the building process: <em>libraries</em>, <em>shortcodes</em>, <em>filters</em>, <em>plugins</em>, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to a part of the configuration, all located in the <code>source/make/11ty/</code> directory. The configuration object returned by the configuration/make file is important because it defines the location of the main components of the building process: the <code>input</code> and <code>output</code> directories, the templates processors, etc.</p><p>11tyTips declares its own set of directories, modifying some of the default names and locations (for instance, the leading underscore character is suppressed for <code>output</code>, <code>lib</code> and <code>matrix</code> directories, in lieu of <code>_output</code>, <code>_data</code> and <code>_includes</code>; <code>static</code> directory is named <code>assets</code>, etc. )</p><hgroup data--="code_ref"><h5>source/make/11ty/make.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+const MAKE_o =
+{
+  markdownTemplateEngine: 'njk',
+  htmlTemplateEngine:     'njk',
+  dataTemplateEngine:     'njk',
+  templateFormats:        [ 'njk', 'md' ],
+  passthroughFileCopy:    true,
+  pathPrefix:             '/',
+  dir:
+  {
+    input:    '.',
+    output:   '../site',
+    data:     'matter/assets/scripts/js/lib',  //: _data
+    includes: 'matrix',                        //: _includes
+  },
+}
+const DIRS_o =
+{
+  makeDir_s:  './',
+  pagesPartsDir_s: './matter/pages/parts',
+}
+module.exports = make_o =>
+{
+  make_o.matrixDir_s = MAKE_o.dir.includes
+  make_o.pagesPartsDir_s = DIRS_o.pagesPartsDir_s
+  make_o.addPassthroughCopy( { "matrix/assets/static": "assets" } )    //: static files
+; [ 'libraries',
+    'shortcodes',
+    'filters',
+    'plugins',
+    'collections'
+  ].forEach( make_s => require( `${DIRS_o.makeDir_s}${make_s}.js` )( make_o ) )
+  return MAKE_o    // : return the configuration object for further customization
+}
+<br>
+</code></pre></content></entry><entry><title>Global settings</title><link href="https://11tytips.netlify.com/tips/site_configure.html"><updated>2019-09-06T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/site_configure.html</id><content type="html"><h1>Configuring your new Eleventy site</h1><p data--="page_intro">Eleventy provides you with simple but efficient configuration options.</p><h2 id="data_everywhere">Data everywhere</h2><p>Eleventy provides a wide range of settings for <a href="https://www.11ty.io/docs/data/">data</a> used in building stage or inside content: <a href="https://www.11ty.io/docs/data-global/">global</a> data as well as <a href="https://www.11ty.io/docs/data-template-dir/">template and directory</a> data.</p><p>11tyTips uses only global data contained in JavaScript files located inside the data directory.</p><hgroup data--="code_ref"><h5>source/matter/assets/scripts/js/lib/_U_.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+const _G_ = require( './_G_.js' )
+<br>
 const _U_o =
 {
   dev_s: _G_.DEV_s,
@@ -242,501 +165,225 @@ const _U_o =
   //dev_b: false,
   url_s: null,
 }
-;(() =&gt; _U_o.url_s = _U_o[_U_o.dev_b === true ? &#39;dev_s&#39; : &#39;pro_s&#39;])()
+;(() => _U_o.url_s = _U_o[_U_o.dev_b === true ? 'dev_s' : 'pro_s'])()
 console.log( `Site URL: ${_U_o.url_s}` )
-&lt;br&gt;
+<br>
 module.exports = _U_o
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-  </entry>
-
-  <entry>
-    <title>Style guide</title>
-    <link href="https://11tytips.netlify.com/tips/styles_guide.html"/>
-    <updated>2019-09-07T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/styles_guide.html</id>
-    <content type="html">&lt;p&gt;(h1 element&lt;br&gt;p element (introduction))&lt;/p&gt;
-&lt;h1&gt;Style guide&lt;/h1&gt;
-&lt;p data--=&quot;page_intro&quot;&gt;This is an introduction paragraph which should be limited in length.&lt;/p&gt;
-&lt;p&gt;(h2 element)&lt;/p&gt;
-&lt;h2&gt;Paragraph title_s&lt;/h2&gt;
-&lt;p&gt;(h3 element)&lt;/p&gt;
-&lt;h3&gt;Paragraph subtitle_s&lt;/h3&gt;
-&lt;p&gt;NB: Titles have a &lt;code&gt;font-style: italic&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;(p element)&lt;/p&gt;
-&lt;p&gt;Paragraph content have a maximum line length fixed to 60ch, yielding to a number of  of about 70 characters per line: this is considered the best line length for readibility.&lt;/p&gt;
-&lt;p&gt;(inline code)&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;for( let at = 0; at &amp;lt; keys_a.length; ++at )&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;(example)&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;for( let at = 0; at &amp;lt; keys_a.length; ++at )&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;(code block)&lt;/p&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;source/configure.js&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-const GENERATOR_o =
+<br>
+</code></pre></content></entry><entry><title>Styles guide</title><link href="https://11tytips.netlify.com/tips/styles_guide.html"><updated>2019-09-07T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/styles_guide.html</id><content type="html"><h1>Styles guide</h1><p data--="page_intro">This is an introduction paragraph which should be limited in length.</p><h2 id="title">Title</h2>(h2 element)<h3 id="subtitle">Subtitle(h3 element<br><b>Titles have a</b> <code>font-style: italic</code> )<p><strong>Paragraph</strong> content have a maximum line length fixed to 60ch, yielding to a number of of about 70 characters per line: this is considered the best line length for readibility. (p element)</p><p><code>for ( let at = 0; at &lt; keys_a.length; ++at )</code> (inline code)</p><p data--="example"><code>for ( let at = 0; at &lt; keys_a.length; ++at )</code> (example)</p><hgroup data--="code_ref"><h5>source/make/11ty/libtaries.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+module.exports = make_o =>
 {
-  markdownTemplateEngine: &#39;njk&#39;,
-  htmlTemplateEngine:     &#39;njk&#39;,
-  dataTemplateEngine:     &#39;njk&#39;,
-  templateFormats:        [ &#39;md&#39;,&#39;njk&#39;,&#39;html&#39; ],
-  passthroughFileCopy:    true,
-  pathPrefix:             &#39;/&#39;,
-  dir:
+  let markdown_o =
   {
-    input:    &#39;.&#39;,
-    output:   &#39;../site&#39;,
-    data:     &#39;store/data&#39;,
-    includes: &#39;factory&#39;,
-  },
+    html:        true,
+    linkify:     true,
+    typographer: true
+  }
+  make_o.setLibrary('md',
+    require( 'markdown-it' )( markdown_o )
+      .use( require( 'markdown-it-attrs' ) )
+      .use( require( 'markdown-it-deflist' ) )
+      .use( require( 'markdown-it-include' ), make_o.pagesPartsDir_s )
+  )
+  make_o.setLibrary('njk',
+    require('nunjucks')
+      .configure( make_o.matrixDir_s, { autoescape: false } ) )  //: autoescape for CSS rules
 }
-&lt;br&gt;
-const DIRS_o =
-{
-  generatorDir_s:  &#39;./generator/scripts/js/11ty/&#39;,
-  itemsPartsDir_s: &#39;./store/items/parts&#39;,
-}
-&lt;br&gt;
-module.exports = generator_o =&gt;
-{
-  generator_o.factoryDir_s = GENERATOR_o.dir.includes
-  generator_o.itemsPartsDir_s = DIRS_o.itemsPartsDir_s
-  generator_o.addPassthroughCopy( { &quot;factory/assets/static&quot;: &quot;assets&quot; } )    //: static files
-; [ &#39;libraries&#39;,
-    &#39;shortcodes&#39;,
-    &#39;filters&#39;,
-    &#39;plugins&#39;,
-    &#39;collections&#39;
-  ].forEach( generator_s =&gt; require( `${DIRS_o.generatorDir_s}${generator_s}.js` )( generator_o ) )
-  return GENERATOR_o    // : return the config object for further customization
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(
-Unordered list:&lt;br&gt;
-&lt;code&gt;data--=&amp;quot;ulist&amp;quot;&lt;/code&gt; attribute has to be set on a &lt;em&gt;separate line&lt;/em&gt;
-)&lt;/p&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;Primo&lt;/li&gt;
-&lt;li&gt;Secondo&lt;/li&gt;
-&lt;li&gt;Tertio&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;(Nested unordered list)&lt;/p&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;Primo
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;One&lt;/li&gt;
-&lt;li&gt;Two&lt;/li&gt;
-&lt;li&gt;Three&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Secondo
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;Un&lt;/li&gt;
-&lt;li&gt;Deux&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tertio&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;(
-List inside an inline note
-)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It works…
-(
-&lt;em&gt;only preceded by a list item&lt;/em&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;One&lt;/li&gt;
-&lt;li&gt;Two&lt;/li&gt;
-&lt;li&gt;Three
-)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-  </entry>
-
-  <entry>
-    <title>Names guide</title>
-    <link href="https://11tytips.netlify.com/tips/names_guide.html"/>
-    <updated>2019-09-08T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/names_guide.html</id>
-    <content type="html">&lt;h2&gt;A question of names and types&lt;/h2&gt;
-&lt;p&gt;Every developer knows that JavaScript is not a static typed language, a useful feature eliminating lots of bugs.
-A language like Typescript has been created as a remedy to that important lack of safety. Even for code modules counting less than a few tens of lines, it’s easy to forget what kind of type is exactly a variable or constant declared at the begining of the file and then make a mistake when assining a wrong type to a variable.&lt;/p&gt;
-&lt;p&gt;11tyTips adopts a simple recipe to avoid such mistakes: only adding a mnemonic letter at the end of each identifier to specify the variable or constant type.
-This simple adjonction has a secondary benefice: it simplifies the identifier derivations.&lt;/p&gt;
-&lt;p&gt;Just an example: the JavaScript &lt;code&gt;String.prototype.split&lt;/code&gt; method returns an array of Strings:&lt;/p&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;MDN web doc&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-var str = &#39;The quick brown fox jumps over the lazy dog.&#39;;
-var words = str.split(&#39; &#39;);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Two different words for two tightly related entities! Isn’t it semantically more meaningful to use the same identifier with different specifiers?&lt;/p&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips: Pseudo-typed identifiers&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-var lazyDog_s = &#39;The quick brown fox jumps over the lazy dog.&#39;;
-var lazyDog_a = lazyDog_s.split(&#39; &#39;);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A more tricky example
-(
-with smart inline type coercion tricks!
-)
-:&lt;/p&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips: Tricky pseudo-typed identifiers&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-const oneTwoThree_s = &#39;123&#39;
+<br>
+</code></pre>(code block)<h3>Lists</h3><ul data--="ulist"><li>Primo</li><li>Secondo</li><li>Tertio</li></ul><p>(Unordered list)</p><ul data--="ulist"><li>Primo<ul data--="ulist"><li>One</li><li>Two</li><li>Three</li></ul></li><li>Secondo<ul data--="ulist"><li>Un</li><li>Deux</li></ul></li><li>Tertio</li></ul><p>(Nested unordered list)</p><ul><li>Inside a short note, it works only preceded by a list item (<ul data--="ulist"><li>One</li><li>Two</li><li>Three )</li></ul></li></ul></h3></content></entry><entry><title>Names guide</title><link href="https://11tytips.netlify.com/tips/names_guide.html"><updated>2019-09-08T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/names_guide.html</id><content type="html"><h1>Pseudo-typed JavaScript</h1><p data--="page_intro">How to identify variable types using a consistent naming scheme.</p><h2 id="a_question_of_names_and_types">A question of names and types</h2><p>Every developer knows that JavaScript is not a static typed language, a useful feature eliminating lots of bugs. A language like Typescript has been created as a remedy to that important lack of safety. Even for code modules counting less than a few tens of lines, it’s easy to forget what kind of type is exactly a variable or constant declared at the begining of the file and then make a mistake when assining a wrong type to a variable.</p><p>11tyTips adopts a simple recipe to avoid such mistakes: only adding a mnemonic letter at the end of each identifier to specify the variable or constant type. This simple adjonction has a secondary benefice: it simplifies the identifier derivations.</p><p>Just an example: the JavaScript <code>String.prototype.split</code> method returns an array of Strings:</p><hgroup data--="code_ref"><h5>MDN web doc</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+var str = 'The quick brown fox jumps over the lazy dog.';
+var words = str.split(' ');
+</code></pre>Two different words for two tightly related entities! Isn't it semantically more meaningful to use the same identifier with different specifiers?<hgroup data--="code_ref"><h5>11tyTips: Pseudo-typed identifiers</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+var lazyDog_s = 'The quick brown fox jumps over the lazy dog.';
+var lazyDog_a = lazyDog_s.split(' ');
+</code></pre>A more tricky example (with smart inline type coercion tricks! ):<hgroup data--="code_ref"><h5>11tyTips: Tricky pseudo-typed identifiers</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+const oneTwoThree_s = '123'
 let   oneTwoThree_n = +oneTwoThree_s          //: to Number
-const oneTwoFour_s  = &#39;&#39; + ++oneTwoThree_n    //: to String
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;Types specifiers&lt;/h3&gt;
-&lt;p&gt;This naming recipe applies to all primitive immutable types:&lt;/p&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;Null&lt;/li&gt;
-&lt;li&gt;Undefined&lt;/li&gt;
-&lt;li&gt;Boolean&lt;/li&gt;
-&lt;li&gt;Number&lt;/li&gt;
-&lt;li&gt;BigInt&lt;/li&gt;
-&lt;li&gt;String&lt;/li&gt;
-&lt;li&gt;Array&lt;/li&gt;
-&lt;li&gt;Object&lt;/li&gt;
-&lt;li&gt;Symbol&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;It extends to specific Object types:&lt;/p&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;Function&lt;/li&gt;
-&lt;li&gt;Class&lt;/li&gt;
-&lt;li&gt;RegExp&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The suffix specifying the type is a single letter preceded by an underscore character, lowercase letters for “wrapped” types
-(
-Boolean, Number, BigInt, String, Array, Object, Symbol, Function, Class, RegExp.
-See &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Glossary/Primitive&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt; MDN Primitive description&lt;/a&gt;.
-)
-, uppercase letters for “unwrapped” types
-(
-Null, Undefined.
-)
-.&lt;/p&gt;
-&lt;table class=&quot;middle_wide&quot;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;Specifier&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Null&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;N&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Undefined&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;U&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Boolean&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;b&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Number&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;n&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;BigInt&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;i&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;String&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;s&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Array&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;a&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Object&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;o&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Symbol&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;y&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Function&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;f&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Class&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;c&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;RegExp&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;_&lt;em&gt;r&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;To give further meaningful information, function identifiers have different specifiers:
-in an assignment, the previous convention is used, but for a declaration,
-two underscore characters before the type specifier of the return value is used and no specifier when the function returns nothing.&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;const awesome__s = () =&amp;gt; &#39;An awesome String&#39;&lt;/code&gt;&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;const clone_f = awesome__s&lt;/code&gt;&lt;/p&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips/source/factory/assets/static/scripts/js/parts/dom.js&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-const DOM_siblings__a = selector_s =&gt;
+const oneTwoFour_s  = '' + ++oneTwoThree_n    //: to String
+</code></pre><h3 id="types_specifiers">Types specifiers<p>This naming recipe applies to all primitive immutable types:</p><ul data--="ulist"><li>Null</li><li>Undefined</li><li>Boolean</li><li>Number</li><li>BigInt</li><li>String</li><li>Array</li><li>Object</li><li>Symbol</li></ul><p>It extends to specific Object types:</p><ul data--="ulist"><li>Function</li><li>Class</li><li>RegExp</li></ul><p>The suffix specifying the type is a single letter preceded by an underscore character, lowercase letters for “wrapped” types (Boolean, Number, BigInt, String, Array, Object, Symbol, Function, Class, RegExp. See <a href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive" target="_blank" rel="noreferrer noopener">MDN Primitive description</a>. ), uppercase letters for “unwrapped” types (Null, Undefined. ).</p><table class="half_width"><thead><tr><th>Type</th><th style="text-align:center">Specifier</th></tr></thead><tbody><tr><td>Null</td><td style="text-align:center">_<em>N</em></td></tr><tr><td>Undefined</td><td style="text-align:center">_<em>U</em></td></tr><tr><td>Boolean</td><td style="text-align:center">_<em>b</em></td></tr><tr><td>Number</td><td style="text-align:center">_<em>n</em></td></tr><tr><td>BigInt</td><td style="text-align:center">_<em>i</em></td></tr><tr><td>String</td><td style="text-align:center">_<em>s</em></td></tr><tr><td>Array</td><td style="text-align:center">_<em>a</em></td></tr><tr><td>Object</td><td style="text-align:center">_<em>o</em></td></tr><tr><td>Symbol</td><td style="text-align:center">_<em>y</em></td></tr><tr><td>Function</td><td style="text-align:center">_<em>f</em></td></tr><tr><td>Class</td><td style="text-align:center">_<em>c</em></td></tr><tr><td>RegExp</td><td style="text-align:center">_<em>r</em></td></tr></tbody></table><p>To give further meaningful information, function identifiers follow a different scheme: instead of using the previous convention you put two underscore characters before the type specifier <strong>of the returned value</strong> and no specifier for a <code>void</code> function wich returns nothing.</p><p data--="example"><code>const awesome__s = () =&gt; 'An awesome String'</code></p><p data--="example"><code>const clone__s = awesome__s</code></p><p>In case of a function returning different types of value, just omit the type character.</p><p data--="example"><code>const silly__ = string_b =&gt; string_b ? 'A weird String' : 1234</code></p><p>You could do the same for a variable accepting different kinds of type, but is it really a good practice?</p><p data--="example"><code>let hybrid_ = 'A String'</code><br><code>hybrid_ = 1234 //: What a mess!</code></p><hgroup data--="code_ref"><h5>11tyTips/source/matrix/assets/static/scripts/js/parts/dom.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+const DOM_siblings__a = selector_s =>
 {
   const node_e = document.querySelector( selector_s )
   return !node_e ?
     null :
     Array.prototype.filter
-      .call( node_e.parentNode.children, sibling =&gt; sibling !== node_e )
+      .call( node_e.parentNode.children, sibling => sibling !== node_e )
 }
-&lt;br&gt;
-const DOM_listReverse = selector_s =&gt;
+<br>
+const DOM_listReverse = selector_s =>
 {
   const nodes_a = Array.prototype.slice.call(document.querySelectorAll( `${selector_s} li` ))
-  nodes_a.forEach( node_e =&gt; node_e.parentNode.insertBefore( node_e, node_e.parentNode.firstChild ) )
+  nodes_a.forEach( node_e => node_e.parentNode.insertBefore( node_e, node_e.parentNode.firstChild ) )
 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The previous code shows an &lt;strong&gt;exception&lt;/strong&gt; to the specifiers convention used: for &lt;code&gt;DOM&lt;/code&gt; elements, it seems more appropriate to use the &lt;code&gt;_e&lt;/code&gt; suffix than the &lt;code&gt;_o&lt;/code&gt; suffix used for &lt;code&gt;Object&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;This useful convention is used not only in JavaScript context but also in Nunjucks context. However, in templates, variable identifiers are prefixed with an &lt;em&gt;underscore&lt;/em&gt; character:&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{% set _URL_s = _U_.url_s %}&lt;/code&gt;&lt;/p&gt;
-</content>
-  </entry>
-
-  <entry>
-    <title>Front matter</title>
-    <link href="https://11tytips.netlify.com/tips/frontmatter_data.html"/>
-    <updated>2019-09-09T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/frontmatter_data.html</id>
-    <content type="html">&lt;h2&gt;Front matter data&lt;/h2&gt;
-&lt;p&gt;Each Markdown file has its own data, declared at the begining of the file in the front matter part
-(
-11tyTips uses a JavaScript &lt;code&gt;Object&lt;/code&gt; for the front matter.
-)
-, a few ones being mandatory
-(
-no so strickly speaking! For instance, you’re not requested to use a Date, but it’s more than useful if you want to sort your posts by date.
-)
-, others being used to supply some page specific content or variables
-(
-have a look at &lt;a href=&quot;https://11ty.io/docs/data-frontmatter/#user-defined-front-matter-customizations&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Eleventy#user-defined-front-matter-customizations&lt;/a&gt; for a list of Eleventy properties usable in front matter.
-)
-.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Mandatory data&lt;/em&gt;&lt;/p&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;Date
-(
-the Date property is mainly used to sort the posts but also to be shown it on the page.
-)&lt;/li&gt;
-&lt;li&gt;Layout
-(
-this is the template used to render the page.
-)&lt;/li&gt;
-&lt;li&gt;Permalink
-(
-this is the name of the output file: HTML, or any other format (e.g. minified JavaScript).
-)&lt;/li&gt;
-&lt;li&gt;Tags
-(
-the collection(s) including the output file.
-)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;Specific data&lt;/em&gt;&lt;/p&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;Title
-(
-used by 11tyTips to identify the page in the browser tab.
-)&lt;/li&gt;
-&lt;li&gt;Subtitle
-(
-Used by 11tyTips to describe the page content in the Tips list menu.
-)&lt;/li&gt;
-&lt;li&gt;Abstract
-(
-actually not used by 11tyTips, but could be…
-)&lt;/li&gt;
-&lt;li&gt;Author
-(
-useful if there are multiple authors for the posts of the site.
-)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;Page front matter data&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+</code></pre>The previous code shows an **exception** to the specifiers convention used: for `DOM` elements, it seems more appropriate to use the `_e` suffix than the `_o` suffix used for `Object`.<p>This useful convention is used not only in JavaScript context but also in Nunjucks context. However, in templates, variable identifiers are usualy prefixed with an <em>underscore</em> character:</p><p data--="example"><code>{% set _URL_s = _U_.url_s %}</code></p><p>However, don’t forget that in Nunjucks, variables names begining with one or more underscore are <strong>private</strong> and can’t be exported outside the template. (unfortunatly, the Nunjucks documentation doesn’t state it: I found this important note in the <a href="https://jinja.palletsprojects.com/en/2.10.x/templates/#import" target="_blank" rel="noreferrer noopener">Jinja2 documentation</a>. )</p></h3></content></entry><entry><title>Front matter</title><link href="https://11tytips.netlify.com/tips/frontmatter_data.html"><updated>2019-09-09T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/frontmatter_data.html</id><content type="html"><h1>Front matter data</h1><p data--="page_intro">Front matter, the initial section of each Markdown file, offers much more than you think.</p><h2 id="front_matter_is_all_you_need">Front matter is all you need</h2><p>Each Markdown file has its own data, declared at the begining of the file in the front matter part (11tyTips uses a JavaScript <code>Object</code> for the front matter. ), a few ones being mandatory (no so strickly speaking! For instance, you’re not requested to use a Date, but it’s more than useful if you want to sort your posts by date. ), others being used to supply some page specific content or variables (have a look at <a href="https://11ty.io/docs/data-frontmatter/#user-defined-front-matter-customizations" target="_blank" rel="noreferrer noopener">Eleventy#user-defined-front-matter-customizations</a> for a list of Eleventy properties usable in front matter. ).</p><p><em>Mandatory data</em></p><ul><li data--="ulist">Date (the Date property is mainly used to sort the posts but also to be shown it on the page. )</li><li>Layout (this is the template used to render the page. )+ Permalink (this is the name of the output file: HTML, or any other format (e.g. minified JavaScript). )+ Tags (the collection(s) including the output file. )</li></ul><p><em>Specific data</em></p><ul><li data--="ulist">Title (used by 11tyTips to identify the page in the browser tab. )</li><li>Subtitle (Used by 11tyTips to describe the page content in the Tips list menu. )+ Abstract (actually not used by 11tyTips, but could be… )+ Author (useful if there are multiple authors for the posts of the site. )<hgroup data--="code_ref"></hgroup></li></ul><h5>Page front matter data</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6><pre><code class="language-javascript">
 ---js
 {
   date:      `2019-09-06`,
   layout:    `frame.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
-&lt;br&gt;
+<br>
   title_s:     `Front matter`,
   subtitle_s:  `Front matter data access`,
   abstract_s:  `Accessing front matter data in Markdown and templates`,
   author_s:    `Octoxalis`,
 }
 ---
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To access any property declared in the front matter it has to be enclosed in double parenthesis &lt;code&gt;{{ ... }}&lt;/code&gt;
-(
-11tyTips uses Nunjucks. Using other templating systems, this is a bit different.
-)
-. For instance, the &lt;code&gt;abstract_s&lt;/code&gt; property in the front matter is injected in this page with the following code: &lt;code&gt;{{ abstract_s }}&lt;/code&gt; and renders as:&lt;br&gt;
-&lt;q&gt;Accessing front matter data in Markdown and templates&lt;/q&gt;.&lt;/p&gt;
-&lt;h2&gt;Function properties&lt;/h2&gt;
-&lt;p&gt;If you use JavaScript for the front matter
-(
-a very good idea because it gives you the full power of the language to process your content.
-)
-and Nunjucks as templating system, you can declare functions as properties
-(
-see &lt;a href=&quot;https://11ty.io/docs/data-frontmatter/#javascript-front-matter&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Eleventy#javascript-front-matter&lt;/a&gt; documentation page.
-)
-. Usually, apart very specific cases, it’s much more easy to declare content processing functions in a module located inside the data directory
-(
-because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful.
-)
-.&lt;/p&gt;
-&lt;p&gt;However, 11tyTips tips list menu is such a case: the &lt;code&gt;rank__s&lt;/code&gt; property calls the &lt;code&gt;String.prototype.padStart&lt;/code&gt; method to add one or two &lt;code&gt;0&lt;/code&gt; before the tip rank to normalize it and is called this way:&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;&amp;lt;span&amp;gt;{{ rank__s(loop.index) }}&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips/source/store/items/tips_list.njk&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+</code></pre>To access any property declared in the front matter it has to be enclosed in double parenthesis `{{ ... }}` (11tyTips uses Nunjucks. Using other templating systems, this is a bit different. ). For instance, the `abstract_s` property in the front matter is injected in this page with the following code: `{{ abstract_s }}` and renders as:<br><q>Accessing front matter data in Markdown and templates</q>.<h2 id="function_properties">Function properties</h2><p>If you use JavaScript for the front matter (a very good idea because it gives you the full power of the language to process your content. )and Nunjucks as templating system, you can declare functions as properties (see <a href="https://11ty.io/docs/data-frontmatter/#javascript-front-matter" target="_blank" rel="noreferrer noopener">Eleventy#javascript-front-matter</a> documentation page. ). Usually, apart very specific cases, it’s much more easy to declare content processing functions in a module located inside the data directory (because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful. ).</p><p>However, 11tyTips tips list menu is such a case: the <code>rank__s</code> property calls the <code>String.prototype.padStart</code> method to add one or two <code>0</code> before the tip rank to normalize it and is called this way:</p><p data--="example"><code>&lt;span&gt;{{ rank__s(loop.index) }}&lt;/span&gt;</code></p><hgroup data--="code_ref"><h5>11tyTips/source/matter/items/tips_list.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
 ---js
 {
-  rank__s: at_n =&gt; `#${(&#39;&#39; + at_n).padStart( 3, &#39;0&#39; )}`
+  rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
 }
 ---
-&lt;br&gt;
-&amp;lt;menu data--=&amp;quot;tips_menu&amp;quot;&amp;gt;
-  &amp;lt;h4&amp;gt;&amp;lt;a href=&amp;quot;{{ _U_.url_s }}&amp;quot;&amp;gt;Home&amp;lt;/a&amp;gt;&amp;lt;/h4&amp;gt;
-  &amp;lt;h4&amp;gt;→ &amp;lt;a href=&amp;quot;{{ _U_.git_s }}&amp;quot; target=&amp;quot;_blank&amp;quot; rel=&amp;quot;noreferrer&amp;quot;&amp;gt;Github&amp;lt;/a&amp;gt;&amp;lt;/h4&amp;gt;
-  &amp;lt;h4&amp;gt;→ &amp;lt;a href=&amp;quot;{{ _U_.twi_s }}&amp;quot; target=&amp;quot;_blank&amp;quot; rel=&amp;quot;noreferrer&amp;quot;&amp;gt;Twitter&amp;lt;/a&amp;gt;&amp;lt;/h4&amp;gt;
-  &amp;lt;h4&amp;gt;→ &amp;lt;a href=&amp;quot;{{ _U_.rss_s }}&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;RSS&amp;lt;/a&amp;gt;&amp;lt;/h4&amp;gt;
-  &amp;lt;h2 data--=&amp;quot;tips_order&amp;quot;&amp;gt;All the tips&amp;lt;/h2&amp;gt;
-  &amp;lt;ol data--=&amp;quot;tips_list&amp;quot;&amp;gt;
+<menu data--="tips_menu">
+  <h4><a href="{{ _U_.url_s }}">Home</a></h4>
+  <h4>→ <a href="{{ _U_.git_s }}" target="_blank" rel="noreferrer">Github</a></h4>
+  <h4>→ <a href="{{ _U_.twi_s }}" target="_blank" rel="noreferrer">Twitter</a></h4>
+  <h4>→ <a href="{{ _U_.rss_s }}" target="_blank">RSS</a></h4>
+  <h2 data--="tips_order">All the tips</h2>
+  <ol data--="tips_list">
   {% for _post_o in collections.tip %}
-    &amp;lt;li data--=&amp;quot;tips_item&amp;quot;&amp;gt;
-      &amp;lt;span&amp;gt;{{ rank__s(loop.index) }}&amp;lt;/span&amp;gt;
-      &amp;lt;a href=&amp;quot;{{ _post_o.url | url }}&amp;quot;&amp;gt;{{ _post_o.data.title_s }}&amp;lt;/a&amp;gt;
-      &amp;lt;span&amp;gt;{{ _post_o.data.subtitle_s }}&amp;lt;/span&amp;gt;
-    &amp;lt;/li&amp;gt;
+    <li data--="tips_item">
+      <span>{{ rank__s(loop.index) }}</span>
+      <a href="{{ _post_o.url | url }}">{{ _post_o.data.title_s }}</a>
+      <span>{{ _post_o.data.subtitle_s }}</span>
+    </li>
   {% endfor %}
-  &amp;lt;/ol&amp;gt;
-&amp;lt;/menu&amp;gt;
-&lt;br&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;But the same result would have been possible calling directly the &lt;code&gt;padStart&lt;/code&gt; method inside the template
-(
-nevertheless, my prefered solution is the property function because it’s more readable.
-)
-:&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;&amp;lt;span&amp;gt;#{{ (&#39;&#39; + tip_n).padStart( 3, &#39;0&#39; ) }}&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;Front matter properties and global data functions&lt;/h2&gt;
-&lt;p&gt;11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an &lt;code&gt;utils.js&lt;/code&gt; file inside its &lt;code&gt;data/lib&lt;/code&gt; directory where a &lt;code&gt;EleventyLink__s&lt;/code&gt; function compute the link to any Eleventy docs page using an acronym of the page and anchor.&lt;/p&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips/source/store/data/lib/utils.js&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-EleventyLink__s: ( key_s ) =&gt;
+  </ol>
+</menu>
+<br>
+</code></pre>But the same result would have been possible calling directly the `padStart` method inside the template (nevertheless, my prefered solution is the property function because it's more readable. ):<p data--="example"><code>&lt;span&gt;#{{ ('' + tip_n).padStart( 3, '0' ) }}&lt;/span&gt;</code></p><p>(see also <a href="https://11tytips.netlify.com/tips/frontmatter_function.html">frontmatter function</a> page. ) <a href="#" title="======== Aliases ========">comment</a>: # (======== TODO: ## Front matter variables ========)</p><h2 id="front_matter_properties_and_global_data_functions">Front matter properties and global data functions</h2><p>11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an <code>_V_.js</code> file inside its <code>lib/lib</code> directory where a <code>EleventyLink__s</code> function compute the link to any Eleventy docs page using an acronym of the page and anchor.</p><hgroup data--="code_ref"><h5>11tyTips/source/matter/assets/scripts/js/lib/_V_.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+EleventyLink__s: ( key_s ) =>
 {
   const path_s = Y[ `ELEVENTY_${key_s}` ]
-  const anchor_n = path_s.indexOf( &#39;#&#39;)
+  const anchor_n = path_s.indexOf( '#')
   if ( anchor_n === -1 )    //: return a link to 11ty.io
   {
     console.log( `ALERT! (EleventyLink__s) no anchor found in path: ${path_s}` )
-    const ref_n = _G_.ELEVENTY_s.indexOf( &#39;:&#39; )
+    const ref_n = _G_.ELEVENTY_s.indexOf( ':' )
     return { ref: _G_.ELEVENTY_s.substring( 0, ref_n ), link: _G_.ELEVENTY_s }
   }
   const anchor_s = path_s.substring( anchor_n )
-  const anchorLink_s = _G_.ELEVENTY_s.replace( &#39;]&#39;, `${anchor_s}]`) + path_s
-  return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( &#39;:&#39;) ), link: anchorLink_s }
+  const anchorLink_s = _G_.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
+  return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link: anchorLink_s }
 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The acronyms
-(
-usually three characters are enough to get a unique identifier:&lt;br&gt;
-&lt;code&gt;JFM_s&lt;/code&gt; for &lt;code&gt;#javascript-front-matter&lt;/code&gt;,&lt;br&gt;
-&lt;code&gt;UDF_s&lt;/code&gt; for &lt;code&gt;#user-defined-front-matter-customizations&lt;/code&gt;.
-)
-, used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.&lt;/p&gt;
-&lt;p&gt;Hence to get the &lt;em&gt;reference&lt;/em&gt; and the &lt;em&gt;link&lt;/em&gt; of a &lt;em&gt;reference-style link&lt;/em&gt; is just as easy as:&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;JFM_s&#39; ).ref }}&lt;/code&gt;&lt;br&gt;
-&lt;code&gt;{{ lib.utils.EleventyLink__s( &#39;JFM_s&#39; ).link }}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Actually, most of Eleventy link keys are gathered in the &lt;code&gt;_G_.js&lt;/code&gt; global data file and not in the front matter!&lt;/p&gt;
-&lt;h3&gt;Even shorter&lt;/h3&gt;
-&lt;p&gt;But we can do more, using Nunjucks &lt;code&gt;set&lt;/code&gt; tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ _11ty_f( &#39;JFM_s&#39; ).link }}&lt;/code&gt;
-(
-Reference-style link located in Links section, after the Aliases section.
-)&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{{ _11ty_f( &#39;JFM_s&#39; ).ref }}&lt;/code&gt;
-(
-reference inside content.
-)&lt;/p&gt;
-&lt;hgroup data--=&quot;code_ref&quot;&gt;
-&lt;h5&gt;11tyTips/source/store/items/frontmatter_data.md&lt;/h5&gt;
-&lt;h6&gt;&lt;a href=&quot;https://prismjs.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot; title=&quot;Highlighting provided by Prism.js&quot;&gt;Prism&lt;/a&gt;&lt;/h6&gt;
-&lt;/hgroup&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-&lt;br&gt;
+</code></pre>The acronyms (usually three characters are enough to get a unique identifier:<br>`JFM_s` for `#javascript-front-matter`,<br>`UDF_s` for `#user-defined-front-matter-customizations`. ), used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.<p>Hence to get the <em>reference</em> and the <em>link</em> of a <em>reference-style link</em> is just as easy as:</p><p data--="example"><code>{{ _V_.EleventyLink__s( 'JFM_s' ).ref }}</code><br><code>{{ _V_.EleventyLink__s( 'JFM_s' ).link }}</code></p><p>Actually, most of Eleventy link keys are gathered in the <code>_G_.js</code> global data file and not in the front matter!</p><h3 id="even_shorter">Even shorter<p>But we can do more, using Nunjucks <code>{% set %}</code> tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:</p><p data--="example"><code>{{ _11ty_f( 'JFM_s' ).link }}</code> (Reference-style link located in Links section, after the Aliases section. )</p><p data--="example"><code>{{ _11ty_f( 'JFM_s' ).ref }}</code> (reference inside content. )</p><hgroup data--="code_ref"><h5>11tyTips/source/matter/items/frontmatter_data.md</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
 [comment]: # (======== Aliases ========)
-{% set _11ty_f = lib.utils.EleventyLink__s %}
-&lt;br&gt;
-[comment]: # (======== Links ========)
-{{ _11ty_f( &#39;JFM_s&#39; ).link }}
-{{ _11ty_f( &#39;UDF_s&#39; ).link }}
-&lt;br&gt;
+{% set _11ty_f = _V_.EleventyLink__s %}
+<br>
+{{ _11ty_f( 'JFM_s' ).link }}
+{{ _11ty_f( 'UDF_s' ).link }}
+<br>
 [comment]: # (======== Post ========)
-&lt;br&gt;
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-  </entry>
-
-  <entry>
-    <title>Shortcodes</title>
-    <link href="https://11tytips.netlify.com/tips/shortcodes.html"/>
-    <updated>2019-09-10T02:00:00+02:00</updated>
-    <id>https://11tytips.netlify.com/tips/shortcodes.html</id>
-    <content type="html">&lt;h2&gt;A corner stone&lt;/h2&gt;
-&lt;p&gt;Shortcodes are probably the most powerful tool to process Markdown content inline. They are simple to create and use, almost anything can be done with them, and they represent an important opportunity that should not be missed. Eleventy has two kinds of shortcode:&lt;/p&gt;
-&lt;ul data--=&quot;ulist&quot;&gt;
-&lt;li&gt;simple
-(
-the shortcode argument (i.e. content) is passed to a single tag (ex. #1).
-)&lt;/li&gt;
-&lt;li&gt;paired
-(
-the shortcode argument is passed enclosed between two tags (ex. #2).
-)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{% _shortcode_id &amp;quot;argument&amp;quot; %}&lt;/code&gt;&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;{% _shortcode_id %}... Content to be processed ...{% end_shortcode_id %}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;11tyTips doesn’t use a lot of shortcodes, but they are essential to its content. Let’s dissect the most omnipresent of it: the &lt;code&gt;_code_block&lt;/code&gt; paired shortcode.
-It is passed to Eleventy configuration method &lt;code&gt;addPairedShortcode&lt;/code&gt; this way:&lt;/p&gt;
-&lt;p data--=&quot;example&quot;&gt;&lt;code&gt;generator_o.addPairedShortcode(&#39;_code_block&#39;, content_s =&amp;gt; CODES_o.code_block__s( content_s ) )&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Here, &lt;code&gt;_code_block&lt;/code&gt; is the shortcode identifier
-(
-11tyTips uses a leading underscore character because the shortcode closing tag adds the word &lt;code&gt;end&lt;/code&gt; before the shortcode identifier: &lt;code&gt;end_shortcode&lt;/code&gt; is more readable than &lt;code&gt;endshortcode&lt;/code&gt;, isn’t it?
-)&lt;/p&gt;
-</content>
-  </entry>
-</feed>
+<br>
+</code></pre></h3></content></entry><entry><title>Shortcodes</title><link href="https://11tytips.netlify.com/tips/shortcodes.html"><updated>2019-09-10T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/shortcodes.html</id><content type="html"><h1>Content processing with shortcodes</h1><p data--="page_intro">Shortcodes are probably the most powerful tool to process Markdown content inline.</p><h2 id="a_corner_stone">A corner stone</h2><p>They are simple to create and use, almost anything can be done with them, and they represent an important opportunity that should not be missed. Eleventy has two kinds of shortcode:</p><ul data--="example"><li data--="ulist">simple (the shortcode argument (i.e. content) is passed to a single tag (ex. #1). )</li><li>paired (the shortcode argument is passed enclosed between two tags (ex. #2). ) <code>{% _shortcode_id &quot;argument&quot; %}</code></li></ul><p data--="example"><code>{% _shortcode_id %}... Content to be processed ...{% end_shortcode_id %}</code></p><p>11tyTips doesn’t use a lot of shortcodes, but they are essential to its content. Let’s dissect the most omnipresent of it: the <code>_code_block</code> paired shortcode. It is passed to Eleventy configuration method <code>addPairedShortcode</code> this way:</p><p data--="example"><code>make_o.addPairedShortcode('_code_block', content_s =&gt; CODES_o.code_block__s( content_s ) )</code></p><p>Here, <code>_code_block</code> is the shortcode identifier (11tyTips uses a leading underscore character because the shortcode closing tag adds the word <code>end</code> before the shortcode identifier: <code>end_shortcode</code> is more readable than <code>endshortcode</code>, isn’t it? )</p><p data--="important">Shortcode anatomy <em>(to be continued...)</em></p></content></entry><entry><title>Minifying styles and script</title><link href="https://11tytips.netlify.com/tips/minifying.html"><updated>2019-10-10T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/minifying.html</id><content type="html"><h1>Minifying assets</h1><p data--="page_intro">Use the power of Node packages inside Eleventy.</p><h2 id="bypassing_build_tools">Bypassing build tools</h2><p>Build tools are tedious: that’s my opinion, when it comes to simple and static sites. And one of the strength of Eleventy is that you can bypass build tools to accomplish the necessary step of minifying some assets to speed up pages downloading. Of course, you need some processing to reduce all CSS or JavaScript files, but Node is full of packages to do that processing and compress those files and it would be a pity to ignore that power: simply call it up directly within your Eleventy build step.</p><p>One of the immediate benefices is that you can therefore split your assets in small chunks to manage them very easily during the development phase.</p><p data--="important">The realm of filters <em>(to be continued...)</em></p></content></entry><entry><title>Using shorthands</title><link href="https://11tytips.netlify.com/tips/shorthands.html"><updated>2019-10-13T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/shorthands.html</id><content type="html"><h1>Shorhand notation</h1><p data--="page_intro">For frequently used bits of content a shorthand notation is a good practice.</p><h2 id="less_is_clean_and_meaningful">Less is clean and meaningful</h2><p data--="important">Using sorthand notation in markdown files is not only for lazy authors: it yields a more semantic code. <em>(to be continued...)</em></p></content></entry><entry><title>Front matter post processing function</title><link href="https://11tytips.netlify.com/tips/frontmatter_function.html"><updated>2019-10-19T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/frontmatter_function.html</id><content type="html"><h1>JavaScript front matter functions</h1><p data--="page_intro">For specific processing needs of a page, you can declare functions in the front matter section.</p><h2 id="post_processing_the_template_engine_output">Post processing the template engine output</h2><p>A singular use case of a front matter function (see <a href="https://11tytips.netlify.com/tips/frontmatter_data.html">frontmatter data</a> page for an introduction to front matter properties. )is when you want to process the output of the template engine. For instance, in Nunjucks, if you want to output something that would normaly be processed as a Nunjucks block (exactly what I’m doing writing this page! ), you have to enclose it in a <code>[% raw %][% endraw %]</code> tags pair. But it doesn’t work if you want to output only one tag of the pair either the <code>[% raw %]</code> or <code>[% endraw %]</code> tag. The shortcoming is simple: use a front matter function.</p><p>In the markdown file, the <code>raw</code> tags are writen by replacing the curly bracket characters (<code>{</code> and <code>}</code>) by the square bracket characters (<code>[</code> and <code>]</code>) and reverted to curly brackets after the template processing with the front matter function.</p><p>By convention, I call this front matter function <code>output__s</code> and it takes as argument the template engine output, to process it the way I want.</p><hgroup data--="code_ref"><h5>11tyTips/source/matter/items/frontmatter_function.md</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+---js
+{
+  //...
+  output__s: output_s => output_s.replace( /\[% raw %\]/g, '{% raw %}' ).replace( /\[% endraw %\]/g, '{% endraw %}' )
+}
+---
+<br>
+</code></pre>This `output__s` function is automaticaly invoqued (if it exists in the front matter part of any Markdown file) at the end of the global frame template passing the template engine result previously captured by a Nunkucks `{% set %} {% endset %}` block.<hgroup data--="code_ref"><h5>11tyTips/source/matrix/frame.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-nunjucks">
+{% set _HTML_s %}
+...
+{% endset %}
+<br>
+{% block POST_PROCESS %}
+{% if output__s %}{% set _HTML_s = output__s( _HTML_s ) %}{% endif %}
+...
+{% endblock %}
+<br>
+</code></pre>However, you are not at all constrained to process the output of the template engine globally: you can process only a part of it if you see fit as well as you can use multiple processing functions and multiple invocations. It's just a question of enclosing the output to process in a set block.</content></entry><entry><title>Processing before and after the template engine</title><link href="https://11tytips.netlify.com/tips/pre_post_processing.html"><updated>2019-10-19T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/pre_post_processing.html</id><content type="html"><h1>Processing template output</h1><p data--="page_intro">It can be useful to process the final result of the templating work or prepare it by some pre processing.</p><h2 id="wrap_the_page_your_own_way">Wrap the page your own way</h2><p>All templating engines have limits and Nunjucks (which is used here by 11tyTips )has its own. But you can easily go your way beyond those limits to process the output of the templating engine just before everything is engraved as a static HTML page. For instance you may want to overcome the encoding output of the engine and make some modifications (see also the <a href="https://11tytips.netlify.com/tips/frontmatter_data.html">frontmatter data</a> tip for an example of post processing the template engine output without a global filter, but using a front matter specific callback function. ).</p><p>Once again this is acquired thru the use of a filter and an awesome help of the Nunjucks <code>{% set %}</code> block. Every global template (i.e. a template which produces a full <code>html</code> page. )has a <em>starting</em> block (in the following listing it’s the first line <code>include</code> tag. )using a filter whose concern is to initialize some variables needed by the page which is about to be processed by the templating engine (it can be, for instance, a data base access (server-side), or some checking relative to the pages that have been previously processed, etc. ).</p><p>Similarly, there is an <em>ending</em> block whose filter processes the output of the template engine, once all the template work has been done, allowing you to further processed the output. (in the following listing it’s the last line <code>include</code> tag. )</p><hgroup data--="code_ref"><h5>source/matrix/frame.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-twig">
+{% include "parts/_template_start_.njk" %}{# ante process #}
+<br>
+{%- set _URL_s = _U_.url_s -%}
+<br>
+{%- set _head_block_s %}
+&lt;head&gt;
+{% include "parts/_site_url_.njk" %}
+{% include "parts/_head_.njk" %}
+{% include "parts/_seo_.njk" %}
+{% include "parts/_description_.njk" %}
+{% include "parts/_favicon_.njk" %}
+{% include "parts/_feed_.njk" %}
+{% include "parts/_font_inline_.njk" %}
+{% include "parts/_style_inline_.njk" %}
+{% include "parts/_style_.njk" %}
+&lt;/head&gt;
+{% endset -%}
+<br>
+{%- set _body_block_s %}
+&lt;body&gt;
+{% include "parts/_nav_.njk" %}
+{% include "parts/_article_.njk" %}
+{% if _U_.dev_b === false %}{% include "parts/_instant_page_.njk" %}{% endif %}
+{% include "parts/_script_.njk" %}
+{% if no_comments !== true %}
+{#% include "parts/_colophon_.njk" %#}
+{#% include "parts/_comment_.njk" %#}
+{% endif %}
+&lt;/body&gt;
+{% endset -%}
+<br>
+{%- set _template_s %}
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+{{ _head_block_s | safe }}
+{{ _body_block_s | safe }}
+&lt;/html&gt;
+{% endset -%}
+<br>
+{% include "parts/_template_end_.njk" %}{# post process #}
+<br>
+</code></pre><hgroup data--="code_ref"><h5>source/matrix/parts/_template_end_.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-twig">
+{%- if output__s %}{% set _template_s = output__s( _template_s ) %}{% endif -%}
+{%- set _args_a = { date: date, permalink: permalink, tags: tags, title_s: title_s } -%}
+{%- if _U_.dev_b === true %}
+{{- _template_s | safe | template_end( _args_a ) -}}
+{% else -%}
+{{- _template_s | safe | template_end( _args_a ) | minify_html -}}
+{% endif -%}
+<br>
+</code></pre><h2 id="processing_at_the_very_start_or_end">Processing at the very start or end</h2><p>The filters invoqued as previously described are also use to make any specific processing required just before the first template is to be processed by Eleventy and just after the last template has been processed. It’s kind of a hook, as can be seen is some frameworks, inside Eleventy. This <em>ante</em> or <em>post</em> processing uses only a directory listing to count the number of template files to be processed and invoque the starting function if no one has already been processed or the ending function if the number of files processed is equivalent to the listing count.</p><hgroup data--="code_ref"><h5>source/make/11ty/template_process.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+const MD_DIR_s = './matter/pages/'    //: all Mardown files
+const DEPTH_n  = 0                    //: ...are located at the root level of MD_DIR_s
+<br>
+var files_a = require( 'klaw-sync' )( MD_DIR_s, { nodir: true, depthLimit: DEPTH_n } )
+var count_n = files_a ? files_a.length : 0
+var at_n    = 0
+<br>
+module.exports =
+{
+  start__s: ( input_s, args_a ) =>
+  {
+    let start_s = input_s
+    if ( at_n === 0 && files_a ) require( './template_start' )( files_a )
+    //...  process start_s
+    return start_s
+  },
+<br>
+  end__s: ( output_s, args_a ) =>
+  {
+    ++at_n
+    let end_s = output_s
+    //... process end_s
+    if ( at_n === count_n && files_a ) require( './template_end' )( files_a )
+    return end_s
+  },
+<br>
+}
+<br>
+</code></pre><p>Any kind of processing can be done inside the starting and ending modules and the argument they receive can be anything else than the list of files to process. In 11tyTips, till now, these modules do not process anything.</p><hgroup data--="code_ref"><h5>source/make/11ty/template_start.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+module.exports = ( files_a, ...args_ ) =>
+{
+  console.log( `${files_a.length} Markdown files to be processed` )
+}
+<br>
+</code></pre><hgroup data--="code_ref"><h5>source/make/11ty/template_end.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+module.exports = ( files_a, ...args_ ) =>
+{
+  console.log( `${files_a.length} Markdown files have been processed` )
+}
+<br>
+</code></pre></content></entry><entry><title>Variables scope and templates inheritance</title><link href="https://11tytips.netlify.com/tips/variables_inheritance.html"><updated>2019-10-26T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/variables_inheritance.html</id><content type="html"><h1>Variables and templates inheritance</h1><p data--="page_intro">In Nunjucks, inheriting templates can have private variables.</p><h2 id="variables_and_blocks">Variables and blocks</h2><p>When you rely on template inheritance (using the <code>{% extends %}</code> declaration ), you cant’ have a <code>{% block %}{% endblock %}</code> inside a variable <code>set</code> block. The other way, a variable declared inside a <code>{% block %}{% endblock %}</code> will not be accessible outside. Therefore, you can’t gather all variables in a global variable passed as an argument to the processing filter. However, you still have the possibility to process each block individualy.</p><h3 id="variables_scope">Variables scope<p>When using variables declared with the <code>set</code> block, never forget that any variable whose name begins with one or more underscore character is <strong>private</strong>. Therefore it can not be imported outside of its block scope (unfortunatly, the Nunjucks documentation doesn’t state it: I found this important note in the <a href="https://jinja.palletsprojects.com/en/2.10.x/templates/#import" target="_blank" rel="noreferrer noopener">Jinja2 documentation</a>. ).</p></h3></content></entry></feed>

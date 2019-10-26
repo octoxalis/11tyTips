@@ -1,0 +1,96 @@
+/**
+ *  __<br>__
+ * line: <u></u>
+ *  __Title of the note__
+ *  *Bold text*
+ */
+
+[data--="article"]
+{
+  counter-reset: inline_notes examples;
+}
+
+[data--="inline_note"]
+{
+  --font_body:   90%;
+  --font_sup:    60%;
+  --font_strong: 120%;
+
+  text-decoration: none;
+}
+
+[data--="note_content"]
+{
+  overflow: hidden;
+  break-before: avoid;
+  break-inside: avoid;
+  break-after: avoid;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+[data--="inline_note"] > sup
+{
+  counter-increment: inline_notes;
+  top: -0.6rem;
+  margin-right: .5rem;
+  padding: 0 var(--PAD_2);
+  border-bottom: var(--BORDER_1) solid var(--c_prim_tr);
+  vertical-align: baseline;
+  font-size: var(--font_sup);
+}
+[data--="inline_note"] > sup::after
+{
+  content: counter( inline_notes );
+}
+
+[data--="note_content"] u    /* horizontal line */
+{
+  /*display: inline-block;*/
+  border-top: .1rem solid var(--c_prim_tr);
+}
+
+[data--="note_content"] strong    /* title */
+{
+  /*display: inline-block;*/
+  margin-top: var(--PAD_4);
+  font-size: var(--font_strong);
+  font-weight: 900;
+  font-style: normal;
+}
+
+[data--="note_content"] em    /* emphasis */
+{
+  font-weight: 900;
+  font-style: normal;
+}
+
+[data--="note_content"] a  /* link */
+{
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+[data--="note_content"] cite    /* citation */
+{
+  padding-left: var(--PAD_4);
+}
+[data--="note_content"] cite::before
+{
+  content: '\00ab';
+}
+[data--="note_content"] cite::after
+{
+  content: '\00bb';
+}
+
+.note_open    /* after [data--="note_content"] */
+{
+  margin: var(--PAD_2) var(--PAD_4) var(--PAD_2) 0;
+  padding: var(--PAD_1) var(--PAD_2);
+  width: auto;
+  height: auto;
+  border-left: var(--BORDER_2) solid var(--c_prim_tr);
+  transition: all 0.2s ease;
+}

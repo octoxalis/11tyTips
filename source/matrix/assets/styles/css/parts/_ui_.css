@@ -1,0 +1,133 @@
+.zero_height
+{
+  transform: scaleY( 0 );
+}
+
+.half_width
+{
+  width: calc( var(--line_width) * .5 );
+}
+
+[data--="header"]
+{
+  padding-top: var(--PAD_8);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: .75rem solid var(--c_decor);
+  opacity: 1;
+}
+
+[data--="header_title"]
+{
+  flex-grow: 2;
+  margin-left: var(--PAD_1);
+  line-height: .7;    /* border-bottom as underline */
+  color: hsla( var(--c_hue_p), var(--c_sat_hi), 87%, var(--c_opac_hi) );
+}
+
+[data--="header_menu"]
+{
+  padding: var(--PAD_1) var(--PAD_2);
+  border: .1rem solid var(--c_decor);
+}
+
+[data--="section"]
+{
+  padding: var(--PAD_1);
+}
+
+[data--="page_intro"]
+{
+  margin-top: 1rem;
+  font-size: calc( var(--font_u) * var(--font_r)  * 1.5 );
+}
+
+[data--="code_ref"]
+{
+  margin-top: var(--PAD_4);
+  padding: var(--PAD_1) var(--PAD_2);
+  display: flex;
+  justify-content: space-between;
+	color: hsla(var(--c_hue_d), 80%, 20%, .8);
+	font-size: 90%;
+  letter-spacing: -.05rem;
+  line-height: 1;
+}
+
+/* [data--="code_ref"] > h5: Subtitle | File path */
+/* [data--="code_ref"] > h6: Reference | Source */
+
+[data--="code_ref"] > h5
+{
+	color: hsla(var(--c_hue_d), 80%, 20%, .8);
+}
+[data--="code_ref"] > h6 > a
+{
+	color: hsla( 300, 80%, 20%, .8 );
+  font-weight: 200;
+}
+
+[data--="example"]
+{
+  counter-increment: examples;
+  padding-left: var(--PAD_2);
+  color: hsla( 180, 10%, 10%, 1 );
+}
+[data--="example"]::before
+{
+  content: 'example #' counter(examples);
+  margin-bottom: var(--PAD_2);
+  padding-left: var(--PAD_1);
+  border-bottom: 1px solid var(--c_decor_lo);
+}
+
+[data--="ulist"]
+{
+  margin: 0 0 0 1rem;
+  padding-left: 0;
+  /*list-style: none;*/
+}
+
+[data--="ulist"]  > li
+{
+  --border_opac: .6;
+  --border_color: hsla( var(--c_hue_p), var(--c_sat), 80%, var(--border_opac) );
+
+  margin: 0;
+  padding-left: var(--PAD_2);
+  border-left: var(--BORDER_1) solid var(--border_color);
+}
+[data--="ulist"]  > li >  [data--="ulist"]  > li
+{
+  --border_opac: .4;
+}
+[data--="ulist"]  > li >  [data--="ulist"]  > li >  [data--="ulist"]  > li
+{
+  --border_opac: .3;
+}
+
+[data--="ulist"]  > li::before
+{
+  --char_size: .5rem;
+
+  content: '▶';
+  /*position: relative;*/
+  top: calc( var(--char_size) * -0.125 );
+  left: calc( var(--char_size) * -1 );
+  color: var(--border_color);
+  font-size: var(--char_size);
+}
+
+[data--="important"] 
+{
+  padding: 0 var(--PAD_2);
+  background: var(--c_advice);
+  border-left: var(--BORDER_3) solid var(--c_decor);
+}
+[data--="important"]::before
+{
+  content: '▶';
+  /*position: relative;*/
+  left: calc( var(--BORDER_2) * -.5 );
+}

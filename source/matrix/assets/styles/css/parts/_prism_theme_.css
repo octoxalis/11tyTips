@@ -1,0 +1,120 @@
+/* PRISM.css custom theme: Mint
+*/
+:root
+{
+  --h_punctuation: 30;
+  --h_operator:    70;
+  --h_selector:    110;
+  --h_keyword:     150;
+  --h_comment:     190;
+  --h_boolean:     230;
+  --h_property:    270;
+  --h_regex:       300;
+  --h_atrule:      350;
+  --sat: 95%;
+  --lum: 80%;
+}
+
+p > code,
+code[class*="language-"],
+pre[class*="language-"],
+[data--="note_content"] code
+{
+	font-family: 'Fira Code', monospace;
+}
+
+code[class*="language-"],
+pre[class*="language-"]
+{
+  color:  hsla( 180, 20%, 100%, 1 );
+	font-size: 90%;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"]
+{
+	background: hsla( 180, 10%, 10%, .8 );
+}
+
+[data--="note_content"] code,
+p > code
+{
+  color: hsla( 180, 10%, 10%, 1 );
+	background: hsla( 180, 20%, 100%, .2 );
+	font-size: 70%;    /* Fira Code adjustment */
+  border-radius: 4px;
+}
+
+
+.toolbar-item > button
+{
+  padding: var(--PAD_1) var(--PAD_2);
+  border: .1rem solid var(--c_decor);
+}
+.toolbar-item > button:hover
+{
+  cursor: pointer;
+  transition: .3s ease-in;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: hsla( var(--h_comment), var(--sat), 65%, 0.9);
+}
+
+.token.punctuation {
+	color: hsl( var(--h_punctuation), var(--sat), var(--lum), 1);
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: hsl( var(--h_property), var(--sat), var(--lum), 1);
+}
+
+.token.boolean,
+.token.number {
+	color: hsl( var(--h_boolean), var(--sat), var(--sat), 1);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: hsl( var(--h_selector), var(--sat), var(--lum), 1);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: hsl( var(--h_operator), var(--sat), var(--lum), 1);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: hsl( var(--h_atrule), var(--sat), var(--lum), 1);
+}
+
+.token.keyword {
+	color: hsl( var(--h_keyword), var(--sat), var(--lum), 1);
+}
+
+.token.regex,
+.token.important {
+	color: hsl( var(--h_regex), var(--sat), 70%, 1);
+}
+
+.namespace {
+	opacity: .7;
+}

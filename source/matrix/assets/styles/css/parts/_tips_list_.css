@@ -1,0 +1,34 @@
+:root
+{
+  --MENU_SHOW: 0;
+}
+
+[data--="tips_menu"]
+{
+  width: calc( 100% - ( var(--PAD_W) * 2vw ) );
+  padding-top: var(--PAD_8);
+  transform: scaleY( var(--MENU_SHOW) );
+  transition: all 0.25s ease-in-out;
+}
+
+[data--="tips_order"]::after
+{
+  content: '⇅';
+  margin-left: var(--PAD_8);
+  font-size: 80%;
+  font-style: normal;
+}
+
+[data--="tips_item"]
+{
+  display: flex;
+  margin: 0;
+}
+
+[data--="tips_item"] span
+{
+  margin-left: var(--PAD_2);
+  padding: var(--PAD_1);
+  font-style: oblique;
+  color: hsla( 180, 10%, 10%, 1 );
+}

@@ -1,0 +1,7 @@
+{% set _js %}
+{% include "./parts/_dom_.js" %}
+{% include "./parts/_ui_.js" %}
+{% endset %}
+{% if _U_.dev_b === true %}{{ _js | safe }}
+{% else %}{{ _js | minify_js | safe }}
+{% endif %}
