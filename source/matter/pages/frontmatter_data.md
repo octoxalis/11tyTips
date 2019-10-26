@@ -15,13 +15,16 @@
 }
 ---
 [comment]: # (======== Aliases ========)
+
 {% set _11ty_f = _V_.EleventyLink__s %}
 
 [comment]: # (======== Links ========)
+
 {{ _11ty_f( 'JFM_s' ).link }}
 {{ _11ty_f( 'UDF_s' ).link }}
 
 [comment]: # (======== Post ========)
+
 # Front matter data
 
 Front matter, the initial section of each Markdown file, offers much more than you think.{ data--="page_intro" }
@@ -45,44 +48,56 @@ have a look at {{ _11ty_f( 'UDF_s' ).ref }}{{_G_.OUTLINK_s}} for a list of Eleve
 {% end_short_note %}
 .
 
-*Mandatory data*
+
+**Mandatory data**
+
 + Date
 {% _short_note %}
 the Date property is mainly used to sort the posts but also to be shown it on the page.
 {% end_short_note %}
-{ data--="ulist" }
+
 + Layout
 {% _short_note %}
 this is the template used to render the page.
 {% end_short_note %}
+
 + Permalink
 {% _short_note %}
 this is the name of the output file: HTML, or any other format (e.g. minified JavaScript).
 {% end_short_note %}
+
 + Tags
 {% _short_note %}
 the collection(s) including the output file.
 {% end_short_note %}
 
+{ data--="ulist" }
 
-*Specific data*
+
+**Specific data**
+
 + Title
 {% _short_note %}
 used by {{_G_.SITE_s}} to identify the page in the browser tab.
 {% end_short_note %}
-{ data--="ulist" }
+
 + Subtitle
 {% _short_note %}
 Used by {{_G_.SITE_s}} to describe the page content in the Tips list menu.
 {% end_short_note %}
+
 + Abstract
 {% _short_note %}
 actually not used by {{_G_.SITE_s}}, but could be...
 {% end_short_note %}
+
 + Author
 {% _short_note %}
 useful if there are multiple authors for the posts of the site.
 {% end_short_note %}
+
+{ data--="ulist" }
+
 
 {% _code_block %}
     title_s: 'Page front matter data',
@@ -102,6 +117,7 @@ useful if there are multiple authors for the posts of the site.
 }
 ---
 {% end_code_block %}
+
 
 To access any property declared in the front matter it has to be enclosed in double parenthesis {% raw %}`{{ ... }}`{% endraw %}
 {% _short_note %}
@@ -168,6 +184,7 @@ However, {{_G_.SITE_s}} tips list menu is such a case: the `rank__s` property ca
 {{ _code }}
 {% end_code_block %}
 
+
 But the same result would have been possible calling directly the `padStart` method inside the template
 {% _short_note %}
 nevertheless, my prefered solution is the property function because it's more readable.
@@ -181,7 +198,9 @@ nevertheless, my prefered solution is the property function because it's more re
 see also [frontmatter function] page.
 {% end_short_note %}
 
+
 [comment]: # (======== TODO: ## Front matter variables ========)
+
 
 {% _anchor %}
 ## Front matter properties and global data functions
@@ -209,6 +228,7 @@ EleventyLink__s: ( key_s ) =>
   return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link: anchorLink_s }
 }
 {% end_code_block %}
+
 
 The acronyms
 {% _short_note %}

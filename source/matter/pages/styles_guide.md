@@ -76,12 +76,15 @@ module.exports = make_o =>
 
 ### Lists
 
+{% _short_note %}Unordered list{% end_short_note %}
+
 + Primo
 + Secondo
 + Tertio
+
 { data--="ulist" }
 
-{% _short_note %}Unordered list{% end_short_note %}
+{% _short_note %}Nested unordered list{% end_short_note %}
 
 
 + Primo
@@ -95,8 +98,6 @@ module.exports = make_o =>
 { data--="ulist" }
   - Deux
 + Tertio
-
-{% _short_note %}Nested unordered list{% end_short_note %}
 
 
 - Inside a short note, it works only preceded by a list item

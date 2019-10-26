@@ -54,14 +54,17 @@ The `source` directory design reflects the JAMstack categories:
 contains JavaScript modules to be used during the build process and is split in two directories: Eleventy modules (`11ty`) and {{_G_.SITE_s}} modules (`lib`).<br>
 *This is also where the initial JavaScript file firing the building process is located*. Instead of `.eleventy.js` this file is named `make.js` (without the starting dot because it is not hidden).
 {% end_short_note %}
+
 + matrix
 {% _short_note %}
 gathers, in `./` and `parts` directories, all the templates producing the site HTML files; plus the Javascript and CSS files concatenated and minified (`assets`).
 {% end_short_note %}
+
 + matter
 {% _short_note %}
 contains the Markdown files of all site posts (`pages` subdirectory), plus some files they include (`parts`).
 {% end_short_note %}
+
 { data--="ulist" }
 
 I sometimes like to call it the *3M* directory
@@ -70,22 +73,27 @@ all of its subdirectory having names begining with an *m* letter, enumerating th
 {% end_short_note %}
 .
 All subdirectories of the three first level directories follow a consistent naming scheme:
+
 + assets
 {% _short_note %}
 for directories containing both script files, style files and files not to be processed and just to be passthru copied to output site;
 {% end_short_note %}
+
 + scripts
 {% _short_note %}
 for JavaScript files and, eventually, other scripting language files
 {% end_short_note %}
+
 + styles
 {% _short_note %}
 for Cascading stylesheet files and, eventually, other styling language files (SCCS, etc.)
 {% end_short_note %}
+
 + parts
 {% _short_note %}
 for partial files to be included by other files.
 {% end_short_note %}
+
 { data--="ulist" }
 
 This structure departs deliberately from what is  generaly adopted by static sites built with Eleventy

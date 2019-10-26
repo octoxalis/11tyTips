@@ -38,6 +38,7 @@ var str = 'The quick brown fox jumps over the lazy dog.';
 var words = str.split(' ');
 {% end_code_block %}
 
+
 Two different words for two tightly related entities! Isn't it semantically more meaningful to use the same identifier with different specifiers?
 
 {% _code_block %}
@@ -47,6 +48,7 @@ Two different words for two tightly related entities! Isn't it semantically more
 var lazyDog_s = 'The quick brown fox jumps over the lazy dog.';
 var lazyDog_a = lazyDog_s.split(' ');
 {% end_code_block %}
+
 
 A more tricky example
 {% _short_note %}
@@ -62,6 +64,7 @@ const oneTwoThree_s = '123'
 let   oneTwoThree_n = +oneTwoThree_s          //: to Number
 const oneTwoFour_s  = '' + ++oneTwoThree_n    //: to String
 {% end_code_block %}
+
 
 {% _anchor %}
 ### Types specifiers
@@ -152,6 +155,7 @@ const DOM_listReverse = selector_s =>
   nodes_a.forEach( node_e => node_e.parentNode.insertBefore( node_e, node_e.parentNode.firstChild ) )
 }
 {% end_code_block %}
+
 
 The previous code shows an **exception** to the specifiers convention used: for `DOM` elements, it seems more appropriate to use the `_e` suffix than the `_o` suffix used for `Object`.
 
