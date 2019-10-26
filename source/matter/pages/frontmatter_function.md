@@ -52,6 +52,7 @@ By convention, I call this front matter function `output__s` and it takes as arg
 {% endraw %}
 {% end_code_block %}
 
+
 This `output__s` function is automaticaly invoqued (if it exists in the front matter part of any Markdown file) at the end of the global frame template passing the template engine result previously captured by a Nunkucks {% raw %}`{% set %} {% endset %}`{% endraw %} block.
 
 {% _code_block %}
@@ -69,6 +70,7 @@ This `output__s` function is automaticaly invoqued (if it exists in the front ma
 {% endblock %}
 {% endraw %}
 {% end_code_block %}
+
 
 However, you are not at all constrained to process the output of the template engine globally: you can process only a part of it if you see fit as well as you can use multiple processing functions and multiple invocations. It's just a question of enclosing the output to process in a set block.
 
