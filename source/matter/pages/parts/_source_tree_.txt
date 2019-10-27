@@ -10,8 +10,9 @@
 │   └── lib
 │       ├── block_replace.js
 │       ├── block_split.js
-│       ├── template_end.js
 │       ├── feed_content.js
+│       ├── template_end.js
+│       ├── template_process.js
 │       └── template_start.js
 ├── matrix
 │   ├── assets
@@ -75,6 +76,8 @@
 │   │   ├── _site_url_.njk
 │   │   ├── _style_.njk
 │   │   ├── _style_inline_.njk
+│   │   ├── _template_end_.njk
+│   │   └── _template_start_.njk
 │   ├── feed.njk
 │   ├── frame.njk
 │   ├── sitemap.njk
@@ -84,6 +87,7 @@
     │   ├── scripts
     │   │   └── js
     │   │       ├── lib
+    │   │       │   ├── _C_.js
     │   │       │   ├── _G_.js
     │   │       │   ├── _U_.js
     │   │       │   ├── _V_.js
@@ -112,4 +116,5 @@
         ├── sitemap.md
         ├── source_tree.md
         ├── styles_guide.md
-        └── tips_list.md
+        ├── tips_list.md
+        └── variables_inheritance.md
