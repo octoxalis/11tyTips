@@ -16,12 +16,12 @@
 ---
 [comment]: # (======== Aliases ========)
 
-{% set _11ty_f = _V_.eleventyLink__s %}
+{% set _11ty__s = _V_.eleventyLink__s %}
 
 [comment]: # (======== Links ========)
 
-{{ _11ty_f( 'JFM_s' ).link }}
-{{ _11ty_f( 'UDF_s' ).link }}
+{{ _11ty__s( 'JFM_s' ).link }}
+{{ _11ty__s( 'UDF_s' ).link }}
 
 [comment]: # (======== Post ========)
 
@@ -44,7 +44,7 @@ no so strickly speaking! For instance, you're not requested to use a Date, but i
 {% end_short_note %}
 , others being used to supply some page specific content or variables
 {% _short_note %}
-have a look at {{ _11ty_f( 'UDF_s' ).ref }}{{_G_.OUTLINK_s}} for a list of Eleventy properties usable in front matter.
+have a look at {{ _11ty__s( 'UDF_s' ).ref }}{{_G_.OUTLINK_s}} for a list of Eleventy properties usable in front matter.
 {% end_short_note %}
 .
 
@@ -137,7 +137,7 @@ a very good idea because it gives you the full power of the language to process 
 {% end_short_note %}
 and Nunjucks as templating system, you can declare functions as properties
 {% _short_note %}
-see {{ _11ty_f( 'JFM_s' ).ref }}{{_G_.OUTLINK_s}} documentation page.
+see {{ _11ty__s( 'JFM_s' ).ref }}{{_G_.OUTLINK_s}} documentation page.
 {% end_short_note %}
 . Usually, apart very specific cases, it's much more easy to declare content processing functions in a module located inside the data directory
 {% _short_note %}
@@ -259,13 +259,13 @@ Actually, most of Eleventy link keys are gathered in the `_G_.js` global data fi
 
 But we can do more, using Nunjucks {% raw %}`{% set %}`{% endraw %} tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:
 
-{% raw %}`{{ _11ty_f( 'JFM_s' ).link }}`{% endraw %}
+{% raw %}`{{ _11ty__s( 'JFM_s' ).link }}`{% endraw %}
 {% _short_note %}
 Reference-style link located in Links section, after the Aliases section.
 {% end_short_note %}
 {data--="example"}
 
-{% raw %}`{{ _11ty_f( 'JFM_s' ).ref }}`{% endraw %}
+{% raw %}`{{ _11ty__s( 'JFM_s' ).ref }}`{% endraw %}
 {% _short_note %}
 reference inside content.
 {% end_short_note %}
@@ -277,10 +277,10 @@ reference inside content.
 [//]:#(_code_block)
 {% raw %}
 [comment]: # (======== Aliases ========)
-{% set _11ty_f = _V_.eleventyLink__s %}
+{% set _11ty__s = _V_.eleventyLink__s %}
 
-{{ _11ty_f( 'JFM_s' ).link }}
-{{ _11ty_f( 'UDF_s' ).link }}
+{{ _11ty__s( 'JFM_s' ).link }}
+{{ _11ty__s( 'UDF_s' ).link }}
 
 [comment]: # (======== Post ========)
 {% endraw %}
