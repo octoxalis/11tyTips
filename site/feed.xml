@@ -719,15 +719,15 @@ EleventyLink__s: ( key_s ) =>
 <p data--="page_intro">Shortcodes are probably the most powerful tool to process Markdown content inline.</p>
 <h2 id="a_corner_stone">A corner stone</h2>
 <p>They are simple to create and use, almost anything can be done with them, and they represent an important opportunity that should not be missed. Eleventy has two kinds of shortcode:</p>
-<ul data--="example">
-<li data--="ulist">simple
+<ul data--="ulist">
+<li>simple
 (the shortcode argument (i.e. content) is passed to a single tag (ex. #1).
 )</li>
 <li>paired
 (the shortcode argument is passed enclosed between two tags (ex. #2).
-)
-<code>{% _shortcode_id &quot;argument&quot; %}</code></li>
+)</li>
 </ul>
+<p data--="example"><code>{% _shortcode_id &quot;argument&quot; %}</code></p>
 <p data--="example"><code>{% _shortcode_id %}... Content to be processed ...{% end_shortcode_id %}</code></p>
 <p>11tyTips doesn’t use a lot of shortcodes, but they are essential to its content. Let’s dissect the most omnipresent of it: the <code>_code_block</code> paired shortcode.
 It is passed to Eleventy configuration method <code>addPairedShortcode</code> this way:</p>

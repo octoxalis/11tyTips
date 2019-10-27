@@ -27,11 +27,14 @@ They are simple to create and use, almost anything can be done with them, and th
 {% _short_note %}
 the shortcode argument (i.e. content) is passed to a single tag (ex. #1).
 {% end_short_note %}
-{ data--="ulist" }
+
 + paired
 {% _short_note %}
 the shortcode argument is passed enclosed between two tags (ex. #2).
 {% end_short_note %}
+
+{ data--="ulist" }
+
 
 {% raw %}`{% _shortcode_id "argument" %}`{% endraw %}
 {data--="example"}
