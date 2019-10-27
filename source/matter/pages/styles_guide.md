@@ -88,7 +88,6 @@ module.exports = make_o =>
 
 
 + Primo
-{ data--="ulist" }
   - One
 { data--="ulist" }
   - Two
@@ -98,6 +97,9 @@ module.exports = make_o =>
 { data--="ulist" }
   - Deux
 + Tertio
+
+{ data--="ulist" }
+
 
 
 - Inside a short note, it works only preceded by a list item

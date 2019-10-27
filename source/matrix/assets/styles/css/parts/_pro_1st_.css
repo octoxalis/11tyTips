@@ -54,14 +54,14 @@
 [data--="tips_menu"]
   {opacity: var(--MENU_SHOW)}  /* 0 : 1 */
 
+.utterances,
 p > code,
-[data--="note_content"] code,    /* code inside inline_note*/
 code[class*="language-"],
-pre[class*="language-"]
-.utterances
-[data--="tips_menu"]
-[data--="page_intro"]
-[data--="code_ref"]
+pre[class*="language-"],
+[data--="note_content"] code,    /* code inside inline_note*/
+[data--="tips_menu"],
+[data--="page_intro"],
+[data--="code_ref"],
 [data--="example"]
   {max-width:var(--MAX_WIDTH);}
 
@@ -73,8 +73,8 @@ p > code,
 [data--="note_content"] code
   {display:inline-block}
 
-pre > code,
 .note_open,
+pre > code,
 [data--=example]::before
   {display:block}
 

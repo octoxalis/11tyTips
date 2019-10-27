@@ -73,7 +73,6 @@ const oneTwoFour_s  = '' + ++oneTwoThree_n    //: to String
 
 This naming recipe applies to all primitive immutable types:
 + Null
-{ data--="ulist" }
 + Undefined
 + Boolean
 + Number
@@ -83,11 +82,16 @@ This naming recipe applies to all primitive immutable types:
 + Object
 + Symbol
 
+{ data--="ulist" }
+
+
 It extends to specific Object types:
 + Function
-{ data--="ulist" }
 + Class
 + RegExp
+
+{ data--="ulist" }
+
 
 The suffix specifying the type is a single letter preceded by an underscore character, lowercase letters for "wrapped" types
 {% _short_note %}
