@@ -1,5 +1,5 @@
 /*
- * Shorthnds
+ * Shorthands
  * Naming scheme: identifier__s
  */
 

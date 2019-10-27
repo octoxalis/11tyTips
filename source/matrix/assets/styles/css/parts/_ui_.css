@@ -2,6 +2,7 @@
 {
   top: 100vh;
   transform: scaleY( 0 );
+  pointer-events: none;
 }
 
 .half_width

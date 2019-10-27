@@ -1,6 +1,8 @@
 {% include "parts/_template_start_.njk" %}{# ante process #}
 
 {%- set _URL_s = _U_.url_s -%}
+{%- set _LAST_EIDT_s = _U_.url_s -%}
+
 
 {%- set _head_block_s %}
 <head>
@@ -24,7 +26,7 @@
 {% include "parts/_script_.njk" %}
 {% if no_comments !== true %}
 {% include "parts/_colophon_.njk" %}
-{#% include "parts/_comment_.njk" %#}
+{% include "parts/_comment_.njk" %}
 {% endif %}
 </body>
 {% endset -%}
