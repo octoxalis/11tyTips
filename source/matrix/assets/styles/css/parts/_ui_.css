@@ -1,5 +1,6 @@
 .zero_height
 {
+  top: 100vh;
   transform: scaleY( 0 );
 }
 

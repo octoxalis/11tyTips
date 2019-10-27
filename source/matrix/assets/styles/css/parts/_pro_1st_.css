@@ -38,6 +38,7 @@
 [data--=header]
   {position:sticky}
 
+.utterances-frame,
 [data--=inline_note],
 [data--=ulist] > li::before,
 [data--=important]::before

@@ -114,11 +114,7 @@ in the following listing it's the last line `include` tag.
 {% raw %}
 {%- if output__s %}{% set _template_s = output__s( _template_s ) %}{% endif -%}
 {%- set _args_a = { date: date, permalink: permalink, tags: tags, title_s: title_s } -%}
-{%- if _U_.dev_b === true %}
-{{- _template_s | safe | template_end( _args_a ) -}}
-{% else -%}
 {{- _template_s | safe | template_end( _args_a ) | minify_html -}}
-{% endif -%}
 {% endraw %}
 {% end_code_block %}
 

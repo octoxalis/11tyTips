@@ -57,17 +57,26 @@ This `output__s` function is automaticaly invoqued (if it exists in the front ma
 
 {% _code_block %}
     title_s: '{{_G_.SITE_s}}/source/matrix/frame.njk',
-    lang_s: "nunjucks"
+    lang_s: "twig"
 [//]:#(_code_block)
 {% raw %}
 {% set _HTML_s %}
 ...
 {% endset %}
 
-{% block POST_PROCESS %}
-{% if output__s %}{% set _HTML_s = output__s( _HTML_s ) %}{% endif %}
-...
-{% endblock %}
+{% include "parts/_template_end_.njk" %}{# post process #}
+{% endraw %}
+{% end_code_block %}
+
+
+{% _code_block %}
+    title_s: '{{_G_.SITE_s}}/source/matrix/parts/template_end_.njk',
+    lang_s: "twig"
+[//]:#(_code_block)
+{% raw %}
+{%- if output__s %}{% set _template_s = output__s( _template_s ) %}{% endif -%}
+{%- set _args_a = { date: date, permalink: permalink, tags: tags, title_s: title_s } -%}
+{{- _template_s | safe | template_end( _args_a ) | minify_html -}}
 {% endraw %}
 {% end_code_block %}
 
