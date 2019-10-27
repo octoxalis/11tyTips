@@ -3,5 +3,5 @@
 {%- if _U_.dev_b === true %}
 {{- _template_s | safe | template_end( _args_a ) -}}
 {% else -%}
-{{- _template_s | safe | template_end( _args_a ) | minify_html -}}
+{{- _template_s | safe | template_end( _args_a ) -}}
 {% endif -%}

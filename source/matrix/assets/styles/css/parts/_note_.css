@@ -21,7 +21,6 @@
 
 [data--="note_content"]
 {
-  display: inline-block;
   overflow: hidden;
   break-before: avoid;
   break-inside: avoid;
