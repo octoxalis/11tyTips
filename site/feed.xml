@@ -316,7 +316,9 @@ module.exports = _U_o
     <updated>2019-09-07T02:00:00+02:00</updated>
     <id>https://11tytips.netlify.com/tips/styles_guide.html</id>
     <content type="html"><h1>Styles guide</h1>
+<p>(h1 element)</p>
 <p data--="page_intro">This is an introduction paragraph which should be limited in length.</p>
+<p>(p element, styled with attribute “page_intro”)</p>
 <h2 id="title">Title</h2>(h2 element)
 <h3 id="subtitle">Subtitle</h2>(h3 element<br>
 <b>Titles have a</b> <code>font-style: italic</code>
@@ -359,7 +361,7 @@ module.exports = make_o =>
 <li>Secondo</li>
 <li>Tertio</li>
 </ul>
-<p>(Nested unordered list)</p>
+<p>(Nested unordered lists)</p>
 <ul data--="ulist">
 <li>Primo
 <ul data--="ulist">

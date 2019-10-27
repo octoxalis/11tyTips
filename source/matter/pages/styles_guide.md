@@ -14,8 +14,13 @@
 ---
 [comment]: # (======== Post ========)
 # Styles guide
+{% _short_note %}h1 element{% end_short_note %}
 
-This is an introduction paragraph which should be limited in length.{ data--="page_intro" }
+
+This is an introduction paragraph which should be limited in length.
+{ data--="page_intro" }
+
+{% _short_note %}p element, styled with attribute "page_intro"{% end_short_note %}
 
 
 {% _anchor %}
@@ -84,7 +89,7 @@ module.exports = make_o =>
 
 { data--="ulist" }
 
-{% _short_note %}Nested unordered list{% end_short_note %}
+{% _short_note %}Nested unordered lists{% end_short_note %}
 
 
 + Primo
