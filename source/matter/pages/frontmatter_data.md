@@ -16,7 +16,7 @@
 ---
 [comment]: # (======== Aliases ========)
 
-{% set _11ty_f = _V_.EleventyLink__s %}
+{% set _11ty_f = _V_.eleventyLink__s %}
 
 [comment]: # (======== Links ========)
 
@@ -213,19 +213,19 @@ see also [frontmatter function] page.
 {% end_anchor %}
 
 
-{{_G_.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{_G_.SITE_s}} source has an `_V_.js` file inside its `matter/assets/scripts/js/lib` directory where a `EleventyLink__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor.
+{{_G_.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{_G_.SITE_s}} source has an `_V_.js` file inside its `matter/assets/scripts/js/lib` directory where a `eleventyLink__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor.
 
 {% _code_block %}
     title_s: '{{_G_.SITE_s}}/source/matter/assets/scripts/js/lib/_V_.js',
     lang_s: 'javascript',
 [//]:#(_code_block)
-EleventyLink__s: ( key_s ) =>
+eleventyLink__s: ( key_s ) =>
 {
   const path_s = Y[ `ELEVENTY_${key_s}` ]
   const anchor_n = path_s.indexOf( '#')
   if ( anchor_n === -1 )    //: return a link to 11ty.io
   {
-    console.log( `ALERT! (EleventyLink__s) no anchor found in path: ${path_s}` )
+    console.log( `ALERT! (eleventyLink__s) no anchor found in path: ${path_s}` )
     const ref_n = _G_.ELEVENTY_s.indexOf( ':' )
     return { ref: _G_.ELEVENTY_s.substring( 0, ref_n ), link: _G_.ELEVENTY_s }
   }
@@ -246,8 +246,8 @@ usually three characters are enough to get a unique identifier:<br>
 
 Hence to get the _reference_ and the _link_ of a _reference-style link_ is just as easy as:
 
-{% raw %}`{{ _V_.EleventyLink__s( 'JFM_s' ).ref }}`{% endraw %}<br>
-{% raw %}`{{ _V_.EleventyLink__s( 'JFM_s' ).link }}`{% endraw %}
+{% raw %}`{{ _V_.eleventyLink__s( 'JFM_s' ).ref }}`{% endraw %}<br>
+{% raw %}`{{ _V_.eleventyLink__s( 'JFM_s' ).link }}`{% endraw %}
 {data--="example"}
 
 Actually, most of Eleventy link keys are gathered in the `_G_.js` global data file and not in the front matter!
@@ -277,7 +277,7 @@ reference inside content.
 [//]:#(_code_block)
 {% raw %}
 [comment]: # (======== Aliases ========)
-{% set _11ty_f = _V_.EleventyLink__s %}
+{% set _11ty_f = _V_.eleventyLink__s %}
 
 {{ _11ty_f( 'JFM_s' ).link }}
 {{ _11ty_f( 'UDF_s' ).link }}

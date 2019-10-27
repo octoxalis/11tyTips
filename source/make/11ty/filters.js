@@ -22,13 +22,13 @@ module.exports = make_o =>
   //: html minify filter
   make_o.addFilter('minify_html', code_s => require('html-minifier').minify( code_s, { removeAttributeQuotes: false, useShortDoctype: true, removeComments: true, collapseWhitespace: true }) )
 
+  //: RSS feed
+  make_o.addFilter('rss_feed', code_s => require('../lib/feed_content.js')( code_s ) )
+
   const template_o = require('../lib/template_process.js')
   //: Before template
   make_o.addFilter('template_start', ( input_s, ...args_ ) => template_o.start__s( input_s, ...args_ ) )
-
   //: After template
   make_o.addFilter('template_end', ( output_s, ...args_ ) => template_o.end__s( output_s, ...args_ ) )
 
-  //: RSS feed
-  make_o.addFilter('rss_feed', code_s => require('../lib/feed_content.js')( code_s ) )
 }

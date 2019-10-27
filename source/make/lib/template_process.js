@@ -10,7 +10,7 @@ module.exports =
   start__s: ( input_s, args_a ) =>
   {
     let start_s = input_s
-    if ( at_n === 0 && files_a ) require( './template_start' )( files_a )
+    if ( at_n === 0 && files_a ) require( './template_start.js' )( files_a )
     //...  process start_s
     return start_s
   },
@@ -20,7 +20,7 @@ module.exports =
     ++at_n
     let end_s = output_s
     //... process end_s
-    if ( at_n === count_n && files_a ) require( './template_end' )( files_a )
+    if ( at_n === count_n && files_a ) require( './template_end.js' )( files_a )
     return end_s
   },
 

@@ -65,7 +65,6 @@ let   oneTwoThree_n = +oneTwoThree_s          //: to Number
 const oneTwoFour_s  = '' + ++oneTwoThree_n    //: to String
 {% end_code_block %}
 
-
 {% _anchor %}
 ### Types specifiers
 {% end_anchor %}
