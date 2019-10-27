@@ -1,3 +1,8 @@
+/*
+ * Shorthnds
+ * Naming scheme: identifier__s
+ */
+
 const _G_ = require( './_G_.js' )
 const _U_ = require( './_U_.js' )
 
@@ -18,5 +23,7 @@ module.exports =
     const anchor_s = path_s.substring( anchor_n )
     const anchorLink_s = _G_.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
     return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link: anchorLink_s }
-  }
+  },
+
+  escape__s: content_s => content_s.replace( /</g, '&lt;' ).replace( />/g, '&gt;' )
 }

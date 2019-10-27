@@ -1,3 +1,8 @@
+/*
+ * GLOBAL constants
+ * Naming scheme: ABREV_s
+ */
+
 const SITE_s  = '11tyTips'
 const URL_s   = `https://${SITE_s.toLowerCase()}.netlify.com/`
 const XALIS_s = 'octoxalis'

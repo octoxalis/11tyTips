@@ -153,22 +153,33 @@ However, {{_G_.SITE_s}} tips list menu is such a case: the `rank__s` property ca
 [comment]: # (======== Escape Nunjucks ========)
 {% set _code %}
 {% raw %}
+---js
+{
+  rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
+}
+---
+{% include "parts/_template_start_.njk" %}{# ante process #}
+
+{%- set _template_s %}
 <menu data--="tips_menu">
-  <h4><a href="{{ _U_.url_s }}">Home</a></h4>
-  <h4>→ <a href="{{ _U_.git_s }}" target="_blank" rel="noreferrer">Github</a></h4>
-  <h4>→ <a href="{{ _U_.twi_s }}" target="_blank" rel="noreferrer">Twitter</a></h4>
-  <h4>→ <a href="{{ _U_.rss_s }}" target="_blank">RSS</a></h4>
+  <h3><a href="{{ _U_.url_s }}">Home</a></h3>
+  {{ _C_.h4_a__s( _U_.git_s, 'Github' ) }}
+  {{ _C_.h4_a__s( _U_.twi_s, 'Twitter' ) }}
+  {{ _C_.h4_a__s( _U_.rss_s, 'RSS' ) }}
   <h2 data--="tips_order">All the tips</h2>
   <ol data--="tips_list">
-  {% for _post_o in collections.tip %}
+{% for _post_o in collections.tip %}
     <li data--="tips_item">
       <span>{{ rank__s(loop.index) }}</span>
-      <a href="{{ _post_o.url | url }}">{{ _post_o.data.title_s }}</a>
+      <span><a href="{{ _post_o.url | url }}">{{ _post_o.data.title_s }}</a></span>
       <span>{{ _post_o.data.subtitle_s }}</span>
     </li>
-  {% endfor %}
+{% endfor %}
   </ol>
 </menu>
+{% endset -%}
+
+{% include "parts/_template_end_.njk" %}{# post process #}
 {% endraw %}
 {% endset %}
 
@@ -176,12 +187,7 @@ However, {{_G_.SITE_s}} tips list menu is such a case: the `rank__s` property ca
     title_s: '{{_G_.SITE_s}}/source/matter/items/tips_list.njk',
     lang_s: 'javascript'
 [//]:#(_code_block)
----js
-{
-  rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
-}
----
-{{ _code }}
+{{ _V_.escape__s( _code ) }}
 {% end_code_block %}
 
 

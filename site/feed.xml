@@ -636,25 +636,31 @@ const DOM_listReverse = selector_s =>
 <pre><code class="language-javascript">
 ---js
 {
-  rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
+  rank__s: at_n =&gt; `#${('' + at_n).padStart( 3, '0' )}`
 }
 ---
-<menu data--="tips_menu">
-  <h4><a href="{{ _U_.url_s }}">Home</a></h4>
-  <h4>→ <a href="{{ _U_.git_s }}" target="_blank" rel="noreferrer">Github</a></h4>
-  <h4>→ <a href="{{ _U_.twi_s }}" target="_blank" rel="noreferrer">Twitter</a></h4>
-  <h4>→ <a href="{{ _U_.rss_s }}" target="_blank">RSS</a></h4>
-  <h2 data--="tips_order">All the tips</h2>
-  <ol data--="tips_list">
-  {% for _post_o in collections.tip %}
-    <li data--="tips_item">
-      <span>{{ rank__s(loop.index) }}</span>
-      <a href="{{ _post_o.url | url }}">{{ _post_o.data.title_s }}</a>
-      <span>{{ _post_o.data.subtitle_s }}</span>
-    </li>
-  {% endfor %}
-  </ol>
-</menu>
+{% include "parts/_template_start_.njk" %}{# ante process #}
+<br>
+{%- set _template_s %}
+&lt;menu data--="tips_menu"&gt;
+  &lt;h3&gt;&lt;a href="{{ _U_.url_s }}"&gt;Home&lt;/a&gt;&lt;/h3&gt;
+  {{ _C_.h4_a__s( _U_.git_s, 'Github' ) }}
+  {{ _C_.h4_a__s( _U_.twi_s, 'Twitter' ) }}
+  {{ _C_.h4_a__s( _U_.rss_s, 'RSS' ) }}
+  &lt;h2 data--="tips_order"&gt;All the tips&lt;/h2&gt;
+  &lt;ol data--="tips_list"&gt;
+{% for _post_o in collections.tip %}
+    &lt;li data--="tips_item"&gt;
+      &lt;span&gt;{{ rank__s(loop.index) }}&lt;/span&gt;
+      &lt;span&gt;&lt;a href="{{ _post_o.url | url }}"&gt;{{ _post_o.data.title_s }}&lt;/a&gt;&lt;/span&gt;
+      &lt;span&gt;{{ _post_o.data.subtitle_s }}&lt;/span&gt;
+    &lt;/li&gt;
+{% endfor %}
+  &lt;/ol&gt;
+&lt;/menu&gt;
+{% endset -%}
+<br>
+{% include "parts/_template_end_.njk" %}{# post process #}
 <br>
 </code></pre>
 <p>But the same result would have been possible calling directly the <code>padStart</code> method inside the template
@@ -870,8 +876,8 @@ Every global template
 {% if _U_.dev_b === false %}{% include "parts/_instant_page_.njk" %}{% endif %}
 {% include "parts/_script_.njk" %}
 {% if no_comments !== true %}
-{#% include "parts/_colophon_.njk" %#}
-{#% include "parts/_comment_.njk" %#}
+{% include "parts/_colophon_.njk" %}
+{% include "parts/_comment_.njk" %}
 {% endif %}
 &lt;/body&gt;
 {% endset -%}

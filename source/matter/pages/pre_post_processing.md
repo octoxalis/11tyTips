@@ -54,17 +54,14 @@ in the following listing it's the last line `include` tag.
 {% end_short_note %}
 
 
-{% _code_block %}
-    title_s: 'source/matrix/frame.njk',
-    lang_s: 'twig',
-[//]:#(_code_block)
+{% set _code %}
 {% raw %}
 {% include "parts/_template_start_.njk" %}{# ante process #}
 
 {%- set _URL_s = _U_.url_s -%}
 
 {%- set _head_block_s %}
-&lt;head&gt;
+<head>
 {% include "parts/_site_url_.njk" %}
 {% include "parts/_head_.njk" %}
 {% include "parts/_seo_.njk" %}
@@ -74,32 +71,39 @@ in the following listing it's the last line `include` tag.
 {% include "parts/_font_inline_.njk" %}
 {% include "parts/_style_inline_.njk" %}
 {% include "parts/_style_.njk" %}
-&lt;/head&gt;
+</head>
 {% endset -%}
 
 {%- set _body_block_s %}
-&lt;body&gt;
+<body>
 {% include "parts/_nav_.njk" %}
 {% include "parts/_article_.njk" %}
 {% if _U_.dev_b === false %}{% include "parts/_instant_page_.njk" %}{% endif %}
 {% include "parts/_script_.njk" %}
 {% if no_comments !== true %}
-{#% include "parts/_colophon_.njk" %#}
-{#% include "parts/_comment_.njk" %#}
+{% include "parts/_colophon_.njk" %}
+{% include "parts/_comment_.njk" %}
 {% endif %}
-&lt;/body&gt;
+</body>
 {% endset -%}
 
 {%- set _template_s %}
-&lt;!doctype html&gt;
-&lt;html lang="en"&gt;
+<!doctype html>
+<html lang="en">
 {{ _head_block_s | safe }}
 {{ _body_block_s | safe }}
-&lt;/html&gt;
+</html>
 {% endset -%}
 
 {% include "parts/_template_end_.njk" %}{# post process #}
 {% endraw %}
+{% endset -%}
+
+{% _code_block %}
+    title_s: 'source/matrix/frame.njk',
+    lang_s: 'twig',
+[//]:#(_code_block)
+{{ _V_.escape__s( _code ) }}
 {% end_code_block %}
 
 

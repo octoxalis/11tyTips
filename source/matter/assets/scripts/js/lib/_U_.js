@@ -1,4 +1,9 @@
-const _G_ = require( './_G_.js' )
+/*
+ * URL constants
+ * Naming scheme: abrev_s
+ */
+
+ const _G_ = require( './_G_.js' )
 
 const _U_o =
 {
