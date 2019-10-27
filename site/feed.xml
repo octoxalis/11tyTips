@@ -662,7 +662,7 @@ const DOM_listReverse = selector_s =>
 <p>(see also <a href="https://11tytips.netlify.com/tips/frontmatter_function.html">frontmatter function</a> page.
 )</p>
 <h2 id="front_matter_properties_and_global_data_functions">Front matter properties and global data functions</h2>
-<p>11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an <code>_V_.js</code> file inside its <code>lib/lib</code> directory where a <code>EleventyLink__s</code> function compute the link to any Eleventy docs page using an acronym of the page and anchor.</p>
+<p>11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an <code>_V_.js</code> file inside its <code>matter/assets/scripts/js/lib</code> directory where a <code>EleventyLink__s</code> function compute the link to any Eleventy docs page using an acronym of the page and anchor.</p>
 <hgroup data--="code_ref">
 <h5>11tyTips/source/matter/assets/scripts/js/lib/_V_.js</h5>
 <h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6>

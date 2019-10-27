@@ -207,7 +207,7 @@ see also [frontmatter function] page.
 {% end_anchor %}
 
 
-{{_G_.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{_G_.SITE_s}} source has an `_V_.js` file inside its `lib/lib` directory where a `EleventyLink__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor.
+{{_G_.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{_G_.SITE_s}} source has an `_V_.js` file inside its `matter/assets/scripts/js/lib` directory where a `EleventyLink__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor.
 
 {% _code_block %}
     title_s: '{{_G_.SITE_s}}/source/matter/assets/scripts/js/lib/_V_.js',
