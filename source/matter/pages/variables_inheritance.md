@@ -35,7 +35,7 @@ using the {% raw %}`{% extends %}`{% endraw %} declaration
 
 When using variables declared with the `set` block, never forget that any variable whose name begins with one or more underscore character is **private**. Therefore it can not be imported outside of its block scope
 {% _short_note %}
-unfortunatly, the Nunjucks documentation doesn't state it: I found this important note in the [Jinja2 documentation]{{_G_.OUTLINK_s}}.
+unfortunatly, the Nunjucks documentation doesn't state it: I found this important note in the [Jinja2 documentation]{{U_o.OUTLINK_s}}.
 {% end_short_note %}.
 
 

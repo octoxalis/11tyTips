@@ -22,9 +22,9 @@ The principles of JAMstack static site.{ data--="page_intro" }
 {% end_anchor %}
 
 
-Eleventy, as most static sites, relies on an architectural paradigm called [JAMstack]{{_G_.OUTLINK_s}}, an acronym meaning: <q>a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.</q>
+Eleventy, as most static sites, relies on an architectural paradigm called [JAMstack]{{U_o.OUTLINK_s}}, an acronym meaning: <q>a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.</q>
 {% _short_note %}
-see Mathias Biilmann & Phil Hawksworth book: [Modern Web development on the JAMstack]{{_G_.OUTLINK_s}}.
+see Mathias Biilmann & Phil Hawksworth book: [Modern Web development on the JAMstack]{{U_o.OUTLINK_s}}.
 {% end_short_note %}.
 
 In the JAMstack architecture, *JavaScript* is used not only in the browser for interactivity and presentation but also to build all the files of the site
@@ -42,16 +42,16 @@ there are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc.
 .
 
 {% _anchor %}
-## {{_G_.SITE_s}} architecture
+## {{A_o.SITE_s}} architecture
 {% end_anchor %}
 
 
-Trying to stay as simple as possible, {{_G_.SITE_s}} is built using a minimal set of the JAMstack architecture: **JavaScript**, backed by the Node ecosystem, **Nunjucks**, as templating system, and **Markdown** as content markup language. It doesn't follow the canonical dispatching of files promoted by Eleventy and most satic site generators (data, templates, contents), but follows a pattern examplifying the JAMstack paradigm.
+Trying to stay as simple as possible, {{A_o.SITE_s}} is built using a minimal set of the JAMstack architecture: **JavaScript**, backed by the Node ecosystem, **Nunjucks**, as templating system, and **Markdown** as content markup language. It doesn't follow the canonical dispatching of files promoted by Eleventy and most satic site generators (data, templates, contents), but follows a pattern examplifying the JAMstack paradigm.
 
 The `source` directory design reflects the JAMstack categories:
 + make
 {% _short_note %}
-contains JavaScript modules to be used during the build process and is split in two directories: Eleventy modules (`11ty`) and {{_G_.SITE_s}} modules (`lib`).<br>
+contains JavaScript modules to be used during the build process and is split in two directories: Eleventy modules (`11ty`) and {{A_o.SITE_s}} modules (`lib`).<br>
 *This is also where the initial JavaScript file firing the building process is located*. Instead of `.eleventy.js` this file is named `make.js` (without the starting dot because it is not hidden).
 {% end_short_note %}
 
@@ -98,7 +98,7 @@ for partial files to be included by other files.
 
 This structure departs deliberately from what is  generaly adopted by static sites built with Eleventy
 {% _short_note %}
-see, for instance, [Eleventy base blog]{{_G_.OUTLINK_s}} structure
+see, for instance, [Eleventy base blog]{{U_o.OUTLINK_s}} structure
 {% end_short_note %}
 , examplifying the versatility of the tool
 {% _short_note %}
@@ -106,7 +106,7 @@ Eleventy configuration object has two properties allowing this precious flexibil
 {% end_short_note %}
 : **Eleventy doesn't lock you into a predefined scheme** and let you express your specific needs with ease.
 
-{{_G_.SITE_s}} has been designed to offer the maximum of flexibility and consistency in the development phase, keeping a strong separation of concerns as to ease any needed refactoring and modification of the code. The site [source tree] gives an overview of the source directory hierarchy.
+{{A_o.SITE_s}} has been designed to offer the maximum of flexibility and consistency in the development phase, keeping a strong separation of concerns as to ease any needed refactoring and modification of the code. The site [source tree] gives an overview of the source directory hierarchy.
 
 Following these configuration options leads to a command line *requiring* the `--config` argument:
 
@@ -115,7 +115,7 @@ Following these configuration options leads to a command line *requiring* the `-
 
 
 [comment]: # (======== Links ========)
-{{ _V_.siteUrl__s( 'source_tree' ) }}
+{{ F_o.siteUrl__s( 'source_tree' ) }}
 
 [JAMstack]: https://jamstack.org/
 [Modern Web development on the JAMstack]: https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf

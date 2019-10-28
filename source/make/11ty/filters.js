@@ -1,7 +1,7 @@
 module.exports = make_o =>
 {
   //: date
-  make_o.addFilter('readable_date', date_o => require('luxon').fromJSDate( date_o ).toFormat('dd LLL yyyy') )
+  //xx make_o.addFilter('readable_date', date_o => require('luxon').fromJSDate( date_o ).toFormat('dd LLL yyyy') )
   
   //: css minify
   const css_f = require('clean-css')
@@ -24,6 +24,15 @@ module.exports = make_o =>
 
   //: RSS feed
   make_o.addFilter('rss_feed', code_s => require('../lib/feed_content.js')( code_s ) )
+
+  const dateToISO__s = require('../lib/dateToISO.js')
+  make_o.addNunjucksFilter( "feed_date", date_o => dateToISO__s( date_o ) )
+
+  make_o.addNunjucksFilter( "feed_last_date", collection =>
+  {
+    if( !collection || !collection.length ) throw new Error( "Collection is empty in feed_last_date filter." )
+    return dateToISO__s( collection[ collection.length - 1 ].date )
+  } )
 
   const template_o = require('../lib/template_process.js')
   //: Before template

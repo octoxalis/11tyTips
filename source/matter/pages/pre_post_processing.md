@@ -24,7 +24,7 @@ It can be useful to process the final result of the templating work or prepare i
 
 All templating engines have limits and Nunjucks
 {% _short_note %}
-which is used here by {{_G_.SITE_s}}
+which is used here by {{A_o.SITE_s}}
 {% end_short_note %}
 has its own. But you can easily go your way beyond those limits to process the output of the templating engine just before everything is engraved as a static HTML page.
 For instance you may want to overcome the encoding output of the engine and make some modifications
@@ -58,7 +58,7 @@ in the following listing it's the last line `include` tag.
 {% raw %}
 {% include "parts/_template_start_.njk" %}{# ante process #}
 
-{%- set _URL_s = _U_.url_s -%}
+{%- set _URL_s = U_o.url_s -%}
 
 {%- set _head_block_s %}
 <head>
@@ -78,7 +78,7 @@ in the following listing it's the last line `include` tag.
 <body>
 {% include "parts/_nav_.njk" %}
 {% include "parts/_article_.njk" %}
-{% if _U_.dev_b === false %}{% include "parts/_instant_page_.njk" %}{% endif %}
+{% if U_o.dev_b === false %}{% include "parts/_instant_page_.njk" %}{% endif %}
 {% include "parts/_script_.njk" %}
 {% if no_comments !== true %}
 {% include "parts/_colophon_.njk" %}
@@ -103,7 +103,7 @@ in the following listing it's the last line `include` tag.
     title_s: 'source/matrix/frame.njk',
     lang_s: 'twig',
 [//]:#(_code_block)
-{{ _V_.escape__s( _code ) }}
+{{ F_o.tagEscape__s( _code ) }}
 {% end_code_block %}
 
 
@@ -163,7 +163,7 @@ module.exports =
 {% end_code_block %}
 
 
-Any kind of processing can be done inside the starting and ending modules and the argument they receive can be anything else than the list of files to process. In {{ _G_.SITE_s }}, till now, these modules do not process anything.
+Any kind of processing can be done inside the starting and ending modules and the argument they receive can be anything else than the list of files to process. In {{ A_o.SITE_s }}, till now, these modules do not process anything.
 
 
 {% _code_block %}
@@ -194,4 +194,4 @@ module.exports = ( files_a, ...args_ ) =>
 
 [comment]: # (======== Links ========)
 
-{{ _V_.siteUrl__s( 'frontmatter_data' ) }}
+{{ F_o.siteUrl__s( 'frontmatter_data' ) }}

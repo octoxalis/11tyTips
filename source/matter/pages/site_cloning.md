@@ -13,16 +13,16 @@
 }
 ---
 [comment]: # (======== Post ========)
-# Cloning of {{ _G_.SITE_s }} site
+# Cloning of {{ A_o.SITE_s }} site
 
-Why not use {{ _G_.SITE_s }} as a boilerplate for your own new site?{ data--="page_intro" }
+Why not use {{ A_o.SITE_s }} as a boilerplate for your own new site?{ data--="page_intro" }
 
 {% _anchor %}
-## Install a clone of {{ _G_.SITE_s }} site
+## Install a clone of {{ A_o.SITE_s }} site
 {% end_anchor %}
 
 
-{{ _G_.SITE_s }} site has been designed to help those wanting to start with a static site generator such as Eleventy, without spending a lot of time to find the best architecture meeting their needs. All tips explained in its pages are examplified by its source code: the dogfooding principle!
+{{ A_o.SITE_s }} site has been designed to help those wanting to start with a static site generator such as Eleventy, without spending a lot of time to find the best architecture meeting their needs. All tips explained in its pages are examplified by its source code: the dogfooding principle!
 
 {% _more_to_come %}
 Install process

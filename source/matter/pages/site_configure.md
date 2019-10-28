@@ -24,31 +24,43 @@ Eleventy provides you with simple but efficient configuration options.{ data--="
 
 Eleventy provides a wide range of settings for [data] used in building stage or inside content: [global] data as well as [template and directory] data.
 
-{{_G_.SITE_s}} uses only global data contained in JavaScript files located inside the data directory.
+{{A_o.SITE_s}} uses only global data contained in JavaScript files located inside the data directory.
 
 {% _code_block %}
-    title_s: 'source/matter/assets/scripts/js/lib/_U_.js',
+    title_s: 'source/matter/assets/scripts/js/lib/U_o.js',
     lang_s: 'javascript',
 [//]:#(_code_block)
 {% raw %}
-const _G_ = require( './_G_.js' )
+const A_o = require( './A_o.js' )
 
-const _U_o =
+const U_o =
 {
-  dev_s: _G_.DEV_s,
-  pro_s: _G_.PRO_s,
-  git_s: _G_.GIT_s,
-  twi_s: _G_.TWI_s,
-  rss_s: _G_.RSS_s,
-  //: development/production switch
-  dev_b: true,
+  dev_b: true,     //: development/production switch
   //dev_b: false,
   url_s: null,
-}
-;(() => _U_o.url_s = _U_o[_U_o.dev_b === true ? 'dev_s' : 'pro_s'])()
-console.log( `Site URL: ${_U_o.url_s}` )
 
-module.exports = _U_o
+  DEV_s: A_o.LOCAL_s,
+  PRO_s: A_o.URL_s,
+
+  GIT_s: `https://github.com/${A_o.AUTHOR_s}/${A_o.SITE_s}/`,
+  TWI_s: `https://twitter.com/${A_o.SITE_s}/`,
+  RSS_s: `${A_o.URL_s}feed.xml`,
+
+  HOME_s:    `[Home page]: ${A_o.URL_s}`,
+  NODE_s :   `[Node.js]: https://nodejs.org`,
+  COMMENT_s: `[utteranc.es]: https://github.com/utterance/utterances`,
+
+  ELEVENTY_s:     `[Eleventy]: https://11ty.io`,
+  ELEVENTY_JFM_s: `/docs/data-frontmatter/#javascript-front-matter`,
+  ELEVENTY_UDF_s: `/docs/data-frontmatter/#user-defined-front-matter-customizations`,
+
+  OUTLINK_s: '{target="_blank" rel="noreferrer noopener"}',
+
+}
+;(() => U_o.url_s = U_o[U_o.dev_b === true ? 'DEV_s' : 'PRO_s'])()
+console.log( `Site URL: ${U_o.url_s}` )
+
+module.exports = U_o
 {% endraw %}
 {% end_code_block %}
 

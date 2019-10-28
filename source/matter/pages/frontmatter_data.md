@@ -16,7 +16,7 @@
 ---
 [comment]: # (======== Aliases ========)
 
-{% set _11ty__s = _V_.eleventyLink__s %}
+{% set _11ty__s = F_o.eleventyUrl__s %}
 
 [comment]: # (======== Links ========)
 
@@ -36,7 +36,7 @@ Front matter, the initial section of each Markdown file, offers much more than y
 
 Each Markdown file has its own data, declared at the begining of the file in the front matter part
 {% _short_note %}
-{{_G_.SITE_s}} uses a JavaScript `Object` for the front matter.
+{{A_o.SITE_s}} uses a JavaScript `Object` for the front matter.
 {% end_short_note %}
 , a few ones being mandatory
 {% _short_note %}
@@ -44,7 +44,7 @@ no so strickly speaking! For instance, you're not requested to use a Date, but i
 {% end_short_note %}
 , others being used to supply some page specific content or variables
 {% _short_note %}
-have a look at {{ _11ty__s( 'UDF_s' ).ref }}{{_G_.OUTLINK_s}} for a list of Eleventy properties usable in front matter.
+have a look at {{ _11ty__s( 'UDF_s' ).ref }}{{U_o.OUTLINK_s}} for a list of Eleventy properties usable in front matter.
 {% end_short_note %}
 .
 
@@ -78,17 +78,17 @@ the collection(s) including the output file.
 
 + Title
 {% _short_note %}
-used by {{_G_.SITE_s}} to identify the page in the browser tab.
+used by {{A_o.SITE_s}} to identify the page in the browser tab.
 {% end_short_note %}
 
 + Subtitle
 {% _short_note %}
-Used by {{_G_.SITE_s}} to describe the page content in the Tips list menu.
+Used by {{A_o.SITE_s}} to describe the page content in the Tips list menu.
 {% end_short_note %}
 
 + Abstract
 {% _short_note %}
-actually not used by {{_G_.SITE_s}}, but could be...
+actually not used by {{A_o.SITE_s}}, but could be...
 {% end_short_note %}
 
 + Author
@@ -100,7 +100,7 @@ useful if there are multiple authors for the posts of the site.
 
 
 {% _code_block %}
-    title_s: 'Page front matter data',
+    title_s: 'source/matter/pages/frontmatter_data.md',
     lang_s: 'javascript',
 [//]:#(_code_block)
 ---js
@@ -121,7 +121,7 @@ useful if there are multiple authors for the posts of the site.
 
 To access any property declared in the front matter it has to be enclosed in double parenthesis {% raw %}`{{ ... }}`{% endraw %}
 {% _short_note %}
-{{_G_.SITE_s}} uses Nunjucks. Using other templating systems, this is a bit different.
+{{A_o.SITE_s}} uses Nunjucks. Using other templating systems, this is a bit different.
 {% end_short_note %}
 . For instance, the `abstract_s` property in the front matter is injected in this page with the following code: {% raw %}`{{ abstract_s }}`{% endraw %} and renders as:<br>
 <q>{{ abstract_s }}</q>.
@@ -137,7 +137,7 @@ a very good idea because it gives you the full power of the language to process 
 {% end_short_note %}
 and Nunjucks as templating system, you can declare functions as properties
 {% _short_note %}
-see {{ _11ty__s( 'JFM_s' ).ref }}{{_G_.OUTLINK_s}} documentation page.
+see {{ _11ty__s( 'JFM_s' ).ref }}{{U_o.OUTLINK_s}} documentation page.
 {% end_short_note %}
 . Usually, apart very specific cases, it's much more easy to declare content processing functions in a module located inside the data directory
 {% _short_note %}
@@ -145,7 +145,7 @@ because it will be accessible from any Markdown content or any template and with
 {% end_short_note %}
 .
 
-However, {{_G_.SITE_s}} tips list menu is such a case: the `rank__s` property calls the `String.prototype.padStart` method to add one or two `0` before the tip rank to normalize it and is called this way:
+However, {{A_o.SITE_s}} tips list menu is such a case: the `rank__s` property calls the `String.prototype.padStart` method to add one or two `0` before the tip rank to normalize it and is called this way:
 
 {% raw %}`<span>{{ rank__s(loop.index) }}</span>`{% endraw %}
 {data--="example"}
@@ -162,10 +162,10 @@ However, {{_G_.SITE_s}} tips list menu is such a case: the `rank__s` property ca
 
 {%- set _template_s %}
 <menu data--="tips_menu">
-  <h3><a href="{{ _U_.url_s }}">Home</a></h3>
-  {{ _C_.h4_a__s( _U_.git_s, 'Github' ) }}
-  {{ _C_.h4_a__s( _U_.twi_s, 'Twitter' ) }}
-  {{ _C_.h4_a__s( _U_.rss_s, 'RSS' ) }}
+  <h3><a href="{{ U_o.url_s }}">Home</a></h3>
+  {{ C_o.h4_a__s( U_o.GIT_s, 'Github' ) }}
+  {{ C_o.h4_a__s( U_o.TWI_s, 'Twitter' ) }}
+  {{ C_o.h4_a__s( U_o.RSS_s, 'RSS' ) }}
   <h2 data--="tips_order">All the tips</h2>
   <ol data--="tips_list">
 {% for _post_o in collections.tip %}
@@ -184,10 +184,10 @@ However, {{_G_.SITE_s}} tips list menu is such a case: the `rank__s` property ca
 {% endset %}
 
 {% _code_block %}
-    title_s: '{{_G_.SITE_s}}/source/matter/items/tips_list.njk',
+    title_s: '{{A_o.SITE_s}}/source/matter/items/tips_list.njk',
     lang_s: 'javascript'
 [//]:#(_code_block)
-{{ _V_.escape__s( _code ) }}
+{{ F_o.tagEscape__s( _code ) }}
 {% end_code_block %}
 
 
@@ -213,24 +213,24 @@ see also [frontmatter function] page.
 {% end_anchor %}
 
 
-{{_G_.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{_G_.SITE_s}} source has an `_V_.js` file inside its `matter/assets/scripts/js/lib` directory where a `eleventyLink__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor.
+{{A_o.SITE_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{A_o.SITE_s}} source has an `F_o.js` file inside its `matter/assets/scripts/js/lib` directory where a `eleventyUrl__s` function compute the link to any Eleventy docs page using an acronym of the page and anchor.
 
 {% _code_block %}
-    title_s: '{{_G_.SITE_s}}/source/matter/assets/scripts/js/lib/_V_.js',
+    title_s: '{{A_o.SITE_s}}/source/matter/assets/scripts/js/lib/F_o.js',
     lang_s: 'javascript',
 [//]:#(_code_block)
-eleventyLink__s: ( key_s ) =>
+eleventyUrl__s: key_s =>
 {
-  const path_s = Y[ `ELEVENTY_${key_s}` ]
+  const path_s = U_o[ `ELEVENTY_${key_s}` ]
   const anchor_n = path_s.indexOf( '#')
   if ( anchor_n === -1 )    //: return a link to 11ty.io
   {
-    console.log( `ALERT! (eleventyLink__s) no anchor found in path: ${path_s}` )
-    const ref_n = _G_.ELEVENTY_s.indexOf( ':' )
-    return { ref: _G_.ELEVENTY_s.substring( 0, ref_n ), link: _G_.ELEVENTY_s }
+    console.log( `ALERT! no anchor found in path: ${path_s}` )
+    const ref_n = U_o.ELEVENTY_s.indexOf( ':' )
+    return { ref: U_o.ELEVENTY_s.substring( 0, ref_n ), link: U_o.ELEVENTY_s }
   }
   const anchor_s = path_s.substring( anchor_n )
-  const anchorLink_s = _G_.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
+  const anchorLink_s = U_o.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
   return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link: anchorLink_s }
 }
 {% end_code_block %}
@@ -246,11 +246,11 @@ usually three characters are enough to get a unique identifier:<br>
 
 Hence to get the _reference_ and the _link_ of a _reference-style link_ is just as easy as:
 
-{% raw %}`{{ _V_.eleventyLink__s( 'JFM_s' ).ref }}`{% endraw %}<br>
-{% raw %}`{{ _V_.eleventyLink__s( 'JFM_s' ).link }}`{% endraw %}
+{% raw %}`{{ F_o.eleventyUrl__s( 'JFM_s' ).ref }}`{% endraw %}<br>
+{% raw %}`{{ F_o.eleventyUrl__s( 'JFM_s' ).link }}`{% endraw %}
 {data--="example"}
 
-Actually, most of Eleventy link keys are gathered in the `_G_.js` global data file and not in the front matter!
+Actually, most of Eleventy link keys are gathered in the `U_o.js` global data file and not in the front matter!
 
 {% _anchor %}
 ### Even shorter
@@ -272,12 +272,12 @@ reference inside content.
 {data--="example"}
 
 {% _code_block %}
-    title_s: '{{_G_.SITE_s}}/source/matter/items/frontmatter_data.md',
+    title_s: '{{A_o.SITE_s}}/source/matter/items/frontmatter_data.md',
     lang_s: 'javascript',
 [//]:#(_code_block)
 {% raw %}
 [comment]: # (======== Aliases ========)
-{% set _11ty__s = _V_.eleventyLink__s %}
+{% set _11ty__s = F_o.eleventyUrl__s %}
 
 {{ _11ty__s( 'JFM_s' ).link }}
 {{ _11ty__s( 'UDF_s' ).link }}
@@ -288,4 +288,4 @@ reference inside content.
 
 
 [comment]: # (======== Links ========)
-{{ _V_.siteUrl__s( 'frontmatter_function' ) }}
+{{ F_o.siteUrl__s( 'frontmatter_function' ) }}

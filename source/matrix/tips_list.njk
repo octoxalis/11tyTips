@@ -7,10 +7,10 @@
 
 {%- set _template_s %}
 <menu data--="tips_menu">
-  <h3><a href="{{ _U_.url_s }}">Home</a></h3>
-  {{ _C_.h4_a__s( _U_.git_s, 'Github' ) }}
-  {{ _C_.h4_a__s( _U_.twi_s, 'Twitter' ) }}
-  {{ _C_.h4_a__s( _U_.rss_s, 'RSS' ) }}
+  <h3><a href="{{ U_o.url_s }}">Home</a></h3>
+  {{ C_o.h4_a__s( U_o.GIT_s, 'Github' ) }}
+  {{ C_o.h4_a__s( U_o.TWI_s, 'Twitter' ) }}
+  {{ C_o.h4_a__s( U_o.RSS_s, 'RSS' ) }}
   <h2 data--="tips_order">All tips</h2>
   <ol data--="tips_list">
 {% for _post_o in collections.tip %}
