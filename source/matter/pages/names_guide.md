@@ -135,7 +135,7 @@ In case of a function returning different types of value, just omit the type cha
 
 You could do the same for a variable accepting different kinds of type, but is it really a good practice?
 
-`let hybrid_ = 'A String'`<br>
+`let hybrid_ = 'A String'`<br/>
 `hybrid_ = 1234  //: What a mess!`
 {data--="example"}
 

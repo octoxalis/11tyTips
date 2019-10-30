@@ -123,7 +123,7 @@ To access any property declared in the front matter it has to be enclosed in dou
 {% _short_note %}
 {{A_o.SITE_s}} uses Nunjucks. Using other templating systems, this is a bit different.
 {% end_short_note %}
-. For instance, the `abstract_s` property in the front matter is injected in this page with the following code: {% raw %}`{{ abstract_s }}`{% endraw %} and renders as:<br>
+. For instance, the `abstract_s` property in the front matter is injected in this page with the following code: {% raw %}`{{ abstract_s }}`{% endraw %} and renders as:<br/>
 <q>{{ abstract_s }}</q>.
 
 {% _anchor %}
@@ -238,15 +238,15 @@ eleventyUrl__s: key_s =>
 
 The acronyms
 {% _short_note %}
-usually three characters are enough to get a unique identifier:<br>
-`JFM_s` for `#javascript-front-matter`,<br>
+usually three characters are enough to get a unique identifier:<br/>
+`JFM_s` for `#javascript-front-matter`,<br/>
 `UDF_s` for `#user-defined-front-matter-customizations`.
 {% end_short_note %}
 , used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.
 
 Hence to get the _reference_ and the _link_ of a _reference-style link_ is just as easy as:
 
-{% raw %}`{{ F_o.eleventyUrl__s( 'JFM_s' ).ref }}`{% endraw %}<br>
+{% raw %}`{{ F_o.eleventyUrl__s( 'JFM_s' ).ref }}`{% endraw %}<br/>
 {% raw %}`{{ F_o.eleventyUrl__s( 'JFM_s' ).link }}`{% endraw %}
 {data--="example"}
 

@@ -33,7 +33,7 @@ This is an introduction paragraph which should be limited in length.
 ### Subtitle
 {% end_anchor %}
 {% _short_note %}
-h3 element<br>
+h3 element<br/>
 <b>Titles have a</b> <code>font-style: italic</code>
 {% end_short_note %}  
 

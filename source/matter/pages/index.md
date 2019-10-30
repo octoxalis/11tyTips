@@ -16,7 +16,7 @@
 [comment]: # (======== Post ========)
 # Bienvenue
 
-Welcome to {{A_o.SITE_s}},<br>
+Welcome to {{A_o.SITE_s}},<br/>
 a site to sound [Eleventy]{{U_o.OUTLINK_s}} static site generator.{ data--="page_intro" }
 
 {% _anchor %}

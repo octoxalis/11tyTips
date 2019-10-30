@@ -51,7 +51,7 @@ Trying to stay as simple as possible, {{A_o.SITE_s}} is built using a minimal se
 The `source` directory design reflects the JAMstack categories:
 + make
 {% _short_note %}
-contains JavaScript modules to be used during the build process and is split in two directories: Eleventy modules (`11ty`) and {{A_o.SITE_s}} modules (`lib`).<br>
+contains JavaScript modules to be used during the build process and is split in two directories: Eleventy modules (`11ty`) and {{A_o.SITE_s}} modules (`lib`).
 *This is also where the initial JavaScript file firing the building process is located*. Instead of `.eleventy.js` this file is named `make.js` (without the starting dot because it is not hidden).
 {% end_short_note %}
 
