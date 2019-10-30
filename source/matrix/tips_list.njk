@@ -11,7 +11,7 @@
   {{ C_o.h4_a__s( U_o.GIT_s, 'Github' ) }}
   {{ C_o.h4_a__s( U_o.TWI_s, 'Twitter' ) }}
   {{ C_o.h4_a__s( U_o.RSS_s, 'RSS' ) }}
-  <h2 data--="tips_order">All tips</h2>
+  <h2 data--="tips_order">{{ 'All ' + A_o.COLLECTION_s + 's' }}</h2>
   <ol data--="tips_list">
 {% for _post_o in collections.tip %}
     <li data--="tips_item">

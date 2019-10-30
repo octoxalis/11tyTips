@@ -20,10 +20,16 @@ module.exports = make_o =>
   })
 
   //: html minify filter
-  make_o.addFilter('minify_html', code_s => require('html-minifier').minify( code_s, { removeAttributeQuotes: false, useShortDoctype: true, removeComments: true, collapseWhitespace: true }) )
+  make_o.addFilter('minify_html', code_s => require('html-minifier').minify( code_s,
+    { removeAttributeQuotes: false,
+      useShortDoctype: true,
+      removeComments: true,
+      collapseWhitespace: true,
+      keepClosingSlash: true,    //: for XML validation
+    }) )
 
   //: RSS feed
-  make_o.addFilter('rss_feed', code_s => require('../lib/feed_content.js')( code_s ) )
+  make_o.addFilter('feed_content', code_s => require('../lib/feed_content.js')( code_s ) )
 
   const dateToISO__s = require('../lib/dateToISO.js')
   make_o.addNunjucksFilter( "feed_date", date_o => dateToISO__s( date_o ) )

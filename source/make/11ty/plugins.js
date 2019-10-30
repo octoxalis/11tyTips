@@ -1,4 +1,4 @@
 module.exports = make_o =>
 {
-  make_o.addPlugin( require( '@11ty/eleventy-plugin-rss' ) )
+  //xx make_o.addPlugin( require( '@11ty/eleventy-plugin-rss' ) )
 }

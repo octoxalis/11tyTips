@@ -24,9 +24,8 @@ Why not use {{ A_o.SITE_s }} as a boilerplate for your own new site?{ data--="pa
 
 {{ A_o.SITE_s }} site has been designed to help those wanting to start with a static site generator such as Eleventy, without spending a lot of time to find the best architecture meeting their needs. All tips explained in its pages are examplified by its source code: the dogfooding principle!
 
-{% _more_to_come %}
-Install process
-{% end_more_to_come %}
-
+If you want to use it as a frame for your new site, visit the {{ U_o.FRAME_s }} [site]{{U_o.OUTLINK_s}}.
 
 [comment]: # (======== Links ========)
+
+[site]: {{ U_o.FRAME_URL_s }}
