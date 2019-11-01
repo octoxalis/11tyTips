@@ -6,8 +6,8 @@ const A_o = require( './A_o.js' )
 
 const U_o =
 {
-  dev_b: true,     //: development/production switch
-  //dev_b: false,
+  //dev_b: true,     //: development/production switch
+  dev_b: false,
   url_s: null,
 
   DEV_s: A_o.LOCAL_s,
