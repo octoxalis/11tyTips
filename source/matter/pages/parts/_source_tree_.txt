@@ -54,7 +54,7 @@
 │   │           │   ├── _html_.css
 │   │           │   ├── _note_.css
 │   │           │   ├── _prism_theme_.css
-│   │           │   ├── _pro_1st_.css
+│   │           │   ├── _properties_.css
 │   │           │   ├── _rootvar_.css
 │   │           │   ├── _source_tree_.css
 │   │           │   ├── _tips_list_.css
