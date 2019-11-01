@@ -10,11 +10,11 @@
  * Handle menu order click
  * to sort tips by reverse order
  */
-  document.querySelector( '[data--="tips_order"]' )
+  document.querySelector( '[data--="menu_order"]' )
     .addEventListener('click', click_o =>
     {
       const menu_e = click_o.target.closest('menu')
-      if ( menu_e ) DOM_listReverse( '[data--="tips_list"]' )
+      if ( menu_e ) DOM_listReverse( '[data--="menu_list"]' )
     } )
   } )
 
@@ -24,7 +24,7 @@
  */
   window
     .addEventListener('load', () =>
-      document.querySelector( '[data--="tips_menu"]' ).style.height =
+      document.querySelector( '[data--="menu"]' ).style.height =
         `${document.querySelector( '[data--="article"]' ).offsetHeight}px`
     )
 

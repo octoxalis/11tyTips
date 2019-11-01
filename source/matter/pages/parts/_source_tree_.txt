@@ -57,7 +57,7 @@
 │   │           │   ├── _properties_.css
 │   │           │   ├── _rootvar_.css
 │   │           │   ├── _source_tree_.css
-│   │           │   ├── _tips_list_.css
+│   │           │   ├── _menu_list_.css
 │   │           │   └── _ui_.css
 │   │           └── lib.njk
 │   ├── parts
@@ -81,7 +81,7 @@
 │   ├── feed.njk
 │   ├── frame.njk
 │   ├── sitemap.njk
-│   └── tips_list.njk
+│   └── menu_list.njk
 └── matter
     ├── assets
     │   ├── scripts
@@ -116,5 +116,5 @@
         ├── sitemap.md
         ├── source_tree.md
         ├── styles_guide.md
-        ├── tips_list.md
+        ├── menu_list.md
         └── variables_inheritance.md

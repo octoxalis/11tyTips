@@ -3,15 +3,14 @@
   --MENU_SHOW: 0;
 }
 
-[data--="tips_menu"]
+[data--="menu"]
 {
-  width: calc( 100% - ( var(--PAD_W) * 2vw ) );
   padding-top: var(--PAD_8);
   transform: scaleY( var(--MENU_SHOW) );
   transition: all 0.25s ease-in-out;
 }
 
-[data--="tips_order"]::after
+[data--="menu_order"]::after
 {
   content: '⇅';
   margin-left: var(--PAD_8);
@@ -19,13 +18,13 @@
   font-style: normal;
 }
 
-[data--="tips_item"]
+[data--="menu_item"]
 {
   display: flex;
   margin: 0;
 }
 
-[data--="tips_item"] span
+[data--="menu_item"] span
 {
   margin-left: var(--PAD_2);
   padding: var(--PAD_1);

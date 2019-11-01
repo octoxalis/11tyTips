@@ -58,7 +58,7 @@
 │   │           │   ├── _properties_.css
 │   │           │   ├── _rootvar_.css
 │   │           │   ├── _source_tree_.css
-│   │           │   ├── _tips_list_.css
+│   │           │   ├── _menu_list_.css
 │   │           │   └── _ui_.css
 │   │           └── lib.njk
 │   ├── parts
@@ -82,7 +82,7 @@
 │   ├── feed.njk
 │   ├── frame.njk
 │   ├── sitemap.njk
-│   └── tips_list.njk
+│   └── menu_list.njk
 └── matter
     ├── assets
     │   ├── scripts
@@ -117,7 +117,7 @@
         ├── sitemap.md
         ├── source_tree.md
         ├── styles_guide.md
-        ├── tips_list.md
+        ├── menu_list.md
         └── variables_inheritance.md
 </code></pre></content></entry><entry><title>Eleventy settings</title><link href="https://11tytips.netlify.com/tips/eleventy_configure.html"/><updated>2019-09-05T02:00:00+02:00</updated><id>https://11tytips.netlify.com/tips/eleventy_configure.html</id><content type="html"><h1>Eleventy configuration</h1><p data--="page_intro">You can customize Eleventy starting file as you see fit.</p><h2 id="the_eleventy_javascript_file">The Eleventy JavaScript file</h2><p>Eleventy uses a simple file, named by default <code>.eleventy.js</code> (because of the leading dot it’s an hidden file ), to define the settings of the building environment. This file is, by default, located at the root of the source folder but it can be put anywhere. The name itself can also be changed, if you see fit. (11tyTips modifies both the name, calling it <code>make.js</code>, and the location, putting it in the <code>source/make/11ty</code> directory. ) This file defines the settings of the main resources used in the building process: <em>libraries</em>, <em>shortcodes</em>, <em>filters</em>, <em>plugins</em>, etc. 11tyTips fragments this monolithic file in specific modules, each devoted to a part of the configuration, all located in the <code>source/make/11ty/</code> directory. The configuration object returned by the configuration/make file is important because it defines the location of the main components of the building process: the <code>input</code> and <code>output</code> directories, the templates processors, etc.</p><p>11tyTips declares its own set of directories, modifying some of the default names and locations (for instance, the leading underscore character is suppressed for <code>output</code>, <code>lib</code> and <code>matrix</code> directories, in lieu of <code>_output</code>, <code>_data</code> and <code>_includes</code>; <code>static</code> directory is named <code>assets</code>, etc. )</p><hgroup data--="code_ref"><h5>source/make/11ty/make.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
 const MAKE_o =
@@ -246,7 +246,7 @@ const DOM_listReverse = selector_s =>
   author_s:    `Octoxalis`,
 }
 ---
-</code></pre><p>To access any property declared in the front matter it has to be enclosed in double parenthesis <code>{{ ... }}</code> (11tyTips uses Nunjucks. Using other templating systems, this is a bit different. ). For instance, the <code>abstract_s</code> property in the front matter is injected in this page with the following code: <code>{{ abstract_s }}</code> and renders as:<br/><q>Accessing front matter data in Markdown and templates</q>.</p><h2 id="function_properties">Function properties</h2><p>If you use JavaScript for the front matter (a very good idea because it gives you the full power of the language to process your content. )and Nunjucks as templating system, you can declare functions as properties (see <a href="https://11ty.io/docs/data-frontmatter/#javascript-front-matter" target="_blank" rel="noreferrer noopener">Eleventy#javascript-front-matter</a> documentation page. ). Usually, apart very specific cases, it’s much more easy to declare content processing functions in a module located inside the data directory (because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful. ).</p><p>However, 11tyTips tips list menu is such a case: the <code>rank__s</code> property calls the <code>String.prototype.padStart</code> method to add one or two <code>0</code> before the tip rank to normalize it and is called this way:</p><p data--="example"><code>&lt;span&gt;{{ rank__s(loop.index) }}&lt;/span&gt;</code></p><hgroup data--="code_ref"><h5>11tyTips/source/matter/items/tips_list.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+</code></pre><p>To access any property declared in the front matter it has to be enclosed in double parenthesis <code>{{ ... }}</code> (11tyTips uses Nunjucks. Using other templating systems, this is a bit different. ). For instance, the <code>abstract_s</code> property in the front matter is injected in this page with the following code: <code>{{ abstract_s }}</code> and renders as:<br/><q>Accessing front matter data in Markdown and templates</q>.</p><h2 id="function_properties">Function properties</h2><p>If you use JavaScript for the front matter (a very good idea because it gives you the full power of the language to process your content. )and Nunjucks as templating system, you can declare functions as properties (see <a href="https://11ty.io/docs/data-frontmatter/#javascript-front-matter" target="_blank" rel="noreferrer noopener">Eleventy#javascript-front-matter</a> documentation page. ). Usually, apart very specific cases, it’s much more easy to declare content processing functions in a module located inside the data directory (because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful. ).</p><p>However, 11tyTips tips list menu is such a case: the <code>rank__s</code> property calls the <code>String.prototype.padStart</code> method to add one or two <code>0</code> before the tip rank to normalize it and is called this way:</p><p data--="example"><code>&lt;span&gt;{{ rank__s(loop.index) }}&lt;/span&gt;</code></p><hgroup data--="code_ref"><h5>11tyTips/source/matter/items/menu_list.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
 ---js
 {
   rank__s: at_n =&gt; `#${('' + at_n).padStart( 3, '0' )}`
@@ -255,15 +255,15 @@ const DOM_listReverse = selector_s =>
 {% include "parts/_template_start_.njk" %}{# ante process #}
 <br/>
 {%- set _template_s %}
-&lt;menu data--="tips_menu"&gt;
+&lt;menu data--="menu"&gt;
   &lt;h3&gt;&lt;a href="{{ U_o.url_s }}"&gt;Home&lt;/a&gt;&lt;/h3&gt;
   {{ C_o.h4_a__s( U_o.GIT_s, 'Github' ) }}
   {{ C_o.h4_a__s( U_o.TWI_s, 'Twitter' ) }}
   {{ C_o.h4_a__s( U_o.RSS_s, 'RSS' ) }}
-  &lt;h2 data--="tips_order"&gt;All the tips&lt;/h2&gt;
-  &lt;ol data--="tips_list"&gt;
-{% for _post_o in collections.tip %}
-    &lt;li data--="tips_item"&gt;
+  &lt;h2 data--="menu_order"&gt;All the tips&lt;/h2&gt;
+  &lt;ol data--="menu_list"&gt;
+{% for _post_o in [A_o.COLLECTION_s] %}
+    &lt;li data--="menu_item"&gt;
       &lt;span&gt;{{ rank__s(loop.index) }}&lt;/span&gt;
       &lt;span&gt;&lt;a href="{{ _post_o.url | url }}"&gt;{{ _post_o.data.title_s }}&lt;/a&gt;&lt;/span&gt;
       &lt;span&gt;{{ _post_o.data.subtitle_s }}&lt;/span&gt;

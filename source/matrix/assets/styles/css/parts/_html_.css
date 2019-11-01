@@ -176,9 +176,9 @@ body
   --font_u: 1em;  /* font unit */
   --font_r: 1.1;  /* font ratio */
   --line_width: var(--LINE_WIDTH);
-  --body_width: calc( ( var(--PAD_W) * 1vw ) + var(--MAX_WIDTH) + ( var(--PAD_W) * 1vw ) );
+  /*--body_width: calc( ( var(--PAD_W) * 1vw ) + var(--MAX_WIDTH) + ( var(--PAD_W) * 1vw ) );*/
 
-  max-width: var(--body_width);
+  /*max-width: var(--body_width);*/
   padding: 0 calc( var(--PAD_W) * 1vw );
   background: var(--c_back_lo);
   font-size: var(--font_u);

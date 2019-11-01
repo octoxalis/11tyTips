@@ -161,15 +161,15 @@ However, {{A_o.SITE_s}} tips list menu is such a case: the `rank__s` property ca
 {% include "parts/_template_start_.njk" %}{# ante process #}
 
 {%- set _template_s %}
-<menu data--="tips_menu">
+<menu data--="menu">
   <h3><a href="{{ U_o.url_s }}">Home</a></h3>
   {{ C_o.h4_a__s( U_o.GIT_s, 'Github' ) }}
   {{ C_o.h4_a__s( U_o.TWI_s, 'Twitter' ) }}
   {{ C_o.h4_a__s( U_o.RSS_s, 'RSS' ) }}
-  <h2 data--="tips_order">All the tips</h2>
-  <ol data--="tips_list">
-{% for _post_o in collections.tip %}
-    <li data--="tips_item">
+  <h2 data--="menu_order">All the tips</h2>
+  <ol data--="menu_list">
+{% for _post_o in [A_o.COLLECTION_s] %}
+    <li data--="menu_item">
       <span>{{ rank__s(loop.index) }}</span>
       <span><a href="{{ _post_o.url | url }}">{{ _post_o.data.title_s }}</a></span>
       <span>{{ _post_o.data.subtitle_s }}</span>
@@ -184,7 +184,7 @@ However, {{A_o.SITE_s}} tips list menu is such a case: the `rank__s` property ca
 {% endset %}
 
 {% _code_block %}
-    title_s: '{{A_o.SITE_s}}/source/matter/items/tips_list.njk',
+    title_s: '{{A_o.SITE_s}}/source/matter/items/menu_list.njk',
     lang_s: 'javascript'
 [//]:#(_code_block)
 {{ F_o.tagEscape__s( _code ) }}

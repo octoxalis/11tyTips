@@ -1,12 +1,12 @@
 .utterances
   {background:var(--c_extern)}
 
-[data--=tips_menu],
+[data--=menu],
 [data--=header]
   {background:var(--c_back_op)}
 
-[data--=tips_menu] h4,
-[data--=tips_item],
+[data--=menu] h4,
+[data--=menu_item],
 [data--=article],
 [data--=section]
   {background:var(--c_back_hi)}
@@ -15,7 +15,7 @@
   {background:var(--c_back_lo)}
 
 .toolbar-item > button:hover,
-[data--=tips_item] span,
+[data--=menu_item] span,
 [data--=header_menu]:hover,
 [data--=code_ref],
 [data--=example]
@@ -26,13 +26,13 @@
 
 [data--=header],
 [data--=section],
-[data--=tips_menu],
-[data--=tips_item],
+[data--=menu],
+[data--=menu_item],
 [data--=article],
 .note_open
   {color:var(--c_prim_lo)}
 
-[data--=tips_menu]
+[data--=menu]
   {position:absolute}
 
 [data--=header]
@@ -48,23 +48,21 @@
   {z-index: 2}
 
 [data--="menu_frame"],
-[data--="tips_menu"]
+[data--="menu"]
   {z-index: var(--MENU_SHOW)}  /* 0 : 1 */
 
+
 [data--="menu_frame"],
-[data--="tips_menu"]
+[data--="menu"]
   {opacity: var(--MENU_SHOW)}  /* 0 : 1 */
 
-.utterances,
-p > code,
-code[class*="language-"],
-pre[class*="language-"],
-[data--="note_content"] code,    /* code inside inline_note*/
-[data--="tips_menu"],
-[data--="page_intro"],
-[data--="code_ref"],
+[data--="header"],
+[data--="article"],
+[data--="menu"]
+  {width:calc( 100vw - ( var(--PAD_W) * 2vw ) );}
+
 [data--="example"]
-  {max-width:var(--MAX_WIDTH);}
+  {max-width:100%;}
 
 p > code,
 [data--="note_content"],
@@ -80,6 +78,6 @@ pre > code,
   {display:block}
 
 [data--="inline_note"],
-[data--="tips_order"],
+[data--="menu_order"],
 [data--="header_menu"]:hover
   {cursor:pointer}
