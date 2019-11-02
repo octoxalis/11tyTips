@@ -24,7 +24,7 @@ Eleventy provides you with simple but efficient configuration options.{ data--="
 
 Eleventy provides a wide range of settings for [data] used in building stage or inside content: [global] data as well as [template and directory] data.
 
-{{A_o.SITE_s}} uses only global data contained in JavaScript files located inside the data directory.
+{{A_o.ID_s}} uses only global data contained in JavaScript files located inside the data directory.
 
 {% _code_block %}
     title_s: 'source/matter/assets/scripts/js/lib/U_o.js',
@@ -42,8 +42,8 @@ const U_o =
   DEV_s: A_o.LOCAL_s,
   PRO_s: A_o.URL_s,
 
-  GIT_s: `https://github.com/${A_o.AUTHOR_s}/${A_o.SITE_s}/`,
-  TWI_s: `https://twitter.com/${A_o.SITE_s}/`,
+  GIT_s: `https://github.com/${A_o.AUTHOR_s}/${A_o.ID_s}/`,
+  TWI_s: `https://twitter.com/${A_o.ID_s}/`,
   RSS_s: `${A_o.URL_s}feed.xml`,
 
   HOME_s:    `[Home page]: ${A_o.URL_s}`,

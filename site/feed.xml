@@ -167,8 +167,8 @@ const U_o =
   DEV_s: A_o.LOCAL_s,
   PRO_s: A_o.URL_s,
 <br/>
-  GIT_s: `https://github.com/${A_o.AUTHOR_s}/${A_o.SITE_s}/`,
-  TWI_s: `https://twitter.com/${A_o.SITE_s}/`,
+  GIT_s: `https://github.com/${A_o.AUTHOR_s}/${A_o.ID_s}/`,
+  TWI_s: `https://twitter.com/${A_o.ID_s}/`,
   RSS_s: `${A_o.URL_s}feed.xml`,
 <br/>
   HOME_s:    `[Home page]: ${A_o.URL_s}`,

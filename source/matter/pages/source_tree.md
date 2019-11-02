@@ -13,12 +13,12 @@
   }
 ---
 [comment]: # (======== Post ========)
-# {{A_o.SITE_s}} site tree
+# {{A_o.ID_s}} site tree
 
-A bird's eye view of {{A_o.SITE_s}} site.{ data--="page_intro" }
+A bird's eye view of {{A_o.ID_s}} site.{ data--="page_intro" }
 
 {% _code_block %}
-    title_s: '{{A_o.SITE_s}} source tree',
+    title_s: '{{A_o.ID_s}} source tree',
     lang_s: "txt",
 [//]:#(_code_block)
 !!!include( _source_tree_.txt )!!!

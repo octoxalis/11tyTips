@@ -8,7 +8,7 @@ module.exports =
   AUTHOR_s:     'octoxalis',
   EMAIL_s:      'octoxalis@gmail.com',
     
-  SITE_s:       '11tyTips',
+  ID_s:         '11tyTips',
   NAME_s:       '11ty Tips',
   URL_s:        `https://11tytips.netlify.com/`,
   LOCAL_s:      `http://127.0.0.1:5500/`,

@@ -39,7 +39,7 @@ In the markdown file, the `raw` tags are writen by replacing the curly bracket c
 By convention, I call this front matter function `output__s` and it takes as argument the  template engine output, to process it the way I want.
 
 {% _code_block %}
-    title_s: '{{A_o.SITE_s}}/source/matter/items/frontmatter_function.md',
+    title_s: '{{A_o.ID_s}}/source/matter/items/frontmatter_function.md',
     lang_s: 'javascript'
 [//]:#(_code_block)
 {% raw %}
@@ -56,7 +56,7 @@ By convention, I call this front matter function `output__s` and it takes as arg
 This `output__s` function is automaticaly invoqued (if it exists in the front matter part of any Markdown file) at the end of the global frame template passing the template engine result previously captured by a Nunkucks {% raw %}`{% set %} {% endset %}`{% endraw %} block.
 
 {% _code_block %}
-    title_s: '{{A_o.SITE_s}}/source/matrix/frame.njk',
+    title_s: '{{A_o.ID_s}}/source/matrix/frame.njk',
     lang_s: "twig"
 [//]:#(_code_block)
 {% raw %}
@@ -70,7 +70,7 @@ This `output__s` function is automaticaly invoqued (if it exists in the front ma
 
 
 {% _code_block %}
-    title_s: '{{A_o.SITE_s}}/source/matrix/parts/template_end_.njk',
+    title_s: '{{A_o.ID_s}}/source/matrix/parts/template_end_.njk',
     lang_s: "twig"
 [//]:#(_code_block)
 {% raw %}

@@ -28,12 +28,12 @@ because of the leading dot it's an hidden file
 {% end_short_note %}
 , to define the settings of the building environment. This file is, by default, located at the root of the source folder but it can be put anywhere. The name itself can also be changed, if you see fit.
 {% _short_note %}
-{{A_o.SITE_s}} modifies both the name, calling it `make.js`, and the location, putting it in the `source/make/11ty` directory.
+{{A_o.ID_s}} modifies both the name, calling it `make.js`, and the location, putting it in the `source/make/11ty` directory.
 {% end_short_note %}
 
-This file defines the settings of the main resources used in the building process: _libraries_, _shortcodes_, _filters_, _plugins_, etc. {{A_o.SITE_s}} fragments this monolithic file in specific modules, each devoted to a part of the configuration, all located in the `source/make/11ty/` directory. The configuration object returned by the configuration/make file is important because it defines the location of the main components of the building process: the `input` and `output` directories, the templates processors, etc.
+This file defines the settings of the main resources used in the building process: _libraries_, _shortcodes_, _filters_, _plugins_, etc. {{A_o.ID_s}} fragments this monolithic file in specific modules, each devoted to a part of the configuration, all located in the `source/make/11ty/` directory. The configuration object returned by the configuration/make file is important because it defines the location of the main components of the building process: the `input` and `output` directories, the templates processors, etc.
 
-{{A_o.SITE_s}} declares its own set of directories, modifying some of the default names and locations
+{{A_o.ID_s}} declares its own set of directories, modifying some of the default names and locations
 {% _short_note %}
 for instance, the leading underscore character is suppressed for `output`, `lib` and `matrix` directories, in lieu of `_output`, `_data` and `_includes`; `static` directory is named `assets`, etc.
 {% end_short_note %}

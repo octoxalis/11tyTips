@@ -42,7 +42,7 @@ the shortcode argument is passed enclosed between two tags (ex. #2).
 {% raw %}`{% _shortcode_id %}... Content to be processed ...{% end_shortcode_id %}`{% endraw %}
 {data--="example"}
 
-{{ A_o.SITE_s }} doesn't use a lot of shortcodes, but they are essential to its content. Let's dissect the most omnipresent of it: the `_code_block` paired shortcode.
+{{ A_o.ID_s }} doesn't use a lot of shortcodes, but they are essential to its content. Let's dissect the most omnipresent of it: the `_code_block` paired shortcode.
 It is passed to Eleventy configuration method `addPairedShortcode` this way:
 
 {% raw %}`make_o.addPairedShortcode('_code_block', content_s => CODES_o.code_block__s( content_s ) )`{% endraw %}
@@ -50,7 +50,7 @@ It is passed to Eleventy configuration method `addPairedShortcode` this way:
 
 Here, `_code_block` is the shortcode identifier
 {% _short_note %}
-{{ A_o.SITE_s }} uses a leading underscore character because the shortcode closing tag adds the word `end` before the shortcode identifier: `end_shortcode` is more readable than `endshortcode`, isn't it?
+{{ A_o.ID_s }} uses a leading underscore character because the shortcode closing tag adds the word `end` before the shortcode identifier: `end_shortcode` is more readable than `endshortcode`, isn't it?
 {% end_short_note %}
 
 {% _more_to_come %}

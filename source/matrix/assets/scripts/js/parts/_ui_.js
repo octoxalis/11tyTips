@@ -7,31 +7,31 @@
   DOM_loader( '[data--="menu_frame"]', () =>
   {
 /**
- * Handle menu order click
- * to sort tips by reverse order
- */
-  document.querySelector( '[data--="menu_order"]' )
-    .addEventListener('click', click_o =>
-    {
-      const menu_e = click_o.target.closest('menu')
-      if ( menu_e ) DOM_listReverse( '[data--="menu_list"]' )
-    } )
-  } )
-
-/**
  * Set the menu element as high as the article element
  * to hide it
  */
-  window
-    .addEventListener('load', () =>
-      document.querySelector( '[data--="menu"]' ).style.height =
-        `${document.querySelector( '[data--="article"]' ).offsetHeight}px`
+    window
+      .addEventListener('load', () =>
+        document.querySelector( '[data--="menu"]' ).style.height =
+          `${document.querySelector( '[data--="article"]' ).offsetHeight}px`
     )
+
+/**
+ * Handle menu order click
+ * to sort posts by reverse order
+ */
+    document.querySelector( '[data--="menu_order"]' )
+      .addEventListener('click', click_o =>
+      {
+        const menu_e = click_o.target.closest('menu')
+        if ( menu_e ) DOM_listReverse( '[data--="menu_list"]' )
+      } )
+  } )
 
   //: click
 /**
  * Handle menu click
- * to show/hide tips list
+ * to show/hide posts list
  */
   document.querySelector( '[data--="header"]' )
     .addEventListener('click', click_o => 

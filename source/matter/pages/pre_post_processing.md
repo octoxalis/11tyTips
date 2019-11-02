@@ -24,7 +24,7 @@ It can be useful to process the final result of the templating work or prepare i
 
 All templating engines have limits and Nunjucks
 {% _short_note %}
-which is used here by {{A_o.SITE_s}}
+which is used here by {{A_o.ID_s}}
 {% end_short_note %}
 has its own. But you can easily go your way beyond those limits to process the output of the templating engine just before everything is engraved as a static HTML page.
 For instance you may want to overcome the encoding output of the engine and make some modifications
@@ -163,7 +163,7 @@ module.exports =
 {% end_code_block %}
 
 
-Any kind of processing can be done inside the starting and ending modules and the argument they receive can be anything else than the list of files to process. In {{ A_o.SITE_s }}, till now, these modules do not process anything.
+Any kind of processing can be done inside the starting and ending modules and the argument they receive can be anything else than the list of files to process. In {{ A_o.ID_s }}, till now, these modules do not process anything.
 
 
 {% _code_block %}

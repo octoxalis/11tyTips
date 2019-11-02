@@ -25,7 +25,7 @@ How to identify variable types using a consistent naming scheme.{ data--="page_i
 Every developer knows that JavaScript is not a static typed language, a useful feature eliminating lots of bugs.
  A language like Typescript has been created as a remedy to that important lack of safety. Even for code modules counting less than a few tens of lines, it's easy to forget what kind of type is exactly a variable or constant declared at the begining of the file and then make a mistake when assining a wrong type to a variable.
 
-{{A_o.SITE_s}} adopts a simple recipe to avoid such mistakes: only adding a mnemonic letter at the end of each identifier to specify the variable or constant type.
+{{A_o.ID_s}} adopts a simple recipe to avoid such mistakes: only adding a mnemonic letter at the end of each identifier to specify the variable or constant type.
 This simple adjonction has a secondary benefice: it simplifies the identifier derivations.
 
 Just an example: the JavaScript `String.prototype.split` method returns an array of Strings:
@@ -42,7 +42,7 @@ var words = str.split(' ');
 Two different words for two tightly related entities! Isn't it semantically more meaningful to use the same identifier with different specifiers?
 
 {% _code_block %}
-    title_s: '{{A_o.SITE_s}}: Pseudo-typed identifiers',
+    title_s: '{{A_o.ID_s}}: Pseudo-typed identifiers',
     lang_s: 'javascript',
 [//]:#(_code_block)
 var lazyDog_s = 'The quick brown fox jumps over the lazy dog.';
@@ -57,7 +57,7 @@ with smart inline type coercion tricks!
 :
 
 {% _code_block %}
-    title_s: '{{A_o.SITE_s}}: Tricky pseudo-typed identifiers',
+    title_s: '{{A_o.ID_s}}: Tricky pseudo-typed identifiers',
     lang_s: 'javascript',
 [//]:#(_code_block)
 const oneTwoThree_s = '123'
@@ -140,7 +140,7 @@ You could do the same for a variable accepting different kinds of type, but is i
 {data--="example"}
 
 {% _code_block %}
-    title_s: '{{A_o.SITE_s}}/source/matrix/assets/static/scripts/js/parts/dom.js',
+    title_s: '{{A_o.ID_s}}/source/matrix/assets/static/scripts/js/parts/dom.js',
     lang_s: 'javascript',
 [//]:#(_code_block)
 const DOM_siblings__a = selector_s =>

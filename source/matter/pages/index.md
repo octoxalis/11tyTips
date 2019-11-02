@@ -16,7 +16,7 @@
 [comment]: # (======== Post ========)
 # Bienvenue
 
-Welcome to {{A_o.SITE_s}},<br/>
+Welcome to {{A_o.ID_s}},<br/>
 a site to sound [Eleventy]{{U_o.OUTLINK_s}} static site generator.{ data--="page_intro" }
 
 {% _anchor %}
@@ -42,7 +42,7 @@ it is [zero-config]{{U_o.OUTLINK_s}} out of the box!
 {% end_anchor %}
 
 
-{{A_o.SITE_s}} will provide useful tips and tricks to unleash the power of 11ty. If you've never built a static site, thanks to the simplicity of this generator, you will be able to install your site, by cloning the Github repository of this site, replacing its content files with your own Markdown content
+{{A_o.ID_s}} will provide useful tips and tricks to unleash the power of 11ty. If you've never built a static site, thanks to the simplicity of this generator, you will be able to install your site, by cloning the Github repository of this site, replacing its content files with your own Markdown content
 {% _short_note %}
 follow the [site cloning] page instructions to start with a clean site skeleton.
 {% end_short_note %}
