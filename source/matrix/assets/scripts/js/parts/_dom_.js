@@ -2,17 +2,17 @@ const DOM_rootVar__s = var_s => window.getComputedStyle( document.documentElemen
 
 const DOM_rootVar = ( var_s, val_s ) => document.documentElement.style.setProperty( var_s, val_s )
 
-const DOM_loader = ( selector_s, callback_f, delay_n=0 ) =>
+const DOM_loader = ( selector_s, callback__, delay_n=0 ) =>
 {
   const iframe_e = document.querySelector( selector_s )
   iframe_e.addEventListener('load', () =>
     {
       iframe_e.before( (iframe_e.contentDocument.body||iframe_e.contentDocument).children[0])
       iframe_e.remove()
-      if ( callback_f )
+      if ( callback__ )
       {
-        if ( delay_n ) window.setTimeout( callback_f, delay_n )
-        else callback_f()
+        if ( delay_n ) window.setTimeout( callback__, delay_n )
+        else callback__()
       }
     } )
 }
@@ -23,7 +23,7 @@ const DOM_siblings__a = selector_s =>
   return !node_e ?
     null :
     Array.prototype.filter
-      .call( node_e.parentNode.children, sibling => sibling !== node_e )
+      .call( node_e.parentNode.children, sibling_e => sibling_e !== node_e )
 }
 
 /**
