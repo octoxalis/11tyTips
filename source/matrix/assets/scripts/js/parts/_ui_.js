@@ -4,7 +4,7 @@
 ;( () =>
 {
   //: load
-  DOM_loader( '[data--="menu_frame"]', () =>
+  DOM_loader__v( '[data--="menu_frame"]', () =>
   {
 /**
  * Set the menu element as high as the article element
@@ -24,7 +24,7 @@
       .addEventListener('click', click_o =>
       {
         const menu_e = click_o.target.closest('menu')
-        if ( menu_e ) DOM_listReverse( '[data--="menu_list"]' )
+        if ( menu_e ) DOM_listReverse__v( '[data--="menu_list"]' )
       } )
   } )
 
@@ -39,10 +39,10 @@
       const menu_e = click_o.target.closest('label')
       if ( menu_e === null ) return
       const show_s = DOM_rootVar__s( '--MENU_SHOW' ) === '1' ? '0' : '1'
-      DOM_rootVar( '--MENU_SHOW', show_s )
+      DOM_rootVar__v( '--MENU_SHOW', show_s )
       comments_e = document.querySelector( '.utterances' )
       if ( comments_e !== null ) comments_e.classList.toggle( 'zero_height' )
-      if ( show_s === '1' ) DOM_scrollToTop()
+      if ( show_s === '1' ) DOM_scrollToTop__v()
     } )
   
 /**
