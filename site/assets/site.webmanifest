@@ -1,6 +1,6 @@
 {
   "name":"11tyTips",
-  "start_url": "http://127.0.0.1:5500/",
+  "start_url": "https://11tytips.netlify.com/",
   "short_name":"11tyTips",
   "description": "A blog devoted to Eleventy static site generator users",
   "icons":
