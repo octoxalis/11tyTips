@@ -49,7 +49,7 @@ it can be, for instance, a data base access (server-side), or some checking rela
 {% end_short_note %}
 .
 
-Similarly, there is an *ending* block whose filter processes the output of the template engine, once all the template work has been done, allowing you to further processed the output.
+Similarly, there is an *ending* block whose filter processes the output of the template engine, once all the template work has been done, allowing you to further process the output.
 {% _short_note %}
 in the following listing it's the last line `include` tag.
 {% end_short_note %}
