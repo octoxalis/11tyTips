@@ -94,7 +94,7 @@ in the following listing it's the last line `include` tag.
 {% end_anchor %}
 
 
-The filters invoqued as previously described are also use to make any specific processing required just before the first template is to be processed by Eleventy and just after the last template has been processed. It's kind of a hook, as can be seen is some frameworks, inside Eleventy. This *ante* or *post* processing uses only a directory listing to count the number of template files to be processed and invoque the starting function if no one has already been processed or the ending function if the number of files processed is equivalent to the listing count
+The filters invoqued as previously described are also used to make any specific processing required just before the first template is to be processed by Eleventy and just after the last template has been processed. It's kind of a hook, as can be seen is some frameworks, inside Eleventy. This *ante* or *post* processing uses only a directory listing to count the number of template files to be processed and invoque the starting function if no one has already been processed or the ending function if the number of files processed is equivalent to the listing count
 {% _short_note %}
 this simple algorithm is based on the fact that all posts are in a single directory, without any subdirectories (otherwise the algorithm would have to walk thru all subdirectories), and that this <q>flat</q> directory contains only Markdown files.
 {% end_short_note %}
