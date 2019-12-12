@@ -90,7 +90,7 @@ in the following listing it's the last line `include` tag.
 
 
 {% _anchor %}
-## Processing at the very start or end
+## Processing at build start or end
 {% end_anchor %}
 
 
