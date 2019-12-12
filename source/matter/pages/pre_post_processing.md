@@ -189,7 +189,7 @@ To have full control on the site data, these functions take as argument an `Obje
 {% _short_note %}
 made according to the `EXPORT_a` Array declared in the `F_o.js` global data file
 {% end_short_note %}
-all global data declared
+all declared global data
 {% _short_note %}
 including the `page` Object used for pagination, all the collection Objects and even global properties not usually accessible: `content` and `layoutContent`...
 {% end_short_note %}
