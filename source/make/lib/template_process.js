@@ -70,7 +70,7 @@ module.exports =
   {
     ++at_n
     let end_s = templateEnd__s( input_s, data_o )
-    if ( at_n === count_n && files_a ) buildEnd__s( files_a, data_o, menu_a )
+    if ( at_n === count_n && files_a ) buildEnd__s( input_s, data_o )
     return end_s
   },
 
