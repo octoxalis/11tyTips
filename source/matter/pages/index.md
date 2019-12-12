@@ -16,7 +16,7 @@
 # Bienvenue
 
 Welcome to {{A_o.ID_s}},<br/>
-a site to sound [Eleventy]{{U_o.OUTLINK_s}} static site generator.{ data--="page_intro" }
+a site to magnify the power of [Eleventy]{{U_o.OUTLINK_s}} static site generator.{ data--="page_intro" }
 
 {% _anchor %}
 ## It's Eleventy time!
@@ -47,7 +47,7 @@ follow the [site cloning] page instructions to start with a clean site skeleton.
 {% end_short_note %}
 
 
-The styles have been carefully designed to give you a nice and simple presentation while offering advanced capabilities for a responsive layout with fluid typography
+{{A_o.ID_s}} styles have been carefully designed to give you a nice and simple presentation while offering advanced capabilities for a responsive layout with fluid typography
 {% _short_note %}
 applying Michael Riethmuller [formula]{{U_o.OUTLINK_s}}.
 {% end_short_note %}
