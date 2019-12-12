@@ -1,17 +1,18 @@
 ---js
 {
-  date:      `2019-10-19`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
   permalink: `tips/frontmatter_function.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  title_s:     `Front matter post processing function`,
-  subtitle_s:  `Modify the template engine output`,
-  abstract_s:  `A front matter function can be invoqued to modify the global or partial output of the template engine`,
-  author_s:    `Octoxalis`,
+  menu_n:     12,
+  title_s:    `Front matter post processing function`,
+  subtitle_s: `Modify the template engine output`,
+  abstract_s: `A front matter function can be invoqued to modify the global or partial output of the template engine`,
+  author_s:   `Octoxalis`,
 
-  output__s: output_s => output_s.replace( /\[% raw %\]/g, '{% raw %}' ).replace( /\[% endraw %\]/g, '{% endraw %}' )
+  output__s: output_s => output_s.replace( /\[% raw %\]/g, '{% raw %}' ).replace( /\[% endraw %\]/g, '{% endraw %}' ),
 }
 ---
 [comment]: # (======== Post ========)
@@ -60,23 +61,16 @@ This `output__s` function is automaticaly invoqued (if it exists in the front ma
     lang_s: "twig"
 [//]:#(_code_block)
 {% raw %}
-{% set _HTML_s %}
-...
-{% endset %}
+{# .... #}
+{%- set _template_s %}
+<!doctype html><html lang="{{A_o.LANGUAGE_s}}">
+{{- _head_block_s | safe | head_end( data_o ) -}}{# head process #}
+{{- _body_block_s | safe | body_end( data_o ) -}}{# body process #}
+</html>
+{% endset -%}
 
-{% include "parts/_template_end_.njk" %}{# post process #}
-{% endraw %}
-{% end_code_block %}
-
-
-{% _code_block %}
-    title_s: '{{A_o.ID_s}}/source/matrix/parts/template_end_.njk',
-    lang_s: "twig"
-[//]:#(_code_block)
-{% raw %}
 {%- if output__s %}{% set _template_s = output__s( _template_s ) %}{% endif -%}
-{%- set _args_a = { date: date, permalink: permalink, tags: tags, title_s: title_s } -%}
-{{- _template_s | safe | template_end( _args_a ) | minify_html -}}
+{{- _template_s | safe | template_end( data_o ) | minify_html -}}{# post process #}
 {% endraw %}
 {% end_code_block %}
 

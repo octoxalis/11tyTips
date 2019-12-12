@@ -1,0 +1,23 @@
+{%- set _args_o %}
+{{ '' | front_matter() }}{# ante process #}
+{% endset -%}
+{{- '' | template_start( _args_o ) -}}{# ante process #}
+
+{%- set _template_s %}
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:ca="http://11tytips.netlify.com/schemas/ca_schema">
+{%- for _post_o in collections.all %}
+  <url>
+    <loc>{{ U_o.url_s + _post_o.data.permalink }}</loc>
+    <lastmod>{{ _post_o.data.date }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+{%- endfor %}
+</urlset>
+{% endset -%}
+
+{{- _template_s | safe | template_end( _args_o ) | minify_html -}}{# post process #}

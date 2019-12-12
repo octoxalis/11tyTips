@@ -1,0 +1,12 @@
+{% set _css %}
+{% include "../assets/styles/css/parts/_destyle_.css" %}
+{% include "../assets/styles/css/parts/_rootvar_.css" %}
+{% include "../assets/styles/css/parts/_color_.css" %}
+{% include "../assets/styles/css/parts/_html_.css" %}
+{% include "../assets/styles/css/parts/_properties_.css" %}
+{% endset %}
+<style type="text/css">
+{% if U_o.dev_b === true %}{{ _css | safe }}
+{% else %}{{ _css | minify_css | safe }}
+{% endif %}
+</style>

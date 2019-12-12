@@ -1,11 +1,12 @@
 ---js
 {
-  date:      `2019-09-02`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
   permalink: `tips/site_structure.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
+  menu_n:     1,
   title_s:    `Site structure`,
   subtitle_s: `How to structure a JAMstack site`,
   abstract_s: `Site structure and directories`,

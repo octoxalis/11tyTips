@@ -1,0 +1,30 @@
+---js
+{
+  rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
+}
+---
+{%- set _args_o %}
+{{ '' | front_matter() }}
+{% endset -%}
+{{- '' | template_start( _args_o ) -}}{# ante process #}
+
+{%- set _template_s %}
+<menu data--="menu">
+  <h3><a href="{{ U_o.url_s }}">Home</a></h3>
+  {{ C_o.h4_a__s( U_o.GIT_s, 'Github' ) }}
+  {{ C_o.h4_a__s( U_o.TWI_s, 'Twitter' ) }}
+  {{ C_o.h4_a__s( U_o.RSS_s, 'RSS' ) }}
+  <h2 data--="menu_order">{{ 'All ' + A_o.COLLECTION_s + 's' }}</h2>
+  <ol data--="menu_list">
+{% for _post_o in collections[A_o.COLLECTION_s] %}
+    <li data--="menu_item">
+      <span>{{ rank__s(loop.index) }}</span>
+      <span><a href="{{ _post_o.url | url }}">{{ _post_o.data.title_s }}</a></span>
+      <span>{{ _post_o.data.subtitle_s }}</span>
+    </li>
+{% endfor %}
+  </ol>
+</menu>
+{% endset -%}
+
+{{- _template_s | safe | template_end( _args_o ) | minify_html -}}

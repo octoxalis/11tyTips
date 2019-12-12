@@ -1,11 +1,12 @@
 ---js
 {
-  date:      `2019-09-06`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
   permalink: `tips/site_configure.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
+  menu_n:     5,
   title_s:    `Global settings`,
   subtitle_s: `Useful data for building and content`,
   abstract_s: `Global data for frequent use`,
@@ -45,10 +46,14 @@ const U_o =
   GIT_s: `https://github.com/${A_o.AUTHOR_s}/${A_o.ID_s}/`,
   TWI_s: `https://twitter.com/${A_o.ID_s}/`,
   RSS_s: `${A_o.URL_s}feed.xml`,
+  SERVICE_PATH_s: 'assets/scripts/js/service_worker.min.js',
 
   HOME_s:    `[Home page]: ${A_o.URL_s}`,
   NODE_s :   `[Node.js]: https://nodejs.org`,
   COMMENT_s: `[utteranc.es]: https://github.com/utterance/utterances`,
+
+  FRAME_s:     '11ty Frame',
+  FRAME_URL_s: `https://11tyframe.netlify.com/`,
 
   ELEVENTY_s:     `[Eleventy]: https://11ty.io`,
   ELEVENTY_JFM_s: `/docs/data-frontmatter/#javascript-front-matter`,
@@ -57,7 +62,7 @@ const U_o =
   OUTLINK_s: '{target="_blank" rel="noreferrer noopener"}',
 
 }
-;(() => U_o.url_s = U_o[U_o.dev_b === true ? 'DEV_s' : 'PRO_s'])()
+void function () { U_o.url_s = U_o[U_o.dev_b === true ? 'DEV_s' : 'PRO_s'] } ()
 console.log( `Site URL: ${U_o.url_s}` )
 
 module.exports = U_o

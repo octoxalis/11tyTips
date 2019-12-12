@@ -10,18 +10,21 @@
 │   └── lib
 │       ├── block_replace.js
 │       ├── block_split.js
+│       ├── dateToISO.js
 │       ├── feed_content.js
-│       ├── template_end.js
-│       ├── template_process.js
-│       └── template_start.js
+│       ├── menu.js
+│       └── template_process.js
 ├── matrix
 │   ├── assets
 │   │   ├── scripts
 │   │   │   └── js
 │   │   │       ├── parts
 │   │   │       │   ├── _dom_.js
+│   │   │       │   ├── _service_.js
+│   │   │       │   ├── _service_worker_.js
 │   │   │       │   └── _ui_.js
-│   │   │       └── lib.njk
+│   │   │       ├── lib.njk
+│   │   │       └── service.njk
 │   │   ├── static
 │   │   │   ├── fonts
 │   │   │   │   ├── athiti-v3-latin-regular.woff2
@@ -36,10 +39,9 @@
 │   │   │   ├── scripts
 │   │   │   │   └── js
 │   │   │   │       └── prism.min.js
-│   │   │   ├── styles
-│   │   │   │   └── css
-│   │   │   │       └── prism.min.css
-│   │   │   └── site.webmanifest
+│   │   │   └── styles
+│   │   │       └── css
+│   │   │           └── prism.min.css
 │   │   └── styles
 │   │       └── css
 │   │           ├── parts
@@ -52,15 +54,22 @@
 │   │           │   ├── _font_face_.css
 │   │           │   ├── _full_width_.css
 │   │           │   ├── _html_.css
+│   │           │   ├── _menu_.css
 │   │           │   ├── _note_.css
 │   │           │   ├── _prism_theme_.css
 │   │           │   ├── _properties_.css
 │   │           │   ├── _rootvar_.css
 │   │           │   ├── _source_tree_.css
-│   │           │   ├── _menu_list_.css
 │   │           │   └── _ui_.css
 │   │           └── lib.njk
 │   ├── parts
+│   │   ├── blocks
+│   │   │   ├── _body_.njk
+│   │   │   ├── _body_offline_.njk
+│   │   │   ├── _feed_.njk
+│   │   │   ├── _head_.njk
+│   │   │   ├── _menu_.njk
+│   │   │   └── _sitemap_.njk
 │   │   ├── _article_.njk
 │   │   ├── _colophon_.njk
 │   │   ├── _comment_.njk
@@ -76,23 +85,23 @@
 │   │   ├── _site_url_.njk
 │   │   ├── _style_.njk
 │   │   ├── _style_inline_.njk
-│   │   ├── _template_end_.njk
-│   │   └── _template_start_.njk
+│   │   └── _webmanifest_.njk
 │   ├── feed.njk
 │   ├── frame.njk
-│   ├── sitemap.njk
-│   └── menu_list.njk
+│   ├── offline.njk
+│   └── sitemap.njk
 └── matter
     ├── assets
     │   ├── scripts
     │   │   └── js
     │   │       ├── lib
+    │   │       │   ├── A_o.js
     │   │       │   ├── C_o.js
-    │   │       │   ├── U_o.js
-    │   │       │   ├── U_o.js
     │   │       │   ├── F_o.js
-    │   │       │   └── description.js
-    │   │       └── lib.md
+    │   │       │   └── U_o.js
+    │   │       ├── lib.md
+    │   │       ├── service.md
+    │   │       └── webmanifest.md
     │   └── styles
     │       └── css
     │           └── lib.md
@@ -107,6 +116,7 @@
         ├── index.md
         ├── minifying.md
         ├── names_guide.md
+        ├── offline.md
         ├── pre_post_processing.md
         ├── shortcodes.md
         ├── shorthands.md
@@ -116,5 +126,4 @@
         ├── sitemap.md
         ├── source_tree.md
         ├── styles_guide.md
-        ├── menu_list.md
         └── variables_inheritance.md

@@ -1,15 +1,18 @@
 ---js
 {
-  date:      `2019-09-05`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
   permalink: `tips/eleventy_configure.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  title_s:     `Eleventy settings`,
-  subtitle_s:  `Customizing Eleventy`,
-  abstract_s:  `The main components of an Eleventy site build`,
-  author_s:    `Octoxalis`,
+  menu_n:     4,
+  title_s:    `Eleventy settings`,
+  subtitle_s: `Customizing Eleventy`,
+  abstract_s: `The main components of an Eleventy site build`,
+  author_s:   `Octoxalis`,
+
+  //+ export_a: [],
 }
 ---
 [comment]: # (======== Post ========)

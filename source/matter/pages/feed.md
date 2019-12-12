@@ -1,6 +1,6 @@
 ---js
 {
-  date:      `2019-09-01`,
+  date:      `2019-12-12`,
   layout:    `feed.njk`,
   permalink: `feed.xml`,
   tags:      [ `notag` ],

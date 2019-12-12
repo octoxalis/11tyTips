@@ -1,15 +1,16 @@
 ---js
 {
-  date:      `2019-10-26`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
   permalink: `tips/variables_inheritance.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  title_s:     `Variables scope and templates inheritance`,
-  subtitle_s:  `Global and private viariables in Nunjucks blocks`,
-  abstract_s:  `Take care of scope rules when using template inheritance`,
-  author_s:    `Octoxalis`,
+  menu_n:     14,
+  title_s:    `Variables scope and templates inheritance`,
+  subtitle_s: `Global and private viariables in Nunjucks blocks`,
+  abstract_s: `Take care of scope rules when using template inheritance`,
+  author_s:   `Octoxalis`,
 }
 ---
 [comment]: # (======== Post ========)

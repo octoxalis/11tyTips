@@ -1,0 +1,6 @@
+{% set _common = A_o.description_o.DESCRIPT_s + ',' + A_o.description_o.GLOBAL_s %}
+{% if description_s %}
+<meta name="description" content="{{ description_s + ',' + _common }}">
+{% else %}
+<meta name="description" content="{{ subtitle_s + ',' + _common }}">
+{% endif %}

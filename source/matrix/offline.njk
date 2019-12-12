@@ -1,0 +1,21 @@
+{% set data_o = F_o.data__o( collections.all, permalink ) %}
+
+{{- '' | template_start( data_o ) -}}{# ante process #}
+
+{%- set _head_block_s %}
+{% include "parts/blocks/_head_.njk" %}
+{% endset -%}
+
+{%- set _body_block_s %}
+{% include "parts/blocks/_body_offline_.njk" %}
+{% endset -%}
+
+{%- set _template_s %}
+<!doctype html><html lang="{{A_o.LANGUAGE_s}}">
+{{- _head_block_s | safe | head_end( data_o ) -}}{# head process #}
+{{- _body_block_s | safe | body_end( data_o ) -}}{# body process #}
+</html>
+{% endset -%}
+
+{%- if output__s %}{% set _template_s = output__s( _template_s ) %}{% endif -%}
+{{- _template_s | safe | template_end( data_o ) | minify_html -}}{# post process #}

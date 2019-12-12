@@ -41,9 +41,8 @@ module.exports = make_o =>
   } )
 
   const template_o = require('../lib/template_process.js')
-  //: Before template
-  make_o.addFilter('template_start', ( input_s, ...args_ ) => template_o.start__s( input_s, ...args_ ) )
-  //: After template
-  make_o.addFilter('template_end', ( output_s, ...args_ ) => template_o.end__s( output_s, ...args_ ) )
-
+  make_o.addFilter('head_end', ( head_s, ...args_ ) => template_o.head__s( head_s, ...args_ ) )
+  make_o.addFilter('body_end', ( body_s, ...args_ ) => template_o.body__s( body_s, ...args_ ) )
+  make_o.addFilter('template_start', ( start_s, ...args_ ) => template_o.start__s( start_s, ...args_ ) )
+  make_o.addFilter('template_end', ( end_s, ...args_ ) => template_o.end__s( end_s, ...args_ ) )
 }

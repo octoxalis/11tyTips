@@ -1,11 +1,12 @@
 ---js
 {
-  date:      `2019-09-04`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
   permalink: `tips/source_tree.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
+  menu_n:     3,
   title_s:    `Source tree`,
   subtitle_s: `List of the directories and files of this site`,
   abstract_s: `A bird's-eye view of the site`,

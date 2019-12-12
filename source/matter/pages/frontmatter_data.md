@@ -1,17 +1,18 @@
 ---js
 {
-  date:      `2019-09-09`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
+  menu_n:     8,
   title_s:    `Front matter`,
   subtitle_s: `Front matter data howto`,
   abstract_s: `Accessing front matter data in Markdown and templates`,
   author_s:   `Octoxalis`,
 
-  output__s: output_s => output_s.replace( /\[% raw %\]/g, '{% raw %}' ).replace( /\[% endraw %\]/g, '{% endraw %}' )
+  output__s: output_s => output_s.replace( /\[% raw %\]/g, '{% raw %}' ).replace( /\[% endraw %\]/g, '{% endraw %}' ),
 }
 ---
 [comment]: # (======== Aliases ========)
@@ -76,6 +77,11 @@ the collection(s) including the output file.
 
 **Specific data**
 
++ Menu index
+{% _short_note %}
+Tip pages are sorted using this index, instead of the creation date.
+{% end_short_note %}
+
 + Title
 {% _short_note %}
 used by {{A_o.ID_s}} to identify the page in the browser tab.
@@ -105,15 +111,19 @@ useful if there are multiple authors for the posts of the site.
 [//]:#(_code_block)
 ---js
 {
-  date:      `2019-09-06`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
   permalink: `tips/frontmatter_data.html`,
   tags:      [ `tip` ],
+  eleventyExcludeFromCollections: false,
 
-  title_s:     `Front matter`,
-  subtitle_s:  `Front matter data access`,
-  abstract_s:  `Accessing front matter data in Markdown and templates`,
-  author_s:    `Octoxalis`,
+  menu_n:     8,
+  title_s:    `Front matter`,
+  subtitle_s: `Front matter data howto`,
+  abstract_s: `Accessing front matter data in Markdown and templates`,
+  author_s:   `Octoxalis`,
+
+  output__s: output_s => output_s.replace( /\[% raw %\]/g, '{% raw %}' ).replace( /\[% endraw %\]/g, '{% endraw %}' ),
 }
 ---
 {% end_code_block %}
@@ -145,64 +155,11 @@ because it will be accessible from any Markdown content or any template and with
 {% end_short_note %}
 .
 
-However, {{A_o.ID_s}} tips list menu is such a case: the `rank__s` property calls the `String.prototype.padStart` method to add one or two `0` before the tip rank to normalize it and is called this way:
-
-{% raw %}`<span>{{ rank__s(loop.index) }}</span>`{% endraw %}
-{data--="example"}
-
-[comment]: # (======== Escape Nunjucks ========)
-{% set _code %}
-{% raw %}
----js
-{
-  rank__s: at_n => `#${('' + at_n).padStart( 3, '0' )}`
-}
----
-{% include "parts/_template_start_.njk" %}{# ante process #}
-
-{%- set _template_s %}
-<menu data--="menu">
-  <h3><a href="{{ U_o.url_s }}">Home</a></h3>
-  {{ C_o.h4_a__s( U_o.GIT_s, 'Github' ) }}
-  {{ C_o.h4_a__s( U_o.TWI_s, 'Twitter' ) }}
-  {{ C_o.h4_a__s( U_o.RSS_s, 'RSS' ) }}
-  <h2 data--="menu_order">All the tips</h2>
-  <ol data--="menu_list">
-{% for _post_o in [A_o.COLLECTION_s] %}
-    <li data--="menu_item">
-      <span>{{ rank__s(loop.index) }}</span>
-      <span><a href="{{ _post_o.url | url }}">{{ _post_o.data.title_s }}</a></span>
-      <span>{{ _post_o.data.subtitle_s }}</span>
-    </li>
-{% endfor %}
-  </ol>
-</menu>
-{% endset -%}
-
-{% include "parts/_template_end_.njk" %}{# post process #}
-{% endraw %}
-{% endset %}
-
-{% _code_block %}
-    title_s: '{{A_o.ID_s}}/source/matter/items/menu_list.njk',
-    lang_s: 'javascript'
-[//]:#(_code_block)
-{{ F_o.tagEscape__s( _code ) }}
-{% end_code_block %}
-
-
-But the same result would have been possible calling directly the `padStart` method inside the template
-{% _short_note %}
-nevertheless, my prefered solution is the property function because it's more readable.
-{% end_short_note %}
-:
-
-{% raw %}`<span>#{{ ('' + tip_n).padStart( 3, '0' ) }}</span>`{% endraw %}
-{data--="example"}
-
+However, this page front matter is such a case: the `output__s` front matter last property is a conventional way to execute a function after processing the entire page
 {% _short_note %}
 see also [frontmatter function] page.
 {% end_short_note %}
+.
 
 
 [comment]: # (======== TODO: ## Front matter variables ========)

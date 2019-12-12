@@ -1,20 +1,38 @@
+const inlineNote__v = click_o =>
+{
+  const note_e = click_o.target.closest('ins')
+  if ( note_e ) note_e.querySelector( '[data--="note_content"]' ).classList.toggle('note_open')
+}
+
 /**
  * UI events
  */
-;( () =>
+void function ()
 {
   //: load
   DOM_loader__v( '[data--="menu_frame"]', () =>
   {
+    window
+      .addEventListener('load', () =>
+      {
 /**
  * Set the menu element as high as the article element
  * to hide it
  */
-    window
-      .addEventListener('load', () =>
         document.querySelector( '[data--="menu"]' ).style.height =
           `${document.querySelector( '[data--="article"]' ).offsetHeight}px`
-    )
+/**
+ * Handle menu inline notes sup element click
+ * to show/hide the note
+ */
+        document.querySelector( '[data--="menu_list"]' )
+          .addEventListener('click', inlineNote__v )
+/**
+ * Register service worker
+ */
+        if ( 'serviceWorker' in navigator ) window
+          .addEventListener( 'load', service__v( '{{U_o.url_s}}{{U_o.SERVICE_PATH_s}}' ) )
+    } )
 
 /**
  * Handle menu order click
@@ -46,14 +64,10 @@
     } )
   
 /**
- * Handle inline notes sup element click
+ * Handle article inline notes sup element click
  * to show/hide the note
  */
   document.querySelector( '[data--="article"]' )
-    .addEventListener('click', click_o =>
-      {
-        const note_e = click_o.target.closest('ins')
-        if ( note_e ) note_e.querySelector( '[data--="note_content"]' ).classList.toggle('note_open')
-      } )
+    .addEventListener('click', inlineNote__v )
 
-} )()
+} ()

@@ -1,0 +1,83 @@
+.utterances
+  {background:var(--c_extern)}
+
+[data--=menu],
+[data--=header]
+  {background:var(--c_back_op)}
+
+[data--=menu] h4,
+[data--=menu_item],
+[data--=article],
+[data--=section]
+  {background:var(--c_back_hi)}
+
+.note_open
+  {background:var(--c_back_lo)}
+
+.toolbar-item > button:hover,
+[data--=menu_item] span,
+[data--=header_menu]:hover,
+[data--=code_ref],
+[data--=example]
+  {background:var(--c_decor_hi)}
+
+[data--=important]::before
+  {color:var(--c_decor)}
+
+[data--=header],
+[data--=section],
+[data--=menu],
+[data--=menu_item],
+[data--=article],
+.note_open
+  {color:var(--c_prim_lo)}
+
+[data--=menu]
+  {position:absolute}
+
+[data--=header]
+  {position:sticky}
+
+.utterances-frame,
+[data--=inline_note],
+[data--=ulist] > li::before,
+[data--=important]::before
+  {position:relative}
+
+[data--="header"]
+  {z-index: 2}
+
+[data--="menu_frame"],
+[data--="menu"]
+  {z-index: var(--MENU_SHOW)}  /* 0 : 1 */
+
+
+[data--="menu_frame"],
+[data--="menu"]
+  {opacity: var(--MENU_SHOW)}  /* 0 : 1 */
+
+[data--="header"],
+[data--="article"],
+[data--="menu"]
+  {width:calc( 100vw - ( var(--PAD_W) * 2vw ) );}
+
+[data--="example"]
+  {max-width:100%;}
+
+p > code,
+[data--="note_content"],
+[data--="note_content"] u,
+[data--="note_content"] strong,
+[data--="note_content"] cite,
+[data--="note_content"] code
+  {display:inline-block}
+
+.note_open,
+pre > code,
+[data--=example]::before
+  {display:block}
+
+[data--="inline_note"],
+[data--="menu_order"],
+[data--="header_menu"]:hover
+  {cursor:pointer}

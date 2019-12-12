@@ -1,40 +1,21 @@
-{% include "parts/_template_start_.njk" %}{# ante process #}
+{% set data_o = F_o.data__o( collections.all, permalink ) %}
 
-{%- set _URL_s = U_o.url_s -%}
+{{- '' | template_start( data_o ) -}}{# ante process #}
 
 {%- set _head_block_s %}
-<head>
-{% include "parts/_site_url_.njk" %}
-{% include "parts/_head_.njk" %}
-{% include "parts/_seo_.njk" %}
-{% include "parts/_description_.njk" %}
-{% include "parts/_favicon_.njk" %}
-{% include "parts/_feed_.njk" %}
-{% include "parts/_font_inline_.njk" %}
-{% include "parts/_style_inline_.njk" %}
-{% include "parts/_style_.njk" %}
-</head>
+{% include "parts/blocks/_head_.njk" %}
 {% endset -%}
 
 {%- set _body_block_s %}
-<body>
-{% include "parts/_nav_.njk" %}
-{% include "parts/_article_.njk" %}
-{% if U_o.dev_b === false %}{% include "parts/_instant_page_.njk" %}{% endif %}
-{% include "parts/_script_.njk" %}
-{% if no_comments !== true %}
-{% include "parts/_colophon_.njk" %}
-{% include "parts/_comment_.njk" %}
-{% endif %}
-</body>
+{% include "parts/blocks/_body_.njk" %}
 {% endset -%}
 
 {%- set _template_s %}
-<!doctype html>
-<html lang="en">
-{{ _head_block_s | safe }}
-{{ _body_block_s | safe }}
+<!doctype html><html lang="{{A_o.LANGUAGE_s}}">
+{{- _head_block_s | safe | head_end( data_o ) -}}{# head process #}
+{{- _body_block_s | safe | body_end( data_o ) -}}{# body process #}
 </html>
 {% endset -%}
 
-{% include "parts/_template_end_.njk" %}{# post process #}
+{%- if output__s %}{% set _template_s = output__s( _template_s ) %}{% endif -%}
+{{- _template_s | safe | template_end( data_o ) | minify_html -}}{# post process #}

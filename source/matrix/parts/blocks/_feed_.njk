@@ -1,0 +1,22 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ A_o.ID_s }}</title>
+  <subtitle>{{ A_o.description_o.DESCRIPT_s }}</subtitle>
+  <link href="{{ A_o.URL_s + permalink }}" rel="self"/>
+  <link href="{{ A_o.URL_s }}"/>
+  <updated>{{ collections[A_o.COLLECTION_s] | feed_last_date }}</updated>
+  <id>{{ A_o.URL_s }}</id>
+  <author>
+    <name>{{ A_o.AUTHOR_s }}</name>
+    <email>{{ A_o.EMAIL_s }}</email>
+  </author>
+{%- for _post_o in collections[A_o.COLLECTION_s] %}
+{% set _absolutePostUrl_s %}{{ A_o.URL_s + _post_o.data.permalink }}{% endset %}
+  <entry>
+    <title>{{ _post_o.data.title_s }}</title>
+    <link href="{{ _absolutePostUrl_s }}"/>
+    <updated>{{ _post_o.date | feed_date }}</updated>
+    <id>{{ _absolutePostUrl_s }}</id>
+    <content type="html">{{ _post_o.templateContent | feed_content }}</content>
+  </entry>
+{%- endfor %}
+</feed>

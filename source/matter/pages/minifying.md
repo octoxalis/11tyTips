@@ -1,15 +1,16 @@
 ---js
 {
-  date:      `2019-10-10`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
   permalink: `tips/minifying.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  title_s:     `Minifying styles and script`,
-  subtitle_s:  `Minify, inline, export CSS and JavaScript`,
-  abstract_s:  `Generate minified CSS and JavaScript as inline blocks or files`,
-  author_s:    `Octoxalis`,
+  menu_n:     10,
+  title_s:    `Minifying styles and script`,
+  subtitle_s: `Minify, inline, export CSS and JavaScript`,
+  abstract_s: `Generate minified CSS and JavaScript as inline blocks or files`,
+  author_s:   `Octoxalis`,
 }
 ---
 [comment]: # (======== Post ========)

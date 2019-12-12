@@ -1,8 +1,7 @@
 ---js
 {
-  date:      `2019-09-01`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
-  //layout_ext: `home`,
   permalink: `index.html`,
   tags:      [ `notag` ],
   eleventyExcludeFromCollections: false,

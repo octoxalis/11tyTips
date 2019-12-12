@@ -1,11 +1,12 @@
 ---js
 {
-  date:      `2019-09-07`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
   permalink: `tips/styles_guide.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
+  menu_n:     6,
   title_s:    `Styles guide`,
   subtitle_s: `Styles of this site`,
   abstract_s: `Styles listing`,

@@ -1,6 +1,6 @@
 ---js
 {
-  date:      `2019-09-01`,
+  date:      `2019-12-12`,
   layout:    `sitemap.njk`,
   permalink: `sitemap.xml`,
   tags:      [ `notag` ],

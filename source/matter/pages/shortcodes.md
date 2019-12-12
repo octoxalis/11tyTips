@@ -1,11 +1,12 @@
 ---js
 {
-  date:      `2019-09-10`,
+  date:      `2019-12-12`,
   layout:    `frame.njk`,
   permalink: `tips/shortcodes.html`,
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
+  menu_n:     9,
   title_s:     `Shortcodes`,
   subtitle_s:  `Forging shortcodes`,
   abstract_s:  `Processing Markdown content with shortcodes`,
