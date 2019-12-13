@@ -22,21 +22,21 @@
 {{- _template_s | safe | template_end( data_o ) | minify_html -}}{# post process #}
 <br/>
 </code></pre><h2 id="processing_at_build_start_or_end">Processing at build start or end</h2><p>The filters invoqued as previously described are also used to make any specific processing required just before the first template is to be processed by Eleventy and just after the last template has been processed. It’s kind of a hook, as can be seen is some frameworks, inside Eleventy. This <em>ante</em> or <em>post</em> processing uses only a directory listing to count the number of template files to be processed and invoque the starting function if no one has already been processed or the ending function if the number of files processed is equivalent to the listing count <ins data--="inline_note"><sup></sup><span data--="note_content">this simple algorithm is based on the fact that all posts are in a single directory, without any subdirectories (otherwise the algorithm would have to walk thru all subdirectories), and that this <q>flat</q> directory contains only Markdown files. </span></ins>.</p><hgroup data--="code_ref"><h5>source/make/11ty/template_process.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
-const A_o = require( '../../matter/assets/scripts/js/lib/A_o.js' )
+const path_s = '../../matter/assets/scripts/js/lib/'
+const A_o = require( `${path_s}A_o.js` )
+const F_o = require( `${path_s}F_o.js` )
 <br/>
-const MD_DIR_s = './matter/pages/'    //: all Mardown files
-const DEPTH_n  = 0                    //: ...are located at the root level of MD_DIR_s
-const files_a  = require( 'klaw-sync' )( MD_DIR_s, { nodir: true, depthLimit: DEPTH_n } )
-var count_n    = files_a ? files_a.length : 0
-var at_n       = 0
-var menu_a     = []
+const files_a = F_o.files__a()
+let count_n   = files_a ? files_a.length : 0
+let at_n      = 0
+let menu_a    = []
 <br/>
-const buildStart__s = ( input_s, data_o ) =>
+const menuRead__v = data_o =>
 {
-  console.log( `${files_a.length} Markdown files to process` )
+  if ( data_o.tags && data_o.tags.includes( A_o.COLLECTION_s ) ) menu_a.push( data_o )
 }
 <br/>
-const buildEnd__s = ( input_s, data_o ) =>
+const menuWrite__v = () =>
 {
   console.log( `Writing ../site/menu.html from template_process.js` )
   require('fs-extra')
@@ -45,10 +45,21 @@ const buildEnd__s = ( input_s, data_o ) =>
       err_s => console.log ( err_s || 'Build success!' ) )
 }
 <br/>
+const buildStart__v = ( data_o ) =>
+{
+  console.log( `${files_a.length} Markdown files to process` )
+}
+<br/>
+const buildEnd__v = ( data_o ) =>
+{
+  menuWrite__v()
+  //... what else?
+}
+<br/>
 const templateStart__s = ( input_s, data_o ) =>
 {
   let start_s = input_s
-  if ( data_o.tags && data_o.tags.includes( A_o.COLLECTION_s ) ) menu_a.push( data_o )
+  menuRead__v( data_o )
   //... what else?
   return start_s
 }
@@ -78,7 +89,7 @@ module.exports =
 {
   start__s: ( input_s, data_o ) =>
   {
-    if ( at_n === 0 && files_a ) buildStart__s( files_a, data_o )
+    if ( at_n === 0 && files_a ) buildStart__v( data_o )
     let start_s = templateStart__s( input_s, data_o )
     return start_s
   },
@@ -91,12 +102,12 @@ module.exports =
   {
     ++at_n
     let end_s = templateEnd__s( input_s, data_o )
-    if ( at_n === count_n && files_a ) buildEnd__s( files_a, data_o, menu_a )
+    if ( at_n === count_n && files_a ) buildEnd__v( data_o )
     return end_s
   },
 }
 <br/>
-</code></pre><p>Any kind of processing can be done inside the starting and ending functions and the argument they receive can be anything else than the list of files to process. In 11tyTips, the starting function output the number of Markdown files to be processed and the ending function create the file (<code>menu.html</code>) listing the pages referenced as links in the menu of the site.</p><p>To have full control on the site data, these functions take as argument an <code>Object</code> gathering all or a selection of <ins data--="inline_note"><sup></sup><span data--="note_content">made according to the <code>EXPORT_a</code> Array declared in the <code>F_o.js</code> global data file </span></ins>all declared global data <ins data--="inline_note"><sup></sup><span data--="note_content">including the <code>page</code> Object used for pagination, all the collection Objects and even global properties not usually accessible: <code>content</code> and <code>layoutContent</code>… </span></ins>. These data are retrieve by a simple <code>set</code> tag at the begining of the base template:</p><hgroup data--="code_ref"><h5>source/matrix/frame.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-twig">
+</code></pre><p>Any kind of processing can be done inside the starting and ending functions: in 11tyTips, the starting function output the number of Markdown files to be processed and the ending function create the file (<code>menu.html</code>) listing the pages referenced as links in the menu of the site.</p><p>To have full control on the site data, these functions take as argument an <code>Object</code> gathering all or a selection of <ins data--="inline_note"><sup></sup><span data--="note_content">made according to the <code>EXPORT_a</code> Array declared in the <code>F_o.js</code> global data file </span></ins>all declared global data <ins data--="inline_note"><sup></sup><span data--="note_content">including the <code>page</code> Object used for pagination, all the collection Objects and even global properties not usually accessible: <code>content</code> and <code>layoutContent</code>… </span></ins>. These data are retrieve by a simple <code>set</code> tag at the begining of the base template:</p><hgroup data--="code_ref"><h5>source/matrix/frame.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-twig">
 {% set data_o = F_o.data__o( collections.all, permalink ) %}
 <br/>
 </code></pre><p>and are used by all the template processing functions <ins data--="inline_note"><sup></sup><span data--="note_content">the <code>data_o</code> argument </span></ins>.</p></section></article><script src="//instant.page/3.0.0" type="module" defer="defer" integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script><script src="/assets/scripts/js/prism.min.js"></script><script src="/assets/scripts/js/lib.min.js"></script><hr><script data--="utterances_script" src="https://utteranc.es/client.js" repo="octoxalis/11tytips" issue-term="title" theme="photon-dark" crossorigin="anonymous" async></script></body></html>
