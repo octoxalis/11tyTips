@@ -133,3 +133,28 @@
   /*position: relative;*/
   left: calc( var(--BORDER_2) * -.5 );
 }
+
+[data--="page_link"] > ul
+{
+  display: flex;
+  align-items: flex-end;
+  justify-content: stretch;
+  margin-top: var(--PAD_8);
+  padding: 0;
+  width: 100%;
+}
+
+[data--="page_link"] > ul > li
+{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--PAD_2);
+  border: .1rem solid var(--c_decor);
+}
+
+hr
+{
+  margin-top: 0;
+}

@@ -15,6 +15,7 @@ h3,
 .note_open,
 [data--=article],
 [data--=header_menu],
+[data--="page_link"],
 [data--=menu],
 [data--=menu_item]
   {font-family:var(--font_body)}

@@ -39,10 +39,7 @@ module.exports =
     menu_s +=
 `
   </ol>
-  <script>
-  const pageLink_a = ${JSON.stringify( menu_a )}
-  //console.log( pageLink_a )
-  </script>
+  <div data--="menu_a" hidden>${JSON.stringify( menu_a )}</div>
 </menu>
 `
     return menu_s

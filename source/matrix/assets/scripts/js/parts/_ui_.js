@@ -63,6 +63,26 @@ void function ()
       if ( show_s === '1' ) DOM_scrollToTop__v()
     } )
   
+  //: click
+/**
+ * Handle page link click
+ */
+const pageLink_e = document.querySelector( '[data--="page_link"]' )
+if ( pageLink_e )
+{
+  pageLink_e.addEventListener('click', click_o => 
+    {
+      const link_e = click_o.target.closest('li')
+      if ( link_e === null ) return
+      let link_s = link_e.getAttribute( 'data--' )
+      if ( link_s === 'current' ) return void DOM_scrollToTop__v()
+      //: previous or next tip
+      if ( _PageLink_a === null ) _PageLink_a = JSON.parse( document.querySelector('[data--="menu_a"]').innerHTML )
+      const http_s = DOM_pageLink__s( link_s, _PageLink_a )
+      if ( http_s ) window.location = http_s
+    } )
+}
+
 /**
  * Handle article inline notes sup element click
  * to show/hide the note

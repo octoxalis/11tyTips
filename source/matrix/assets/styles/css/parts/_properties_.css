@@ -2,7 +2,8 @@
   {background:var(--c_extern)}
 
 [data--=menu],
-[data--=header]
+[data--=header],
+[data--=page_link]
   {background:var(--c_back_op)}
 
 [data--=menu] h4,
@@ -17,6 +18,7 @@
 .toolbar-item > button:hover,
 [data--=menu_item] span,
 [data--=header_menu]:hover,
+[data--="page_link"] > ul > li:hover,
 [data--=code_ref],
 [data--=example]
   {background:var(--c_decor_hi)}
@@ -25,6 +27,7 @@
   {color:var(--c_decor)}
 
 [data--=header],
+[data--=page_link],
 [data--=section],
 [data--=menu],
 [data--=menu_item],
@@ -79,5 +82,6 @@ pre > code,
 
 [data--="inline_note"],
 [data--="menu_order"],
-[data--="header_menu"]:hover
+[data--="header_menu"]:hover,
+[data--="page_link"]:hover
   {cursor:pointer}
