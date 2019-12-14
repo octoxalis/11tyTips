@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     13,
+  rank_n:     13,
   title_s:    `Processing before and after the template engine`,
   subtitle_s: `Process templates your own way`,
   abstract_s: `Add any kind of processing before and after your templating engine has done its work`,
@@ -41,7 +41,7 @@ i.e. a template which produces a full `html` page.
 {% end_short_note %}
 has a *starting* block
 {% _short_note %}
-in the following listing it's the first line `include` tag.
+in the following listing it's the _ante_ process comment line.
 {% end_short_note %}
 using a filter whose concern is to initialize some variables needed by the page which is about to be processed by the templating engine
 {% _short_note %}
@@ -51,7 +51,7 @@ it can be, for instance, a data base access (server-side), or some checking rela
 
 Similarly, there is an *ending* block whose filter processes the output of the template engine, once all the template work has been done, allowing you to further process the output.
 {% _short_note %}
-in the following listing it's the last line `include` tag.
+in the following listing it's the _post_ process comment line.
 {% end_short_note %}
 
 
@@ -107,43 +107,65 @@ this simple algorithm is based on the fact that all posts are in a single direct
 [//]:#(_code_block)
 {% raw %}
 const path_s = '../../matter/assets/scripts/js/lib/'
-const A_o = require( `${path_s}A_o.js` )
+//const A_o = require( `${path_s}A_o.js` )  //: use data_o.A_o instead
 const F_o = require( `${path_s}F_o.js` )
+const M_o = require( './menu.js' )
+const S_o = require( './string.js' )
 
-const files_a = F_o.files__a()
-let count_n   = files_a ? files_a.length : 0
-let at_n      = 0
-let menu_a    = []
+const extension_n = '.html'.length
+let count_n       = F_o.files_a ? F_o.files_a.length : 0
+let link_a        = []
 
-const menuRead__v = data_o =>
+const link__v = data_o =>
 {
-  if ( data_o.tags && data_o.tags.includes( A_o.COLLECTION_s ) ) menu_a.push( data_o )
+  if ( data_o.tags && data_o.tags.includes( data_o.A_o.COLLECTION_s ) )
+  {
+    const link_s = data_o.permalink.slice( 0, -extension_n )
+    const { rank_n, title_s, subtitle_s, abstract_s, author_s, tags } = data_o
+    const link_o =
+    {
+      rank_n: rank_n,
+      link_s: link_s,
+      title_s: S_o.escquote__s( title_s ) ,
+      subtitle_s: S_o.escquote__s( subtitle_s ) ,
+      abstract_s: S_o.escquote__s( abstract_s ) ,
+      author_s: S_o.escquote__s( author_s ) ,
+      tags: tags,
+    }
+    link_a.push( link_o )
+    }
 }
 
-const menuWrite__v = () =>
+const order__v = () =>
 {
+  link_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )
+}
+
+const menu__v = () =>
+{
+  const menu_s = M_o.menu__a( link_a )
   console.log( `Writing ../site/menu.html from template_process.js` )
   require('fs-extra')
-    .outputFile( '../site/menu.html',
-      require( './menu.js' )( menu_a ),
+    .outputFile( '../site/menu.html', menu_s,
       err_s => console.log ( err_s || 'Build success!' ) )
 }
 
 const buildStart__v = ( data_o ) =>
 {
-  console.log( `${files_a.length} Markdown files to process` )
+  console.log( `${count_n} Markdown files to process` )
 }
 
 const buildEnd__v = ( data_o ) =>
 {
-  menuWrite__v()
+  order__v()
+  menu__v()
   //... what else?
 }
 
 const templateStart__s = ( input_s, data_o ) =>
 {
   let start_s = input_s
-  menuRead__v( data_o )
+  link__v( data_o )
   //... what else?
   return start_s
 }
@@ -173,7 +195,7 @@ module.exports =
 {
   start__s: ( input_s, data_o ) =>
   {
-    if ( at_n === 0 && files_a ) buildStart__v( data_o )
+    if ( F_o.current__n() === 0 && F_o.files_a ) buildStart__v( data_o )
     let start_s = templateStart__s( input_s, data_o )
     return start_s
   },
@@ -184,9 +206,9 @@ module.exports =
 
   end__s: ( input_s, data_o ) =>
   {
-    ++at_n
+    F_o.current__v()
     let end_s = templateEnd__s( input_s, data_o )
-    if ( at_n === count_n && files_a ) buildEnd__v( data_o )
+    if ( F_o.current__n() === count_n && F_o.files_a ) buildEnd__v( data_o )
     return end_s
   },
 }

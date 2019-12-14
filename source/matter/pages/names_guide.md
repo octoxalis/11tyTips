@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     7,
+  rank_n:     7,
   title_s:    `Names guide`,
   subtitle_s: `Variable naming convention`,
   abstract_s: `How variable identifiers are forged`,

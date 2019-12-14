@@ -6,13 +6,11 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     4,
+  rank_n:     4,
   title_s:    `Eleventy settings`,
   subtitle_s: `Customizing Eleventy`,
   abstract_s: `The main components of an Eleventy site build`,
   author_s:   `Octoxalis`,
-
-  //+ export_a: [],
 }
 ---
 [comment]: # (======== Post ========)

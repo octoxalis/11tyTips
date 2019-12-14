@@ -1,10 +1,10 @@
 :root
 {
-  --c_hue_p: 213;
-  --c_hue_s: 160;
-  --c_hue_i: 225;
-  --c_hue_d: 190;
-  --c_hue_l: 270;
+  --c_hue_p: {{C_o.HUE_P_n}};
+  --c_hue_s: {{C_o.HUE_S_n}};
+  --c_hue_i: {{C_o.HUE_I_n}};
+  --c_hue_d: {{C_o.HUE_D_n}};
+  --c_hue_l: {{C_o.HUE_L_n}};
 
   --c_sat:    50%;
     --c_sat_hi: 90%;

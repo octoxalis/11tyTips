@@ -6,11 +6,13 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     5,
+  rank_n:     5,
   title_s:    `Global settings`,
   subtitle_s: `Useful data for building and content`,
   abstract_s: `Global data for frequent use`,
   author_s:   `Octoxalis`,
+
+  //export_a: ['layoutContent',],
 }
 ---
 [comment]: # (======== Post ========)
@@ -66,6 +68,66 @@ void function () { U_o.url_s = U_o[U_o.dev_b === true ? 'DEV_s' : 'PRO_s'] } ()
 console.log( `Site URL: ${U_o.url_s}` )
 
 module.exports = U_o
+{% endraw %}
+{% end_code_block %}
+
+
+The gobal data files can contain not only constants
+{% _short_note %}
+as in the preceding listing of the `U_o.js` file
+{% end_short_note %}
+but also functions
+{% _short_note %}
+as in the following `F_o.js` file
+{% end_short_note %}
+which means that all the power of Node.js is at hand.
+
+
+{% _code_block %}
+    title_s: 'source/matter/assets/scripts/js/lib/F_o.js',
+    lang_s: 'javascript',
+[//]:#(_code_block)
+{% raw %}
+const EXPORT_a =    // default exported data
+[
+  'date',
+  'layout',
+  'permalink',
+  'tags',
+  'rank_n',
+  'title_s',
+  'subtitle_s',
+  'abstract_s',
+  'author_s',
+]
+
+const MD_DIR_s = './matter/pages/'    //: all Mardown files
+const DEPTH_n  = 0                    //: ...are located at the root level of MD_DIR_s
+
+module.exports =
+{
+  files_a: require( 'klaw-sync' )( MD_DIR_s, { nodir: true, depthLimit: DEPTH_n } ),
+
+  data__o: ( collection_a, permalink_s ) =>
+  {
+    let export_o = {}
+    collection_a.forEach( collection_o =>
+      {
+        const data_o = collection_o.data
+        if ( data_o.permalink === permalink_s )
+        {
+          if ( data_o.export_a === null ) export_o = data_o    //: get all data!
+          else
+          {
+            const export_a = data_o.export_a || EXPORT_a    //: get declared or default data only
+            export_a.forEach( prop_s => export_o[prop_s] = data_o[prop_s] )
+          }
+        }
+      } )
+    return export_o
+  },
+//...
+}
 {% endraw %}
 {% end_code_block %}
 

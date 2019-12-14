@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     8,
+  rank_n:     8,
   title_s:    `Front matter`,
   subtitle_s: `Front matter data howto`,
   abstract_s: `Accessing front matter data in Markdown and templates`,
@@ -117,7 +117,7 @@ useful if there are multiple authors for the posts of the site.
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     8,
+  rank_n:     8,
   title_s:    `Front matter`,
   subtitle_s: `Front matter data howto`,
   abstract_s: `Accessing front matter data in Markdown and templates`,

@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     12,
+  rank_n:     12,
   title_s:    `Front matter post processing function`,
   subtitle_s: `Modify the template engine output`,
   abstract_s: `A front matter function can be invoqued to modify the global or partial output of the template engine`,
@@ -75,7 +75,7 @@ This `output__s` function is automaticaly invoqued (if it exists in the front ma
 {% end_code_block %}
 
 
-However, you are not at all constrained to process the output of the template engine globally: you can process only a part of it if you see fit as well as you can use multiple processing functions and multiple invocations. It's just a question of enclosing the output to process in a set block.
+However, you are not at all constrained to process the output of the template engine globally: you can process only a part of it if you see fit as well as you can use multiple processing functions and multiple invocations. It's just a question of enclosing the output to process in a `set` block.
 
 
 [comment]: # (======== Links ========)

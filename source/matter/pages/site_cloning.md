@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     2,
+  rank_n:     2,
   title_s:    `Cloning 11tyTips site`,
   subtitle_s: `Install a new skeleton site`,
   abstract_s: `Start bloging with a clean site structure`,

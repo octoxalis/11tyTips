@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     11,
+  rank_n:     11,
   title_s:    `Using shorthands`,
   subtitle_s: `Shorthand notation for clean code`,
   abstract_s: `Use shorthand notation to simplify and clean your markdown`,

@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     10,
+  rank_n:     10,
   title_s:    `Minifying styles and script`,
   subtitle_s: `Minify, inline, export CSS and JavaScript`,
   abstract_s: `Generate minified CSS and JavaScript as inline blocks or files`,

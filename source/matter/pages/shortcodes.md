@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     9,
+  rank_n:     9,
   title_s:     `Shortcodes`,
   subtitle_s:  `Forging shortcodes`,
   abstract_s:  `Processing Markdown content with shortcodes`,

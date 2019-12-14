@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     6,
+  rank_n:     6,
   title_s:    `Styles guide`,
   subtitle_s: `Styles of this site`,
   abstract_s: `Styles listing`,

@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     3,
+  rank_n:     3,
   title_s:    `Source tree`,
   subtitle_s: `List of the directories and files of this site`,
   abstract_s: `A bird's-eye view of the site`,

@@ -43,7 +43,7 @@ module.exports = make_o =>
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 <br/>
-  menu_n:     8,
+  rank_n:     8,
   title_s:    `Front matter`,
   subtitle_s: `Front matter data howto`,
   abstract_s: `Accessing front matter data in Markdown and templates`,
@@ -96,7 +96,7 @@ eleventyUrl__s: key_s =>
 {%- if output__s %}{% set _template_s = output__s( _template_s ) %}{% endif -%}
 {{- _template_s | safe | template_end( data_o ) | minify_html -}}{# post process #}
 <br/>
-</code></pre><p>However, you are not at all constrained to process the output of the template engine globally: you can process only a part of it if you see fit as well as you can use multiple processing functions and multiple invocations. It’s just a question of enclosing the output to process in a set block.</p></content></entry><entry><title>Minifying styles and script</title><link href="https://11tytips.netlify.com/tips/minifying.html"/><updated>2019-12-12T01:00:00+01:00</updated><id>https://11tytips.netlify.com/tips/minifying.html</id><content type="html"><h1>Minifying assets</h1><p data--="page_intro">Use the power of Node packages inside Eleventy.</p><h2 id="bypassing_build_tools">Bypassing build tools</h2><p>Build tools are tedious: that’s my opinion, when it comes to simple and static sites. And one of the strength of Eleventy is that you can bypass build tools to accomplish the necessary step of minifying some assets to speed up pages downloading. Of course, you need some processing to reduce all CSS or JavaScript files, but Node is full of packages to do that processing and compress those files and it would be a pity to ignore that power: simply call it up directly within your Eleventy build step.</p><p>One of the immediate benefices is that you can therefore split your assets in small chunks to manage them very easily during the development phase.</p><p data--="important">The realm of filters <em>(to be continued...)</em></p></content></entry><entry><title>Names guide</title><link href="https://11tytips.netlify.com/tips/names_guide.html"/><updated>2019-12-12T01:00:00+01:00</updated><id>https://11tytips.netlify.com/tips/names_guide.html</id><content type="html"><h1>Pseudo-typed JavaScript</h1><p data--="page_intro">How to identify variable types using a consistent naming scheme.</p><h2 id="no_static_typing?">No static typing?</h2><p>Every developer knows that JavaScript is not a static typed language, a useful feature eliminating lots of bugs. A language like Typescript has been created as a remedy to that important lack of safety. Even for code modules counting less than a few tens of lines, it’s easy to forget what kind of type is exactly a variable or constant declared at the begining of the file and then make a mistake when assining a wrong type to a variable.</p><p>11tyTips follows the <a href="https://typexjs.netlify.com" target="_blank" rel="noreferrer noopener">TypesJS</a> naming scheme for a cleaner and more meaningful code. Here is how it looks in action (the following listing is the service worker file integrated in 11tyTips which relies heavily on the excellent article by Thomas Hunter II: <a href="https://thomashunter.name/posts/2019-04-30-service-workers" target="_blank" rel="noreferrer noopener"><em>On using Service Workers with Static Content</em></a> ):</p><hgroup data--="code_ref"><h5>source/matrix/assets/scripts/js/parts/_service_worker_.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+</code></pre><p>However, you are not at all constrained to process the output of the template engine globally: you can process only a part of it if you see fit as well as you can use multiple processing functions and multiple invocations. It’s just a question of enclosing the output to process in a <code>set</code> block.</p></content></entry><entry><title>Minifying styles and script</title><link href="https://11tytips.netlify.com/tips/minifying.html"/><updated>2019-12-12T01:00:00+01:00</updated><id>https://11tytips.netlify.com/tips/minifying.html</id><content type="html"><h1>Minifying assets</h1><p data--="page_intro">Use the power of Node packages inside Eleventy.</p><h2 id="bypassing_build_tools">Bypassing build tools</h2><p>Build tools are tedious: that’s my opinion, when it comes to simple and static sites. And one of the strength of Eleventy is that you can bypass build tools to accomplish the necessary step of minifying some assets to speed up pages downloading. Of course, you need some processing to reduce all CSS or JavaScript files, but Node is full of packages to do that processing and compress those files and it would be a pity to ignore that power: simply call it up directly within your Eleventy build step.</p><p>One of the immediate benefices is that you can therefore split your assets in small chunks to manage them very easily during the development phase.</p><p data--="important">The realm of filters <em>(to be continued...)</em></p></content></entry><entry><title>Names guide</title><link href="https://11tytips.netlify.com/tips/names_guide.html"/><updated>2019-12-12T01:00:00+01:00</updated><id>https://11tytips.netlify.com/tips/names_guide.html</id><content type="html"><h1>Pseudo-typed JavaScript</h1><p data--="page_intro">How to identify variable types using a consistent naming scheme.</p><h2 id="no_static_typing?">No static typing?</h2><p>Every developer knows that JavaScript is not a static typed language, a useful feature eliminating lots of bugs. A language like Typescript has been created as a remedy to that important lack of safety. Even for code modules counting less than a few tens of lines, it’s easy to forget what kind of type is exactly a variable or constant declared at the begining of the file and then make a mistake when assining a wrong type to a variable.</p><p>11tyTips follows the <a href="https://typexjs.netlify.com" target="_blank" rel="noreferrer noopener">TypesJS</a> naming scheme for a cleaner and more meaningful code. Here is how it looks in action (the following listing is the service worker file integrated in 11tyTips which relies heavily on the excellent article by Thomas Hunter II: <a href="https://thomashunter.name/posts/2019-04-30-service-workers" target="_blank" rel="noreferrer noopener"><em>On using Service Workers with Static Content</em></a> ):</p><hgroup data--="code_ref"><h5>source/matrix/assets/scripts/js/parts/_service_worker_.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
 /**
  * Unlike most Service Workers, this one always attempts to download assets from the network.
  * Only when network access fails do we fallback to using the cache. 
@@ -182,7 +182,7 @@ self.addEventListener('install', install_o => install__v( install_o ) )
 self.addEventListener('activate', activate_o => activate__v( activate_o ) )
 self.addEventListener('fetch', fetch_o => fetch__v( fetch_o ) )
 <br/>
-</code></pre><p>As a side note, it’s worth noting that a declaration like</p><p data--="example">const ID_s = ‘{{A_o.ID_s}}’</p><p>is only made possible by the use of a minification filter during which Nunjucks variables are expanded before writing the JavaScript file! But it’s another story: <a href="https://11tytips.netlify.com/tips/minifying.html">minifying</a>…</p></content></entry><entry><title>Processing before and after the template engine</title><link href="https://11tytips.netlify.com/tips/pre_post_processing.html"/><updated>2019-12-12T01:00:00+01:00</updated><id>https://11tytips.netlify.com/tips/pre_post_processing.html</id><content type="html"><h1>Processing template output</h1><p data--="page_intro">It can be useful to process the final result of the templating work or prepare it by some pre processing.</p><h2 id="wrap_the_page_your_own_way">Wrap the page your own way</h2><p>All templating engines have limits and Nunjucks (which is used here by 11tyTips )has its own. But you can easily go your way beyond those limits to process the output of the templating engine just before everything is engraved as a static HTML page. For instance you may want to overcome the encoding output of the engine and make some modifications (see also the <a href="https://11tytips.netlify.com/tips/frontmatter_data.html">frontmatter data</a> tip for an example of post processing the template engine output without a global filter, but using a front matter specific callback function. ).</p><p>Once again this is acquired thru the use of a filter and an awesome help of the Nunjucks <code>{% set %}</code> block. Every global template (i.e. a template which produces a full <code>html</code> page. )has a <em>starting</em> block (in the following listing it’s the first line <code>include</code> tag. )using a filter whose concern is to initialize some variables needed by the page which is about to be processed by the templating engine (it can be, for instance, a data base access (server-side), or some checking relative to the pages that have been previously processed, etc. ).</p><p>Similarly, there is an <em>ending</em> block whose filter processes the output of the template engine, once all the template work has been done, allowing you to further process the output. (in the following listing it’s the last line <code>include</code> tag. )</p><hgroup data--="code_ref"><h5>source/matrix/frame.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-twig">
+</code></pre><p>As a side note, it’s worth noting that a declaration like</p><p data--="example">const ID_s = ‘{{A_o.ID_s}}’</p><p>is only made possible by the use of a minification filter during which Nunjucks variables are expanded before writing the JavaScript file! But it’s another story: <a href="https://11tytips.netlify.com/tips/minifying.html">minifying</a>…</p></content></entry><entry><title>Processing before and after the template engine</title><link href="https://11tytips.netlify.com/tips/pre_post_processing.html"/><updated>2019-12-12T01:00:00+01:00</updated><id>https://11tytips.netlify.com/tips/pre_post_processing.html</id><content type="html"><h1>Processing template output</h1><p data--="page_intro">It can be useful to process the final result of the templating work or prepare it by some pre processing.</p><h2 id="wrap_the_page_your_own_way">Wrap the page your own way</h2><p>All templating engines have limits and Nunjucks (which is used here by 11tyTips )has its own. But you can easily go your way beyond those limits to process the output of the templating engine just before everything is engraved as a static HTML page. For instance you may want to overcome the encoding output of the engine and make some modifications (see also the <a href="https://11tytips.netlify.com/tips/frontmatter_data.html">frontmatter data</a> tip for an example of post processing the template engine output without a global filter, but using a front matter specific callback function. ).</p><p>Once again this is acquired thru the use of a filter and an awesome help of the Nunjucks <code>{% set %}</code> block. Every global template (i.e. a template which produces a full <code>html</code> page. )has a <em>starting</em> block (in the following listing it’s the <em>ante</em> process comment line. )using a filter whose concern is to initialize some variables needed by the page which is about to be processed by the templating engine (it can be, for instance, a data base access (server-side), or some checking relative to the pages that have been previously processed, etc. ).</p><p>Similarly, there is an <em>ending</em> block whose filter processes the output of the template engine, once all the template work has been done, allowing you to further process the output. (in the following listing it’s the <em>post</em> process comment line. )</p><hgroup data--="code_ref"><h5>source/matrix/frame.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-twig">
 {% set data_o = F_o.data__o( collections.all, permalink ) %}
 <br/>
 {{- '' | template_start( data_o ) -}}{# ante process #}
@@ -207,43 +207,65 @@ self.addEventListener('fetch', fetch_o => fetch__v( fetch_o ) )
 <br/>
 </code></pre><h2 id="processing_at_build_start_or_end">Processing at build start or end</h2><p>The filters invoqued as previously described are also used to make any specific processing required just before the first template is to be processed by Eleventy and just after the last template has been processed. It’s kind of a hook, as can be seen is some frameworks, inside Eleventy. This <em>ante</em> or <em>post</em> processing uses only a directory listing to count the number of template files to be processed and invoque the starting function if no one has already been processed or the ending function if the number of files processed is equivalent to the listing count (this simple algorithm is based on the fact that all posts are in a single directory, without any subdirectories (otherwise the algorithm would have to walk thru all subdirectories), and that this <q>flat</q> directory contains only Markdown files. ).</p><hgroup data--="code_ref"><h5>source/make/11ty/template_process.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
 const path_s = '../../matter/assets/scripts/js/lib/'
-const A_o = require( `${path_s}A_o.js` )
+//const A_o = require( `${path_s}A_o.js` )  //: use data_o.A_o instead
 const F_o = require( `${path_s}F_o.js` )
+const M_o = require( './menu.js' )
+const S_o = require( './string.js' )
 <br/>
-const files_a = F_o.files__a()
-let count_n   = files_a ? files_a.length : 0
-let at_n      = 0
-let menu_a    = []
+const extension_n = '.html'.length
+let count_n       = F_o.files_a ? F_o.files_a.length : 0
+let link_a        = []
 <br/>
-const menuRead__v = data_o =>
+const link__v = data_o =>
 {
-  if ( data_o.tags &amp;&amp; data_o.tags.includes( A_o.COLLECTION_s ) ) menu_a.push( data_o )
+  if ( data_o.tags &amp;&amp; data_o.tags.includes( data_o.A_o.COLLECTION_s ) )
+  {
+    const link_s = data_o.permalink.slice( 0, -extension_n )
+    const { rank_n, title_s, subtitle_s, abstract_s, author_s, tags } = data_o
+    const link_o =
+    {
+      rank_n: rank_n,
+      link_s: link_s,
+      title_s: S_o.escquote__s( title_s ) ,
+      subtitle_s: S_o.escquote__s( subtitle_s ) ,
+      abstract_s: S_o.escquote__s( abstract_s ) ,
+      author_s: S_o.escquote__s( author_s ) ,
+      tags: tags,
+    }
+    link_a.push( link_o )
+    }
 }
 <br/>
-const menuWrite__v = () =>
+const order__v = () =>
 {
+  link_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )
+}
+<br/>
+const menu__v = () =>
+{
+  const menu_s = M_o.menu__a( link_a )
   console.log( `Writing ../site/menu.html from template_process.js` )
   require('fs-extra')
-    .outputFile( '../site/menu.html',
-      require( './menu.js' )( menu_a ),
+    .outputFile( '../site/menu.html', menu_s,
       err_s => console.log ( err_s || 'Build success!' ) )
 }
 <br/>
 const buildStart__v = ( data_o ) =>
 {
-  console.log( `${files_a.length} Markdown files to process` )
+  console.log( `${count_n} Markdown files to process` )
 }
 <br/>
 const buildEnd__v = ( data_o ) =>
 {
-  menuWrite__v()
+  order__v()
+  menu__v()
   //... what else?
 }
 <br/>
 const templateStart__s = ( input_s, data_o ) =>
 {
   let start_s = input_s
-  menuRead__v( data_o )
+  link__v( data_o )
   //... what else?
   return start_s
 }
@@ -273,7 +295,7 @@ module.exports =
 {
   start__s: ( input_s, data_o ) =>
   {
-    if ( at_n === 0 &amp;&amp; files_a ) buildStart__v( data_o )
+    if ( F_o.current__n() === 0 &amp;&amp; F_o.files_a ) buildStart__v( data_o )
     let start_s = templateStart__s( input_s, data_o )
     return start_s
   },
@@ -284,9 +306,9 @@ module.exports =
 <br/>
   end__s: ( input_s, data_o ) =>
   {
-    ++at_n
+    F_o.current__v()
     let end_s = templateEnd__s( input_s, data_o )
-    if ( at_n === count_n &amp;&amp; files_a ) buildEnd__v( data_o )
+    if ( F_o.current__n() === count_n &amp;&amp; F_o.files_a ) buildEnd__v( data_o )
     return end_s
   },
 }
@@ -329,6 +351,48 @@ void function () { U_o.url_s = U_o[U_o.dev_b === true ? 'DEV_s' : 'PRO_s'] } ()
 console.log( `Site URL: ${U_o.url_s}` )
 <br/>
 module.exports = U_o
+<br/>
+</code></pre><p>The gobal data files can contain not only constants (as in the preceding listing of the <code>U_o.js</code> file )but also functions (as in the following <code>F_o.js</code> file )which means that all the power of Node.js is at hand.</p><hgroup data--="code_ref"><h5>source/matter/assets/scripts/js/lib/F_o.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+const EXPORT_a =    // default exported data
+[
+  'date',
+  'layout',
+  'permalink',
+  'tags',
+  'rank_n',
+  'title_s',
+  'subtitle_s',
+  'abstract_s',
+  'author_s',
+]
+<br/>
+const MD_DIR_s = './matter/pages/'    //: all Mardown files
+const DEPTH_n  = 0                    //: ...are located at the root level of MD_DIR_s
+<br/>
+module.exports =
+{
+  files_a: require( 'klaw-sync' )( MD_DIR_s, { nodir: true, depthLimit: DEPTH_n } ),
+<br/>
+  data__o: ( collection_a, permalink_s ) =>
+  {
+    let export_o = {}
+    collection_a.forEach( collection_o =>
+      {
+        const data_o = collection_o.data
+        if ( data_o.permalink === permalink_s )
+        {
+          if ( data_o.export_a === null ) export_o = data_o    //: get all data!
+          else
+          {
+            const export_a = data_o.export_a || EXPORT_a    //: get declared or default data only
+            export_a.forEach( prop_s => export_o[prop_s] = data_o[prop_s] )
+          }
+        }
+      } )
+    return export_o
+  },
+//...
+}
 <br/>
 </code></pre></content></entry><entry><title>Site structure</title><link href="https://11tytips.netlify.com/tips/site_structure.html"/><updated>2019-12-12T01:00:00+01:00</updated><id>https://11tytips.netlify.com/tips/site_structure.html</id><content type="html"><h1>The JAMstack architecture</h1><p data--="page_intro">The principles of JAMstack static site.</p><h2 id="what_is_jamstack?">What is JAMstack?</h2><p>Eleventy, as most static sites, relies on an architectural paradigm called <a href="https://jamstack.org/" target="_blank" rel="noreferrer noopener">JAMstack</a>, an acronym meaning: <q>a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.</q> (see Mathias Biilmann &amp; Phil Hawksworth book: <a href="https://www.netlify.com/pdf/oreilly-modern-web-development-on-the-jamstack.pdf" target="_blank" rel="noreferrer noopener">Modern Web development on the JAMstack</a>. ).</p><p>In the JAMstack architecture, <em>JavaScript</em> is used not only in the browser for interactivity and presentation but also to build all the files of the site (this is the case of Eleventy. Other generators use different languages: Go, Python, etc. ); the <em>APIs</em> are the programming interfaces to Node packages (Eleventy itself is a Node package. )or other frameworks used as a back end; <em>Markdown</em> is used to set the content of each page of the site, with a settings part (front matter) using either JavaScript or a description language like YAML or TOML and a template part (there are many templating systems: Liquid, Nunjucks, Hanbdlebars, Pug, etc. ).</p><h2 id="11tytips_architecture">11tyTips architecture</h2><p>Trying to stay as simple as possible, 11tyTips is built using a minimal set of the JAMstack architecture: <strong>JavaScript</strong>, backed by the Node ecosystem, <strong>Nunjucks</strong>, as templating system, and <strong>Markdown</strong> as content markup language. It doesn’t follow the canonical dispatching of files promoted by Eleventy and most satic site generators (data, templates, contents), but follows a pattern examplifying the JAMstack paradigm.</p><p>The <code>source</code> directory design reflects the JAMstack categories:</p><ul data--="ulist"><li>make (contains JavaScript modules to be used during the build process and is split in two directories: Eleventy modules (<code>11ty</code>) and 11tyTips modules (<code>lib</code>). <em>This is also where the initial JavaScript file firing the building process is located</em>. Instead of <code>.eleventy.js</code> this file is named <code>make.js</code> (without the starting dot because it is not hidden). )</li><li>matrix (gathers, in <code>./</code> and <code>parts</code> directories, all the templates producing the site HTML files; plus the Javascript and CSS files concatenated and minified (<code>assets</code>). )</li><li>matter (contains the Markdown files of all site posts (<code>pages</code> subdirectory), plus some files they include (<code>parts</code>). )</li></ul><p>I sometimes like to call it the <em>3M</em> directory (all of its subdirectory having names begining with an <em>m</em> letter, enumerating these directory names sounds like a slogan: <q>make matrix matter(s)!</q> ). All subdirectories of the three first level directories follow a consistent naming scheme:</p><ul data--="ulist"><li>assets (for directories containing both script files, style files and files not to be processed and just to be passthru copied to output site; )</li><li>scripts (for JavaScript files and, eventually, other scripting language files )</li><li>styles (for Cascading stylesheet files and, eventually, other styling language files (SCCS, etc.) )</li><li>parts (for partial files to be included by other files. )</li></ul><p>This structure departs deliberately from what is generaly adopted by static sites built with Eleventy (see, for instance, <a href="https://github.com/11ty/eleventy-base-blog" target="_blank" rel="noreferrer noopener">Eleventy base blog</a> structure ), examplifying the versatility of the tool (Eleventy configuration object has two properties allowing this precious flexibility: <code>dir.data</code> and <code>dir.includes</code>. ): <strong>Eleventy doesn’t lock you into a predefined scheme</strong> and let you express your specific needs with ease.</p><p>11tyTips has been designed to offer the maximum of flexibility and consistency in the development phase, keeping a strong separation of concerns as to ease any needed refactoring and modification of the code. The site <a href="https://11tytips.netlify.com/tips/source_tree.html">source tree</a> gives an overview of the source directory hierarchy.</p><p>Following these configuration options leads to a command line <em>requiring</em> the <code>--config</code> argument:</p><p data--="example"><code>npx eleventy --config=make/11ty/make.js</code></p></content></entry><entry><title>Source tree</title><link href="https://11tytips.netlify.com/tips/source_tree.html"/><updated>2019-12-12T01:00:00+01:00</updated><id>https://11tytips.netlify.com/tips/source_tree.html</id><content type="html"><h1>11tyTips site tree</h1><p data--="page_intro">A bird’s eye view of 11tyTips site.</p><hgroup data--="code_ref"><h5>11tyTips source tree</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-txt">
 .

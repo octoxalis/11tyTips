@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  menu_n:     1,
+  rank_n:     1,
   title_s:    `Site structure`,
   subtitle_s: `How to structure a JAMstack site`,
   abstract_s: `Site structure and directories`,
