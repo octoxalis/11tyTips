@@ -47,6 +47,6 @@ const DOM_locationKey__s = () =>
 {
   const extension_n = '.html'.length
   let location_s = window.location.href
-  const key_s = location_s.slice( location_s.indexOf( '{{A_o.COLLECTION_s}}'), -extension_n )
+  const key_s = location_s.slice( location_s.lastIndexOf( '{{A_o.COLLECTION_s}}'), -extension_n )
   return key_s
 }
