@@ -12,9 +12,9 @@
     http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/
 */
 /*
-<div class="aspect_ratio"
- style="width: 768px; --aspect_ratio_w: 4; --aspect_ratio_h: 3;">
-  <img src="kitten.jpg" alt="A cute kitten">
+<div class=aspect_ratio"
+ style=width: 768px; --aspect_ratio_w: 4; --aspect_ratio_h: 3;">
+  <img src=kitten.jpg" alt=A cute kitten">
 </div>
 */
 .aspect_ratio

@@ -1,10 +1,14 @@
 :root
 {
-  --PAD_W: 8;
-  --PAD_1: calc( var(--PAD_W) * .5px );
-  --PAD_2: calc( var(--PAD_1) * 2 );
-  --PAD_4: calc( var(--PAD_1) * 4 );
-  --PAD_8: calc( var(--PAD_1) * 8 );
+  --PAD_1:  .25rem;
+  --PAD_2:  calc( var(--PAD_1) * 2 );
+  --PAD_4:  calc( var(--PAD_1) * 4 );
+  --PAD_8:  calc( var(--PAD_1) * 8 );
+  /*
+  --PAD_16: calc( var(--PAD_1) * 16 );
+  --PAD_24: calc( var(--PAD_1) * 24 );
+  --PAD_32: calc( var(--PAD_1) * 32 );
+  */
 
   --BORDER_W: .25rem;
   --BORDER_1: calc( var(--BORDER_W) * 1 );
@@ -12,6 +16,6 @@
   --BORDER_3: calc( var(--BORDER_1) * 3 );
 
   --LINE_WIDTH: 60ch;    /* c. 70 characters / line */
+  --BODY_WIDTH: 84vw;
   --MAX_WIDTH: calc( var(--LINE_WIDTH) * 2 );
-
 }

@@ -7,7 +7,7 @@ const pad__s = order_n => `${('' + order_n).padStart( 4, '.' )}`
 
 module.exports =
 {
-  menu__a: menu_a =>
+  menu__a: collection_a =>
   {
     const github_s = U_o.GIT_s ? C_o.h4_a__s( U_o.GIT_s, 'Github' ) : ''
     const twitter_s = U_o.TWI_s ? C_o.h4_a__s( U_o.TWI_s, 'Twitter' ) : ''
@@ -15,7 +15,7 @@ module.exports =
     let order_n = 0
     let menu_s =
 `
-<menu data--="menu">
+<menu data--="menu" class="no_pointer">
   <h3><a href="${U_o.url_s}">Home</a></h3>
   ${github_s}
   ${twitter_s}
@@ -23,7 +23,7 @@ module.exports =
   <h2 data--="menu_order">All ${collection_s}</h2>
   <ol data--="menu_list">
 `
-    for ( let entry_o of menu_a )
+    for ( let entry_o of collection_a )
     {
       ++order_n    // index 1
       const link_s = `${U_o.url_s}${entry_o.link_s}.html`
@@ -39,7 +39,7 @@ module.exports =
     menu_s +=
 `
   </ol>
-  <div data--="menu_a" hidden>${JSON.stringify( menu_a )}</div>
+  <div data--="collection_a" hidden>${JSON.stringify( collection_a )}</div>
 </menu>
 `
     return menu_s

@@ -1,0 +1,12 @@
+<nav data--="link_page">
+  <ul  data--="link_nav">
+    {% if tags.includes( A_o.COLLECTION_s ) %}<li data--="link_previous">previous</li>{% endif %}
+    <li data--="link_menu">{{ 'all ' + A_o.COLLECTION_s + 's' }}</li>
+    {% if tags.includes( A_o.COLLECTION_s ) %}<li data--="link_next">next</li>{% endif %}
+  </ul>
+  <dl data--="link_info" class="retract">
+    <dt data--="link_title"></dt>
+    <!--<dd data--="link_subtitle"></dd>-->
+    <dd data--="link_abstract"></dd>
+  </dl>
+</nav>

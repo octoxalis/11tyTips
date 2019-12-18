@@ -214,7 +214,7 @@ const S_o = require( './string.js' )
 <br/>
 const extension_n = '.html'.length
 let count_n       = F_o.files_a ? F_o.files_a.length : 0
-let link_a        = []
+let collection_a  = []
 <br/>
 const link__v = data_o =>
 {
@@ -232,18 +232,18 @@ const link__v = data_o =>
       author_s: S_o.escquote__s( author_s ) ,
       tags: tags,
     }
-    link_a.push( link_o )
+    collection_a.push( link_o )
     }
 }
 <br/>
 const order__v = () =>
 {
-  link_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )
+  collection_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )
 }
 <br/>
 const menu__v = () =>
 {
-  const menu_s = M_o.menu__a( link_a )
+  const menu_s = M_o.menu__a( collection_a )
   console.log( `Writing ../site/menu.html from template_process.js` )
   require('fs-extra')
     .outputFile( '../site/menu.html', menu_s,
@@ -476,7 +476,7 @@ module.exports =
 │   │   ├── _font_inline_.njk
 │   │   ├── _head_.njk
 │   │   ├── _instant_page_.njk
-│   │   ├── _nav_.njk
+│   │   ├── _menu_frame_.njk
 │   │   ├── _script_.njk
 │   │   ├── _seo_.njk
 │   │   ├── _site_url_.njk

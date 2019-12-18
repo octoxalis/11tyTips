@@ -50,25 +50,3 @@ const DOM_locationKey__s = () =>
   const key_s = location_s.slice( location_s.indexOf( '{{A_o.COLLECTION_s}}'), -extension_n )
   return key_s
 }
-
-const DOM_pageLink__a = ( key_s, link_a ) =>
-{
-  for ( at_n = 0; at_n < link_a.length; ++at_n )
-  {
-    if ( link_a[at_n].link_s === key_s )
-    {
-      const prev_n = at_n ? at_n - 1 : null
-      const next_n = ( at_n < link_a.length - 1 ) ? at_n + 1 : null
-      return [ prev_n, next_n ]
-    }
-  }
-  return []
-}
-
-const DOM_pageLink__s = ( link_s, link_a ) =>
-{
-  const [ prev_n, next_n ] = DOM_pageLink__a( DOM_locationKey__s(), link_a )
-  let index_n = ( link_s === 'prev' ) ? prev_n : next_n
-  return ( !index_n ) ? '' : `${_URL_s}${link_a[index_n].link_s}.html`
-  
-}

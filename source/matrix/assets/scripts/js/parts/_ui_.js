@@ -1,7 +1,18 @@
 const inlineNote__v = click_o =>
 {
   const note_e = click_o.target.closest('ins')
-  if ( note_e ) note_e.querySelector( '[data--="note_content"]' ).classList.toggle('note_open')
+  if ( note_e ) note_e.querySelector( '[data--=note_content]' ).classList.toggle( 'note_open' )
+}
+
+const menuPosition__v = () =>
+{
+  const menu_e = document.querySelector( `[data--=menu]` )
+  const header_n = document.querySelector( `[data--=header]` ).offsetHeight
+  const linkPage_n = document.querySelector( `[data--=link_page]` ).offsetHeight
+  menu_e.style.transform = `translateY( ${header_n + linkPage_n}px)`
+  const menu_n = menu_e.offsetHeight
+  const article_n = document.querySelector( `[data--=article]` ).offsetHeight
+  if ( menu_n < article_n ) menu_e.style.height = `${article_n * 1.5}px`
 }
 
 /**
@@ -10,35 +21,33 @@ const inlineNote__v = click_o =>
 void function ()
 {
   //: load
-  DOM_loader__v( '[data--="menu_frame"]', () =>
+  DOM_loader__v( '[data--=menu_iframe]', () =>
   {
     window
       .addEventListener('load', () =>
       {
-/**
- * Set the menu element as high as the article element
- * to hide it
- */
-        document.querySelector( '[data--="menu"]' ).style.height =
-          `${document.querySelector( '[data--="article"]' ).offsetHeight}px`
-/**
- * Handle menu inline notes sup element click
- * to show/hide the note
- */
-        document.querySelector( '[data--="menu_list"]' )
+        menuPosition__v()
+
+//: Menu inline notes sup element click handler
+//: to show/hide the note
+
+        document.querySelector( '[data--=menu_list]' )
           .addEventListener('click', inlineNote__v )
-/**
- * Register service worker
- */
+
+//: Register service worker
+
         if ( 'serviceWorker' in navigator ) window
           .addEventListener( 'load', service__v( '{{U_o.url_s}}{{U_o.SERVICE_PATH_s}}' ) )
-    } )
+
+//: Register posts list
+        linkPage__v()
+      } )
 
 /**
- * Handle menu order click
+ * Menu order click handler
  * to sort posts by reverse order
  */
-    document.querySelector( '[data--="menu_order"]' )
+    document.querySelector( '[data--=menu_order]' )
       .addEventListener('click', click_o =>
       {
         const menu_e = click_o.target.closest('menu')
@@ -48,46 +57,67 @@ void function ()
 
   //: click
 /**
- * Handle menu click
- * to show/hide posts list
+ * Show/hide posts list
  */
-  document.querySelector( '[data--="header"]' )
-    .addEventListener('click', click_o => 
+  const menu__v = () =>
+  {
+    const show_s = DOM_rootVar__s( '--MENU_SHOW' ) === '1' ? '0' : '1'
+    DOM_rootVar__v( '--MENU_SHOW', show_s )
+    comments_e = document.querySelector( '.utterances' )
+    if ( comments_e !== null ) comments_e.classList.toggle( 'retract' )
+    const menu_e =document.querySelector( `[data--=menu]` )
+    if ( show_s === '1' )
     {
-      const menu_e = click_o.target.closest('label')
-      if ( menu_e === null ) return
-      const show_s = DOM_rootVar__s( '--MENU_SHOW' ) === '1' ? '0' : '1'
-      DOM_rootVar__v( '--MENU_SHOW', show_s )
-      comments_e = document.querySelector( '.utterances' )
-      if ( comments_e !== null ) comments_e.classList.toggle( 'zero_height' )
-      if ( show_s === '1' ) DOM_scrollToTop__v()
-    } )
-  
-  //: click
-/**
- * Handle page link click
- */
-const pageLink_e = document.querySelector( '[data--="page_link"]' )
-if ( pageLink_e )
-{
-  pageLink_e.addEventListener('click', click_o => 
-    {
-      const link_e = click_o.target.closest('li')
-      if ( link_e === null ) return
-      let link_s = link_e.getAttribute( 'data--' )
-      if ( link_s === 'current' ) return void DOM_scrollToTop__v()
-      //: previous or next tip
-      if ( _PageLink_a === null ) _PageLink_a = JSON.parse( document.querySelector('[data--="menu_a"]').innerHTML )
-      const http_s = DOM_pageLink__s( link_s, _PageLink_a )
-      if ( http_s ) window.location = http_s
-    } )
-}
+      menu_e.classList.remove( 'no_pointer' )
+      DOM_scrollToTop__v()
+    }
+    else menu_e.classList.add( 'no_pointer' )
+  }
 
 /**
- * Handle article inline notes sup element click
- * to show/hide the note
+ * Page link click+hover handler
+ * to show menu or go to another page
  */
-  document.querySelector( '[data--="article"]' )
+  const linkNav_e = document.querySelector( '[data--=link_nav]' )
+  if ( linkNav_e != null )
+  {
+    linkNav_e.addEventListener('click', click_o => 
+    {
+      const link_e = click_o.target.closest('LI')
+      if ( link_e === null ) return
+      let link_s = link_e.getAttribute( 'data--' )
+      if ( link_s === 'link_menu' ) return void menu__v()
+      //: previous or next tip
+      const http_s = linkPageURL__s( link_s, _COLLECTION_a )
+      if ( http_s ) window.location = http_s
+    } )
+
+    document.querySelectorAll( '[data--=link_nav] > li' )
+      .forEach( buttonLink_e =>
+      {
+        if ( buttonLink_e.getAttribute( 'data--' ) === 'link_menu' ) return
+        [ 'mouseenter', 'mouseleave' ]
+          .forEach( event_s => buttonLink_e.addEventListener( event_s,
+            mouse_o => linkNearShow__v( event_s, mouse_o.currentTarget ) ) )
+      } )
+  }
+
+/**
+ * Article inline notes sup element click handler
+ * to show/hide notes
+ */
+  document.querySelector( '[data--=article]' )
     .addEventListener('click', inlineNote__v )
+
+/**
+ * Comments visibility click handler
+ * to show/hide comments
+ */
+  document.querySelector( '[data--=comments_visibility]' )
+  .addEventListener('click', click_o =>
+  {
+    document.querySelector( '[data--=comments]' )
+      .classList.toggle( 'retract' )
+  } )
 
 } ()

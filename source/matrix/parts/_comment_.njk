@@ -1,8 +1,11 @@
-<script
-  data--="utterances_script"
-  src="https://utteranc.es/client.js"
-  repo="{{ A_o.AUTHOR_s }}/{{ A_o.ID_s.toLowerCase() }}"
-  issue-term="title"
-  theme="photon-dark"
-  crossorigin="anonymous"
-  async></script>
+<h2 data--="comments_header">Comments<span data--="comments_visibility">✍</span></h2>
+<aside data--="comments" class="retract">
+  <script
+    data--="comments_script"
+    src="https://utteranc.es/client.js"
+    repo="{{ A_o.AUTHOR_s }}/{{ A_o.ID_s.toLowerCase() }}"
+    issue-term="title"
+    theme="photon-dark"
+    crossorigin="anonymous"
+    async></script>
+</aside>

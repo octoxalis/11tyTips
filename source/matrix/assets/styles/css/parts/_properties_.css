@@ -3,7 +3,7 @@
 
 [data--=menu],
 [data--=header],
-[data--=page_link]
+[data--=link_page]
   {background:var(--c_back_op)}
 
 [data--=menu] h4,
@@ -17,8 +17,7 @@
 
 .toolbar-item > button:hover,
 [data--=menu_item] span,
-[data--=header_menu]:hover,
-[data--="page_link"] > ul > li:hover,
+[data--=link_nav] > li:hover,
 [data--=code_ref],
 [data--=example]
   {background:var(--c_decor_hi)}
@@ -27,10 +26,11 @@
   {color:var(--c_decor)}
 
 [data--=header],
-[data--=page_link],
+[data--=link_page],
 [data--=section],
 [data--=menu],
 [data--=menu_item],
+[data--=important],
 [data--=article],
 .note_open
   {color:var(--c_prim_lo)}
@@ -38,7 +38,7 @@
 [data--=menu]
   {position:absolute}
 
-[data--=header]
+[data--=link_page]
   {position:sticky}
 
 .utterances-frame,
@@ -47,32 +47,36 @@
 [data--=important]::before
   {position:relative}
 
-[data--="header"]
-  {z-index: 2}
+[data--=header]
+  {z-index: 5}
 
-[data--="menu_frame"],
-[data--="menu"]
+[data--=article]
+{z-index: 1}
+
+/*[data--=menu_iframe],*/
+[data--=menu]
   {z-index: var(--MENU_SHOW)}  /* 0 : 1 */
 
 
-[data--="menu_frame"],
-[data--="menu"]
+/*[data--=menu_iframe],*/
+[data--=menu]
   {opacity: var(--MENU_SHOW)}  /* 0 : 1 */
 
-[data--="header"],
-[data--="article"],
-[data--="menu"]
-  {width:calc( 100vw - ( var(--PAD_W) * 2vw ) );}
+[data--=header],
+[data--=article],
+[data--=menu],
+[data--=link_page]
+  {width: var(--BODY_WIDTH);}
 
-[data--="example"]
+[data--=example]
   {max-width:100%;}
 
 p > code,
-[data--="note_content"],
-[data--="note_content"] u,
-[data--="note_content"] strong,
-[data--="note_content"] cite,
-[data--="note_content"] code
+[data--=note_content],
+[data--=note_content] u,
+[data--=note_content] strong,
+[data--=note_content] cite,
+[data--=note_content] code
   {display:inline-block}
 
 .note_open,
@@ -80,8 +84,22 @@ pre > code,
 [data--=example]::before
   {display:block}
 
-[data--="inline_note"],
-[data--="menu_order"],
-[data--="header_menu"]:hover,
-[data--="page_link"]:hover
+[data--=inline_note],
+[data--=menu_order],
+[data--=link_nav]:hover,
+[data--=comments_visibility]
   {cursor:pointer}
+
+[data--=link_nav]
+  {text-transform:uppercase}
+
+.no_pointer
+  {pointer-events: none}
+
+
+
+/* EXPERIMENTAL
+CSS.atprop( `note_content= |u|strong|cite|code` )
+CSS.atprop( `note_content= |>u|>strong|>cite|>code` )
+CSS.atprop( `note_content= |+u|+strong|+cite|+code` )
+*/

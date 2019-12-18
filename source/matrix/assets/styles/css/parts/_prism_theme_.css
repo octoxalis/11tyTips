@@ -16,27 +16,27 @@
 }
 
 p > code,
-code[class*="language-"],
-pre[class*="language-"],
-[data--="note_content"] code
+code[class*=language-],
+pre[class*=language-],
+[data--=note_content] code
 {
 	font-family: 'Fira Code', monospace;
 }
 
-code[class*="language-"],
-pre[class*="language-"]
+code[class*=language-],
+pre[class*=language-]
 {
   color:  hsla( 180, 20%, 100%, 1 );
 	font-size: 90%;
 }
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"]
+:not(pre) > code[class*=language-],
+pre[class*=language-]
 {
 	background: hsla( 180, 10%, 10%, .8 );
 }
 
-[data--="note_content"] code,
+[data--=note_content] code,
 p > code
 {
   color: hsla( 180, 10%, 10%, 1 );

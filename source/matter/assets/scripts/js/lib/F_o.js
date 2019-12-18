@@ -90,7 +90,7 @@ module.exports =
         hay_s = hay_s.replace( key_s, dict_o[key_s.slice( open_n, -close_n )] )
       }
     }
-    return hay_at_ns
+    return hay_s
   },
   
   Boolean__b: value_ =>

@@ -1,7 +1,0 @@
-<nav data--="page_link">
-  <ul>
-    <li data--="prev">PREVIOUS</li>
-    <li data--="current">▴</li>
-    <li data--="next">NEXT</li>
-  </ul>
-</nav>

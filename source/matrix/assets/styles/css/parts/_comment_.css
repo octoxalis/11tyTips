@@ -1,3 +1,15 @@
+[data--=comments]
+{
+  position: relative;
+  transform-origin: top left;
+  transition: .3s ease;
+}
+
+
+[data--=comments_visibility]
+{
+  margin-left: var(--PAD_4);
+}
 .utterances
 {
   margin: var(--PAD_2) 0;

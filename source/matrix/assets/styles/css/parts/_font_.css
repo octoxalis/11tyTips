@@ -14,14 +14,12 @@ h3,
 
 .note_open,
 [data--=article],
-[data--=header_menu],
-[data--="page_link"],
+[data--=link_page],
 [data--=menu],
 [data--=menu_item]
   {font-family:var(--font_body)}
 
 .toolbar-item > button,
-[data--=header_menu],
 [data--=code_ref],
 [data--=example],
 [data--=example]::before
@@ -30,12 +28,12 @@ h3,
 h1,
 h2,
 h3,
-[data--="page_intro"],
-[data--="example"]::before
+[data--=page_intro],
+[data--=example]::before
   {font-style:italic;}
 
-[data--="header_title"]
+[data--=header_title]
   { font-size: 6rem; }
   
-[data--="header_title"]
+[data--=header_title]
   { font-weight: 900; }

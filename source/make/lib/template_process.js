@@ -6,7 +6,7 @@ const S_o = require( './string.js' )
 
 const extension_n = '.html'.length
 let count_n       = F_o.files_a ? F_o.files_a.length : 0
-let link_a        = []
+let collection_a  = []
 
 const link__v = data_o =>
 {
@@ -24,18 +24,18 @@ const link__v = data_o =>
       author_s: S_o.escquote__s( author_s ) ,
       tags: tags,
     }
-    link_a.push( link_o )
+    collection_a.push( link_o )
     }
 }
 
 const order__v = () =>
 {
-  link_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )  //;console.log( link_a )
+  collection_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )  //;console.log( collection_a )
 }
 
 const menu__v = () =>
 {
-  const menu_s = M_o.menu__a( link_a )
+  const menu_s = M_o.menu__a( collection_a )
   console.log( `Writing ../site/menu.html from template_process.js` )
   require('fs-extra')
     .outputFile( '../site/menu.html', menu_s,

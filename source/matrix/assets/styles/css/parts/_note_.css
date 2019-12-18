@@ -5,7 +5,7 @@
  *  *Bold text*
  */
 
-[data--="article"]
+[data--=article]
 {
   --INLINE_NOTES: article_notes;
   --EXAMPLES: examples;
@@ -13,7 +13,7 @@
   counter-reset: var(--INLINE_NOTES) var(--EXAMPLES);
 }
 
-[data--="inline_note"]
+[data--=inline_note]
 {
   --font_body:   90%;
   --font_sup:    60%;
@@ -22,7 +22,7 @@
   text-decoration: none;
 }
 
-[data--="note_content"]
+[data--=note_content]
 {
   overflow: hidden;
   break-before: avoid;
@@ -33,7 +33,7 @@
   pointer-events: none;
 }
 
-[data--="inline_note"] > sup
+[data--=inline_note] > sup
 {
   counter-increment: var(--INLINE_NOTES);
   top: -0.6rem;
@@ -43,18 +43,18 @@
   vertical-align: baseline;
   font-size: var(--font_sup);
 }
-[data--="inline_note"] > sup::after
+[data--=inline_note] > sup::after
 {
   content: counter( var(--INLINE_NOTES) );
 }
 
-[data--="note_content"] u    /* horizontal line */
+[data--=note_content] u    /* horizontal line */
 {
   /*display: inline-block;*/
   border-top: .1rem solid var(--c_prim_tr);
 }
 
-[data--="note_content"] strong    /* title */
+[data--=note_content] strong    /* title */
 {
   /*display: inline-block;*/
   margin-top: var(--PAD_4);
@@ -63,32 +63,32 @@
   font-style: normal;
 }
 
-[data--="note_content"] em    /* emphasis */
+[data--=note_content] em    /* emphasis */
 {
   font-weight: 900;
   font-style: normal;
 }
 
-[data--="note_content"] a  /* link */
+[data--=note_content] a  /* link */
 {
   text-decoration: none;
   pointer-events: auto;
 }
 
-[data--="note_content"] cite    /* citation */
+[data--=note_content] cite    /* citation */
 {
   padding-left: var(--PAD_4);
 }
-[data--="note_content"] cite::before
+[data--=note_content] cite::before
 {
   content: '\00ab';
 }
-[data--="note_content"] cite::after
+[data--=note_content] cite::after
 {
   content: '\00bb';
 }
 
-.note_open    /* after [data--="note_content"] */
+.note_open    /* after [data--=note_content] */
 {
   margin: var(--PAD_2) var(--PAD_4) var(--PAD_2) 0;
   padding: var(--PAD_1) var(--PAD_2);
