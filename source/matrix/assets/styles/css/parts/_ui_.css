@@ -194,8 +194,6 @@
 [data--=link_info] > dt
 {
   font-weight: 600;
-  /*background: var(--c_back_lo);*/
-  /*border-bottom: 1px solid var(--c_decor_lo);*/
 }
 [data--=link_info] > *:not(:first-child)
 {
