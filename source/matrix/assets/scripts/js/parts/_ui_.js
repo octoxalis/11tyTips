@@ -7,9 +7,9 @@ const inlineNote__v = click_o =>
 const menuPosition__v = () =>
 {
   const menu_e = document.querySelector( `[data--=menu]` )
-  const header_n = document.querySelector( `[data--=header]` ).offsetHeight
-  const linkPage_n = document.querySelector( `[data--=link_page]` ).offsetHeight
-  menu_e.style.transform = `translateY( ${header_n + linkPage_n}px)`
+  let position_n = document.querySelector( `[data--=header]` ).offsetHeight
+  position_n += document.querySelector( `[data--=link_page]` ).offsetHeight
+  menu_e.style.transform = `translateY( ${position_n}px)`
   const menu_n = menu_e.offsetHeight
   const article_n = document.querySelector( `[data--=article]` ).offsetHeight
   if ( menu_n < article_n ) menu_e.style.height = `${article_n * 1.5}px`

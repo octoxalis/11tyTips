@@ -207,6 +207,7 @@
 {
   width: 0;
   height: 0;
+  opacity: 0;
   transform: scaleY( 0 );
   transform-origin: top left;
   transition: .15s ease;

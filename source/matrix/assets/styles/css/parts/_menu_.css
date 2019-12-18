@@ -14,7 +14,7 @@
   --INLINE_NOTES: menu_notes;
 
   counter-reset: var(--INLINE_NOTES);
-  top: 4rem;
+  top: 0;  /* default position */
 }
 
 [data--=menu_order]::after
