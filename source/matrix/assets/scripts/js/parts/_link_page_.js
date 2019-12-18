@@ -44,7 +44,7 @@ const linkNearShow__v = ( event_s, link_e ) =>
     else
     {
       document.querySelector( '[data--=link_title]' ).innerHTML =
-      `<a href="./${near_o.link_s}.html">${near_o.title_s} ⤴</a>`    //:`<a href="{{U_o.url_s}}${near_o.link_s}.html">${near_o.title_s} ⤴</a>`
+      `<a href="{{U_o.url_s}}${near_o.link_s}.html">${near_o.title_s} ⤴</a>`    //:`<a href="./${near_o.link_s}.html">${near_o.title_s} ⤴</a>`
       //xx document.querySelector( '[data--=link_subtitle]' ).innerHTML = near_o.subtitle_s
       document.querySelector( '[data--=link_abstract]' ).innerHTML = `<i>${near_o.abstract_s}</i>`
     }
