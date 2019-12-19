@@ -10,12 +10,16 @@
 │   └── lib
 │       ├── block_replace.js
 │       ├── block_split.js
+│       ├── data.js
 │       ├── dateToISO.js
 │       ├── feed_content.js
 │       ├── menu.js
+│       ├── string.js
 │       └── template_process.js
 ├── matrix
 │   ├── assets
+│   │   ├── icons
+│   │   │   └── pencil.svg
 │   │   ├── scripts
 │   │   │   └── js
 │   │   │       ├── parts
@@ -71,7 +75,7 @@
 │   │   │   ├── _menu_.njk
 │   │   │   └── _sitemap_.njk
 │   │   ├── _article_.njk
-│   │   ├── _colophon_.njk
+│   │   ├── _banner_.njk
 │   │   ├── _comment_.njk
 │   │   ├── _description_.njk
 │   │   ├── _favicon_.njk
@@ -79,7 +83,8 @@
 │   │   ├── _font_inline_.njk
 │   │   ├── _head_.njk
 │   │   ├── _instant_page_.njk
-│   │   ├── _menu_frame_.njk
+│   │   ├── _link_page_.njk
+│   │   ├── _menu_iframe_.njk
 │   │   ├── _script_.njk
 │   │   ├── _seo_.njk
 │   │   ├── _site_url_.njk
@@ -98,6 +103,7 @@
     │   │       │   ├── A_o.js
     │   │       │   ├── C_o.js
     │   │       │   ├── D_o.js
+    │   │       │   ├── F_o.js
     │   │       │   └── U_o.js
     │   │       ├── lib.md
     │   │       ├── service.md
