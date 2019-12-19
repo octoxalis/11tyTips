@@ -1,9 +1,19 @@
-const DATA_o   = require( './data.js' )
+//?? const DATA_o   = require( './data.js' )
 const MENU_o   = require( './menu.js' )
 const STRING_o = require( './string.js' )
 
-let count_n       = DATA_o.files_a ? DATA_o.files_a.length : 0
-let collection_a  = []
+let files_a       = null
+let count_n       = 0
+let current_n     = 0
+let collections_a = []
+
+void function ()
+{
+  const MD_DIR_s = './matter/pages/'    //: all Mardown files
+  const DEPTH_n  = 0                    //: ...are located at the root level of MD_DIR_s
+  files_a = require( 'klaw-sync' )( MD_DIR_s, { nodir: true, depthLimit: DEPTH_n } )
+  if ( files_a ) count_n = files_a.length    //;console.log( `count_n: ${count_n}` )
+} ()
 
 const link__v = data_o =>
 {
@@ -21,29 +31,29 @@ const link__v = data_o =>
       abstract_s: STRING_o.quoteEsc__s( data_o.abstract_s ),
       author_s:   STRING_o.quoteEsc__s( data_o.author_s )
     }
-    collection_a.push( link_o )
-    }
+    collections_a.push( link_o )
+  }
 }
 
-const order__v = () => collection_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )
+const sort__v = () => collections_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )
 
 const menu__v = () =>
 {
-  const menu_s = MENU_o.menu__a( collection_a )
+  const menu_s = MENU_o.menu__a( collections_a )
   console.log( `Writing ../site/menu.html from template_process.js` )
   require('fs-extra')
     .outputFile( '../site/menu.html', menu_s,
       err_s => console.log ( err_s || 'Build success!' ) )
 }
 
-const buildStart__v = ( data_o ) =>
+const buildStart__v = data_o =>
 {
   console.log( `${count_n} Markdown files to process` )
 }
 
-const buildEnd__v = ( data_o ) =>
+const buildEnd__v = data_o =>
 {
-  order__v()
+  sort__v()
   menu__v()
   //... what else?
 }
@@ -81,7 +91,7 @@ module.exports =
 {
   start__s: ( input_s, data_o ) =>
   {
-    if ( DATA_o.current__n() === 0 && DATA_o.files_a ) buildStart__v( data_o )
+    if ( current_n === 0 && !files_a ) buildStart__v( data_o )
     let start_s = templateStart__s( input_s, data_o )
     return start_s
   },
@@ -92,9 +102,9 @@ module.exports =
 
   end__s: ( input_s, data_o ) =>
   {
-    DATA_o.current__v()
+    ++current_n
     let end_s = templateEnd__s( input_s, data_o )
-    if ( DATA_o.current__n() === count_n && DATA_o.files_a ) buildEnd__v( data_o )
+    if ( current_n === count_n && files_a ) buildEnd__v( data_o )
     return end_s
   },
 }

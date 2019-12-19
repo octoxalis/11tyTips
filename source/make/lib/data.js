@@ -14,17 +14,12 @@ const EXPORT_a =    // default exported data
   'abstract_s',
   'author_s',
   'A_o',
+  'collections',
 ]
-const MD_DIR_s = './matter/pages/'    //: all Mardown files
-const DEPTH_n  = 0                    //: ...are located at the root level of MD_DIR_s
-let current_n = 0
 
 module.exports =
 {
-  current__n: () => current_n,
-  current__v: () => ++current_n,
-
-  files_a: require( 'klaw-sync' )( MD_DIR_s, { nodir: true, depthLimit: DEPTH_n } ),
+  export__a:  () => EXPORT_a,
 
   data__o: ( permalink_s, collection_a ) =>
   {

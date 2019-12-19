@@ -136,7 +136,7 @@ const link__v = data_o =>
     }
 }
 
-const order__v = () =>
+const sort__v = () =>
 {
   collection_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )
 }
@@ -157,7 +157,7 @@ const buildStart__v = ( data_o ) =>
 
 const buildEnd__v = ( data_o ) =>
 {
-  order__v()
+  sort__v()
   menu__v()
   //... what else?
 }

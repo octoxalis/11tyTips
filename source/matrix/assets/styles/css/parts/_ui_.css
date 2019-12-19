@@ -188,8 +188,10 @@
 
 [data--=link_info] > *
 {
+  --margin_left: 1rem;
+
   margin: 0;
-  width: 100%;
+  width: calc( 100% - var(--margin_left) );
 }
 [data--=link_info] > dt
 {
@@ -198,7 +200,7 @@
 [data--=link_info] > *:not(:first-child)
 {
   position: relative;
-  left: 1rem;
+  left: var(--margin_left);
 }
 
 .retract
