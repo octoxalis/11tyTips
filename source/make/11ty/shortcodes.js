@@ -1,5 +1,5 @@
-const replace__s = require( '../lib/block_replace.js' )
-const split__a   = require( '../lib/block_split.js' )
+const REPLACE__s = require( '../lib/block_replace.js' )
+const SPLIT__a   = require( '../lib/block_split.js' )
 
 const CODES_o =
 {
@@ -17,7 +17,7 @@ const CODES_o =
 
   code_block__s: content_s =>
   {
-    let [ content_a, content_o ] = split__a( content_s, '_code_block' )
+    let [ content_a, content_o ] = SPLIT__a( content_s, '_code_block' )
     let content_a1_s = content_a[1].replace( /\n\n+/g, '\n<br/>\n' )  //: avoid Markdown <p> insert
     return `<hgroup data--="code_ref">
 <h5>${content_o.title_s}</h5>
@@ -28,8 +28,8 @@ const CODES_o =
 
   replace_all__s: content_s =>
   {
-    let [ content_a, content_o ] = split__a( content_s, '_replace_all' )
-    return replace__s( content_o, content_a[1] )
+    let [ content_a, content_o ] = SPLIT__a( content_s, '_replace_all' )
+    return REPLACE__s( content_o, content_a[1] )
   },
 
 }

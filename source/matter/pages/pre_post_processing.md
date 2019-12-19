@@ -57,7 +57,7 @@ in the following listing it's the _post_ process comment line.
 
 {% set _code %}
 {% raw %}
-{% set data_o = F_o.data__o( collections.all, permalink ) %}
+{% set data_o = F_o.data__o( permalink, collections.all ) %}
 
 {{- '' | template_start( data_o ) -}}{# ante process #}
 
@@ -126,10 +126,10 @@ const link__v = data_o =>
     {
       rank_n: rank_n,
       link_s: link_s,
-      title_s: S_o.escquote__s( title_s ) ,
-      subtitle_s: S_o.escquote__s( subtitle_s ) ,
-      abstract_s: S_o.escquote__s( abstract_s ) ,
-      author_s: S_o.escquote__s( author_s ) ,
+      title_s: S_o.quoteEsc__s( title_s ) ,
+      subtitle_s: S_o.quoteEsc__s( subtitle_s ) ,
+      abstract_s: S_o.quoteEsc__s( abstract_s ) ,
+      author_s: S_o.quoteEsc__s( author_s ) ,
       tags: tags,
     }
     collection_a.push( link_o )
@@ -233,7 +233,7 @@ including the `page` Object used for pagination, all the collection Objects and 
     lang_s: 'twig',
 [//]:#(_code_block)
 {% raw %}
-{% set data_o = F_o.data__o( collections.all, permalink ) %}
+{% set data_o = F_o.data__o( permalink, collections.all ) %}
 {% endraw %}
 {% end_code_block %}
 

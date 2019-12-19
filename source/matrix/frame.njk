@@ -1,4 +1,4 @@
-{% set data_o = F_o.data__o( collections.all, permalink ) %}
+{% set data_o = D_o.data__o( permalink, collections.all ) %}
 {{- '' | template_start( data_o ) -}}{# ante process #}
 
 {%- set _head_block_s %}

@@ -1,41 +1,35 @@
-const path_s = '../../matter/assets/scripts/js/lib/'
-//const A_o = require( `${path_s}A_o.js` )  //: use data_o.A_o instead
-const F_o = require( `${path_s}F_o.js` )
-const M_o = require( './menu.js' )
-const S_o = require( './string.js' )
+const DATA_o   = require( './data.js' )
+const MENU_o   = require( './menu.js' )
+const STRING_o = require( './string.js' )
 
-const extension_n = '.html'.length
-let count_n       = F_o.files_a ? F_o.files_a.length : 0
+let count_n       = DATA_o.files_a ? DATA_o.files_a.length : 0
 let collection_a  = []
 
 const link__v = data_o =>
 {
-  if ( data_o.tags && data_o.tags.includes( data_o.A_o.COLLECTION_s ) )
+  if ( data_o.tags &&
+       data_o.tags.includes( data_o.A_o.COLLECTION_s ) )  //: using data_o to access A_o
   {
-    const link_s = data_o.permalink.slice( 0, -extension_n )
-    const { rank_n, title_s, subtitle_s, abstract_s, author_s, tags } = data_o
+    const extension_n = '.html'.length
     const link_o =
     {
-      rank_n: rank_n,
-      link_s: link_s,
-      title_s: S_o.escquote__s( title_s ) ,
-      subtitle_s: S_o.escquote__s( subtitle_s ) ,
-      abstract_s: S_o.escquote__s( abstract_s ) ,
-      author_s: S_o.escquote__s( author_s ) ,
-      tags: tags,
+      rank_n:     data_o.rank_n,
+      link_s:     data_o.permalink.slice( 0, -extension_n ),
+      tags:       data_o.tags,
+      title_s:    STRING_o.quoteEsc__s( data_o.title_s ),
+      subtitle_s: STRING_o.quoteEsc__s( data_o.subtitle_s ),
+      abstract_s: STRING_o.quoteEsc__s( data_o.abstract_s ),
+      author_s:   STRING_o.quoteEsc__s( data_o.author_s )
     }
     collection_a.push( link_o )
     }
 }
 
-const order__v = () =>
-{
-  collection_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )  //;console.log( collection_a )
-}
+const order__v = () => collection_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )
 
 const menu__v = () =>
 {
-  const menu_s = M_o.menu__a( collection_a )
+  const menu_s = MENU_o.menu__a( collection_a )
   console.log( `Writing ../site/menu.html from template_process.js` )
   require('fs-extra')
     .outputFile( '../site/menu.html', menu_s,
@@ -87,7 +81,7 @@ module.exports =
 {
   start__s: ( input_s, data_o ) =>
   {
-    if ( F_o.current__n() === 0 && F_o.files_a ) buildStart__v( data_o )
+    if ( DATA_o.current__n() === 0 && DATA_o.files_a ) buildStart__v( data_o )
     let start_s = templateStart__s( input_s, data_o )
     return start_s
   },
@@ -98,9 +92,9 @@ module.exports =
 
   end__s: ( input_s, data_o ) =>
   {
-    F_o.current__v()
+    DATA_o.current__v()
     let end_s = templateEnd__s( input_s, data_o )
-    if ( F_o.current__n() === count_n && F_o.files_a ) buildEnd__v( data_o )
+    if ( DATA_o.current__n() === count_n && DATA_o.files_a ) buildEnd__v( data_o )
     return end_s
   },
 }

@@ -78,13 +78,13 @@ as in the preceding listing of the `U_o.js` file
 {% end_short_note %}
 but also functions
 {% _short_note %}
-as in the following `F_o.js` file
+as in the following `D_o.js` file
 {% end_short_note %}
 which means that all the power of Node.js is at hand.
 
 
 {% _code_block %}
-    title_s: 'source/matter/assets/scripts/js/lib/F_o.js',
+    title_s: 'source/matter/assets/scripts/js/lib/D_o.js',
     lang_s: 'javascript',
 [//]:#(_code_block)
 {% raw %}

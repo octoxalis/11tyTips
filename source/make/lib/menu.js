@@ -32,8 +32,8 @@ module.exports =
     <li data--="menu_item" data-link="${entry_o.link_s}" data-rank="${entry_o.rank_n}">
       <span>${pad__s( order_n )}</span>
       <span><a href="${link_s}">${entry_o.title_s}</a></span>
-      <span hidden>${entry_o.subtitle_s}</span>
       <ins data--="inline_note"><sup></sup><span data--="note_content">${entry_o.abstract_s}</span></ins>
+      <span hidden>${entry_o.subtitle_s}</span>
     </li>
 `
     }

@@ -4,19 +4,19 @@ module.exports = make_o =>
   //xx make_o.addFilter('readable_date', date_o => require('luxon').fromJSDate( date_o ).toFormat('dd LLL yyyy') )
   
   //: css minify
-  const css_f = require('clean-css')
-  make_o.addFilter('minify_css', code_s => new css_f({}).minify( code_s ).styles )
+  const CSS_f = require('clean-css')
+  make_o.addFilter('minify_css', code_s => new CSS_f({}).minify( code_s ).styles )
 
   //: js minify
   make_o.addFilter('minify_js', code_s =>
   {
-    let minify_o = require('uglify-es').minify( code_s )
-    if( minify_o.error )
+    let MINIFY_o = require('uglify-es').minify( code_s )
+    if( MINIFY_o.error )
     {
-        console.log('uglify-es error: ', minify_o.error)
+        console.log('uglify-es error: ', MINIFY_o.error)
         return code_s
     }
-    return minify_o.code
+    return MINIFY_o.code
   })
 
   //: html minify filter
@@ -31,18 +31,18 @@ module.exports = make_o =>
   //: RSS feed
   make_o.addFilter('feed_content', code_s => require('../lib/feed_content.js')( code_s ) )
 
-  const dateToISO__s = require('../lib/dateToISO.js')
-  make_o.addNunjucksFilter( "feed_date", date_o => dateToISO__s( date_o ) )
+  const ISODATE__s = require('../lib/dateToISO.js')
+  make_o.addNunjucksFilter( "feed_date", date_o => ISODATE__s( date_o ) )
 
   make_o.addNunjucksFilter( "feed_last_date", collection =>
   {
     if( !collection || !collection.length ) throw new Error( "Collection is empty in feed_last_date filter." )
-    return dateToISO__s( collection[ collection.length - 1 ].date )
+    return ISODATE__s( collection[ collection.length - 1 ].date )
   } )
 
-  const template_o = require('../lib/template_process.js')
-  make_o.addFilter('head_end', ( head_s, ...args_ ) => template_o.head__s( head_s, ...args_ ) )
-  make_o.addFilter('body_end', ( body_s, ...args_ ) => template_o.body__s( body_s, ...args_ ) )
-  make_o.addFilter('template_start', ( start_s, ...args_ ) => template_o.start__s( start_s, ...args_ ) )
-  make_o.addFilter('template_end', ( end_s, ...args_ ) => template_o.end__s( end_s, ...args_ ) )
+  const TEMPLATE_o = require('../lib/template_process.js')
+  make_o.addFilter('head_end', ( head_s, ...args_ ) => TEMPLATE_o.head__s( head_s, ...args_ ) )
+  make_o.addFilter('body_end', ( body_s, ...args_ ) => TEMPLATE_o.body__s( body_s, ...args_ ) )
+  make_o.addFilter('template_start', ( start_s, ...args_ ) => TEMPLATE_o.start__s( start_s, ...args_ ) )
+  make_o.addFilter('template_end', ( end_s, ...args_ ) => TEMPLATE_o.end__s( end_s, ...args_ ) )
 }
