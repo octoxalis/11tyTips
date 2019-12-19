@@ -15,7 +15,7 @@ const menuPosition__v = () =>
   if ( menu_n < article_n ) menu_e.style.height = `${article_n * 1.5}px`
 }
 
-const showComments__v = () =>
+const comments__v = () =>
 {
   const comments_e = document.querySelector( '[data--=comments]' )
   if ( !comments_e.hasChildNodes() )
@@ -33,6 +33,65 @@ const showComments__v = () =>
   comments_e.classList.toggle( 'retract' )
 }
 
+const linkNear__o = link_s =>
+{
+  const list_e = document.querySelector( `[data--=menu_list]` )
+  if ( !list_e ) return    //: undefined
+  const extension_n = '.html'.length
+  const location_s = window.location.pathname.slice( 1, -extension_n )  //: trim '/' at start
+  const list_a = document.querySelectorAll( `[data--=menu_list] > li` )
+  const list_n = list_a.length
+  const current_e = list_e.querySelector( `[data-link="${location_s}"]` )
+  const rank_n = +current_e.getAttribute( 'data-rank' )
+  const near_n = ( link_s === 'link_previous' ) ? rank_n - 1 : rank_n + 1
+  if ( near_n < 1 || near_n > list_n ) return undefined
+  const near_e = list_e.querySelector( `[data-rank="${near_n}"]` )
+  const a_e = near_e.querySelector( `span > a` )
+  const span_e = near_e.querySelector( `span[data--="note_content"]` )
+  const near_o =
+  {
+    link_s:     near_e.getAttribute( 'data-link' ),
+    title_s:    a_e.innerHTML,
+    //?? subtitle_s: '',
+    abstract_s: span_e.innerHTML,
+  }
+  return near_o
+}
+
+const linkNear__v = ( event_s, link_e ) =>
+{
+  if ( link_e === null ) return
+  if ( event_s === 'mouseenter' )
+  {
+    const link_s = link_e.getAttribute( 'data--' )
+    let title_s = 'No more {{A_o.COLLECTION_s}}'
+    //?? let subtitle_s = ''
+    let abstract_s = ''
+    const near_o = linkNear__o( link_s )
+    if ( near_o === undefined )
+    {
+      document.querySelector( '[data--=link_title]' ).innerHTML = title_s
+      //?? document.querySelector( '[data--=link_subtitle]' ).innerHTML = subtitle_s
+      document.querySelector( '[data--=link_abstract]' ).innerHTML = abstract_s
+    }
+    else
+    {
+      document.querySelector( '[data--=link_title]' ).innerHTML =
+      `<a href="{{U_o.url_s}}${near_o.link_s}.html">${near_o.title_s} ⤴</a>`
+      //?? document.querySelector( '[data--=link_subtitle]' ).innerHTML = near_o.subtitle_s
+      document.querySelector( '[data--=link_abstract]' ).innerHTML = `<i>${near_o.abstract_s}</i>`
+    }
+  }
+  document.querySelector( '[data--=link_info]' )
+    .classList.toggle( 'retract' )
+}
+
+const linkPageURL__s = link_s =>
+{
+  const link_o = linkNear__o( link_s )
+  return link_o ? `{{U_o.url_s}}${link_o.link_s}.html` : undefined
+}
+
 /**
  * UI events
  */
@@ -44,33 +103,27 @@ void function ()
     window
       .addEventListener('load', () =>
       {
-        menuPosition__v()
-
 //: Menu inline notes sup element click handler
 //: to show/hide the note
-
         document.querySelector( '[data--=menu_list]' )
           .addEventListener('click', inlineNote__v )
 
 //: Register service worker
-
-        if ( 'serviceWorker' in navigator ) window
-          .addEventListener( 'load', service__v( '{{U_o.url_s}}{{U_o.SERVICE_PATH_s}}' ) )
-
-//: Register posts list
-        linkPage__v()
+//............        if ( 'serviceWorker' in navigator ) window
+//............          .addEventListener( 'load', service__v( '{{U_o.url_s}}{{U_o.SERVICE_PATH_s}}' ) )
       } )
 
-/**
- * Menu order click handler
- * to sort posts by reverse order
- */
+//: Menu order click handler
+//: to sort posts by reverse order
     document.querySelector( '[data--=menu_order]' )
       .addEventListener('click', click_o =>
       {
         const menu_e = click_o.target.closest('menu')
         if ( menu_e ) DOM_listReverse__v( '[data--="menu_list"]' )
       } )
+
+//: adjust positin + height of menu
+    menuPosition__v()
   } )
 
   //: click
@@ -106,7 +159,7 @@ void function ()
       let link_s = link_e.getAttribute( 'data--' )
       if ( link_s === 'link_menu' ) return void menu__v()
       //: previous or next tip
-      const http_s = linkPageURL__s( link_s, _COLLECTION_a )
+      const http_s = linkPageURL__s( link_s )
       if ( http_s ) window.location = http_s
     } )
 
@@ -116,7 +169,7 @@ void function ()
         if ( buttonLink_e.getAttribute( 'data--' ) === 'link_menu' ) return
         [ 'mouseenter', 'mouseleave' ]
           .forEach( event_s => buttonLink_e.addEventListener( event_s,
-            mouse_o => linkNearShow__v( event_s, mouse_o.currentTarget ) ) )
+            mouse_o => linkNear__v( event_s, mouse_o.currentTarget ) ) )
       } )
   }
 
@@ -134,7 +187,7 @@ void function ()
   document.querySelector( '[data--=comments_visibility]' )
   .addEventListener('click', click_o =>
   {
-    showComments__v()
+    comments__v()
   } )
 
 } ()

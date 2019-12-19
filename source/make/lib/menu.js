@@ -29,9 +29,10 @@ module.exports =
       const link_s = `${U_o.url_s}${entry_o.link_s}.html`
       menu_s +=
 `
-    <li data--="menu_item">
+    <li data--="menu_item" data-link="${entry_o.link_s}" data-rank="${entry_o.rank_n}">
       <span>${pad__s( order_n )}</span>
       <span><a href="${link_s}">${entry_o.title_s}</a></span>
+      <span hidden>${entry_o.subtitle_s}</span>
       <ins data--="inline_note"><sup></sup><span data--="note_content">${entry_o.abstract_s}</span></ins>
     </li>
 `
@@ -39,7 +40,6 @@ module.exports =
     menu_s +=
 `
   </ol>
-  <div data--="collection_a" hidden>${JSON.stringify( collection_a )}</div>
 </menu>
 `
     return menu_s
