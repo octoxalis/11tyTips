@@ -2,7 +2,6 @@
 const linkNear__o = link_s =>
 {
   const list_e = document.querySelector( `[data--="menu_list"]` )
-  if ( !list_e ) return    //: undefined
   const extension_n = '.html'.length
   const location_s = window.location.pathname.slice( 1, -extension_n )  //: trim '/' at start
   const list_a = document.querySelectorAll( `[data--="menu_list"] > li` )
@@ -34,24 +33,22 @@ const linkNear__v = ( event_s, link_e ) =>
   if ( event_s === 'mouseenter' )
   {
     const link_s = link_e.getAttribute( 'data--' )
-    let title_s = 'No more {{A_o.COLLECTION_s}}'
-    //?? let subtitle_s = ''
-    let abstract_s = ''
+    let title_s
+    let abstract_s
     const near_o = linkNear__o( link_s )
-    if ( near_o === undefined )
+    if ( near_o !== undefined )
     {
-      document.querySelector( '[data--="link_title"]' ).innerHTML = title_s
-      //?? document.querySelector( '[data--="link_subtitle"]' ).innerHTML = subtitle_s
-      document.querySelector( '[data--="link_abstract"]' ).innerHTML = abstract_s
+      title_s = `<a href="{{U_o.url_s}}${near_o.link_s}.html">${near_o.title_s} ⤴</a>`
+      abstract_s = `<i>${near_o.abstract_s}</i>`
     }
     else
     {
-      document.querySelector( '[data--="link_title"]' ).innerHTML =
-      `<a href="{{U_o.url_s}}${near_o.link_s}.html">${near_o.title_s} ⤴</a>`
-      //?? document.querySelector( '[data--="link_subtitle"]' ).innerHTML = near_o.subtitle_s
-      document.querySelector( '[data--="link_abstract"]' ).innerHTML = `<i>${near_o.abstract_s}</i>`
+      title_s = 'No more {{A_o.COLLECTION_s}}'
+      abstract_s = ''
     }
-  }
+    document.querySelector( '[data--="link_title"]' ).innerHTML = title_s
+    document.querySelector( '[data--="link_abstract"]' ).innerHTML = abstract_s
+}
   document.querySelector( '[data--="link_info"]' )
     .classList.toggle( 'retract' )
 }

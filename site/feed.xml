@@ -520,4 +520,74 @@ module.exports =
 </code></pre><p>Any kind of processing can be done inside the starting and ending functions: in 11tyTips, the starting function output the number of Markdown files to be processed and the ending function create the file (<code>menu.html</code>) listing the pages referenced as links in the menu of the site.</p><p>To have full control on the site data, these functions take as argument an <code>Object</code> gathering all or a selection of (made according to the <code>EXPORT_a</code> Array declared in the <code>F_o.js</code> global data file )all declared global data (including the <code>page</code> Object used for pagination, all the collection Objects and even global properties not usually accessible: <code>content</code> and <code>layoutContent</code>… ). These data are retrieve by a simple <code>set</code> tag at the begining of the base template:</p><hgroup data--="code_ref"><h5>source/matrix/frame.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-twig">
 {% set data_o = F_o.data__o( permalink, collections.all ) %}
 <br/>
-</code></pre><p>and are used by all the template processing functions (the <code>data_o</code> argument ).</p></content></entry><entry><title>Variables scope and templates inheritance</title><link href="https://11tytips.netlify.com/tips/variables_inheritance.html"/><updated>2019-12-12T01:00:00+01:00</updated><id>https://11tytips.netlify.com/tips/variables_inheritance.html</id><content type="html"><h1>Variables and templates inheritance</h1><p data--="page_intro">In Nunjucks, inheriting templates can have private variables.</p><h2 id="variables_and_blocks">Variables and blocks</h2><p>When you rely on template inheritance (using the <code>{% extends %}</code> declaration ), you cant’ have a <code>{% block %}{% endblock %}</code> inside a variable <code>set</code> block. The other way, a variable declared inside a <code>{% block %}{% endblock %}</code> will not be accessible outside. Therefore, you can’t gather all variables in a global variable passed as an argument to the processing filter. However, you still have the possibility to process each block individualy.</p><h3 id="variables_scope">Variables scope</h3><p>When using variables declared with the <code>set</code> block, never forget that any variable whose name begins with one or more underscore character is <strong>private</strong>. Therefore it can not be imported outside of its block scope (unfortunatly, the Nunjucks documentation doesn’t state it: I found this important note in the <a href="https://jinja.palletsprojects.com/en/2.10.x/templates/#import" target="_blank" rel="noreferrer noopener">Jinja2 documentation</a>. ).</p></content></entry></feed>
+</code></pre><p>and are used by all the template processing functions (the <code>data_o</code> argument ).</p></content></entry><entry><title>Variables scope and templates inheritance</title><link href="https://11tytips.netlify.com/tips/variables_inheritance.html"/><updated>2019-12-12T01:00:00+01:00</updated><id>https://11tytips.netlify.com/tips/variables_inheritance.html</id><content type="html"><h1>Variables and templates inheritance</h1><p data--="page_intro">In Nunjucks, inheriting templates can have private variables.</p><h2 id="variables_and_blocks">Variables and blocks</h2><p>When you rely on template inheritance (using the <code>{% extends %}</code> declaration ), you cant’ have a <code>{% block %}{% endblock %}</code> inside a variable <code>set</code> block. The other way, a variable declared inside a <code>{% block %}{% endblock %}</code> will not be accessible outside. Therefore, you can’t gather all variables in a global variable passed as an argument to the processing filter. However, you still have the possibility to process each block individualy.</p><h3 id="variables_scope">Variables scope</h3><p>When using variables declared with the <code>set</code> block, never forget that any variable whose name begins with one or more underscore character is <strong>private</strong>. Therefore it can not be imported outside of its block scope (unfortunatly, the Nunjucks documentation doesn’t state it: I found this important note in the <a href="https://jinja.palletsprojects.com/en/2.10.x/templates/#import" target="_blank" rel="noreferrer noopener">Jinja2 documentation</a>. ).</p></content></entry><entry><title>Creating a menu</title><link href="https://11tytips.netlify.com/tips/creating_menu.html"/><updated>2019-12-12T01:00:00+01:00</updated><id>https://11tytips.netlify.com/tips/creating_menu.html</id><content type="html"><h1>Creating a sorted menu</h1><p data--="page_intro">Creating a menu with previous and next links.</p><h2 id="sorting_a_collection">Sorting a collection</h2><p data--="important">There are many ways to sort a collection of posts, some of them provided out of the bos by Eleventy. <em>(to be continued...)</em></p><hgroup data--="code_ref"><h5>11tyTips/source/make/11ty/collections.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+module.exports = make_o =>
+{
+  make_o.tag_a
+    .forEach( tag_s => make_o.addCollection( tag_s,
+      collection_a =>
+      {
+        return collection_a
+          .getFilteredByTag( tag_s )
+          .sort( ( current_o, other_o ) => current_o.data.rank_n - other_o.data.rank_n )
+      } )
+    )
+}
+<br/>
+</code></pre><h2 id="retrieving_posts_links_in_the_dom">Retrieving posts links in the DOM</h2><p data--="important">Previous and nex posts links are much less difficult to retrieve on the client side... <em>(to be continued...)</em></p><hgroup data--="code_ref"><h5>source/matrix/assets/scripts/js/parts/_link_page_.js_</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+//&gt; retrieve previous + next pages info
+const linkNear__o = link_s =&gt;
+{
+  const list_e = document.querySelector( `[data--="menu_list"]` )
+  const extension_n = '.html'.length
+  const location_s = window.location.pathname.slice( 1, -extension_n )  //: trim '/' at start
+  const list_a = document.querySelectorAll( `[data--="menu_list"] &gt; li` )
+  if ( !list_a ) return     //: undefined
+  const list_n = list_a.length
+  const current_e = list_e.querySelector( `[data-link="${location_s}"]` )
+  const rank_n = +current_e.getAttribute( 'data-rank' )
+  const near_n = ( link_s === 'link_previous' ) ? rank_n - 1 : rank_n + 1
+  if ( near_n &lt; 1 || near_n &gt; list_n ) return     //: undefined
+  const near_e = list_e.querySelector( `[data-rank="${near_n}"]` )
+  if ( !near_e ) return     //: undefined
+  const a_e = near_e.querySelector( `span &gt; a` )
+  if ( !a_e ) return     //: undefined
+  const span_e = near_e.querySelector( `span[data--="note_content"]` )
+  if ( !a_e ) return     //: undefined
+  return {
+    link_s:     near_e.getAttribute( 'data-link' ),
+    title_s:    a_e.innerHTML,
+    //?? subtitle_s: '',
+    abstract_s: span_e.innerHTML,
+  }
+}
+<br/>
+</code></pre><h2 id="adding_useful_info_to_links">Adding useful info to links</h2><p data--="important">Unveiling the title and pieces of data before fetching a previous or next post is always a useful help... <em>(to be continued...)</em></p><hgroup data--="code_ref"><h5>source/matrix/assets/scripts/js/parts/_link_page_.js_</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+//> insert in DOM previous + next pages info
+//> show/hide previous + next pages info block
+const linkNear__v = ( event_s, link_e ) =>
+{
+  if ( link_e === null ) return
+  if ( event_s === 'mouseenter' )
+  {
+    const link_s = link_e.getAttribute( 'data--' )
+    let title_s
+    let abstract_s
+    const near_o = linkNear__o( link_s )
+    if ( near_o !== undefined )
+    {
+      title_s = `<a href="https://11tytips.netlify.com/${near_o.link_s}.html">${near_o.title_s} ⤴</a>`
+      abstract_s = `<i>${near_o.abstract_s}</i>`
+    }
+    else
+    {
+      title_s = 'No more tip'
+      abstract_s = ''
+    }
+    document.querySelector( '[data--="link_title"]' ).innerHTML = title_s
+    document.querySelector( '[data--="link_abstract"]' ).innerHTML = abstract_s
+}
+  document.querySelector( '[data--="link_info"]' )
+    .classList.toggle( 'retract' )
+}
+</code></pre></content></entry></feed>
