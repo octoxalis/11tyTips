@@ -7,10 +7,10 @@
   eleventyExcludeFromCollections: false,
 
   rank_n:     9,
-  title_s:     `Shortcodes`,
-  subtitle_s:  `Forging shortcodes`,
-  abstract_s:  `Processing Markdown content with shortcodes`,
-  author_s:    `Octoxalis`,
+  title_s:    `Shortcodes`,
+  subtitle_s: `Forging shortcodes`,
+  abstract_s: `Processing Markdown content with shortcodes`,
+  author_s:   `Octoxalis`,
 }
 ---
 [comment]: # (======== Post ========)

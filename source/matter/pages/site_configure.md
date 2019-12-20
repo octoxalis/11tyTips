@@ -84,7 +84,7 @@ which means that all the power of Node.js is at hand.
 
 
 {% _code_block %}
-    title_s: 'source/matter/assets/scripts/js/lib/D_o.js',
+    title_s: 'source/make/lib/data.js',
     lang_s: 'javascript',
 [//]:#(_code_block)
 {% raw %}
@@ -99,17 +99,14 @@ const EXPORT_a =    // default exported data
   'subtitle_s',
   'abstract_s',
   'author_s',
+  'A_o',
 ]
-
-const MD_DIR_s = './matter/pages/'    //: all Mardown files
-const DEPTH_n  = 0                    //: ...are located at the root level of MD_DIR_s
 
 module.exports =
 {
-  files_a: require( 'klaw-sync' )( MD_DIR_s, { nodir: true, depthLimit: DEPTH_n } ),
-
-  data__o: ( collection_a, permalink_s ) =>
+  data__o: ( permalink_s, collection_a ) =>
   {
+    //> console.log( permalink_s )
     let export_o = {}
     collection_a.forEach( collection_o =>
       {
@@ -123,10 +120,9 @@ module.exports =
             export_a.forEach( prop_s => export_o[prop_s] = data_o[prop_s] )
           }
         }
-      } )
+      } )    
     return export_o
   },
-//...
 }
 {% endraw %}
 {% end_code_block %}

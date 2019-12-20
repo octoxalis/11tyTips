@@ -13,7 +13,6 @@
 │       ├── data.js
 │       ├── dateToISO.js
 │       ├── feed_content.js
-│       ├── menu.js
 │       ├── string.js
 │       └── template_process.js
 ├── matrix
@@ -23,10 +22,14 @@
 │   │   ├── scripts
 │   │   │   └── js
 │   │   │       ├── parts
+│   │   │       │   ├── _comments_.js
 │   │   │       │   ├── _dom_.js
+│   │   │       │   ├── _events_.js
+│   │   │       │   ├── _link_page_.js
+│   │   │       │   ├── _menu_.js
+│   │   │       │   ├── _notes_.js
 │   │   │       │   ├── _service_.js
-│   │   │       │   ├── _service_worker_.js
-│   │   │       │   └── _ui_.js
+│   │   │       │   └── _service_worker_.js
 │   │   │       ├── lib.njk
 │   │   │       └── service.njk
 │   │   ├── static
@@ -93,6 +96,7 @@
 │   │   └── _webmanifest_.njk
 │   ├── feed.njk
 │   ├── frame.njk
+│   ├── menu.njk
 │   ├── offline.njk
 │   └── sitemap.njk
 └── matter
@@ -120,6 +124,7 @@
         ├── frontmatter_data.md
         ├── frontmatter_function.md
         ├── index.md
+        ├── menu.md
         ├── minifying.md
         ├── names_guide.md
         ├── offline.md

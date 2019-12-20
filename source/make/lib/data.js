@@ -14,13 +14,10 @@ const EXPORT_a =    // default exported data
   'abstract_s',
   'author_s',
   'A_o',
-  'collections',
 ]
 
 module.exports =
 {
-  export__a:  () => EXPORT_a,
-
   data__o: ( permalink_s, collection_a ) =>
   {
     //> console.log( permalink_s )
@@ -40,5 +37,4 @@ module.exports =
       } )    
     return export_o
   },
-  
 }

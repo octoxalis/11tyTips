@@ -57,8 +57,7 @@ in the following listing it's the _post_ process comment line.
 
 {% set _code %}
 {% raw %}
-{% set data_o = F_o.data__o( permalink, collections.all ) %}
-
+{% set data_o = D_o.data__o( permalink, collections.all ) %}
 {{- '' | template_start( data_o ) -}}{# ante process #}
 
 {%- set _head_block_s %}
@@ -102,70 +101,38 @@ this simple algorithm is based on the fact that all posts are in a single direct
 
 
 {% _code_block %}
-    title_s: 'source/make/11ty/template_process.js',
+    title_s: 'source/make/lib/template_process.js',
     lang_s: 'javascript',
 [//]:#(_code_block)
 {% raw %}
-const path_s = '../../matter/assets/scripts/js/lib/'
-//const A_o = require( `${path_s}A_o.js` )  //: use data_o.A_o instead
-const F_o = require( `${path_s}F_o.js` )
-const M_o = require( './menu.js' )
-const S_o = require( './string.js' )
+const STRING_o = require( './string.js' )
 
-const extension_n = '.html'.length
-let count_n       = F_o.files_a ? F_o.files_a.length : 0
-let collection_a  = []
+let files_a       = null
+let count_n       = 0
+let current_n     = 0
 
-const link__v = data_o =>
+void function ()
 {
-  if ( data_o.tags && data_o.tags.includes( data_o.A_o.COLLECTION_s ) )
-  {
-    const link_s = data_o.permalink.slice( 0, -extension_n )
-    const { rank_n, title_s, subtitle_s, abstract_s, author_s, tags } = data_o
-    const link_o =
-    {
-      rank_n: rank_n,
-      link_s: link_s,
-      title_s: S_o.quoteEsc__s( title_s ) ,
-      subtitle_s: S_o.quoteEsc__s( subtitle_s ) ,
-      abstract_s: S_o.quoteEsc__s( abstract_s ) ,
-      author_s: S_o.quoteEsc__s( author_s ) ,
-      tags: tags,
-    }
-    collection_a.push( link_o )
-    }
-}
+  const MD_DIR_s = './matter/pages/'    //: all Mardown files
+  const DEPTH_n  = 0                    //: ...are located at the root level of MD_DIR_s
+  files_a = require( 'klaw-sync' )( MD_DIR_s, { nodir: true, depthLimit: DEPTH_n } )
+  if ( files_a ) count_n = files_a.length
+} ()
 
-const sort__v = () =>
-{
-  collection_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )
-}
 
-const menu__v = () =>
-{
-  const menu_s = M_o.menu__a( collection_a )
-  console.log( `Writing ../site/menu.html from template_process.js` )
-  require('fs-extra')
-    .outputFile( '../site/menu.html', menu_s,
-      err_s => console.log ( err_s || 'Build success!' ) )
-}
-
-const buildStart__v = ( data_o ) =>
+const buildStart__v = data_o =>
 {
   console.log( `${count_n} Markdown files to process` )
 }
 
-const buildEnd__v = ( data_o ) =>
+const buildEnd__v = data_o =>
 {
-  sort__v()
-  menu__v()
   //... what else?
 }
 
 const templateStart__s = ( input_s, data_o ) =>
 {
   let start_s = input_s
-  link__v( data_o )
   //... what else?
   return start_s
 }
@@ -195,7 +162,7 @@ module.exports =
 {
   start__s: ( input_s, data_o ) =>
   {
-    if ( F_o.current__n() === 0 && F_o.files_a ) buildStart__v( data_o )
+    if ( current_n === 0 && !files_a ) buildStart__v( data_o )
     let start_s = templateStart__s( input_s, data_o )
     return start_s
   },
@@ -206,9 +173,9 @@ module.exports =
 
   end__s: ( input_s, data_o ) =>
   {
-    F_o.current__v()
+    ++current_n
     let end_s = templateEnd__s( input_s, data_o )
-    if ( F_o.current__n() === count_n && F_o.files_a ) buildEnd__v( data_o )
+    if ( current_n === count_n && files_a ) buildEnd__v( data_o )
     return end_s
   },
 }

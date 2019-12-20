@@ -13,26 +13,27 @@ const MAKE_o =
     data:     'matter/assets/scripts/js/lib',
     includes: 'matrix',
   },
-}
 
-const DIRS_o =
-{
-  makeDir_s:  './',
-  pagesPartsDir_s: './matter/pages/parts',
+  tag_a:    [ 'tip' ],    //: to create collections
+  static_o: { "matrix/assets/static": "assets" },    //: static files
+  dirs_o:
+  {
+    makeDir_s:  './',
+    pagesPartsDir_s: './matter/pages/parts',
+  }
 }
 
 module.exports = make_o =>
 {
+  make_o.tag_a = MAKE_o.tag_a
   make_o.matrixDir_s = MAKE_o.dir.includes
-  make_o.pagesPartsDir_s = DIRS_o.pagesPartsDir_s
-  make_o.addPassthroughCopy( { "matrix/assets/static": "assets" } )    //: static files
+  make_o.pagesPartsDir_s = MAKE_o.dirs_o.pagesPartsDir_s
+  make_o.addPassthroughCopy( MAKE_o.static_o )
 ; [ 'libraries',
     'shortcodes',
     'filters',
     'plugins',
     'collections'
-  ].forEach( make_s => require( `${DIRS_o.makeDir_s}${make_s}.js` )( make_o ) )
+  ].forEach( make_s => require( `${MAKE_o.dirs_o.makeDir_s}${make_s}.js` )( make_o ) )
   return MAKE_o    // : return the configuration object for further customization
 }
-
-

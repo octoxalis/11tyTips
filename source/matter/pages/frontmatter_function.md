@@ -61,7 +61,6 @@ This `output__s` function is automaticaly invoqued (if it exists in the front ma
     lang_s: "twig"
 [//]:#(_code_block)
 {% raw %}
-{# .... #}
 {%- set _template_s %}
 <!doctype html><html lang="{{A_o.LANGUAGE_s}}">
 {{- _head_block_s | safe | head_end( data_o ) -}}{# head process #}
@@ -70,7 +69,6 @@ This `output__s` function is automaticaly invoqued (if it exists in the front ma
 {% endset -%}
 
 {%- if output__s %}{% set _template_s = output__s( _template_s ) %}{% endif -%}
-{{- _template_s | safe | template_end( data_o ) | minify_html -}}{# post process #}
 {% endraw %}
 {% end_code_block %}
 

@@ -8,7 +8,7 @@
 
   rank_n:     14,
   title_s:    `Variables scope and templates inheritance`,
-  subtitle_s: `Global and private viariables in Nunjucks blocks`,
+  subtitle_s: `Global and private variables in Nunjucks blocks`,
   abstract_s: `Take care of scope rules when using template inheritance`,
   author_s:   `Octoxalis`,
 }

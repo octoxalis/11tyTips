@@ -1,0 +1,53 @@
+---js
+{
+  pad__s: rank_n => `${('' + rank_n).padStart( 4, '.' )}`,
+  h4_a__s: ( href_s, title_s ) => `<h4>→ <a href="${href_s}" target="_blank" rel="noreferrer">${title_s}</a></h4>`,
+}
+---
+{%- set _collection_s = A_o.COLLECTION_s %}
+{%- set _html_n = -('.html'.length) %}{# trim '.html' in permalink #}
+
+{%- set _home_s %}
+  <h3><a href="{{ U_o.url_s }}">Home</a></h3>
+{% endset -%}
+
+{%- set _list_header_s %}
+  <h2 data--="menu_order">All {{_collection_s}}s</h2>
+{% endset -%}
+
+{%- set _social_s %}
+  {%- if U_o.GIT_s !== undefined %}{{ h4_a__s( U_o.GIT_s, 'Github' ) }}{% endif -%}
+  {%- if U_o.TWI_s !== undefined %}{{ h4_a__s( U_o.TWI_s, 'Twitter' ) }}{% endif -%}
+  {%- if U_o.RSS_s !== undefined %}{{ h4_a__s( U_o.RSS_s, 'RSS' ) }}{% endif -%}
+{% endset -%}
+
+{%- set _menu_list_s %}
+  <ol data--="menu_list">
+{% for _item_o in collections[_collection_s] %}
+    {% if _item_o.data.tags == _collection_s %}
+    {% set _link_s = _item_o.data.permalink.slice( 0, _html_n ) %}
+    <li data--="menu_item" data-link="{{_link_s}}" data-rank="{{_item_o.data.rank_n}}">
+      <span>{{pad__s( _item_o.data.rank_n )}}</span>
+      <span><a href="{{U_o.url_s + _item_o.data.permalink}}">{{_item_o.data.title_s}}</a></span>
+      <ins data--="inline_note"><sup></sup><span data--="note_content">{{_item_o.data.abstract_s}}</span></ins>
+      <span hidden>{{_item_o.data.subtitle_s}}</span>
+    </li>
+    {% endif %}
+{% endfor %}
+  </ol>
+{% endset -%}
+
+{%- set _template_s %}
+<menu data--="menu" data-collection="{{_collection_s}}" class="no_pointer">
+  {{_home_s}}
+  {{_social_s}}
+  {{_list_header_s}}
+  {{_menu_list_s}}
+</menu>
+{% endset -%}
+
+{%- if U_o.dev_b === true %}
+{{- _template_s | safe -}}
+{% else -%}
+{{- _template_s | safe | minify_html -}}
+{% endif -%}

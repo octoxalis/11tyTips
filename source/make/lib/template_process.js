@@ -1,50 +1,17 @@
-//?? const DATA_o   = require( './data.js' )
-const MENU_o   = require( './menu.js' )
 const STRING_o = require( './string.js' )
 
 let files_a       = null
 let count_n       = 0
 let current_n     = 0
-let collections_a = []
 
 void function ()
 {
   const MD_DIR_s = './matter/pages/'    //: all Mardown files
   const DEPTH_n  = 0                    //: ...are located at the root level of MD_DIR_s
   files_a = require( 'klaw-sync' )( MD_DIR_s, { nodir: true, depthLimit: DEPTH_n } )
-  if ( files_a ) count_n = files_a.length    //;console.log( `count_n: ${count_n}` )
+  if ( files_a ) count_n = files_a.length
 } ()
 
-const link__v = data_o =>
-{
-  if ( data_o.tags &&
-       data_o.tags.includes( data_o.A_o.COLLECTION_s ) )  //: using data_o to access A_o
-  {
-    const extension_n = '.html'.length
-    const link_o =
-    {
-      rank_n:     data_o.rank_n,
-      link_s:     data_o.permalink.slice( 0, -extension_n ),
-      tags:       data_o.tags,
-      title_s:    STRING_o.quoteEsc__s( data_o.title_s ),
-      subtitle_s: STRING_o.quoteEsc__s( data_o.subtitle_s ),
-      abstract_s: STRING_o.quoteEsc__s( data_o.abstract_s ),
-      author_s:   STRING_o.quoteEsc__s( data_o.author_s )
-    }
-    collections_a.push( link_o )
-  }
-}
-
-const sort__v = () => collections_a.sort( ( current_o, other_o ) => current_o.rank_n - other_o.rank_n )
-
-const menu__v = () =>
-{
-  const menu_s = MENU_o.menu__a( collections_a )
-  console.log( `Writing ../site/menu.html from template_process.js` )
-  require('fs-extra')
-    .outputFile( '../site/menu.html', menu_s,
-      err_s => console.log ( err_s || 'Build success!' ) )
-}
 
 const buildStart__v = data_o =>
 {
@@ -53,15 +20,12 @@ const buildStart__v = data_o =>
 
 const buildEnd__v = data_o =>
 {
-  sort__v()
-  menu__v()
   //... what else?
 }
 
 const templateStart__s = ( input_s, data_o ) =>
 {
   let start_s = input_s
-  link__v( data_o )
   //... what else?
   return start_s
 }

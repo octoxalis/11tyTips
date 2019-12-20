@@ -1,7 +1,11 @@
 {% set _js %}
 {% include "./parts/_dom_.js" %}
 {% include "./parts/_service_.js" %}
-{% include "./parts/_ui_.js" %}
+{% include "./parts/_notes_.js" %}
+{% include "./parts/_menu_.js" %}
+{% include "./parts/_comments_.js" %}
+{% include "./parts/_link_page_.js" %}
+{% include "./parts/_events_.js" %}
 {% endset %}
 {% if U_o.dev_b === true %}{{ _js | safe }}
 {% else %}{{ _js | minify_js | safe }}
