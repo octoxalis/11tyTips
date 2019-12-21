@@ -6,9 +6,10 @@ const HUE_BASE_n = 225
 
 module.exports =
 {
+  HUE_BASE_n: HUE_BASE_n,
   HUE_P_n: HUE_BASE_n,
-  HUE_S_n: HUE_BASE_n - 50,
-  HUE_I_n: HUE_BASE_n + 20,
-  HUE_D_n: HUE_BASE_n - 20,
-  HUE_L_n: HUE_BASE_n + 60,
+  HUE_S_n: -50,
+  HUE_I_n: 20,
+  HUE_D_n: -20,
+  HUE_L_n: 60,
 }

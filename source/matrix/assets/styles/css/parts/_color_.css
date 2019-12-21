@@ -1,10 +1,11 @@
 :root
 {
-  --c_hue_p: {{C_o.HUE_P_n}};
-  --c_hue_s: {{C_o.HUE_S_n}};
-  --c_hue_i: {{C_o.HUE_I_n}};
-  --c_hue_d: {{C_o.HUE_D_n}};
-  --c_hue_l: {{C_o.HUE_L_n}};
+  --c_hue_base: {{C_o.HUE_BASE_n}};
+  --c_hue_p: calc( var(--c_hue_base) + 0 );
+  --c_hue_s: calc( var(--c_hue_base) + {{C_o.HUE_S_n}} );
+  --c_hue_i: calc( var(--c_hue_base) + {{C_o.HUE_I_n}} );
+  --c_hue_d: calc( var(--c_hue_base) + {{C_o.HUE_D_n}} );
+  --c_hue_l: calc( var(--c_hue_base) + {{C_o.HUE_L_n}} );
 
   --c_sat:    50%;
     --c_sat_hi: 90%;

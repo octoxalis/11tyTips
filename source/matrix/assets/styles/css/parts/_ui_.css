@@ -40,11 +40,6 @@
   color: hsla( var(--c_hue_p), var(--c_sat_hi), 87%, var(--c_opac_hi) );
 }
 
-[data--=header_netlify]
-{
-  top: .7rem;
-}
-
 [data--=section]
 {
   padding: var(--PAD_1);
@@ -207,6 +202,15 @@
 {
   position: relative;
   left: var(--margin_left);
+}
+
+[data--=colophon]
+{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--PAD_2);
 }
 
 .retract

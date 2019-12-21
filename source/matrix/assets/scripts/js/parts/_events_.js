@@ -5,6 +5,7 @@ void function ()
 {
   DOM_loader__v( '[data--="menu_iframe"]', () =>
   {
+    //> DOM_rootVar__v( '--c_hue_base', 100 )
 //> Menu inline notes sup element click handler
 //> to show/hide the note
     window.addEventListener('load', () =>
@@ -85,5 +86,16 @@ void function ()
 //> to show/hide comments
   document.querySelector( '[data--="comments_visibility"]' )
     .addEventListener('click', click_o => comments__v() )
+
+//> Easter egg for source reader developers
+//> change UI base color
+  const header_e = document.querySelector( '[data--="header"]' )
+  header_e.addEventListener('click', click_o =>
+    {
+      const atX_n = click_o.clientX - header_e.getBoundingClientRect().left
+      const width_n = header_e.offsetWidth
+      const hue_n = ( atX_n / width_n ) * 360
+      DOM_rootVar__v( '--c_hue_base', ~~hue_n )
+    } )
 
 } ()

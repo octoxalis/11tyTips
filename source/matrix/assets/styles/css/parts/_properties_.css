@@ -42,7 +42,6 @@
   {position:sticky}
 
 .utterances-frame,
-[data--=header_netlify],
 [data--=inline_note],
 [data--=ulist] > li::before,
 [data--=important]::before
