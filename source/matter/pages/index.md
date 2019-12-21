@@ -32,7 +32,7 @@ SSGs usually provide only one templating option: React, Liquid, Go, Jinja2, etc.
 
 11ty can be used without any configuration
 {% _short_note %}
-it is [zero-config]{{U_o.OUTLINK_s}} out of the box!
+it is [zero-config]{{U_o.OUTLINK_s}} out-of-the-box!
 {% end_short_note %}
 , but its power comes from the fact that it is backed by the huge [Node.js]{{U_o.OUTLINK_s}} ecosystem. Therefore, when building your static site with 11ty, you can do anything Node is able to do.
 

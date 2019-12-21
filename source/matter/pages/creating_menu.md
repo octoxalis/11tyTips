@@ -13,8 +13,16 @@
   author_s:   `Octoxalis`,
 }
 ---
+[comment]: # (======== Aliases ========)
+
+{% set _11ty__s = F_o.eleventyUrl__s %}
+
+[comment]: # (======== Links ========)
+
+{{ _11ty__s( 'SORT_s' ).link }}
+
 [comment]: # (======== Post ========)
-# Creating a sorted menu
+# Creating a menu
 
 Creating a menu with previous and next links.{ data--="page_intro" }
 
@@ -23,8 +31,13 @@ Creating a menu with previous and next links.{ data--="page_intro" }
 {% end_anchor %}
 
 
+There are many ways to sort a collection of posts, some of them provided out-of-the-box by Eleventy
+{% _short_note %}
+see {{ _11ty__s( 'SORT_s' ).ref }}{{U_o.OUTLINK_s}} documentation page.
+{% end_short_note %}
+.
+
 {% _more_to_come %}
-There are many ways to sort a collection of posts, some of them provided out of the bos by Eleventy.
 {% end_more_to_come %}
 
 

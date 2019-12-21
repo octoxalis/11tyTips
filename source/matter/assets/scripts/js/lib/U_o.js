@@ -28,6 +28,7 @@ const U_o =
   ELEVENTY_s:     `[Eleventy]: https://11ty.io`,
   ELEVENTY_JFM_s: `/docs/data-frontmatter/#javascript-front-matter`,
   ELEVENTY_UDF_s: `/docs/data-frontmatter/#user-defined-front-matter-customizations`,
+  ELEVENTY_SORT_s: `/docs/collections/#sorting`,
 
   OUTLINK_s: '{target="_blank" rel="noreferrer noopener"}',
 

@@ -36,7 +36,7 @@ This is an introduction paragraph which should be limited in length.
 {% _short_note %}
 h3 element<br/>
 <b>Titles have a</b> <code>font-style: italic</code>
-{% end_short_note %}  
+{% end_short_note %}
 
 
 **Paragraph** content have a maximum line length fixed to 60ch, yielding to a number of  of about 70 characters per line: this is considered the best line length for readibility.
