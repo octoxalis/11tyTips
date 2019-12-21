@@ -42,13 +42,15 @@
   {position:sticky}
 
 .utterances-frame,
+[data--=header_netlify],
 [data--=inline_note],
 [data--=ulist] > li::before,
 [data--=important]::before
   {position:relative}
 
-[data--=header]
-  {z-index: 5}
+[data--=header],
+[data--=link_page]
+  {z-index: 2}
 
 [data--=article]
 {z-index: 1}

@@ -40,6 +40,11 @@
   color: hsla( var(--c_hue_p), var(--c_sat_hi), 87%, var(--c_opac_hi) );
 }
 
+[data--=header_netlify]
+{
+  top: .7rem;
+}
+
 [data--=section]
 {
   padding: var(--PAD_1);
@@ -147,6 +152,8 @@
 
 [data--=link_page]
 {
+  /*position: sticky;*/
+  top: 0;
   height: 6.5rem;
 }
 
