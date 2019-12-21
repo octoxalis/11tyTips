@@ -15,6 +15,8 @@
 │       ├── feed_content.js
 │       ├── string.js
 │       └── template_process.js
+|
+|
 ├── matrix
 │   ├── assets
 │   │   ├── icons
@@ -88,6 +90,7 @@
 │   │   ├── _instant_page_.njk
 │   │   ├── _link_page_.njk
 │   │   ├── _menu_iframe_.njk
+│   │   ├── _netlify_badge_.njk
 │   │   ├── _script_.njk
 │   │   ├── _seo_.njk
 │   │   ├── _site_url_.njk
@@ -99,6 +102,8 @@
 │   ├── menu.njk
 │   ├── offline.njk
 │   └── sitemap.njk
+|
+|
 └── matter
     ├── assets
     │   ├── scripts
@@ -119,6 +124,7 @@
         ├── parts
         │   └── _source_tree_.txt
         ├── 404.md
+        ├── creating_menu.md
         ├── eleventy_configure.md
         ├── feed.md
         ├── frontmatter_data.md
