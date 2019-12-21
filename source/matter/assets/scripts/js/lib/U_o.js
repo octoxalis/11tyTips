@@ -26,6 +26,7 @@ const U_o =
   FRAME_URL_s: `https://11tyframe.netlify.com/`,
 
   ELEVENTY_s:     `[Eleventy]: https://11ty.io`,
+  ELEVENTY_DEV_s:     `[Eleventy]: https://11ty.dev`,
   ELEVENTY_JFM_s: `/docs/data-frontmatter/#javascript-front-matter`,
   ELEVENTY_UDF_s: `/docs/data-frontmatter/#user-defined-front-matter-customizations`,
   ELEVENTY_SORT_s: `/docs/collections/#sorting`,

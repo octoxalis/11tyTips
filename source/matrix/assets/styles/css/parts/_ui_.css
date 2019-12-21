@@ -160,25 +160,24 @@
 [data--=link_nav]
 {
   display: flex;
-  align-items: flex-end;
-  justify-content: stretch;
   margin-top: 0;
-  width: 100%;
-}
-
-[data--=link_nav] > li
-{
-  border: 1px solid var(--c_decor);
 }
 
 [data--=link_nav] > li
 {
   margin-bottom: 0;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: var(--PAD_2);
+  border: 1px solid var(--c_decor);
+}
+
+[data--=link_previous],
+[data--=link_menu],
+[data--=link_next]
+{
+  flex-grow: 2;
 }
 
 [data--=link_info]

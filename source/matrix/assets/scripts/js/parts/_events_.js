@@ -41,16 +41,35 @@ void function ()
       const link_e = click_o.target.closest('LI')
       if ( link_e === null ) return
       let link_s = link_e.getAttribute( 'data--' )
+      /*
       if ( link_s === 'link_menu' ) return void menu__v()
       //: previous or next tip
       const http_s = linkURL__s( link_s )
       if ( http_s ) window.location = http_s
+      */
+      switch ( link_s )
+      {
+        case ( 'link_menu' ) : return void menu__v()
+        case ( 'link_top' ) :
+        case ( 'link_bottom' ) : return void DOM_scroll__v( link_s === 'link_bottom' )
+        case ( 'link_previous' ) :
+        case ( 'link_next' ) :
+        {
+          const http_s = linkURL__s( link_s )
+          if ( http_s ) window.location = http_s
+        }
+      }
     } )
 
     document.querySelectorAll( '[data--="link_nav"] > li' )
       .forEach( buttonLink_e =>
       {
-        if ( buttonLink_e.getAttribute( 'data--' ) === 'link_menu' ) return
+        switch ( buttonLink_e.getAttribute( 'data--' ) )
+        {
+          case 'link_top' :
+          case 'link_bottom' :
+          case 'link_menu' : return
+        }
         [ 'mouseenter', 'mouseleave' ]
           .forEach( event_s => buttonLink_e.addEventListener( event_s,
             mouse_o => linkNear__v( event_s, mouse_o.currentTarget ) ) )
