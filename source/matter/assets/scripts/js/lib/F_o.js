@@ -2,6 +2,7 @@
  * Functions
  * Naming scheme: function__s
  */
+const A_o = require( './A_o.js' )
 const U_o = require( './U_o.js' )
 
 const OPEN_s  = '[='   //: substitute__s function delimiter
@@ -9,7 +10,7 @@ const CLOSE_s = '=]'  //: idem
 
 module.exports =
 {  
-  siteUrl__s: ( file_s, dir_s='{{A_o.COLLECTION_s}}s/' ) => `[${file_s.replace('_', ' ')}]: ${U_o.url_s}${dir_s}${file_s}.html`,
+  siteUrl__s: ( file_s, dir_s=`${A_o.COLLECTION_s}s/` ) => `[${file_s.replace('_', ' ')}]: ${U_o.url_s}${dir_s}${file_s}.html`,
 
   eleventyUrl__s: key_s =>
   {
