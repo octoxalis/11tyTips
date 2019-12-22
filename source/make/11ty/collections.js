@@ -1,4 +1,4 @@
-const sortFunctions_o =
+const sort_o =
 {
 //> Sort a tag collection
 //> according to rank_n frontmatter property
@@ -13,5 +13,5 @@ const sortFunctions_o =
 module.exports = make_o =>
 {
   make_o.tag_a.forEach( tag_o => make_o.addCollection( tag_o.tag_s,
-    collection_a => sortFunctions_o[tag_o.sort_f]( collection_a, tag_o.tag_s ) ) )
+    collection_a => sort_o[tag_o.sort_f]( collection_a, tag_o.tag_s ) ) )
 }
