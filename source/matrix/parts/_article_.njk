@@ -2,4 +2,6 @@
   <section data--="section">
   {{ layoutContent | safe }}
   </section>
+{% if no_comments !== true %}{% include "parts/_comment_.njk" %}{% endif %}
+{% include "parts/_colophon_.njk" %}
 </article>

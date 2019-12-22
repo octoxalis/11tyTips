@@ -6,8 +6,10 @@ const menuPosition__v = () =>
   position_n += document.querySelector( `[data--="link_page"]` ).offsetHeight
   menu_e.style.transform = `translateY( ${position_n}px)`
   const menu_n = menu_e.offsetHeight
-  const article_n = document.querySelector( `[data--="article"]` ).offsetHeight
-  if ( menu_n < article_n ) menu_e.style.height = `${article_n * 1.5}px`
+  const article_e = document.querySelector( `[data--="article"]` )
+  const article_n = article_e.offsetHeight
+  if ( menu_n < article_n ) menu_e.style.height = `${article_n}px`
+  else article_e.style.height = `${menu_n}px`
 }
 
 //> show/hide posts menu list
@@ -26,4 +28,3 @@ const menu__v = () =>
   }
   else menu_e.classList.add( 'no_pointer' )
 }
-
