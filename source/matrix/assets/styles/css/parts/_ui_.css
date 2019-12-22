@@ -38,7 +38,7 @@
   margin-left: var(--PAD_1);
   line-height: .55;    /* border-bottom as underline */
   color: hsla( var(--c_hue_p), var(--c_sat_hi), 60%, var(--c_opac_hi) );
-  filter: grayscale(40%);
+  filter: grayscale(50%);
 }
 
 [data--=section]
