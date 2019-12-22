@@ -84,10 +84,10 @@ void function ()
 
 //> Comments visibility click handler
 //> to show/hide comments
-  document.querySelector( '[data--="comments_visibility"]' )
-    .addEventListener('click', click_o => comments__v() )
+  const visibility_e = document.querySelector( '[data--="comments_visibility"]' )
+  if ( visibility_e ) visibility_e.addEventListener('click', click_o => comments__v() )
 
-//> Easter egg for source reader developers
+//> Easter egg for developers who read sources
 //> change UI base color
   const header_e = document.querySelector( '[data--="header"]' )
   header_e.addEventListener('click', click_o =>
