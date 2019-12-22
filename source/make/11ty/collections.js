@@ -10,7 +10,6 @@ const sortFunctions_o =
   }
 }
 
-
 module.exports = make_o =>
 {
   make_o.tag_a.forEach( tag_o => make_o.addCollection( tag_o.tag_s,
