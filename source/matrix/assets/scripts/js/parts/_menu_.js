@@ -22,7 +22,7 @@ const menu__v = () =>
   if ( show_s === '1' )
   {
     menu_e.classList.remove( 'no_pointer' )
-    DOM_scrollToTop__v()
+    DOM_scroll__v()
   }
   else menu_e.classList.add( 'no_pointer' )
 }

@@ -52,8 +52,6 @@ const DOM_scroll__v = bottom_b =>
   window.scroll( options_o )
 }
 
-//xx const DOM_scrollToTop__v = () => DOM_scroll__v()
-
 const DOM_locationKey__s = () =>
 {
   const extension_n = '.html'.length
