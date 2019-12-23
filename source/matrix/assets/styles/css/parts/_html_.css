@@ -353,11 +353,6 @@ a:focus, a:hover
   color: var(--c_link_hi);
 }
 
-a:focus::after, a:hover::after
-{
-  content: '⤴';
-}
-
 blockquote,
 p,
 table,
