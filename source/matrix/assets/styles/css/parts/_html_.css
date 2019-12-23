@@ -342,10 +342,20 @@ a
   text-decoration-thickness: .125em;
   text-underline-offset: 1.5px;
 }
+a::after
+{
+  content: '⤴';
+}
+
 
 a:focus, a:hover
 {
   color: var(--c_link_hi);
+}
+
+a:focus::after, a:hover::after
+{
+  content: '⤴';
 }
 
 blockquote,

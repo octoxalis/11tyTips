@@ -59,6 +59,10 @@ with full Markdown content, styling, linking, code blocks, etc.
 {% _short_note %}
 using the Github [utteranc.es]{{U_o.OUTLINK_s}} repository.
 {% end_short_note %}
+and a full color theme with dark & light mode
+{% _short_note %}
+with a single click on the page banner area!
+{% end_short_note %}
 .
 
 Have a look at the site [source tree] and [styles guide] pages.

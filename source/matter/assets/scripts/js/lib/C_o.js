@@ -11,5 +11,5 @@ module.exports =
   HUE_S_n: -50,
   HUE_I_n: 20,
   HUE_D_n: -20,
-  HUE_L_n: 120,
+  HUE_L_n: 50,
 }
