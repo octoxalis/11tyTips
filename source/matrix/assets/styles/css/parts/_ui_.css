@@ -25,12 +25,14 @@
 {
   --stroke_opacity: var(--c_opac);
 
-  stroke: hsla( var(--c_hue_p), var(--c_sat_lo), var(--c_lum), var(--stroke_opacity) );
+  stroke: hsla( var(--c_hue_p), var(--c_sat_lo), var(--c_lum_lo), var(--stroke_opacity) );
   stroke-width: 2;
+  transform: scale( 1 );
 }
 .svg_icon:hover
 {
   --stroke_opacity: var(--c_opac_hi);
+  transform: scale( 1.2 );
 }
 
 [data--=header]
