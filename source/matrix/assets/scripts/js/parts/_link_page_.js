@@ -38,7 +38,7 @@ const linkNear__v = ( event_s, link_e ) =>
     const near_o = linkNear__o( link_s )
     if ( near_o !== undefined )
     {
-      title_s = `<a href="{{U_o.url_s}}${near_o.link_s}.html">${near_o.title_s} ⤴</a>`
+      title_s = `<a href="{{U_o.url_s}}${near_o.link_s}.html">${near_o.title_s}</a>`
       abstract_s = `<i>${near_o.abstract_s}</i>`
     }
     else
