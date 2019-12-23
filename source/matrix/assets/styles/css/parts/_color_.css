@@ -46,7 +46,7 @@
 
   --c_extern:  hsla( var(--c_hue_p), var(--c_sat), var(--c_lum_lo), var(--c_opac) );
 
-  --c_link:    hsla( var(--c_hue_l), var(--c_sat_hi), var(--c_lum_me), var(--c_opac_hi) );
+  --c_link:    hsla( var(--c_hue_l), var(--c_sat_hi), var(--c_lum_lo), var(--c_opac_hi) );
     --c_link_hi:    hsla( var(--c_hue_l), var(--c_sat_hi), var(--c_lum), var(--c_opac_hi) );
 
 /*  --c_important:  hsla( var(--c_hue_i), var(--c_sat_hi), var(--c_lum), var(--c_opac_hi) );*/
