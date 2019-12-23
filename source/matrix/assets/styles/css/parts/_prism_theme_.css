@@ -2,17 +2,18 @@
 */
 :root
 {
-  --h_punctuation: 30;
-  --h_operator:    70;
-  --h_selector:    110;
-  --h_keyword:     150;
-  --h_comment:     190;
-  --h_boolean:     230;
-  --h_property:    270;
-  --h_regex:       300;
-  --h_atrule:      350;
-  --sat: 95%;
-  --lum: 80%;
+  --h_punctuation: calc( var(--c_hue_p) +  30 );
+  --h_operator:    calc( var(--c_hue_p) +  70 );
+  --h_selector:    calc( var(--c_hue_p) + 110 );
+  --h_keyword:     calc( var(--c_hue_p) + 150 );
+  --h_comment:     calc( var(--c_hue_p) + 190 );
+  --h_boolean:     calc( var(--c_hue_p) + 230 );
+  --h_property:    calc( var(--c_hue_p) + 270 );
+  --h_regex:       calc( var(--c_hue_p) + 300 );
+  --h_atrule:      calc( var(--c_hue_p) + 350 );
+  
+  --sat: 90%;
+  --lum: 75%;
 }
 
 p > code,
@@ -26,21 +27,22 @@ pre[class*=language-],
 code[class*=language-],
 pre[class*=language-]
 {
-  color:  hsla( 180, 20%, 100%, 1 );
+  color: hsla( var(--c_hue_p), var(--c_sat_lo), 90%, 1 );
 	font-size: 90%;
 }
 
 :not(pre) > code[class*=language-],
 pre[class*=language-]
 {
-	background: hsla( 180, 10%, 10%, .8 );
+  color: hsla( var(--c_hue_p), var(--c_sat_lo), var(--c_lum_lo), 1 );
+	background: hsla( var(--c_hue_p), var(--c_sat_lo), 10%, 1 );
 }
 
 [data--=note_content] code,
 p > code
 {
-  color: hsla( 180, 10%, 10%, 1 );
-	background: hsla( 180, 20%, 100%, .2 );
+  color: hsla( var(--c_hue_p), var(--c_sat_lo), var(--c_lum_lo), 1 );
+	background: hsla( var(--c_hue_p), var(--c_sat_lo), var(--c_lum_hi), .5 );
 	font-size: 70%;    /* Fira Code adjustment */
   border-radius: 4px;
 }
@@ -61,7 +63,7 @@ p > code
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: hsla( var(--h_comment), var(--sat), 65%, 0.9);
+	color: hsla( var(--h_comment), var(--sat), var(--lum), 1);
 }
 
 .token.punctuation {
@@ -69,6 +71,10 @@ p > code
 }
 
 .token.property,
+/*
+.token.parameter,
+.token.interpolation,
+*/
 .token.tag,
 .token.constant,
 .token.symbol,
@@ -78,7 +84,7 @@ p > code
 
 .token.boolean,
 .token.number {
-	color: hsl( var(--h_boolean), var(--sat), var(--sat), 1);
+	color: hsl( var(--h_boolean), var(--sat), var(--lum), 1);
 }
 
 .token.selector,
@@ -112,7 +118,7 @@ p > code
 
 .token.regex,
 .token.important {
-	color: hsl( var(--h_regex), var(--sat), 70%, 1);
+	color: hsl( var(--h_regex), var(--sat), var(--lum), 1);
 }
 
 .namespace {

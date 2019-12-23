@@ -13,7 +13,7 @@
   {background:var(--c_back_hi)}
 
 .note_open
-  {background:var(--c_back_lo)}
+  {background:var(--c_advice)}
 
 .toolbar-item > button:hover,
 [data--=menu_item] span,

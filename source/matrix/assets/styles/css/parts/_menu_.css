@@ -11,9 +11,9 @@
 
 [data--=menu]
 {
-  --INLINE_NOTES: menu_notes;
+  --inline_notes: menu_notes;
 
-  counter-reset: var(--INLINE_NOTES);
+  counter-reset: var(--inline_notes);
   top: 0;  /* default position */
 }
 
@@ -36,5 +36,5 @@
   margin-left: var(--PAD_2);
   padding: var(--PAD_1);
   font-style: oblique;
-  color: hsla( var(--HUE_S_n), 10%, 10%, 1 );
+  color: var(--c_sec_lo);
 }
