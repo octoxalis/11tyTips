@@ -1,6 +1,6 @@
 //> Open IndexedDB
 //> to store UI base color + light/dark mode
-const idb_o = new KVIdb( `{{A_o.ID_s}}_idb`, `{{A_o.ID_s}}_store`, )
+const idb_o = new KVIdb( '{{A_o.ID_s}}_idb', '{{A_o.ID_s}}_store', )
 
 const hueBase__v = hue_n =>    //: if page load, mode_n undefined (no parameter)
 {

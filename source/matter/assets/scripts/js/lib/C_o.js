@@ -3,7 +3,7 @@
  * Naming scheme: tag[_tag]+__s
  */
 const HUE_BASE_n = 225
-const LIGHT_DARK_n = 0    // light mode
+const LIGHT_DARK_n = 1    // light mode
 
 module.exports =
 {
