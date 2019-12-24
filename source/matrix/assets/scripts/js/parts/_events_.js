@@ -87,21 +87,24 @@ void function ()
   const visibility_e = document.querySelector( '[data--="comments_visibility"]' )
   if ( visibility_e ) visibility_e.addEventListener('click', click_o => comments__v() )
 
+//> Open IndexedDB
+//> to store UI base color + light/dark mode
+  hueBase__v()
+  lightDark__v()
+
 //> Easter egg for developers who read sources
-//> change UI base color
+//> change UI base color + light/dark mode
   const header_e = document.querySelector( '[data--="header"]' )
   header_e.addEventListener('click', click_o =>
     {
       const atX_n = click_o.clientX - header_e.getBoundingClientRect().left
       const width_n = header_e.offsetWidth
       const hue_n = ~~( ( atX_n / width_n ) * 360 )
-      DOM_rootVar__v( '--c_hue_base', hue_n )
-      console.log( `Base hue has been set to: ${hue_n}` )
+      hueBase__v( hue_n )
       const atY_n = click_o.clientY - header_e.getBoundingClientRect().top
       const height_n = header_e.offsetHeight
       const mode_n = atY_n > ( height_n * 0.5 ) ? -1 : 1
-      DOM_rootVar__v( '--lum_mode', mode_n )
-      console.log( `Luminosity mode has been set to: ${mode_n > 0 ? 'LIGHT' : 'DARK'} ` )
+      lightDark__v( mode_n )
     } )
 
 } ()

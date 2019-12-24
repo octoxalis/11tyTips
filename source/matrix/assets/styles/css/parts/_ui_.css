@@ -33,6 +33,7 @@
 {
   --stroke_opacity: var(--c_opac_hi);
   transform: scale( 1.2 );
+  transition: .3s ease;
 }
 
 [data--=header]
