@@ -1,9 +1,13 @@
 .utterances
   {background:var(--c_extern)}
 
-[data--=menu],
 [data--=header],
 [data--=link_page]
+  {background:transparent}
+
+[data--=link_nav],
+[data--=link_info],
+[data--=menu]
   {background:var(--c_back_op)}
 
 [data--=menu] h4,
