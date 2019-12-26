@@ -342,7 +342,7 @@ a
   text-decoration-thickness: .125em;
   text-underline-offset: 1.5px;
 }
-a::after
+a:not([href="https://www.netlify.com"])::after
 {
   content: '⤴';
 }
