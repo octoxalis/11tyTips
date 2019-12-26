@@ -16,12 +16,12 @@ const hueBase__v = hue_n =>    //: if page load, mode_n undefined (no parameter)
 
 const lightDark__v = mode_n =>    //: if page load, mode_n undefined (no parameter)
 {
-  idb_o.get__( 'light_dark' )
+  idb_o.get__( 'lum_mode' )
     .then( current_n =>
     {
-      if ( mode_n === undefined ) mode_n = current_n || +'{{C_o.LIGHT_DARK_n}}'
-      idb_o.set__v( 'light_dark', mode_n )
+      if ( mode_n === undefined ) mode_n = current_n || +'{{C_o.LUM_MODE_n}}'
+      idb_o.set__v( 'lum_mode', mode_n )
       DOM_rootVar__v( '--lum_mode', mode_n )
-      console.log( `Luminosity mode has been set to: ${mode_n > 0 ? 'LIGHT' : 'DARK'} ` )
+      console.log( `Luminosity mode has been set to: ${mode_n} ${mode_n > 0 ?  '(LIGHT)' : '(DARK)'} ` )
     } )
 }
