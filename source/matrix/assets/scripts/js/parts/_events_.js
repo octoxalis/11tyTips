@@ -97,10 +97,14 @@ void function ()
   const header_e = document.querySelector( '[data--="header"]' )
   header_e.addEventListener('click', click_o =>
     {
-      const atX_n = click_o.clientX - header_e.getBoundingClientRect().left
-      const width_n = header_e.offsetWidth
-      const hue_n = ~~( ( atX_n / width_n ) * 360 )
-      hueBase__v( hue_n )
+      const HUE_SET_n = +'{{C_o.HUE_SET_n}}'
+      if ( HUE_SET_n )
+      {
+        const atX_n = click_o.clientX - header_e.getBoundingClientRect().left
+        const width_n = header_e.offsetWidth
+        const hue_n = ~~( ( atX_n / width_n ) * 360 )
+        hueBase__v( hue_n )
+      }
       const atY_n = click_o.clientY - header_e.getBoundingClientRect().top
       const height_n = header_e.offsetHeight
       const mode_n = atY_n > ( height_n * 0.5 ) ? -1 : 1
