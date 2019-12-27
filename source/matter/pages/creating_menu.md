@@ -35,10 +35,23 @@ There are many ways to sort a collection of posts, some of them provided out-of-
 {% _short_note %}
 see {{ _11ty__s( 'SORT_s' ).ref }}{{U_o.OUTLINK_s}} documentation page.
 {% end_short_note %}
+. However, {{A_o.NAME_s}} doesn't use the formated date front matter property
+{% _short_note %}
+{% end_short_note %}
+but a specific one, named `rank_n`
+{% _short_note %}
+it's an integer positive number
+{% end_short_note %}
+, allowing to sort a posts collection according a unique value regardless of the date
+{% _short_note %}
+you could have multiple posts with the same date, unless you use a full date with hours, minutes and seconds...
+{% end_short_note %}
+This `rank_n` should therefore be a unique index
+{% _short_note %}
+because it is used to retrieve the previous and next pages of any given post in the menu list; 
+however, a duplicate `rank_n` index doesn't cause any disturbance when retrieving those links (sse infra).
+{% end_short_note %}
 .
-
-{% _more_to_come %}
-{% end_more_to_come %}
 
 
 {% _code_block %}
@@ -49,7 +62,7 @@ see {{ _11ty__s( 'SORT_s' ).ref }}{{U_o.OUTLINK_s}} documentation page.
 const sort_o =
 {
 //> Sort a tag collection
-//> according to rank_n frontmatter property
+//> according to rank_n front matter property
   sortByRank__a: ( collection_a, tag_s ) =>
   {
     return collection_a
@@ -72,7 +85,8 @@ module.exports = make_o =>
 {% end_anchor %}
 
 
-To display the global menu in every page of the site, an HTML fragment is built with a template listing all pages as links in an ordered list, each one having its page `rank_n` frontmatter property recorded as a `data-rank` attribute.
+To display the global menu in every page of the site, an HTML fragment is built with a template listing all pages as links in an ordered list, each one having its page `rank_n` front matter property recorded as a `data-rank` attribute.
+
 The main loop of the menu template iterates thru the posts collection previously sorted and add every useful data that we want to display in the menu itself or as a clue of the previous and next pages: `permalink`, `rank_n`, `title_s`, etc.
 
 
@@ -108,11 +122,13 @@ The main loop of the menu template iterates thru the posts collection previously
 
 
 Previous and next posts links are much less difficult to retrieve on the client side than at build time. For that reason, the menu template doesn't try to create a double linked list but instead delegates the work  to a JavaScript function run in the browser.
-For any post page displayed by the browser, we have in the menu HTML fragment built by the template all necessary data about the preceding and following page relative to the current one
+For any post page displayed by the browser, we have in the menu HTML fragment built by the template all necessary data about the preceding and following pages relative to the current one
 {% _short_note %}
 when they exist: the first page in the menu list has no previous page and the last one no next page!
 {% end_short_note %}
-. For that we have to search the DOM for the nodes having a `data-rank` attribute with values surrounding that of the current page similar attribute.
+.
+
+For that we have to search the DOM for the nodes having a `data-rank` attribute with values surrounding that one of the current page.
 
 
 {% set _code %}
@@ -165,7 +181,11 @@ A link is only a link and doesn't convey a lot of meaning by itself apart its UR
 the `href` attribute
 {% end_short_note %}
 . Unveiling the title and some other pieces of data before fetching a previous or next post is a much more useful help.
-The data previously retrieved in the surrounding links of the current page are there to be used and we can display them as we like.
+The data previously retrieved in the surrounding links of the current page are there to be used and we can display them as we like
+{% _short_note %}
+bellow the navigation bar at the top of the page
+{% end_short_note %}
+.
 
 
 {% _code_block %}

@@ -1,7 +1,7 @@
 const sort_o =
 {
 //> Sort a tag collection
-//> according to rank_n frontmatter property
+//> according to rank_n front matter property
   sortByRank__a: ( collection_a, tag_s ) =>
   {
     return collection_a
