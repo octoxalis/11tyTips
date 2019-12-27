@@ -46,7 +46,7 @@ you could have multiple posts with the same date, unless you use a full date wit
 This `rank_n` should therefore be a unique index
 {% _short_note %}
 because it is used to retrieve the previous and next pages of any given post in the menu list; 
-however, a duplicate `rank_n` index doesn't cause any disturbance when retrieving those links (sse infra).
+however, a duplicate `rank_n` index doesn't cause any disturbance when retrieving those links (see infra).
 {% end_short_note %}
 .
 

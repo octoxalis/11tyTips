@@ -1,7 +1,7 @@
 ---js
 {
   pad__s: rank_n => `${('' + rank_n).padStart( 4, '.' )}`,
-  h4_a__s: ( href_s, title_s ) => `<h4>→ <a href="${href_s}" target="_blank" rel="noreferrer">${title_s}</a></h4>`,
+  h4_a__s: ( href_s, title_s ) => `<h4>→ <a href="${href_s}" target="_blank" rel="noreferrer noopener">${title_s}</a></h4>`,
 }
 ---
 {%- set _collection_s = A_o.COLLECTION_s %}

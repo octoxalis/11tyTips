@@ -16,7 +16,6 @@
 │       ├── string.js
 │       └── template_process.js
 |
-|
 ├── matrix
 │   ├── assets
 │   │   ├── icons
@@ -27,11 +26,13 @@
 │   │   │       │   ├── _comments_.js
 │   │   │       │   ├── _dom_.js
 │   │   │       │   ├── _events_.js
+│   │   │       │   ├── _idb_.js
 │   │   │       │   ├── _link_page_.js
 │   │   │       │   ├── _menu_.js
 │   │   │       │   ├── _notes_.js
 │   │   │       │   ├── _service_.js
-│   │   │       │   └── _service_worker_.js
+│   │   │       │   ├── _service_worker_.js
+│   │   │       │   └── _ui_color_.js
 │   │   │       ├── lib.njk
 │   │   │       └── service.njk
 │   │   ├── static
@@ -81,6 +82,7 @@
 │   │   │   └── _sitemap_.njk
 │   │   ├── _article_.njk
 │   │   ├── _banner_.njk
+│   │   ├── _colophon_.njk
 │   │   ├── _comment_.njk
 │   │   ├── _description_.njk
 │   │   ├── _favicon_.njk
@@ -103,7 +105,6 @@
 │   ├── offline.njk
 │   └── sitemap.njk
 |
-|
 └── matter
     ├── assets
     │   ├── scripts
@@ -113,6 +114,7 @@
     │   │       │   ├── C_o.js
     │   │       │   ├── D_o.js
     │   │       │   ├── F_o.js
+    │   │       │   ├── I_o.js
     │   │       │   └── U_o.js
     │   │       ├── lib.md
     │   │       ├── service.md
