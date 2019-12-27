@@ -35,10 +35,7 @@ There are many ways to sort a collection of posts, some of them provided out-of-
 {% _short_note %}
 see {{ _11ty__s( 'SORT_s' ).ref }}{{U_o.OUTLINK_s}} documentation page.
 {% end_short_note %}
-. However, {{A_o.NAME_s}} doesn't use the formated date front matter property
-{% _short_note %}
-{% end_short_note %}
-but a specific one, named `rank_n`
+. However, {{A_o.NAME_s}} doesn't use the formated date front matter property but a specific one, named `rank_n`
 {% _short_note %}
 it's an integer positive number
 {% end_short_note %}
