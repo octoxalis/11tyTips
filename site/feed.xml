@@ -548,7 +548,26 @@ module.exports = make_o =>
     collection_a => sort_o[tag_o.sort_f]( collection_a, tag_o.tag_s ) ) )
 }
 <br/>
-</code></pre><h2 id="retrieving_posts_links_in_the_dom">Retrieving posts links in the DOM</h2><p data--="important">Previous and nex posts links are much less difficult to retrieve on the client side... <em>(to be continued...)</em></p><hgroup data--="code_ref"><h5>source/matrix/assets/scripts/js/parts/_link_page_.js_</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+</code></pre><h2 id="listing_posts_as_an_html_fragment">Listing posts as an HTML fragment</h2><p>To display the global menu in every page of the site, an HTML fragment is built with a template listing all pages as links in an ordered list, each one having its page <code>rank_n</code> frontmatter property recorded as a <code>data-rank</code> attribute. The main loop of the menu template iterates thru the posts collection previously sorted and add every useful data that we want to display in the menu itself or as a clue of the previous and next pages: <code>permalink</code>, <code>rank_n</code>, <code>title_s</code>, etc.</p><hgroup data--="code_ref"><h5>source/matrix/menu.njk</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+{%- set _collection_s = A_o.COLLECTION_s %}
+{# .... #}
+{%- set _menu_list_s %}
+  <ol data--="menu_list">
+{% for _item_o in collections[_collection_s] %}
+    {% if _item_o.data.tags == _collection_s %}
+    {% set _link_s = _item_o.data.permalink.slice( 0, _html_n ) %}
+    <li data--="menu_item" data-link="{{_link_s}}" data-rank="{{_item_o.data.rank_n}}">
+      <span>{{pad__s( _item_o.data.rank_n )}}</span>
+      <span><a href="{{U_o.url_s + _item_o.data.permalink}}">{{_item_o.data.title_s}}</a></span>
+      ({{_item_o.data.abstract_s}})
+      <span hidden>{{_item_o.data.subtitle_s}}</span>
+    </li>
+    {% endif %}
+{% endfor %}
+  </ol>
+{% endset -%}
+<br/>
+</code></pre><h2 id="retrieving_posts_links_in_the_dom">Retrieving posts links in the DOM</h2><p>Previous and next posts links are much less difficult to retrieve on the client side than at build time. For that reason, the menu template doesn’t try to create a double linked list but instead delegates the work to a JavaScript function run in the browser. For any post page displayed by the browser, we have in the menu HTML fragment built by the template all necessary data about the preceding and following page relative to the current one (when they exist: the first page in the menu list has no previous page and the last one no next page! ). For that we have to search the DOM for the nodes having a <code>data-rank</code> attribute with values surrounding that of the current page similar attribute.</p><hgroup data--="code_ref"><h5>source/matrix/assets/scripts/js/parts/_link_page_.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
 //&gt; retrieve previous + next pages info
 const linkNear__o = link_s =&gt;
 {
@@ -576,7 +595,7 @@ const linkNear__o = link_s =&gt;
   }
 }
 <br/>
-</code></pre><h2 id="adding_useful_info_to_links">Adding useful info to links</h2><p data--="important">Unveiling the title and pieces of data before fetching a previous or next post is always a useful help... <em>(to be continued...)</em></p><hgroup data--="code_ref"><h5>source/matrix/assets/scripts/js/parts/_link_page_.js_</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+</code></pre><h2 id="attaching_useful_data_to_links">Attaching useful data to links</h2><p>A link is only a link and doesn’t convey a lot of meaning by itself apart its URL (the <code>href</code> attribute ). Unveiling the title and some other pieces of data before fetching a previous or next post is a much more useful help. The data previously retrieved in the surrounding links of the current page are there to be used and we can display them as we like.</p><hgroup data--="code_ref"><h5>source/matrix/assets/scripts/js/parts/_link_page_.js_</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
 //> insert in DOM previous + next pages info
 //> show/hide previous + next pages info block
 const linkNear__v = ( event_s, link_e ) =>

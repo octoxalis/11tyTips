@@ -50,7 +50,7 @@
 }
 [data--=header]:hover::after
 {
-  content: attr( data-tip );
+  content: attr( data-theme );
   position: absolute;
   display: flex;
   justify-content: center;

@@ -68,13 +68,51 @@ module.exports = make_o =>
 
 
 {% _anchor %}
+## Listing posts as an HTML fragment
+{% end_anchor %}
+
+
+To display the global menu in every page of the site, an HTML fragment is built with a template listing all pages as links in an ordered list, each one having its page `rank_n` frontmatter property recorded as a `data-rank` attribute.
+The main loop of the menu template iterates thru the posts collection previously sorted and add every useful data that we want to display in the menu itself or as a clue of the previous and next pages: `permalink`, `rank_n`, `title_s`, etc.
+
+
+{% _code_block %}
+    title_s: 'source/matrix/menu.njk',
+    lang_s: 'javascript',
+[//]:#(_code_block)
+{% raw %}
+{%- set _collection_s = A_o.COLLECTION_s %}
+{# .... #}
+{%- set _menu_list_s %}
+  <ol data--="menu_list">
+{% for _item_o in collections[_collection_s] %}
+    {% if _item_o.data.tags == _collection_s %}
+    {% set _link_s = _item_o.data.permalink.slice( 0, _html_n ) %}
+    <li data--="menu_item" data-link="{{_link_s}}" data-rank="{{_item_o.data.rank_n}}">
+      <span>{{pad__s( _item_o.data.rank_n )}}</span>
+      <span><a href="{{U_o.url_s + _item_o.data.permalink}}">{{_item_o.data.title_s}}</a></span>
+      <ins data--="inline_note"><sup></sup><span data--="note_content">{{_item_o.data.abstract_s}}</span></ins>
+      <span hidden>{{_item_o.data.subtitle_s}}</span>
+    </li>
+    {% endif %}
+{% endfor %}
+  </ol>
+{% endset -%}
+{% endraw %}
+{% end_code_block %}
+
+
+{% _anchor %}
 ## Retrieving posts links in the DOM
 {% end_anchor %}
 
 
-{% _more_to_come %}
-Previous and nex posts links are much less difficult to retrieve on the client side...
-{% end_more_to_come %}
+Previous and next posts links are much less difficult to retrieve on the client side than at build time. For that reason, the menu template doesn't try to create a double linked list but instead delegates the work  to a JavaScript function run in the browser.
+For any post page displayed by the browser, we have in the menu HTML fragment built by the template all necessary data about the preceding and following page relative to the current one
+{% _short_note %}
+when they exist: the first page in the menu list has no previous page and the last one no next page!
+{% end_short_note %}
+. For that we have to search the DOM for the nodes having a `data-rank` attribute with values surrounding that of the current page similar attribute.
 
 
 {% set _code %}
@@ -110,7 +148,7 @@ const linkNear__o = link_s =>
 
 
 {% _code_block %}
-    title_s: 'source/matrix/assets/scripts/js/parts/_link_page_.js_',
+    title_s: 'source/matrix/assets/scripts/js/parts/_link_page_.js',
     lang_s: 'javascript',
 [//]:#(_code_block)
 {{ F_o.tagEscape__s( _code ) }}
@@ -118,13 +156,16 @@ const linkNear__o = link_s =>
 
 
 {% _anchor %}
-## Adding useful info to links
+## Attaching useful data to links
 {% end_anchor %}
 
 
-{% _more_to_come %}
-Unveiling the title and pieces of data before fetching a previous or next post is always a useful help...
-{% end_more_to_come %}
+A link is only a link and doesn't convey a lot of meaning by itself apart its URL
+{% _short_note %}
+the `href` attribute
+{% end_short_note %}
+. Unveiling the title and some other pieces of data before fetching a previous or next post is a much more useful help.
+The data previously retrieved in the surrounding links of the current page are there to be used and we can display them as we like.
 
 
 {% _code_block %}
