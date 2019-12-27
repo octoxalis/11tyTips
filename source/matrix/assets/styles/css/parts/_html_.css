@@ -337,20 +337,48 @@ strong
 
 a
 {
-  color: var(--c_link);
-  text-decoration-color: var(--c_link);
-  text-decoration-thickness: .125em;
-  text-underline-offset: 1.5px;
+  position: relative;
 }
-a:not([href="https://www.netlify.com"])::after
+a::before,
+a::after
 {
-  content: '⤴';
+  content: '';
+  position: absolute;
+  bottom: .6rem;
+  left: 0;
+  right: 0;
+  background-color: var(--c_link);
+  transform-origin: bottom left;
+  transition: transform 0.3s ease;
+}
+a::before
+{
+  height: 1px;
+}
+a::after
+{
+  height: 4px;
+  transform: scaleX(0);
 }
 
+a:hover::after
+{
+  transform: scaleX(1);
+}
 
-a:focus, a:hover
+a:focus,
+a:hover
 {
   color: var(--c_link_hi);
+}
+
+[href="{{U_o.NETLIFY_s}}"],
+[href="{{U_o.NETLIFY_s}}"]::before,
+[href="{{U_o.NETLIFY_s}}"]::after,
+[href="{{U_o.NETLIFY_s}}"]:focus,
+[href="{{U_o.NETLIFY_s}}"]:hover
+{
+  background-color: transparent;
 }
 
 blockquote,
