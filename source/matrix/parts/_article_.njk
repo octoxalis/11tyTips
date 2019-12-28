@@ -1,7 +1,11 @@
 <article data--="article">
+  <link rel="stylesheet" href="{{ U_o.url_s }}assets/styles/css/lib_prism.min.css" />
   <section data--="section">
   {{ layoutContent | safe }}
   </section>
-{% if no_comments !== true %}{% include "parts/_comment_.njk" %}{% endif %}
+{% if no_comments !== true %}
+<link rel="stylesheet" href="{{ U_o.url_s }}assets/styles/css/lib_comment.min.css" />
+{% include "parts/_comment_.njk" %}
+{% endif %}
 {% include "parts/_colophon_.njk" %}
 </article>
