@@ -199,7 +199,7 @@
   margin-top: 0;
 }
 
-[data--=link_nav] > li
+[data--=link_nav] > button
 {
   margin-bottom: 0;
   display: flex;
