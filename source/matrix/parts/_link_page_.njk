@@ -1,11 +1,11 @@
 <nav data--="link_page">
-  <ul  data--="link_nav">
-    <li data--="link_top">⇡</li>
-    {% if tags.includes( A_o.COLLECTION_s ) %}<li data--="link_previous">previous</li>{% endif %}
-    <li data--="link_menu">{{ 'all ' + A_o.COLLECTION_s + 's' }}</li>
-    {% if tags.includes( A_o.COLLECTION_s ) %}<li data--="link_next">next</li>{% endif %}
-    <li data--="link_bottom">⇣</li>
-  </ul>
+  <div  data--="link_nav">
+    <button data--="link_top" tabindex="0">⇡</li>
+    {% if tags.includes( A_o.COLLECTION_s ) %}<button data--="link_previous" tabindex="0">previous</button>{% endif %}
+    <button data--="link_menu" tabindex="0">{{ 'all ' + A_o.COLLECTION_s + 's' }}</button>
+    {% if tags.includes( A_o.COLLECTION_s ) %}<button data--="link_next" tabindex="0">next</button>{% endif %}
+    <button data--="link_bottom" tabindex="0">⇣</button>
+  </div>
   <dl data--="link_info" class="retract">
     <dt data--="link_title"></dt>
     <dd data--="link_abstract"></dd>

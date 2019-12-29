@@ -21,7 +21,8 @@
 
 .toolbar-item > button:hover,
 [data--=menu_item] span,
-[data--=link_nav] > li:hover,
+[data--=link_nav] > button:hover,
+[data--=link_nav] > button:focus,
 [data--=code_ref],
 [data--=example]
   {background:var(--c_decor_hi)}
@@ -95,7 +96,7 @@ pre > code,
 [data--=comments_visibility]
   {cursor:pointer}
 
-[data--=link_nav]
+[data--=link_nav] > button
   {text-transform:uppercase}
 
 .no_pointer

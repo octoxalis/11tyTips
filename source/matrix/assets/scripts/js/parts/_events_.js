@@ -39,7 +39,7 @@ void function ()
   {
     linkNav_e.addEventListener('click', click_o => 
     {
-      const link_e = click_o.target.closest('LI')
+      const link_e = click_o.target.closest('BUTTON')
       if ( link_e === null ) return
       let link_s = link_e.getAttribute( 'data--' )
       /*
@@ -62,17 +62,17 @@ void function ()
       }
     } )
 
-    document.querySelectorAll( '[data--="link_nav"] > li' )
-      .forEach( buttonLink_e =>
+    document.querySelectorAll( '[data--="link_nav"] > button' )
+      .forEach( button_e =>
       {
-        switch ( buttonLink_e.getAttribute( 'data--' ) )
+        switch ( button_e.getAttribute( 'data--' ) )
         {
           case 'link_top' :
           case 'link_bottom' :
           case 'link_menu' : return
         }
         [ 'mouseenter', 'mouseleave' ]
-          .forEach( event_s => buttonLink_e.addEventListener( event_s,
+          .forEach( event_s => button_e.addEventListener( event_s,
             mouse_o => linkNear__v( event_s, mouse_o.currentTarget ) ) )
       } )
   }
