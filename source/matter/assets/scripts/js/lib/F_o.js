@@ -66,4 +66,11 @@ module.exports =
     }
   },
 
+  till__s: ( days_n=0 ) =>
+  {
+    const till_s = new Date()
+    till_s.setDate( till_s.getDate() + days_n )
+    return till_s
+  }
+
 }
