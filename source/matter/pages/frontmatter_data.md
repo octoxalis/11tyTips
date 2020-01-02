@@ -21,8 +21,8 @@
 
 [comment]: # (======== Links ========)
 
-{{ _11ty__s( 'JFM_s' ).link }}
-{{ _11ty__s( 'UDF_s' ).link }}
+{{ _11ty__s( 'JFM_s' ).link_s }}
+{{ _11ty__s( 'UDF_s' ).link_s }}
 
 [comment]: # (======== Post ========)
 
@@ -45,7 +45,7 @@ no so strickly speaking! For instance, you're not requested to use a Date, but i
 {% end_short_note %}
 , others being used to supply some page specific content or variables
 {% _short_note %}
-have a look at {{ _11ty__s( 'UDF_s' ).ref }}{{U_o.OUTLINK_s}} for a list of Eleventy properties usable in front matter.
+have a look at {{ _11ty__s( 'UDF_s' ).ref_s }}{{U_o.OUTLINK_s}} for a list of Eleventy properties usable in front matter.
 {% end_short_note %}
 .
 
@@ -147,7 +147,7 @@ a very good idea because it gives you the full power of the language to process 
 {% end_short_note %}
 and Nunjucks as templating system, you can declare functions as properties
 {% _short_note %}
-see {{ _11ty__s( 'JFM_s' ).ref }}{{U_o.OUTLINK_s}} documentation page.
+see {{ _11ty__s( 'JFM_s' ).ref_s }}{{U_o.OUTLINK_s}} documentation page.
 {% end_short_note %}
 . Usually, apart very specific cases, it's much more easy to declare content processing functions in a module located inside the data directory
 {% _short_note %}
@@ -184,11 +184,11 @@ eleventyUrl__s: key_s =>
   {
     console.log( `ALERT! no anchor found in path: ${path_s}` )
     const ref_n = U_o.ELEVENTY_s.indexOf( ':' )
-    return { ref: U_o.ELEVENTY_s.substring( 0, ref_n ), link: U_o.ELEVENTY_s }
+    return { ref_s: U_o.ELEVENTY_s.substring( 0, ref_n ), link_s: U_o.ELEVENTY_s }
   }
   const anchor_s = path_s.substring( anchor_n )
   const anchorLink_s = U_o.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
-  return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link: anchorLink_s }
+  return { ref_s: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link_s: anchorLink_s }
 }
 {% end_code_block %}
 
@@ -203,8 +203,8 @@ usually three characters are enough to get a unique identifier:<br/>
 
 Hence to get the _reference_ and the _link_ of a _reference-style link_ is just as easy as:
 
-{% raw %}`{{ F_o.eleventyUrl__s( 'JFM_s' ).ref }}`{% endraw %}<br/>
-{% raw %}`{{ F_o.eleventyUrl__s( 'JFM_s' ).link }}`{% endraw %}
+{% raw %}`{{ F_o.eleventyUrl__s( 'JFM_s' ).ref_s }}`{% endraw %}<br/>
+{% raw %}`{{ F_o.eleventyUrl__s( 'JFM_s' ).link_s }}`{% endraw %}
 {data--="example"}
 
 Actually, most of Eleventy link keys are gathered in the `U_o.js` global data file and not in the front matter!
@@ -216,13 +216,13 @@ Actually, most of Eleventy link keys are gathered in the `U_o.js` global data fi
 
 But we can do more, using Nunjucks {% raw %}`{% set %}`{% endraw %} tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:
 
-{% raw %}`{{ _11ty__s( 'JFM_s' ).link }}`{% endraw %}
+{% raw %}`{{ _11ty__s( 'JFM_s' ).link_s }}`{% endraw %}
 {% _short_note %}
 Reference-style link located in Links section, after the Aliases section.
 {% end_short_note %}
 {data--="example"}
 
-{% raw %}`{{ _11ty__s( 'JFM_s' ).ref }}`{% endraw %}
+{% raw %}`{{ _11ty__s( 'JFM_s' ).ref_s }}`{% endraw %}
 {% _short_note %}
 reference inside content.
 {% end_short_note %}
@@ -236,8 +236,8 @@ reference inside content.
 [comment]: # (======== Aliases ========)
 {% set _11ty__s = F_o.eleventyUrl__s %}
 
-{{ _11ty__s( 'JFM_s' ).link }}
-{{ _11ty__s( 'UDF_s' ).link }}
+{{ _11ty__s( 'JFM_s' ).link_s }}
+{{ _11ty__s( 'UDF_s' ).link_s }}
 
 [comment]: # (======== Post ========)
 {% endraw %}

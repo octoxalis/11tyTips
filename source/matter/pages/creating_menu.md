@@ -19,7 +19,7 @@
 
 [comment]: # (======== Links ========)
 
-{{ _11ty__s( 'SORT_s' ).link }}
+{{ _11ty__s( 'SORT_s' ).link_s }}
 
 [comment]: # (======== Post ========)
 # Creating a menu
@@ -33,7 +33,7 @@ Creating a menu with previous and next links.{ data--="page_intro" }
 
 There are many ways to sort a collection of posts, some of them provided out-of-the-box by Eleventy
 {% _short_note %}
-see {{ _11ty__s( 'SORT_s' ).ref }}{{U_o.OUTLINK_s}} documentation page.
+see {{ _11ty__s( 'SORT_s' ).ref_s }}{{U_o.OUTLINK_s}} documentation page.
 {% end_short_note %}
 . However, {{A_o.NAME_s}} doesn't use the formated date front matter property but a specific one, named `rank_n`
 {% _short_note %}

@@ -26,18 +26,18 @@ eleventyUrl__s: key_s =>
   {
     console.log( `ALERT! no anchor found in path: ${path_s}` )
     const ref_n = U_o.ELEVENTY_s.indexOf( ':' )
-    return { ref: U_o.ELEVENTY_s.substring( 0, ref_n ), link: U_o.ELEVENTY_s }
+    return { ref_s: U_o.ELEVENTY_s.substring( 0, ref_n ), link_s: U_o.ELEVENTY_s }
   }
   const anchor_s = path_s.substring( anchor_n )
   const anchorLink_s = U_o.ELEVENTY_s.replace( ']', `${anchor_s}]`) + path_s
-  return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link: anchorLink_s }
+  return { ref_s: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link_s: anchorLink_s }
 }
-</code></pre><p>The acronyms <ins data--="inline_note"><sup></sup><span data--="note_content">usually three characters are enough to get a unique identifier:<br/><code>JFM_s</code> for <code>#javascript-front-matter</code>,<br/><code>UDF_s</code> for <code>#user-defined-front-matter-customizations</code>. </span></ins>, used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.</p><p>Hence to get the <em>reference</em> and the <em>link</em> of a <em>reference-style link</em> is just as easy as:</p><p data--="example"><code>{{ F_o.eleventyUrl__s( 'JFM_s' ).ref }}</code><br/><code>{{ F_o.eleventyUrl__s( 'JFM_s' ).link }}</code></p><p>Actually, most of Eleventy link keys are gathered in the <code>U_o.js</code> global data file and not in the front matter!</p><h3 id="even_shorter">Even shorter</h3><p>But we can do more, using Nunjucks <code>{% set %}</code> tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:</p><p data--="example"><code>{{ _11ty__s( 'JFM_s' ).link }}</code> <ins data--="inline_note"><sup></sup><span data--="note_content">Reference-style link located in Links section, after the Aliases section.</span></ins></p><p data--="example"><code>{{ _11ty__s( 'JFM_s' ).ref }}</code> <ins data--="inline_note"><sup></sup><span data--="note_content">reference inside content.</span></ins></p><hgroup data--="code_ref"><h5>11tyTips/source/matter/items/frontmatter_data.md</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+</code></pre><p>The acronyms <ins data--="inline_note"><sup></sup><span data--="note_content">usually three characters are enough to get a unique identifier:<br/><code>JFM_s</code> for <code>#javascript-front-matter</code>,<br/><code>UDF_s</code> for <code>#user-defined-front-matter-customizations</code>. </span></ins>, used as keys, could be set inside each page front matter and used as a key by the function to expand the actual link reference.</p><p>Hence to get the <em>reference</em> and the <em>link</em> of a <em>reference-style link</em> is just as easy as:</p><p data--="example"><code>{{ F_o.eleventyUrl__s( 'JFM_s' ).ref_s }}</code><br/><code>{{ F_o.eleventyUrl__s( 'JFM_s' ).link_s }}</code></p><p>Actually, most of Eleventy link keys are gathered in the <code>U_o.js</code> global data file and not in the front matter!</p><h3 id="even_shorter">Even shorter</h3><p>But we can do more, using Nunjucks <code>{% set %}</code> tag in each Markdown file referencing an Eleventy documentation page, then call the link function as in the following examples:</p><p data--="example"><code>{{ _11ty__s( 'JFM_s' ).link_s }}</code> <ins data--="inline_note"><sup></sup><span data--="note_content">Reference-style link located in Links section, after the Aliases section.</span></ins></p><p data--="example"><code>{{ _11ty__s( 'JFM_s' ).ref_s }}</code> <ins data--="inline_note"><sup></sup><span data--="note_content">reference inside content.</span></ins></p><hgroup data--="code_ref"><h5>11tyTips/source/matter/items/frontmatter_data.md</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
 [comment]: # (======== Aliases ========)
 {% set _11ty__s = F_o.eleventyUrl__s %}
 <br/>
-{{ _11ty__s( 'JFM_s' ).link }}
-{{ _11ty__s( 'UDF_s' ).link }}
+{{ _11ty__s( 'JFM_s' ).link_s }}
+{{ _11ty__s( 'UDF_s' ).link_s }}
 <br/>
 [comment]: # (======== Post ========)
 <br/>

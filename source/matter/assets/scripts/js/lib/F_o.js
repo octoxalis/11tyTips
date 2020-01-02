@@ -20,11 +20,11 @@ module.exports =
     {
       console.log( `ALERT! no anchor found in path: ${path_s}` )
       const ref_n = U_o.ELEVENTY_DEV_s.indexOf( ':' )
-      return { ref: U_o.ELEVENTY_DEV_s.substring( 0, ref_n ), link: U_o.ELEVENTY_DEV_s }
+      return { ref_s: U_o.ELEVENTY_DEV_s.substring( 0, ref_n ), link_s: U_o.ELEVENTY_DEV_s }
     }
     const anchor_s = path_s.substring( anchor_n )
     const anchorLink_s = U_o.ELEVENTY_DEV_s.replace( ']', `${anchor_s}]`) + path_s
-    return { ref: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link: anchorLink_s }
+    return { ref_s: anchorLink_s.substring( 0, anchorLink_s.indexOf( ':') ), link_s: anchorLink_s }
   },
 
   tagEscape__s: content_s => content_s.replace( /</g, '&lt;' ).replace( />/g, '&gt;' ),
