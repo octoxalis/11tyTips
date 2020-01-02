@@ -389,7 +389,7 @@ self.addEventListener('fetch', fetch_o => fetch__v( fetch_o ) )
   output__s: output_s => output_s.replace( /\[% raw %\]/g, '' ).replace( /\[% endraw %\]/g, '' ),
 }
 ---
-</code></pre><p>To access any property declared in the front matter it has to be enclosed in double parenthesis <code>{{ ... }}</code> (11tyTips uses Nunjucks. Using other templating systems, this is a bit different. ). For instance, the <code>abstract_s</code> property in the front matter is injected in this page with the following code: <code>{{ abstract_s }}</code> and renders as:<br/><q>Accessing front matter data in Markdown and templates</q>.</p><h2 id="function_properties">Function properties</h2><p>If you use JavaScript for the front matter (a very good idea because it gives you the full power of the language to process your content. )and Nunjucks as templating system, you can declare functions as properties (see <a href="https://11ty.dev/docs/data-frontmatter/#javascript-front-matter" target="_blank" rel="noreferrer noopener">Eleventy#javascript-front-matter</a> documentation page. ). Usually, apart very specific cases, it’s much more easy to declare content processing functions in a module located inside the data directory (because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful. ).</p><p>However, this page front matter is such a case: the <code>output__s</code> front matter last property is a conventional way to execute a function after processing the entire page (see also <a href="https://11tytips.netlify.com/tips/frontmatter_function.html">frontmatter function</a> page. ).</p><h2 id="front_matter_properties_and_global_data_functions">Front matter properties and global data functions</h2><p>11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an <code>F_o.js</code> file inside its <code>matter/assets/scripts/js/lib</code> directory where a <code>eleventyUrl__s</code> function compute the link to any Eleventy docs page using an acronym of the page and anchor.</p><hgroup data--="code_ref"><h5>11tyTips/source/matter/assets/scripts/js/lib/F_o.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
+</code></pre><p>To access any property declared in the front matter it has to be enclosed in double parenthesis <code>{{ ... }}</code> (11tyTips uses Nunjucks. Using other templating systems, this is a bit different. ). For instance, the <code>abstract_s</code> property in the front matter is injected in this page with the following code: <code>{{ abstract_s }}</code> and renders as:<br/><q>Accessing front matter data in Markdown and templates</q>.</p><h2 id="function_properties">Function properties</h2><p>If you use JavaScript for the front matter (a very good idea because it gives you the full power of the language to process your content. )and Nunjucks as templating system, you can declare functions as properties (see <a href="https://11ty.dev/docs/data-frontmatter/#javascript-front-matter" target="_blank" rel="noreferrer noopener">Eleventy#javascript-front-matter</a> documentation page. ). Usually, apart very specific cases, it’s much more easy to declare content processing functions in a module located inside the data directory (because it will be accessible from any Markdown content or any template and with the possibility to require any Node package that could be useful. ).</p><p>However, this page front matter is such a case: the <code>output__s</code> front matter last property is a conventional way to execute a function after processing the entire page (see also <a href="https://11tytips.netlify.com/tips/frontmatter_function.html">frontmatter function</a> page. ).</p><h2 id="front_matter_properties_and_global_data_functions">Front matter properties and global data functions</h2><p>11tyTips is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. 11tyTips source has an <code>F_o.js</code> file inside its <code>matter/assets/scripts/js/lib</code> directory where a <code>eleventyUrl__s</code> function computes the link to any Eleventy docs page using an acronym of the page and anchor.</p><hgroup data--="code_ref"><h5>11tyTips/source/matter/assets/scripts/js/lib/F_o.js</h5><h6><a href="https://prismjs.com" target="_blank" rel="noreferrer noopener" title="Highlighting provided by Prism.js">Prism</a></h6></hgroup><pre><code class="language-javascript">
 eleventyUrl__s: key_s =>
 {
   const path_s = U_o[ `ELEVENTY_${key_s}` ]
@@ -510,7 +510,8 @@ module.exports =
 {
   start__s: ( input_s, data_o ) =>
   {
-    if ( current_n === 0 &amp;&amp; !files_a ) buildStart__v( data_o )
+    if ( !files_a ) return input_s
+    if ( current_n === 0 ) buildStart__v( data_o )
     let start_s = templateStart__s( input_s, data_o )
     return start_s
   },
@@ -523,7 +524,7 @@ module.exports =
   {
     ++current_n
     let end_s = templateEnd__s( input_s, data_o )
-    if ( current_n === count_n &amp;&amp; files_a ) buildEnd__v( data_o )
+    if ( current_n === count_n ) buildEnd__v( data_o )
     return end_s
   },
 }

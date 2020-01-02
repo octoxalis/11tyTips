@@ -1,0 +1,8 @@
+/* defaults: styles: 'Regular', type_s: 'woff2' */
+{{
+  [
+    { family_s:'Harmattan', file_s: 'harmattan-v5-latin-regular' },
+    { family_s:'Athiti',    file_s: 'athiti-v3-latin-regular' },
+    { family_s:'Fira Code', file_s: 'FiraCode-Regular' }
+  ] | font_face( U_o.url_s )
+}}

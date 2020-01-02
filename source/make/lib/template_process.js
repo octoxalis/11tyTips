@@ -55,7 +55,8 @@ module.exports =
 {
   start__s: ( input_s, data_o ) =>
   {
-    if ( current_n === 0 && !files_a ) buildStart__v( data_o )
+    if ( !files_a ) return input_s
+    if ( current_n === 0 ) buildStart__v( data_o )
     let start_s = templateStart__s( input_s, data_o )
     return start_s
   },
@@ -68,7 +69,7 @@ module.exports =
   {
     ++current_n
     let end_s = templateEnd__s( input_s, data_o )
-    if ( current_n === count_n && files_a ) buildEnd__v( data_o )
+    if ( current_n === count_n ) buildEnd__v( data_o )
     return end_s
   },
 }

@@ -45,4 +45,7 @@ module.exports = make_o =>
   make_o.addFilter('body_end', ( body_s, ...args_ ) => TEMPLATE_o.body__s( body_s, ...args_ ) )
   make_o.addFilter('template_start', ( start_s, ...args_ ) => TEMPLATE_o.start__s( start_s, ...args_ ) )
   make_o.addFilter('template_end', ( end_s, ...args_ ) => TEMPLATE_o.end__s( end_s, ...args_ ) )
+
+  const MIXIN_o = require('../lib/css_mixin.js')
+  make_o.addFilter('font_face', ( selector_a, ...args_ ) => MIXIN_o.font_face__s( selector_a, ...args_ ) )
 }
