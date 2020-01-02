@@ -4,7 +4,7 @@ module.exports =
   {
     if ( !face_a || !args_ ) return ''
     let code_s = ''
-    face_a.forEach( ( face_o ) =>
+    face_a.forEach( face_o =>
       {
         const family_s = face_o.family_s
         const file_s   = face_o.file_s
