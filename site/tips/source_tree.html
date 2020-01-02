@@ -12,6 +12,7 @@
 │   └── lib
 │       ├── block_replace.js
 │       ├── block_split.js
+│       ├── css_mixin.js
 │       ├── data.js
 │       ├── dateToISO.js
 │       ├── feed_content.js
@@ -50,6 +51,7 @@
 │   │   │   │   └── favicon-32x32.png
 │   │   │   ├── scripts
 │   │   │   │   └── js
+│   │   │   │       ├── clipboard.min.js
 │   │   │   │       └── prism.min.js
 │   │   │   └── styles
 │   │   │       └── css
@@ -60,10 +62,9 @@
 │   │           │   ├── _aspect_ratio_.css
 │   │           │   ├── _color_.css
 │   │           │   ├── _comment_.css
-│   │           │   ├── _dark_mode_.css
 │   │           │   ├── _destyle_.css
 │   │           │   ├── _font_.css
-│   │           │   ├── _font_face_.css
+│   │           │   ├── _font_face_mixin_.css
 │   │           │   ├── _full_width_.css
 │   │           │   ├── _html_.css
 │   │           │   ├── _menu_.css
@@ -73,6 +74,9 @@
 │   │           │   ├── _rootvar_.css
 │   │           │   ├── _source_tree_.css
 │   │           │   └── _ui_.css
+│   │           ├── lib_comment.njk
+│   │           ├── lib_menu.njk
+│   │           ├── lib_prism.njk
 │   │           └── lib.njk
 │   ├── parts
 │   │   ├── blocks
@@ -95,10 +99,10 @@
 │   │   ├── _link_page_.njk
 │   │   ├── _menu_iframe_.njk
 │   │   ├── _netlify_badge_.njk
+│   │   ├── _netlify_headers_.njk
 │   │   ├── _script_.njk
 │   │   ├── _seo_.njk
 │   │   ├── _site_url_.njk
-│   │   ├── _style_.njk
 │   │   ├── _style_inline_.njk
 │   │   └── _webmanifest_.njk
 │   ├── feed.njk
@@ -119,16 +123,21 @@
     │   │       │   ├── I_o.js
     │   │       │   └── U_o.js
     │   │       ├── lib.md
+    │   │       ├── netlify_headers.md
     │   │       ├── service.md
     │   │       └── webmanifest.md
     │   └── styles
     │       └── css
+    │           ├── lib_comment.md
+    │           ├── lib_menu.md
+    │           ├── lib_prism.md
     │           └── lib.md
     └── pages
         ├── parts
         │   └── _source_tree_.txt
         ├── 404.md
         ├── creating_menu.md
+        ├── css_mixins.md
         ├── eleventy_configure.md
         ├── feed.md
         ├── frontmatter_data.md
