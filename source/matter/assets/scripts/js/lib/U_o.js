@@ -14,6 +14,7 @@ const U_o =
   PRO_s: A_o.URL_s,
 
   GIT_s: `https://github.com/${A_o.AUTHOR_s}/${A_o.ID_s}/`,
+  GIT_SRC_s: `https://github.com/${A_o.AUTHOR_s}/${A_o.ID_s}/blob/master/`,
   TWI_s: `https://twitter.com/${A_o.ID_s}/`,
   RSS_s: `${A_o.URL_s}feed.xml`,
   SERVICE_PATH_s: 'assets/scripts/js/service_worker.min.js',

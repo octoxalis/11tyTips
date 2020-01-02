@@ -19,7 +19,7 @@
 A bird's eye view of {{A_o.ID_s}} site.{ data--="page_intro" }
 
 {% _code_block %}
-    title_s: '{{A_o.ID_s}} source tree',
+    title_s: 'source/matter/pages/parts/_source_tree_.txt',
     lang_s: "txt",
 [//]:#(_code_block)
 !!!include( _source_tree_.txt )!!!

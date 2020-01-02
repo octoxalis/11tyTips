@@ -173,7 +173,7 @@ see also [frontmatter function] page.
 {{A_o.ID_s}} is full of Eleventy documentation links: we need official references! Some of these references can appear in different pages and therefore they are potential global data. {{A_o.ID_s}} source has an `F_o.js` file inside its `matter/assets/scripts/js/lib` directory where a `eleventyUrl__s` function computes the link to any Eleventy docs page using an acronym of the page and anchor.
 
 {% _code_block %}
-    title_s: '{{A_o.ID_s}}/source/matter/assets/scripts/js/lib/F_o.js',
+    title_s: 'source/matter/assets/scripts/js/lib/F_o.js',
     lang_s: 'javascript',
 [//]:#(_code_block)
 eleventyUrl__s: key_s =>
@@ -229,7 +229,7 @@ reference inside content.
 {data--="example"}
 
 {% _code_block %}
-    title_s: '{{A_o.ID_s}}/source/matter/items/frontmatter_data.md',
+    title_s: 'source/matter/pages/frontmatter_data.md',
     lang_s: 'javascript',
 [//]:#(_code_block)
 {% raw %}

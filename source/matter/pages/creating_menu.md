@@ -52,7 +52,7 @@ however, a duplicate `rank_n` index doesn't cause any disturbance when retrievin
 
 
 {% _code_block %}
-    title_s: '{{A_o.ID_s}}/source/make/11ty/collections.js',
+    title_s: 'source/make/11ty/collections.js',
     lang_s: 'javascript'
 [//]:#(_code_block)
 {% raw %}
@@ -186,7 +186,7 @@ bellow the navigation bar at the top of the page
 
 
 {% _code_block %}
-    title_s: 'source/matrix/assets/scripts/js/parts/_link_page_.js_',
+    title_s: 'source/matrix/assets/scripts/js/parts/_link_page_.js',
     lang_s: 'javascript',
 [//]:#(_code_block)
 //> insert in DOM previous + next pages info

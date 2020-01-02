@@ -53,7 +53,7 @@ h3 element<br/>
 
 
 {% _code_block %}
-    title_s: 'source/make/11ty/libtaries.js',
+    title_s: 'source/make/11ty/libraries.js',
     lang_s: 'javascript',
 [//]:#(_code_block)
 {% raw %}

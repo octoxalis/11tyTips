@@ -35,7 +35,7 @@ only three repeats because {{A_o.ID_s}} is very thrifty regarding the number of 
 
 
 {% _code_block %}
-    title_s: '{{A_o.ID_s}}/source/matrix/assets/styles/css/parts/_font_face_mixin_.css',
+    title_s: 'source/matrix/assets/styles/css/parts/_font_face_mixin_.css',
     lang_s: 'twig'
 [//]:#(_code_block)
 {% raw %}
@@ -62,7 +62,7 @@ Once again, the substitution is made by a _magical_ Nunjucks filter registered a
 
 
 {% _code_block %}
-    title_s: '{{A_o.ID_s}}/source/make/11ty/filters.js',
+    title_s: 'source/make/11ty/filters.js',
     lang_s: 'javascript'
 [//]:#(_code_block)
 {% raw %}
@@ -78,7 +78,7 @@ The `face_a` argument of this filter is the `Array` declared in the previous `_f
 
 
 {% _code_block %}
-    title_s: '{{A_o.ID_s}}/source/make/lib/css_mixin.js',
+    title_s: 'source/make/lib/css_mixin.js',
     lang_s: 'javascript'
 [//]:#(_code_block)
 {% raw %}
