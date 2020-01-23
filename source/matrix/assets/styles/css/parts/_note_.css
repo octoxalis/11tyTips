@@ -13,7 +13,7 @@
   counter-reset: var(--inline_notes) var(--examples);
 }
 
-[data--=inline_note]
+[data--^=inline_]
 {
   --font_body:   90%;
   --font_sup:    60%;
@@ -33,7 +33,7 @@
   pointer-events: none;
 }
 
-[data--=inline_note] > sup
+[data--^=inline_] > sup
 {
   counter-increment: var(--inline_notes);
   top: -0.6rem;
@@ -43,7 +43,11 @@
   vertical-align: baseline;
   font-size: var(--font_sup);
 }
-[data--=inline_note] > sup::after
+[data--=inline_img] > sup
+{
+  border-bottom: var(--BORDER_1) solid var(--c_prim_hi);
+}
+[data--^=inline_] > sup::after
 {
   content: counter( var(--inline_notes) );
 }
@@ -96,4 +100,27 @@
   height: auto;
   border-left: var(--BORDER_2) solid var(--c_prim_tr);
   transition: all 0.2s ease;
+}
+
+[data--=inline_img] > .note_open
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:  0;
+  padding: 1rem;
+  width: calc( var(--BODY_WIDTH) - var(--PAD_2) );
+  border-left: none;
+  background: transparent;
+}
+
+.note_open > [data-src]
+{
+  width: 100%;
+  object-fit: scale-down;
+}
+
+[src^="data:image/gif;base64,R0"]
+{
+  display: none;
 }

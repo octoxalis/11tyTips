@@ -12,7 +12,13 @@ module.exports =
 {
   siteUrl__s: ( file_s, dir_s=`${A_o.COLLECTION_s}s/` ) => `[${file_s.replace('_', ' ')}]: ${U_o.url_s}${dir_s}${file_s}.html`,
 
-  codeUrl__s: path_s => `<a href="${U_o.GIT_SRC_s}${path_s}" target="_blank" rel="noreferrer noopener">${A_o.ID_s}/${path_s}</a>`,
+  codeUrl__s: path_s =>
+  {
+    return ( path_s.indexOf( 'source/' ) === -1 ) ? path_s :
+      `<a href="${U_o.GIT_SRC_s}${path_s}" target="_blank" rel="noreferrer noopener">${A_o.ID_s}/${path_s}</a>`
+  },
+
+  img1px__s: () => 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=',
 
   eleventyUrl__s: key_s =>
   {

@@ -27,7 +27,7 @@
 
   /*--c_primary:    hsla( var(--c_hue_p), var(--c_sat),    var(--c_lum), var(--c_opac_hi) );*/
     --c_prim_tr:    hsla( var(--c_hue_p), var(--c_sat),    var(--c_lum), var(--c_opac) );
-  /*  --c_prim_hi:    hsla( var(--c_hue_p), var(--c_sat_hi), var(--c_lum_hi), var(--c_opac_hi) );*/
+    --c_prim_hi:    hsla( var(--c_hue_p), var(--c_sat_hi), var(--c_lum_hi), var(--c_opac_hi) );
     --c_prim_lo:    hsla( var(--c_hue_p), var(--c_sat_hi), var(--c_lum_lo), var(--c_opac_hi) );
 
   --c_secondary:  hsla( var(--c_hue_s), var(--c_sat), var(--c_lum), var(--c_opac_hi) );

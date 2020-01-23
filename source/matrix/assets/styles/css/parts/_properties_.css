@@ -90,7 +90,7 @@ pre > code,
 [data--=example]::before
   {display:block}
 
-[data--=inline_note],
+[data--^=inline_],
 [data--=menu_order],
 [data--=link_nav]:hover,
 [data--=comments_visibility]

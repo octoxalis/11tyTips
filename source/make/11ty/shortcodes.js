@@ -14,6 +14,8 @@ const CODES_o =
 
   short_note__s: content_s => `<ins data--="inline_note"><sup></sup><span data--="note_content">${content_s}</span></ins>`,
 
+  short_img__s: content_s => `<ins data--="inline_img"><sup></sup><span data--="note_content">${content_s}</span></ins>`,
+
   more_to_come__s: content_s => `<p data--="important">${content_s}<em>(to be continued...)</em></p>`,
 
   code_block__s: content_s =>
@@ -39,6 +41,7 @@ module.exports = make_o =>
 {
   [ 'more_to_come',
     'short_note',
+    'short_img',
     'code_block',
     'replace_all',
     'anchor'

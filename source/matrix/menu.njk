@@ -16,9 +16,9 @@
 {% endset -%}
 
 {%- set _social_s %}
-  {%- if U_o.GIT_s !== undefined %}{{ h4_a__s( U_o.GIT_s, 'Github' ) }}{% endif -%}
-  {%- if U_o.TWI_s !== undefined %}{{ h4_a__s( U_o.TWI_s, 'Twitter' ) }}{% endif -%}
-  {%- if U_o.RSS_s !== undefined %}{{ h4_a__s( U_o.RSS_s, 'RSS' ) }}{% endif -%}
+  {%- if U_o.GIT_s %}{{ h4_a__s( U_o.GIT_s, 'Github' ) }}{% endif -%}
+  {%- if U_o.TWI_s %}{{ h4_a__s( U_o.TWI_s, 'Twitter' ) }}{% endif -%}
+  {%- if U_o.RSS_s %}{{ h4_a__s( U_o.RSS_s, 'RSS' ) }}{% endif -%}
 {% endset -%}
 
 {%- set _menu_list_s %}
