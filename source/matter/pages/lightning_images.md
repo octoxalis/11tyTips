@@ -6,7 +6,7 @@
   tags:      [ `tip` ],
   eleventyExcludeFromCollections: false,
 
-  rank_n:     16,
+  rank_n:     17,
   title_s:    `Light(ning) images`,
   subtitle_s: `Lightning-fast images`,
   abstract_s: `How to alleviate overweight images`,
