@@ -11,7 +11,7 @@ void function ()
     window.addEventListener('load', () =>
       {
         document.querySelector( '[data--="menu_list"]' )
-          .addEventListener('click', inlineNote__v )
+          .addEventListener('click', shortNote__v )
       } )
 
 //> Menu order click handler
@@ -80,7 +80,7 @@ void function ()
 //> Article inline notes sup element click handler
 //> to show/hide notes
   document.querySelector( '[data--="article"]' )
-    .addEventListener('click', inlineNote__v )
+    .addEventListener('click', shortNote__v )
 
 //> Comments visibility click handler
 //> to show/hide comments
@@ -90,7 +90,7 @@ void function ()
 //> Open IndexedDB
 //> to store UI base color + light/dark mode
   hueBase__v()
-  lightDark__v()
+  lumMode__v()
 
 //> Easter egg for developers who read sources
 //> change UI base color + light/dark mode
@@ -108,7 +108,7 @@ void function ()
       const atY_n = click_o.clientY - header_e.getBoundingClientRect().top
       const height_n = header_e.offsetHeight
       const mode_n = atY_n > ( height_n * 0.5 ) ? -1 : 1
-      lightDark__v( mode_n )
+      lumMode__v( mode_n )
     } )
 
 } ()

@@ -1,14 +1,14 @@
-const inlineNote__v = click_o =>
+const shortNote__v = click_o =>
 {
   const note_e = click_o.target.closest('INS')
   if ( note_e )
   {
-    inlineImg__v( note_e )
+    shortImg__v( note_e )    //: try for img
     note_e.querySelector( '[data--="note_content"]' ).classList.toggle( 'note_open' )
   }
 }
 
-const inlineImg__v = note_e =>
+const shortImg__v = note_e =>
 {
   const img_e = note_e.querySelector('[data-src]')
   if ( img_e && !img_e.getAttribute( 'load_b' ) )
