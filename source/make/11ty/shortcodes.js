@@ -36,14 +36,12 @@ const CODES_o =
     let link_s = '<em class="note_link_a">'
     link_a.forEach( atlink_s =>
     {
-      //xx atlink_a = atlink_s.split( ' ' )
-      console.log();
       let function_s, gray_s, color_s
-      [ function_s, gray_s, color_s ] = atlink_s.split( ' ' )
-      if ( !gray_s ) gray_s = 'gray'
-      if ( !color_s ) color_s = 'color'
-      link_s += `<a class="note_link" role="button" title="Load image in full color"
-        onclick="${function_s}( this, '${gray_s}', '${color_s}' )">C</a>`
+      [ function_s, symbol_s, ...arg_a ] = atlink_s.split( ',' )
+      let parameter_s = ''
+      arg_a.forEach( arg_s => parameter_s += `'${arg_s.trim()}',` )
+      link_s += `<a class="note_link" role="button"
+        onclick="${function_s}( this, ${parameter_s} )">${symbol_s}</a>`
     } )
     return link_s + `</em>`
   },

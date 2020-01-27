@@ -36,7 +36,7 @@ const shortImg__v = note_e =>
   img_e.setAttribute( 'data-src', '' )    //: next querySelector call will be false
 }
 
-const loadColorImg__v = ( button_e, gray_s, color_s ) =>
+const loadColorImg__v = ( button_e, gray_s='gray', color_s='color' ) =>
 {
   const note_e = button_e.closest( '.note_open' )
   const img_e = note_e.querySelector( 'img' )

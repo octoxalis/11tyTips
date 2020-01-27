@@ -124,7 +124,7 @@ data-size="25%"
 
 When no size is added to the inline attribute, by default the image width is 100% of the page width. The `_note_img` shortcode also accept an `Array` argument to put a legend
 {% _note_txt %}
-each slot of this Array is a new line of the legend
+each slot of this `Array` is a new line of the legend
 {% end_note_txt %}
 under the image displayed
 {% _note_img [ 'Adam de Coster', 'Young women holding a distaff' ] %}
@@ -203,13 +203,29 @@ Hence, a double loading, first of a grayscale image then, *only if needed*
 {% _note_txt %}
 if the site visitor does want it: in the following example, by clicking the button above the image!
 {% end_note_txt %}
-, the full size colored image is loaded to replace the grayscale image
+, the full size colored image, to replace the grayscale one
 {% _note_img [ 'Adam de Coster [1586-1643]', 'Young women holding a distaff before a lit candle' ] %}
-{% note_link [ 'loadColorImg__v' ] %}
+{% note_link [ 'loadColorImg__v, ⤵, gray' ] %}
 ![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/Adam_de_Coster_gray.jpg" data-size="100%"}
 {% end_note_img %}
 .
 
+
+Most of the time the image tag `title` attribute
+{% _note_txt %}
+an its factotum the `alt` attribute
+{% end_note_txt %}
+is enough, but sometimes it can be necessary to display more information, for instance a title, a place, a credit, etc. This is the purpose of the legend `Array` mentioned above.
+But some reactivity can be necessary too. This is the purpose of another shortcode, called `note_link`, an `Array` of strings, each one enclosing a function name with its symbol and arguments
+{% _note_txt %}
+if the function has arguments
+{% end_note_txt %}
+:
+
+{% raw %}`{% note_link [ 'loadColorImg__v, ⤵, gray, color' ] %}`{% endraw %}
+{data--="example"}
+
+Each slot of this `Array` yields a link with a `role="button"` displaying the function symbol, a link triggering the function itself. In the previous image note, the function `loadColorImg__v` loads the full colored image replacing the much lighter gray one initialy loaded.
 
 
 [comment]: # (======== Links ========)
