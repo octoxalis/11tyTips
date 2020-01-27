@@ -24,35 +24,35 @@ It can be useful to process the final result of the templating work or prepare i
 
 
 All templating engines have limits and Nunjucks
-{% _short_note %}
+{% _note_txt %}
 which is used here by {{A_o.ID_s}}
-{% end_short_note %}
+{% end_note_txt %}
 has its own. But you can easily go your way beyond those limits to process the output of the templating engine just before everything is engraved as a static HTML page.
 For instance you may want to overcome the encoding output of the engine and make some modifications
-{% _short_note %}
+{% _note_txt %}
 see also the [frontmatter data] tip for an example of post processing the template engine output without a global filter, but using a front matter specific callback function.
-{% end_short_note %}
+{% end_note_txt %}
 .
 
 Once again this is acquired thru the use of a filter and an awesome help of the Nunjucks {% raw %}<code>{% set %}</code>{% endraw %} block.
 Every global template
-{% _short_note %}
+{% _note_txt %}
 i.e. a template which produces a full `html` page.
-{% end_short_note %}
+{% end_note_txt %}
 has a *starting* block
-{% _short_note %}
+{% _note_txt %}
 in the following listing it's the _ante_ process comment line.
-{% end_short_note %}
+{% end_note_txt %}
 using a filter whose concern is to initialize some variables needed by the page which is about to be processed by the templating engine
-{% _short_note %}
+{% _note_txt %}
 it can be, for instance, a data base access (server-side), or some checking relative to the pages that have been previously processed, etc.
-{% end_short_note %}
+{% end_note_txt %}
 .
 
 Similarly, there is an *ending* block whose filter processes the output of the template engine, once all the template work has been done, allowing you to further process the output.
-{% _short_note %}
+{% _note_txt %}
 in the following listing it's the _post_ process comment line.
-{% end_short_note %}
+{% end_note_txt %}
 
 
 {% set _code %}
@@ -94,9 +94,9 @@ in the following listing it's the _post_ process comment line.
 
 
 The filters invoqued as previously described are also used to make any specific processing required just before the first template is to be processed by Eleventy and just after the last template has been processed. It's kind of a hook, as can be seen is some frameworks, inside Eleventy. This *ante* or *post* processing uses only a directory listing to count the number of template files to be processed and invoque the starting function if no one has already been processed or the ending function if the number of files processed is equivalent to the listing count
-{% _short_note %}
+{% _note_txt %}
 this simple algorithm is based on the fact that all posts are in a single directory, without any subdirectories (otherwise the algorithm would have to walk thru all subdirectories), and that this <q>flat</q> directory contains only Markdown files.
-{% end_short_note %}
+{% end_note_txt %}
 .
 
 
@@ -187,13 +187,13 @@ module.exports =
 Any kind of processing can be done inside the starting and ending functions: in {{ A_o.ID_s }}, the starting function output the number of Markdown files to be processed and the ending function create the file (`menu.html`) listing the pages referenced as links in the menu of the site.
 
 To have full control on the site data, these functions take as argument an `Object` gathering all or a selection of
-{% _short_note %}
+{% _note_txt %}
 made according to the `EXPORT_a` Array declared in the `F_o.js` global data file
-{% end_short_note %}
+{% end_note_txt %}
 all declared global data
-{% _short_note %}
+{% _note_txt %}
 including the `page` Object used for pagination, all the collection Objects and even global properties not usually accessible: `content` and `layoutContent`...
-{% end_short_note %}
+{% end_note_txt %}
 . These data are retrieve by a simple `set` tag at the begining of the base template:
 
 {% _code_block %}
@@ -207,9 +207,9 @@ including the `page` Object used for pagination, all the collection Objects and 
 
 
 and are used by all the template processing functions
-{% _short_note %}
+{% _note_txt %}
 the `data_o` argument
-{% end_short_note %}
+{% end_note_txt %}
 .
 
 

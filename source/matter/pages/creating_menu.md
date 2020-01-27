@@ -32,22 +32,22 @@ Creating a menu with previous and next links.{ data--="page_intro" }
 
 
 There are many ways to sort a collection of posts, some of them provided out-of-the-box by Eleventy
-{% _short_note %}
+{% _note_txt %}
 see {{ _11ty__s( 'SORT_s' ).ref_s }}{{U_o.OUTLINK_s}} documentation page.
-{% end_short_note %}
+{% end_note_txt %}
 . However, {{A_o.NAME_s}} doesn't use the formated date front matter property but a specific one, named `rank_n`
-{% _short_note %}
+{% _note_txt %}
 it's an integer positive number
-{% end_short_note %}
+{% end_note_txt %}
 , allowing to sort a posts collection according a unique value regardless of the date
-{% _short_note %}
+{% _note_txt %}
 you could have multiple posts with the same date, unless you use a full date with hours, minutes and seconds...
-{% end_short_note %}
+{% end_note_txt %}
 This `rank_n` should therefore be a unique index
-{% _short_note %}
+{% _note_txt %}
 because it is used to retrieve the previous and next pages of any given post in the menu list; 
 however, a duplicate `rank_n` index doesn't cause any disturbance when retrieving those links (see infra).
-{% end_short_note %}
+{% end_note_txt %}
 .
 
 
@@ -102,7 +102,7 @@ The main loop of the menu template iterates thru the posts collection previously
     <li data--="menu_item" data-link="{{_link_s}}" data-rank="{{_item_o.data.rank_n}}">
       <span>{{pad__s( _item_o.data.rank_n )}}</span>
       <span><a href="{{U_o.url_s + _item_o.data.permalink}}">{{_item_o.data.title_s}}</a></span>
-      <ins data--="inline_note"><sup></sup><span data--="note_content">{{_item_o.data.abstract_s}}</span></ins>
+      <ins data--="note_txt"><sup></sup><span data--="note_content">{{_item_o.data.abstract_s}}</span></ins>
       <span hidden>{{_item_o.data.subtitle_s}}</span>
     </li>
     {% endif %}
@@ -120,9 +120,9 @@ The main loop of the menu template iterates thru the posts collection previously
 
 Previous and next posts links are much less difficult to retrieve on the client side than at build time. For that reason, the menu template doesn't try to create a double linked list but instead delegates the work  to a JavaScript function run in the browser.
 For any post page displayed by the browser, we have in the menu HTML fragment built by the template all necessary data about the preceding and following pages relative to the current one
-{% _short_note %}
+{% _note_txt %}
 when they exist: the first page in the menu list has no previous page and the last one no next page!
-{% end_short_note %}
+{% end_note_txt %}
 .
 
 For that we have to search the DOM for the nodes having a `data-rank` attribute with values surrounding that one of the current page.
@@ -174,14 +174,14 @@ const linkNear__o = link_s =>
 
 
 A link is only a link and doesn't convey a lot of meaning by itself apart its URL
-{% _short_note %}
+{% _note_txt %}
 the `href` attribute
-{% end_short_note %}
+{% end_note_txt %}
 . Unveiling the title and some other pieces of data before fetching a previous or next post is a much more useful help.
 The data previously retrieved in the surrounding links of the current page are there to be used and we can display them as we like
-{% _short_note %}
+{% _note_txt %}
 bellow the navigation bar at the top of the page
-{% end_short_note %}
+{% end_note_txt %}
 .
 
 

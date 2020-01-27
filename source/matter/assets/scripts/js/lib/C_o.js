@@ -4,7 +4,7 @@
  */
 module.exports =
 {
-  HUE_P_n:    207,     //: theme primary color in range [0...359]
+  HUE_P_n:    218,     //: theme primary color in range [0...359]
   HUE_L_n:    50,      //: theme link color offset from primary color
   HUE_S_n:    -50,     //: theme secondary color offset from primary color
   HUE_I_n:    20,      //: theme important color offset from primary color

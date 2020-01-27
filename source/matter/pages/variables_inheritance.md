@@ -24,9 +24,9 @@ In Nunjucks, inheriting templates can have private variables.{ data--="page_intr
 
 
 When you rely on template inheritance
-{% _short_note %}
+{% _note_txt %}
 using the {% raw %}`{% extends %}`{% endraw %} declaration
-{% end_short_note %}
+{% end_note_txt %}
 , you cant' have a {% raw %}`{% block %}{% endblock %}`{% endraw %} inside a variable `set` block. The other way, a variable declared inside a {% raw %}`{% block %}{% endblock %}`{% endraw %} will not be accessible outside. Therefore, you can't gather all variables in a global variable passed as an argument to the processing filter. However, you still have the possibility to process each block individualy.
 
 {% _anchor %}
@@ -35,9 +35,9 @@ using the {% raw %}`{% extends %}`{% endraw %} declaration
 
 
 When using variables declared with the `set` block, never forget that any variable whose name begins with one or more underscore character is **private**. Therefore it can not be imported outside of its block scope
-{% _short_note %}
+{% _note_txt %}
 unfortunatly, the Nunjucks documentation doesn't state it: I found this important note in the [Jinja2 documentation]{{U_o.OUTLINK_s}}.
-{% end_short_note %}.
+{% end_note_txt %}.
 
 
 [comment]: # (======== Links ========)

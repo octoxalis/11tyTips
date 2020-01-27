@@ -27,9 +27,9 @@ Every developer knows that JavaScript is not a static typed language, a useful f
  A language like Typescript has been created as a remedy to that important lack of safety. Even for code modules counting less than a few tens of lines, it's easy to forget what kind of type is exactly a variable or constant declared at the begining of the file and then make a mistake when assining a wrong type to a variable.
 
 {{A_o.ID_s}} follows the [TypesJS]{{U_o.OUTLINK_s}} naming scheme for a cleaner and more meaningful code. Here is how it looks in action
-{% _short_note %}
+{% _note_txt %}
 the following listing is the service worker file integrated in {{A_o.ID_s}} which relies heavily on the excellent article by Thomas Hunter II: [_On using Service Workers with Static Content_]{{U_o.OUTLINK_s}}
-{% end_short_note %}
+{% end_note_txt %}
 :
 
 

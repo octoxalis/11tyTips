@@ -26,13 +26,13 @@ For specific processing needs of a page, you can declare functions in the front 
 
 
 A singular use case of a front matter function
-{% _short_note %}
+{% _note_txt %}
 see [frontmatter data] page for an introduction to front matter properties.
-{% end_short_note %}
+{% end_note_txt %}
 is when you want to process the output of the template engine. For instance, in Nunjucks, if you want to output something that would normaly be processed as a Nunjucks block
-{% _short_note %}
+{% _note_txt %}
 exactly what I'm doing writing this page!
-{% end_short_note %}
+{% end_note_txt %}
 , you have to enclose it in a `[% raw %][% endraw %]` tags pair. But it doesn't work if you want to output only one tag of the pair either the `[% raw %]` or `[% endraw %]` tag. The shortcoming is simple: use a front matter function.
 
 In the markdown file, the `raw` tags are writen by replacing the curly bracket characters (`{` and `}`) by the square bracket characters (`[` and `]`) and reverted to curly brackets after the template processing with the front matter function.

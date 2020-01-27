@@ -42,11 +42,15 @@
 │   │   │   │   ├── FiraCode-Regular.woff2
 │   │   │   │   └── harmattan-v5-latin-regular.woff2
 │   │   │   ├── media
+│   │   │   │   ├── 1px.webp
+│   │   │   │   ├── Adam_de_Coster_color.jpg
+│   │   │   │   ├── Adam_de_Coster_gray.jpg
 │   │   │   │   ├── android-chrome-192x192.png
 │   │   │   │   ├── android-chrome-512x512.png
 │   │   │   │   ├── apple-touch-icon.png
 │   │   │   │   ├── favicon-16x16.png
-│   │   │   │   └── favicon-32x32.png
+│   │   │   │   ├── favicon-32x32.png
+│   │   │   │   └── wide_img.webp
 │   │   │   ├── scripts
 │   │   │   │   └── js
 │   │   │   │       ├── clipboard.min.js
@@ -141,6 +145,7 @@
         ├── frontmatter_data.md
         ├── frontmatter_function.md
         ├── index.md
+        ├── lightning_images.md
         ├── menu.md
         ├── minifying.md
         ├── names_guide.md

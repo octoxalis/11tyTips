@@ -25,14 +25,14 @@ Shortcodes are probably the most powerful tool to process Markdown content inlin
 
 They are simple to create and use, almost anything can be done with them, and they represent an important opportunity that should not be missed. Eleventy has two kinds of shortcode:
 + simple
-{% _short_note %}
+{% _note_txt %}
 the shortcode argument (i.e. content) is passed to a single tag (ex. #1).
-{% end_short_note %}
+{% end_note_txt %}
 
 + paired
-{% _short_note %}
+{% _note_txt %}
 the shortcode argument is passed enclosed between two tags (ex. #2).
-{% end_short_note %}
+{% end_note_txt %}
 
 { data--="ulist" }
 
@@ -50,9 +50,9 @@ It is passed to Eleventy configuration method `addPairedShortcode` this way:
 {data--="example"}
 
 Here, `_code_block` is the shortcode identifier
-{% _short_note %}
+{% _note_txt %}
 {{ A_o.ID_s }} uses a leading underscore character because the shortcode closing tag adds the word `end` before the shortcode identifier: `end_shortcode` is more readable than `endshortcode`, isn't it?
-{% end_short_note %}
+{% end_note_txt %}
 
 {% _more_to_come %}
 Shortcode anatomy

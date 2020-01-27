@@ -1,6 +1,6 @@
 ---js
 {
-  date:      `2020-01-02`,
+  date:      `2020-01-27`,
   layout:    `frame.njk`,
   permalink: `tips/lightning_images.html`,
   tags:      [ `tip` ],
@@ -23,21 +23,26 @@ Where are my images?{ data--="page_intro" }
 {% end_anchor %}
 
 
-Web images are an endless challenge: we want them wide, beautiful, we want their colors, their evocation power, but in no case their slowness. {{A_o.ID_s}} adopts an on-demand image loading paradigm: any image is loaded only when requested by the site visitor
-{% _short_note %}
-this is my personal approach of the lazy loading pattern, both lighter and simpler to implement than the _Observer_ pattern
-{% end_short_note %}
-.
+Web images are an endless challenge: we want them wide, beautiful, we want their colors, their evocation power, but in no case their slowness. Evidently images have to be optimised to be as light as possible. {{A_o.ID_s}} uses the outstanding [Compress-Or-Die](https://compress-or-die.com/) site
+{% _note_txt %}
+Every front-end developer should visit this site not only for the impressive compression engine proposed by Christoph Erdmann but also for a thorough understanding of the JPEG format
+{% end_note_txt %}
+to lighten and transform all images for a maximum speed gain.
+Nevertheless, {{A_o.ID_s}} goes further an enforces an **on-demand image loading** paradigm: any image is loaded only when the site visitor does want to open the Pandora box
+{% _note_txt %}
+this is my personal approach to the lazy loading pattern, both lighter and simpler to implement than the usual _Observer_ pattern
+{% end_note_txt %}
+!
 
 
 To implement this pattern, the trick is to hide by default all images that do not need to be displayed inconditionnaly
-{% _short_note %}
+{% _note_txt %}
 therefore any image that is a substantial part of the site page (logo, hero, etc.) is not concerned by this on-demand pattern
-{% end_short_note %}
+{% end_note_txt %}
 , to unhide them, one by one, at a later time when a specific action is triggered by the visitor. That specific action is a simple opening of an inline note, tailored for the image case, as in the following _note_
-{% _short_img %}
-![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/wide_img.webp" data-size="150"}
-{% end_short_img %}
+{% _note_img %}
+![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/Adam_de_Coster_wide.jpg" data-size="150"}
+{% end_note_img %}
 
 
 {% _code_block %}
@@ -45,36 +50,36 @@ therefore any image that is a substantial part of the site page (logo, hero, etc
     lang_s: 'twig'
 [//]:#(_code_block)
 {% raw %}
-{% _short_img %}
-![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/wide_img.webp" data-size="150"}
-{% end_short_img %}
+{% _note_img %}
+![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/Adam_de_Coster_Xwide.jpg" data-size="150"}
+{% end_note_img %}
 
 [comment]: # (======== Links ========)
 
-[1PX]: {{U_o.url_s}}assets/media/1px.webp "OnePixel"
+[1PX]: {{U_o.url_s}}assets/media/1px.jpg "OnePixel"
 {% endraw %}
 {% end_code_block %}
 
 
-The `_short_img` shortcode has two parts:
+The `_note_img` shortcode has two parts:
 
 + a regular Markdown image declaration
-{% _short_note %}
+{% _note_txt %}
 the `{%raw%}![Adam de Coster][1PX]{%endraw%}` part
-{% end_short_note %}
+{% end_note_txt %}
 
 + an associated Markdown attribute
-{% _short_note %}
-the `{%raw%}{data-src="{{U_o.url_s}}assets/media/wide_img.webp"}{%endraw%}` part
-{% end_short_note %}
+{% _note_txt %}
+the `{%raw%}{data-src="{{U_o.url_s}}assets/media/Adam_de_Coster_wide.jpg"}{%endraw%}` part
+{% end_note_txt %}
 
 { data--="ulist" }
 
 
 As soon as the site visitor clicks the note index for the first time, the image is loaded. This is not an automatic displaying but a manual one: <q>There is an image here, do you want to see it? If you do, here it is!</q>
-{% _short_note %}
-Of course, if the image has a big size and the network flow is slow, the image will load slowly. Nevertheless, I think the user experience is much better having an overall very fast page loading and a potentially slow image loading, because this is a well known case, and, moreover, there is no need for any blurring or degraded image which only accentuate the waiting perception and finally *slow down even more* the genuine image display.
-{% end_short_note %}
+{% _note_txt %}
+Of course, if the image has a big size and the network flow is slow, the image will load slowly. Nevertheless, I think the user experience is much better having an overall very fast page loading and a potentially slow image loading, because this is a well known case, and, moreover, there is no need for any blurring or degraded image which only accentuate the waiting perception and finally slow down even more the genuine image display.
+{% end_note_txt %}
 
 
 {% _anchor %}
@@ -83,23 +88,23 @@ Of course, if the image has a big size and the network flow is slow, the image w
 
 
 For the sake of convinience, specific sizes can be specified for each image in the Markdown source:
-{% _short_img %}
-![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/wide_img.webp" data-size="50%"}
-{% end_short_img %}
+{% _note_img %}
+![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/Adam_de_Coster_wide.jpg" data-size="50%"}
+{% end_note_img %}
 
 The `data-size` attribute takes either a **unique value**
-{% _short_note %}
+{% _note_txt %}
 it will be applied to the width of the image, the height beeing supplied by the browser, keeping the image ratio
-{% end_short_note %}
+{% end_note_txt %}
 :
 
 data-size="200"
 {data--="example"}
 
 or **two values** separated by a `space` character:
-{% _short_note %}
+{% _note_txt %}
 applied to the width then the height of the image
-{% end_short_note %}
+{% end_note_txt %}
 :
 
 
@@ -108,20 +113,27 @@ data-size="200 200"
 
 
 Since size values are converted in a style attribute added to the image HTML tag, any compliant CSS value can be used: `percentage`, `rem`, etc.
-{% _short_img %}
-![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/wide_img.webp" data-size="25%"}
-{% end_short_img %}
+{% _note_img %}
+![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/Adam_de_Coster_wide.jpg" data-size="25%"}
+{% end_note_img %}
 :
 
 data-size="25%"
 {data--="example"}
 
 
-When no size is added to the inline attribute, by default the image width is 100% of the page width
-{% _short_img %}
-![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/wide_img.webp"}
-{% end_short_img %}
+When no size is added to the inline attribute, by default the image width is 100% of the page width. The `_note_img` shortcode also accept an `Array` argument to put a legend
+{% _note_txt %}
+each slot of this Array is a new line of the legend
+{% end_note_txt %}
+under the image displayed
+{% _note_img [ 'Adam de Coster', 'Young women holding a distaff' ] %}
+![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/Adam_de_Coster_wide.jpg"}
+{% end_note_img %}
 .
+
+{% raw %}`{% _note_img [ 'Adam de Coster', 'Young women holding a distaff' ] %}`{% endraw %}
+{data--="example"}
 
 
 {% _anchor %}
@@ -130,9 +142,9 @@ When no size is added to the inline attribute, by default the image width is 100
 
 
 Because a true image declaration is needed by the Markdown processor, a one pixel sized image data URI
-{% _short_note %}
-see this base64 png pixel [generator](http://png-pixel.com/)
-{% end_short_note %}
+{% _note_txt %}
+see this base64 png pixel [generator]{{U_o.OUTLINK_s}}
+{% end_note_txt %}
 is systematically used as a placeholder: it's very light and {{A_o.ID_s}} has a CSS rule to prevent it to be displayed anyway. And it can be inserted at the end of the Markdown file like it is here, with the an helper function:
 
 
@@ -151,14 +163,18 @@ And here is the final code produced:
 
 {% set _code %}
 {% raw %}
-<ins data--="inline_img">
+<ins data--="note_img">
   <sup></sup>
   <span data--="note_content">
+    <em class="note_link_a">
+      <a class="note_link" role="button" title="Load image in full color"
+         onclick="loadColorImg__v( this, 'gray', 'color' )">C</a>
+    </em>
     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs="
-         alt="Adam de Coster"
-         title="A young woman holding a distaff before a lit candle"
-         data-src="http://127.0.0.1:5500/assets/media/wide_img.webp"
-         data-size="50%">
+         alt="Adam de Coster" title="A young woman holding a distaff before a lit candle"
+         data-src="http://127.0.0.1:5500/assets/media/Adam_de_Coster_gray.jpg"><br>
+    <em class="note_img_title">Adam de Coster</em><br>
+    <b class="note_img_subtitle">Young women holding a distaff</b>
   </span>
 </ins>
 {% endraw %}
@@ -172,6 +188,31 @@ And here is the final code produced:
 {% end_code_block %}
 
 
+{% _anchor %}
+## Further image optimisation and control
+{% end_anchor %}
+
+
+When images displayed using the on-demand loading mechanism described in this tip are an important matter  for the site content
+{% _note_txt %}
+i.e. images are an substantial part of the content, not just an illustration to decorate the text content
+{% end_note_txt %}
+, when image compression must preserve a high rendering quality, the image size can still be heavy, more than a few hundreds of kilobytes. A useful technique is to propose at first an meaningful presentation of the image in grayscale instead of full color! Actually, grayscale images, which eliminate the less meaningful part of the image data: color, and retain only the most one: luminosity, are so useful to the sensory perception that in some cases it's an important step of the image content apprehension.
+
+Hence, a double loading, first of a grayscale image then, *only if needed*
+{% _note_txt %}
+if the site visitor does want it: in the following example, by clicking the button above the image!
+{% end_note_txt %}
+, the full size colored image is loaded to replace the grayscale image
+{% _note_img [ 'Adam de Coster [1586-1643]', 'Young women holding a distaff before a lit candle' ] %}
+{% note_link [ 'loadColorImg__v' ] %}
+![Adam de Coster][1PX]{data-src="{{U_o.url_s}}assets/media/Adam_de_Coster_gray.jpg" data-size="100%"}
+{% end_note_img %}
+.
+
+
+
 [comment]: # (======== Links ========)
 
 [1PX]: {{ F_o.img1px__s() }} "A young woman holding a distaff before a lit candle"
+[generator]: http://png-pixel.com/

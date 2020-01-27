@@ -28,9 +28,9 @@ However they have lost a bit of prominance since the apparition of the new CSS r
 And JAMstack static site generators as Eleventy could be another factor of preprocessors darkening because they give you all the bolts you need to create the elements you want to use and re-use with **pure CSS and Vanilla JavaScript**.
 
 {{A_o.ID_s}} contains an example of a pseudo-CSS file which, preprocessed by the Nunjucks template engine, produces a genuine CSS file with a few repeats of the same `@font_face` CSS rule pattern
-{% _short_note %}
+{% _note_txt %}
 only three repeats because {{A_o.ID_s}} is very thrifty regarding the number of fonts beeing used
-{% end_short_note %}
+{% end_note_txt %}
 .
 
 
@@ -52,9 +52,9 @@ only three repeats because {{A_o.ID_s}} is very thrifty regarding the number of 
 
 
 But where is CSS in this `.css` file? Nowhere actually: the CSS fragment is created by the requested filter called `font_face`. And, apart the opening and closing double braces {%raw%}`{{ ... }}`{%endraw%}
-{% _short_note %}
+{% _note_txt %}
 pointing out the declaration of a JavaScript variable
-{% end_short_note %}
+{% end_note_txt %}
 , everything is a JavaScript `Array` syntax declaration, an `Array` to be processed by that `font_face` filter.
 
 
@@ -118,21 +118,21 @@ module.exports =
 
 
 The output of this CSS-like preprocessing is inlined
-{% _short_note %}
+{% _note_txt %}
 for performance concerns
-{% end_short_note %}
-in the page `head` section thru the `_font_inline_.njk` template.
+{% end_note_txt %}
+in the page `head` section thru the `_font_note_.njk` template.
 Of course this is only available if you put a `"dataTemplateEngine": "njk"` property inside your Eleventy configuration file
-{% _short_note %}
+{% _note_txt %}
 see [eleventy configure] page
-{% end_short_note %}
+{% end_note_txt %}
 .
 
 
 Data template engine processing, offered not only for Nunjucks but other templating systems, is a major strengh of Eleventy static site generator relevant not only for CSS preprocessing but also for JavaScript files preprocessing. Hence some {{A_o.ID_s}} JS files make use of global data variables or constants as
-{% _short_note %}
+{% _note_txt %}
 emphasized in the following examples
-{% end_short_note %}
+{% end_note_txt %}
 :
 
 

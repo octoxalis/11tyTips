@@ -73,13 +73,13 @@ module.exports = U_o
 
 
 The gobal data files can contain not only constants
-{% _short_note %}
+{% _note_txt %}
 as in the preceding listing of the `U_o.js` file
-{% end_short_note %}
+{% end_note_txt %}
 but also functions
-{% _short_note %}
+{% _note_txt %}
 as in the following `D_o.js` file
-{% end_short_note %}
+{% end_note_txt %}
 which means that all the power of Node.js is at hand.
 
 

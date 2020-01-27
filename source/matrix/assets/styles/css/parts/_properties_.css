@@ -47,7 +47,7 @@
   {position:sticky}
 
 .utterances-frame,
-[data--=inline_note],
+[data--=note_txt],
 [data--=ulist] > li::before,
 [data--=important]::before
   {position:relative}
@@ -90,7 +90,7 @@ pre > code,
 [data--=example]::before
   {display:block}
 
-[data--^=inline_],
+[data--^=note_],
 [data--=menu_order],
 [data--=link_nav]:hover,
 [data--=comments_visibility]

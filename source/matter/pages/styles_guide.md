@@ -15,40 +15,40 @@
 ---
 [comment]: # (======== Post ========)
 # Styles guide
-{% _short_note %}h1 element{% end_short_note %}
+{% _note_txt %}h1 element{% end_note_txt %}
 
 
 This is an introduction paragraph which should be limited in length.
 { data--="page_intro" }
 
-{% _short_note %}p element, styled with attribute "page_intro"{% end_short_note %}
+{% _note_txt %}p element, styled with attribute "page_intro"{% end_note_txt %}
 
 
 {% _anchor %}
 ## Title
 {% end_anchor %}
-{% _short_note %}h2 element{% end_short_note %}
+{% _note_txt %}h2 element{% end_note_txt %}
 
 
 {% _anchor %}
 ### Subtitle
 {% end_anchor %}
-{% _short_note %}
+{% _note_txt %}
 h3 element<br/>
 <b>Titles have a</b> <code>font-style: italic</code>
-{% end_short_note %}
+{% end_note_txt %}
 
 
 **Paragraph** content have a maximum line length fixed to 60ch, yielding to a number of  of about 70 characters per line: this is considered the best line length for readibility.
-{% _short_note %}p element{% end_short_note %}
+{% _note_txt %}p element{% end_note_txt %}
 
 
 `for ( let at = 0; at < keys_a.length; ++at )`
-{% _short_note %}inline code{% end_short_note %}
+{% _note_txt %}inline code{% end_note_txt %}
 
 
 `for ( let at = 0; at < keys_a.length; ++at )`
-{% _short_note %}example{% end_short_note %}
+{% _note_txt %}example{% end_note_txt %}
 {data--="example"}
 
 
@@ -77,12 +77,12 @@ module.exports = make_o =>
 }
 {% endraw %}
 {% end_code_block %}
-{% _short_note %}code block{% end_short_note %}
+{% _note_txt %}code block{% end_note_txt %}
 
 
 ### Lists
 
-{% _short_note %}Unordered list{% end_short_note %}
+{% _note_txt %}Unordered list{% end_note_txt %}
 
 + Primo
 + Secondo
@@ -90,7 +90,7 @@ module.exports = make_o =>
 
 { data--="ulist" }
 
-{% _short_note %}Nested unordered lists{% end_short_note %}
+{% _note_txt %}Nested unordered lists{% end_note_txt %}
 
 
 + Primo
@@ -109,13 +109,13 @@ module.exports = make_o =>
 
 
 - Inside a short note, it works only preceded by a list item
-{% _short_note %}
+{% _note_txt %}
 
   + One
 { data--="ulist" }
   + Two
   + Three
-{% end_short_note %}
+{% end_note_txt %}
 
 
 [comment]: # (======== Links ========)

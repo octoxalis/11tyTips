@@ -79,6 +79,6 @@ module.exports =
     const till_s = new Date()
     till_s.setDate( till_s.getDate() + days_n )
     return till_s
-  }
+  },
 
 }

@@ -18,4 +18,9 @@
   --LINE_WIDTH: 60ch;    /* c. 70 characters / line */
   --BODY_WIDTH: 84vw;
   --MAX_WIDTH: calc( var(--LINE_WIDTH) * 2 );
+
+  --BUTTON_IDLE:  hue-rotate( -30deg );
+  --BUTTON_HOVER: hue-rotate( 0 )      brightness( 2 );
+  --BUTTON_FOCUS: hue-rotate( -60deg ) brightness( 1.25 ) ;
+
 }

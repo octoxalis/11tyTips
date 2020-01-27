@@ -24,16 +24,16 @@ a site to magnify the power of [Eleventy]{{U_o.OUTLINK_s}} static site generator
 
 
 Eleventy (11ty for short) is a static site generator rapidly gaining popularity among JAMstack developers. Its learning curve is short and it offers the largest choice of templating languages compared with others popular SSG
-{% _short_note %}
+{% _note_txt %}
 SSGs usually provide only one templating option: React, Liquid, Go, Jinja2, etc. [Hexo]{{U_o.OUTLINK_s}} is the most notable exception, but 11ty has even more options.
-{% end_short_note %}
+{% end_note_txt %}
 .
 
 
 11ty can be used without any configuration
-{% _short_note %}
+{% _note_txt %}
 it is [zero-config]{{U_o.OUTLINK_s}} out-of-the-box!
-{% end_short_note %}
+{% end_note_txt %}
 , but its power comes from the fact that it is backed by the huge [Node.js]{{U_o.OUTLINK_s}} ecosystem. Therefore, when building your static site with 11ty, you can do anything Node is able to do.
 
 {% _anchor %}
@@ -42,27 +42,27 @@ it is [zero-config]{{U_o.OUTLINK_s}} out-of-the-box!
 
 
 {{A_o.ID_s}} will provide useful tips and tricks to unleash the power of 11ty. If you've never built a static site, thanks to the simplicity of this generator, you will be able to install your site, by cloning the Github repository of this site, replacing its content files with your own Markdown content
-{% _short_note %}
+{% _note_txt %}
 follow the [site cloning] page instructions to start with a clean site skeleton.
-{% end_short_note %}
+{% end_note_txt %}
 
 
 {{A_o.ID_s}} styles have been carefully designed to give you a nice and simple presentation while offering advanced capabilities for a responsive layout with fluid typography
-{% _short_note %}
+{% _note_txt %}
 applying Michael Riethmuller [formula]{{U_o.OUTLINK_s}}.
-{% end_short_note %}
+{% end_note_txt %}
 , inline notes
-{% _short_note %}
+{% _note_txt %}
 with full Markdown content, styling, linking, code blocks, etc.
-{% end_short_note %}
+{% end_note_txt %}
 , an Atom RSS feed, a sitemap for search engines, as well as a good commenting system
-{% _short_note %}
+{% _note_txt %}
 using the Github [utteranc.es]{{U_o.OUTLINK_s}} repository.
-{% end_short_note %}
+{% end_note_txt %}
 and a full color theme with dark & light mode
-{% _short_note %}
+{% _note_txt %}
 with a single click on the page banner area!
-{% end_short_note %}
+{% end_note_txt %}
 .
 
 Have a look at the site [source tree] and [styles guide] pages.
