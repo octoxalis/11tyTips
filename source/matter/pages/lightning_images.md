@@ -23,7 +23,7 @@ Where are my images?{ data--="page_intro" }
 {% end_anchor %}
 
 
-Web images are an endless challenge: we want them wide, beautiful, we want their colors, their evocation power, but in no case their slowness. Evidently images have to be optimised to be as light as possible. {{A_o.ID_s}} uses the outstanding [Compress-Or-Die](https://compress-or-die.com/) site
+Web images are an endless challenge: we want them wide, beautiful, we want their colors, their evocation power, but in no case their slowness. Evidently images have to be optimised to be as light as possible. {{A_o.ID_s}} uses the outstanding [Compress-Or-Die]{{U_o.OUTLINK_s}} site
 {% _note_txt %}
 Every front-end developer should visit this site not only for the impressive compression engine proposed by Christoph Erdmann but also for a thorough understanding of the JPEG format
 {% end_note_txt %}
@@ -231,4 +231,5 @@ Each slot of this `Array` yields a link with a `role="button"` displaying the fu
 [comment]: # (======== Links ========)
 
 [1PX]: {{ F_o.img1px__s() }} "A young woman holding a distaff before a lit candle"
+[Compress-Or-Die]: https://compress-or-die.com/
 [generator]: http://png-pixel.com/
