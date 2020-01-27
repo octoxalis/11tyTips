@@ -9,7 +9,7 @@
   rank_n:     17,
   title_s:    `Light(ning) images`,
   subtitle_s: `Lightning-fast images`,
-  abstract_s: `How to alleviate overweight images`,
+  abstract_s: `How to slim overweight images`,
   author_s:   `Octoxalis`,
 }
 ---
