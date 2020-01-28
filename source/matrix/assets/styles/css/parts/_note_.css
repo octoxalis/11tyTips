@@ -22,9 +22,10 @@
   text-decoration: none;
 }
 
-[data--=note_img] > [data--=note_content] > img[data-size]
+[data--=note_img] > [data--=note_content] > img
 {
   object-fit: fill;
+  object-position: left top;
 }
 
 [data--=note_content]

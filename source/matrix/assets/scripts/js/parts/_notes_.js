@@ -31,6 +31,7 @@ const shortImg__v = note_e =>
       img_e.setAttribute( 'style', `${currentStyle_s || '' } ${style_s}` )
     }
   }
+  
   img_e.decoding = 'async'
   img_e.src = img_e.getAttribute( 'data-src' )
   img_e.setAttribute( 'data-src', '' )    //: next querySelector call will be false
