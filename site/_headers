@@ -1,2 +1,5 @@
 /assets/*
 Expires: Thu Apr 23 2020 14:40:41 GMT+0200 (Central European Summer Time)
+
+Content-Security-Policy: frame-ancestors 'self'
+X-Frame-Options: SAMEORIGIN
