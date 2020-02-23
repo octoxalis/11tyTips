@@ -100,6 +100,8 @@
 
 .note_open    /* after [data--=note_content] */
 {
+  display: flex;
+  flex-direction: column;
   margin: var(--PAD_2) var(--PAD_4) var(--PAD_2) 0;
   padding: var(--PAD_1) var(--PAD_2);
   width: auto;

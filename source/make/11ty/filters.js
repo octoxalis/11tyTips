@@ -10,10 +10,10 @@ module.exports = make_o =>
   //: js minify
   make_o.addFilter('minify_js', code_s =>
   {
-    let MINIFY_o = require('uglify-es').minify( code_s )
+    let MINIFY_o = require('terser').minify( code_s )
     if( MINIFY_o.error )
     {
-        console.log('uglify-es error: ', MINIFY_o.error)
+        console.log('terser error: ', MINIFY_o.error)
         return code_s
     }
     return MINIFY_o.code
