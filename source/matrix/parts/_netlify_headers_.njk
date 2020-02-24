@@ -1,2 +1,8 @@
 /assets/*
 Expires: {{ F_o.till__s( 60 ) }}
+
+
+# Only allow site to frame itself
+/*
+Content-Security-Policy: frame-ancestors 'self'
+X-Frame-Options: SAMEORIGIN
