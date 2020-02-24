@@ -2,6 +2,7 @@
 Expires: Thu Apr 23 2020 14:40:41 GMT+0200 (Central European Summer Time)
 
 
+/*
 # Only allow 11tytips site to frame itself
 Content-Security-Policy: frame-ancestors 'self'
 X-Frame-Options: SAMEORIGIN
