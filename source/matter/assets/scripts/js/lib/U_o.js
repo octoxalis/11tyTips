@@ -25,7 +25,7 @@ const U_o =
   NODE_s :   `[Node.js]: https://nodejs.org`,
 
   FRAME_s:     '11ty Frame',
-  FRAME_URL_s: `https://11tyframe.netlify.com/`,
+  FRAME_URL_s: `https://11tyframe.netlify.app/`,
 
   ELEVENTY_s:     `[Eleventy]: https://11ty.io`,
   ELEVENTY_DEV_s: `[Eleventy]: https://11ty.dev`,

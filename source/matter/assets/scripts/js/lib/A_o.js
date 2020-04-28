@@ -10,8 +10,8 @@ module.exports =
     
   ID_s:         '11tyTips',
   NAME_s:       '11ty Tips',
-  URL_s:        'https://11tytips.netlify.com/',
-  LOCAL_s:      'http://127.0.0.1:5500/',
+  URL_s:        'https://11tytips.netlify.app/',
+  LOCAL_s:      'http://127.0.0.1:8080/',
   COLLECTION_s: 'tip',
   LANGUAGE_s:   'en',
 

@@ -178,7 +178,7 @@ And here is the final code produced:
     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs="
          alt="Adam de Coster"
          title="A young woman holding a distaff before a lit candle"
-         data-src="http://11tytips.netlify.com/assets/media/Adam_de_Coster_gray.jpg"
+         data-src="{{ U_o.url_s }}assets/media/Adam_de_Coster_gray.jpg"
          data-size="100%"><br>
     <em class="note_img_title">Adam de Coster [1586-1643]</em><br>
     <b class="note_img_subtitle">Young women holding a distaff before a lit candle</b>

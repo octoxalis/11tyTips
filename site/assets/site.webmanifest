@@ -1,6 +1,6 @@
 {
   "name":"11tyTips",
-  "start_url": "https://11tytips.netlify.com/",
+  "start_url": "https://11tytips.netlify.app/",
   "short_name":"11tyTips",
   "description": "A blog devoted to Eleventy static site generator users",
   "icons":
